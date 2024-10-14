@@ -10,6 +10,10 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 
+#User created folders
+[Aa]ssets/FBX/
+[Aa]ssets/Prefabs/
+
 [Aa]ssets/AssetStoreTools*
 [Ll]ocal[Cc]ache/
 [Uu]nityGenerated/
