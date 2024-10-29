@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LetterCubeMovement : MonoBehaviour
 {
-    [SerializeField] float movementSpeed;
+    [SerializeField] float movementSpeed = 5f;
     // Start is called before the first frame update
     void Start()
     {
