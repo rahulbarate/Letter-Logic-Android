@@ -11,8 +11,9 @@ public class LetterCubesInstantiator : MonoBehaviour
     [SerializeField] GameObject vCam;
     [SerializeField] float letterCubeScale = 97f;
     GameObject letterCopy;
-    GameObject lastInstantiatedLetterCube;
-    LetterCubeData lastInstantiatedLetterCubeData;
+    GameObject newLetterCube;
+    LetterCubeData newLCData;
+    LetterCubeHandler newLCHandler;
 
     List<char> availableLetters;
 
@@ -49,23 +50,33 @@ public class LetterCubesInstantiator : MonoBehaviour
 
 
             // Instantiating letter and setting scale.
-            lastInstantiatedLetterCube = Instantiate(letterCubeCopy, transform.position, Quaternion.identity);
-            lastInstantiatedLetterCube.transform.localScale = new Vector3(letterCubeScale, letterCubeScale, letterCubeScale);
+            newLetterCube = Instantiate(letterCubeCopy, transform.position, Quaternion.identity);
+            newLetterCube.transform.localScale = new Vector3(letterCubeScale, letterCubeScale, letterCubeScale);
 
             //checking if letter cube has data script, else adding it.
-            if (lastInstantiatedLetterCube.GetComponent<LetterCubeData>() == null)
+            if (newLetterCube.GetComponent<LetterCubeData>() == null)
             {
-                lastInstantiatedLetterCube.AddComponent<LetterCubeData>();
+                newLetterCube.AddComponent<LetterCubeData>();
             }
-            lastInstantiatedLetterCubeData = lastInstantiatedLetterCube.GetComponent<LetterCubeData>();
+            newLCData = newLetterCube.GetComponent<LetterCubeData>();
+
+            //checking if letter cube has handler script, else adding it.
+            if (newLetterCube.GetComponent<LetterCubeHandler>() == null)
+            {
+                newLetterCube.AddComponent<LetterCubeHandler>();
+            }
+            newLCHandler = newLetterCube.GetComponent<LetterCubeHandler>();
+
+
+
 
             // setting letter to be displayed on top and storing it in data script.
-            lastInstantiatedLetterCubeData.SetLetterOnCube(availableLetters[randomLetterIndex], letterCopy);
+            newLCData.SetLetterOnCube(availableLetters[randomLetterIndex], letterCopy);
             availableLetters.RemoveAt(randomLetterIndex);
 
             // setting camera to follow newly created Letter Cube.
-            cineFreeCam.Follow = lastInstantiatedLetterCube.transform;
-            cineFreeCam.LookAt = lastInstantiatedLetterCube.transform;
+            cineFreeCam.Follow = newLetterCube.transform;
+            cineFreeCam.LookAt = newLetterCube.transform;
 
 
 
@@ -84,10 +95,14 @@ public class LetterCubesInstantiator : MonoBehaviour
     void Update()
     {
         // checking if Letter Cube state is changed.
-        if (lastInstantiatedLetterCubeData.GetLetterCubeState() == LetterCubeState.Matched)
+        if (newLCData.GetLetterCubeState() == LetterCubeState.Matched)
         {
-            lastInstantiatedLetterCubeData.ProcessCorrectLetterCube();
+            newLCHandler.ProcessCorrectLetterCube();
             InstantiateLetterCube();
+        }
+        else if (newLCData.GetLetterCubeState() == LetterCubeState.Mismatched)
+        {
+            newLCHandler.ProcessIncorrectLetterCube(transform.localPosition);
         }
     }
 }

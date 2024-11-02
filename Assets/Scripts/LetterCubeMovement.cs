@@ -32,4 +32,9 @@ public class LetterCubeMovement : MonoBehaviour
 
         transform.Translate(xVal, 0f, zVal);
     }
+
+    public void MoveTo(Vector3 pos)
+    {
+        transform.localPosition = pos;
+    }
 }

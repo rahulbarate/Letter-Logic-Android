@@ -7,21 +7,13 @@ public class LetterCubeData : MonoBehaviour
 {
     [SerializeField] char letterOnTop;
     [SerializeField] Transform sideLetters;
-    [SerializeField] Transform sideLawnLayers;
     [SerializeField] Transform topFaceLetter;
 
     [SerializeField] LetterCubeState letterCubeState = LetterCubeState.Idle;
 
-    Rigidbody rgbody;
-    LetterCubeHandler letterCubeHandler;
-    LetterCubeMovement letterCubeMovement;
-
     // Start is called before the first frame update
     void Start()
     {
-        rgbody = GetComponent<Rigidbody>();
-        letterCubeHandler = GetComponent<LetterCubeHandler>();
-        letterCubeMovement = GetComponent<LetterCubeMovement>();
 
     }
 
@@ -31,14 +23,6 @@ public class LetterCubeData : MonoBehaviour
 
     }
 
-    public void ProcessCorrectLetterCube()
-    {
-        Destroy(rgbody);
-        Destroy(letterCubeHandler);
-        Destroy(sideLetters.gameObject);
-        Destroy(sideLawnLayers.gameObject);
-        Destroy(letterCubeMovement);
-    }
 
 
 
