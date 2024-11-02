@@ -18,6 +18,7 @@ public class LetterCubesInstantiator : MonoBehaviour
     List<char> availableLetters;
 
     CinemachineFreeLook cineFreeCam;
+    bool isLevelCompleted = false;
 
 
     // Start is called before the first frame update
@@ -85,7 +86,14 @@ public class LetterCubesInstantiator : MonoBehaviour
         else
         {
             Debug.Log("Level Completed");
+            isLevelCompleted = true;
         }
+
+    }
+
+    public LetterCubeData GetCurrentLetterCubeData()
+    {
+        return newLCData;
 
     }
 
@@ -94,15 +102,20 @@ public class LetterCubesInstantiator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // checking if Letter Cube state is changed.
-        if (newLCData.GetLetterCubeState() == LetterCubeState.Matched)
+
+        if (!isLevelCompleted)
         {
-            newLCHandler.ProcessCorrectLetterCube();
-            InstantiateLetterCube();
-        }
-        else if (newLCData.GetLetterCubeState() == LetterCubeState.Mismatched)
-        {
-            newLCHandler.ProcessIncorrectLetterCube(transform.localPosition);
+
+            // checking if Letter Cube state is changed.
+            if (newLCData.GetLetterCubeState() == LetterCubeState.Matched)
+            {
+                newLCHandler.ProcessCorrectLetterCube();
+                InstantiateLetterCube();
+            }
+            else if (newLCData.GetLetterCubeState() == LetterCubeState.Mismatched)
+            {
+                newLCHandler.ProcessIncorrectLetterCube(transform.localPosition);
+            }
         }
     }
 }

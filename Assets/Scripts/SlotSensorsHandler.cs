@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlotSensersHandler : MonoBehaviour
+public class SlotSensorsHandler : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,7 @@ public class SlotSensersHandler : MonoBehaviour
         char ch = 'A';
         foreach (Transform child in transform)
         {
-            child.GetComponent<SlotSenserData>().Letter = ch;
+            child.GetComponent<SlotSensorData>().Letter = ch;
             ch++;
         }
     }

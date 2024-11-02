@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlotSenserData : MonoBehaviour
+public class SlotSensorData : MonoBehaviour
 {
     [SerializeField] char letter; // field
     public char Letter // property

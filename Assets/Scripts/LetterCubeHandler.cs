@@ -11,6 +11,7 @@ public class LetterCubeHandler : MonoBehaviour
     [SerializeField] Transform sideLetters;
     [SerializeField] Transform sideLawnLayers;
     LetterCubeMovement letterCubeMovement;
+    Transform slotSensor;
 
 
 
@@ -36,6 +37,7 @@ public class LetterCubeHandler : MonoBehaviour
         Destroy(sideLetters.gameObject);
         Destroy(sideLawnLayers.gameObject);
         Destroy(letterCubeMovement);
+        Destroy(slotSensor.gameObject);
         Destroy(this);
     }
     public void ProcessIncorrectLetterCube(Vector3 pos)
@@ -50,7 +52,9 @@ public class LetterCubeHandler : MonoBehaviour
         // Debug.Log(other.tag);
         if (other.CompareTag("Slot Senser"))
         {
-            if (other.transform.GetComponent<SlotSenserData>().Letter == letterCubeData.GetLetterOnCube())
+            slotSensor = other.transform;
+
+            if (slotSensor.GetComponent<SlotSensorData>().Letter == letterCubeData.GetLetterOnCube())
             {
                 GetComponent<LetterCubeData>().SetLetterCubeState(LetterCubeState.Matched);
 
