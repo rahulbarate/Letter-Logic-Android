@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Letter Cube
   - Slot Senser
+  - Playground
   layers:
   - Default
   - TransparentFX
