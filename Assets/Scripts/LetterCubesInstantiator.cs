@@ -8,6 +8,7 @@ public class LetterCubesInstantiator : MonoBehaviour
 {
     [SerializeField] GameObject allLetters;
     [SerializeField] GameObject letterCubeCopy;
+    [SerializeField] GameObject invisibleCharacter;
     [SerializeField] GameObject vCam;
     [SerializeField] float letterCubeScale = 97f;
     GameObject letterCopy;
@@ -18,12 +19,18 @@ public class LetterCubesInstantiator : MonoBehaviour
     List<char> availableLetters;
 
     CinemachineFreeLook cineFreeCam;
-    bool isLevelCompleted = false;
+    bool isLevelCompleted;
+    public bool IsLevelCompleted
+    {
+        get { return isLevelCompleted; }
+        set { isLevelCompleted = value; }
+    }
 
 
     // Start is called before the first frame update
     void Start()
     {
+        isLevelCompleted = false;
         cineFreeCam = vCam.GetComponent<CinemachineFreeLook>();
         GenerateAllLetters();
         InstantiateLetterCube();
@@ -87,6 +94,10 @@ public class LetterCubesInstantiator : MonoBehaviour
         {
             Debug.Log("Level Completed");
             isLevelCompleted = true;
+            cineFreeCam.Follow = invisibleCharacter.transform;
+            cineFreeCam.LookAt = invisibleCharacter.transform;
+            invisibleCharacter.SetActive(true);
+
         }
 
     }
@@ -105,16 +116,21 @@ public class LetterCubesInstantiator : MonoBehaviour
 
         if (!isLevelCompleted)
         {
+            LetterCubeState newLCState = newLCData.GetLetterCubeState();
 
             // checking if Letter Cube state is changed.
-            if (newLCData.GetLetterCubeState() == LetterCubeState.Matched)
+            if (newLCState == LetterCubeState.Matched)
             {
                 newLCHandler.ProcessCorrectLetterCube();
                 InstantiateLetterCube();
             }
-            else if (newLCData.GetLetterCubeState() == LetterCubeState.Mismatched)
+            else if (newLCState == LetterCubeState.Mismatched)
             {
                 newLCHandler.ProcessIncorrectLetterCube(transform.localPosition);
+            }
+            else if (newLCState == LetterCubeState.Bombed)
+            {
+                newLCHandler.ProcessBombedLetterCube(transform.localPosition);
             }
         }
     }

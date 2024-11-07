@@ -7,9 +7,12 @@ public class CannonsFireSequencer : MonoBehaviour
     // Start is called before the first frame update
     int childCount;
     [SerializeField] float delayInSeconds = 3f;
+    [SerializeField] GameObject requestPlatform;
+    LetterCubesInstantiator letterCubeInstantiator;
     void Start()
     {
         childCount = transform.childCount;
+        letterCubeInstantiator = requestPlatform.GetComponent<LetterCubesInstantiator>();
         StartCoroutine(FireCannon());
     }
 
@@ -20,7 +23,7 @@ public class CannonsFireSequencer : MonoBehaviour
 
     IEnumerator FireCannon()
     {
-        while (true)
+        while (!letterCubeInstantiator.IsLevelCompleted)
         {
             foreach (Transform child in transform)
             {

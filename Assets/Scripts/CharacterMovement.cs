@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CharacterMovement : MonoBehaviour
 {
     [SerializeField] float movementSpeeed = 10f;
+    [SerializeField] float rotationSpeed = 10f;
+    bool isRotating = false;
+    float targetRotation = 0f;
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.visible = false;
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -19,10 +23,10 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             // Unlock the cursor
-            Cursor.lockState = CursorLockMode.None;
+            UnityEngine.Cursor.lockState = CursorLockMode.None;
 
             // Make the cursor visible again
-            Cursor.visible = true;
+            UnityEngine.Cursor.visible = true;
         }
     }
     private void BackForthMovement()
@@ -30,5 +34,34 @@ public class CharacterMovement : MonoBehaviour
         float xVal = Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeeed;
         float zVal = Input.GetAxis("Vertical") * Time.deltaTime * movementSpeeed;
         transform.Translate(xVal, 0f, zVal);
+        // transform.Translate(0f, 0f, zVal);
+        // if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        // {
+        //     if (!isRotating)
+        //     {
+        //         targetRotation -= 90f;
+        //         isRotating = true;
+        //     }
+        // }
+        // else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        // {
+        //     if (!isRotating)
+        //     {
+        //         targetRotation += 90f;
+        //         isRotating = true;
+        //     }
+        // }
+
+        // if (isRotating)
+        // {
+        //     float currentRotation = transform.rotation.eulerAngles.y;
+        //     float nextRotation = Mathf.MoveTowardsAngle(currentRotation, targetRotation, rotationSpeed * Time.deltaTime);
+        //     transform.rotation = Quaternion.Euler(0f, nextRotation, 0f);
+        //     if (Mathf.Approximately(nextRotation, targetRotation))
+        //     {
+        //         isRotating = false;
+        //     }
+        // }
+
     }
 }

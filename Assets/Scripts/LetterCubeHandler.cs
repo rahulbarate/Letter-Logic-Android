@@ -46,6 +46,12 @@ public class LetterCubeHandler : MonoBehaviour
         letterCubeMovement.MoveTo(pos);
         letterCubeData.SetLetterCubeState(LetterCubeState.Idle);
     }
+    public void ProcessBombedLetterCube(Vector3 pos)
+    {
+        Debug.Log("Letter Cube Bombed");
+        letterCubeMovement.MoveTo(pos);
+        letterCubeData.SetLetterCubeState(LetterCubeState.Idle);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -56,13 +62,21 @@ public class LetterCubeHandler : MonoBehaviour
 
             if (slotSensor.GetComponent<SlotSensorData>().Letter == letterCubeData.GetLetterOnCube())
             {
-                GetComponent<LetterCubeData>().SetLetterCubeState(LetterCubeState.Matched);
+                letterCubeData.SetLetterCubeState(LetterCubeState.Matched);
 
             }
             else
             {
-                GetComponent<LetterCubeData>().SetLetterCubeState(LetterCubeState.Mismatched);
+                letterCubeData.SetLetterCubeState(LetterCubeState.Mismatched);
             }
+        }
+    }
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Bomb"))
+        {
+            // Debug.Log("tag: " + other.gameObject.tag);
+            letterCubeData.SetLetterCubeState(LetterCubeState.Bombed);
         }
     }
 }

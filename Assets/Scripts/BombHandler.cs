@@ -2,26 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CannonBallHandler : MonoBehaviour
+public class BombHandler : MonoBehaviour
 {
+
     [SerializeField] ParticleSystem explosion;
-    [SerializeField] float destructionTime = 2f;
-    [SerializeField] float explosionEffectTime = 0.1f;
+    [SerializeField] float explosionDelay;
+    [SerializeField] float destructionDelay;
+
     MeshRenderer meshRenderer;
-    Collider sphereCollider;
+    Collider boxCollider;
     Rigidbody rgbody;
-
-
-
 
     // Start is called before the first frame update
     void Start()
     {
-
         meshRenderer = GetComponent<MeshRenderer>();
-        sphereCollider = GetComponent<Collider>();
+        boxCollider = GetComponent<Collider>();
         rgbody = GetComponent<Rigidbody>();
-
     }
 
     // Update is called once per frame
@@ -29,24 +26,23 @@ public class CannonBallHandler : MonoBehaviour
     {
 
     }
-
     private void OnCollisionEnter(Collision other)
     {
         if (!other.gameObject.CompareTag("Untagged"))
         {
-            Invoke(nameof(ExplosionEffect), explosionEffectTime);
-            Invoke(nameof(SelfDestruct), destructionTime);
-            // SelfDestruct();
+
+            Invoke(nameof(ExplosionEffect), explosionDelay);
+            Invoke(nameof(SelfDestruct), destructionDelay);
         }
+
     }
     void ExplosionEffect()
     {
         explosion.Play();
         Destroy(rgbody);
         Destroy(meshRenderer);
-        Destroy(sphereCollider);
+        Destroy(boxCollider);
     }
-
     void SelfDestruct()
     {
         Destroy(transform.gameObject);
