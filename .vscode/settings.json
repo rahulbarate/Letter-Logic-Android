@@ -51,5 +51,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Letter Logic(PC).sln"
+    "dotnet.defaultSolution": "Letter Logic(PC).sln",
+    "dotnetAcquisitionExtension.installTimeoutValue": 1200
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
-public class LetterCubesInstantiator : MonoBehaviour
+public class AlphabetLCInstantiator : MonoBehaviour
 {
     [SerializeField] GameObject allLetters;
     [SerializeField] GameObject letterCubeCopy;
