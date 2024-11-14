@@ -8,7 +8,7 @@ public class BombDropper : MonoBehaviour
 {
     [SerializeField] GameObject bombCopy;
     [SerializeField] GameObject requestPlatform;
-    AlphabetLCInstantiator alphabetLCInstantiator;
+    // AlphabetLCInstantiator alphabetLCInstantiator;
     [SerializeField] float delayInBombing;
 
 
@@ -22,7 +22,7 @@ public class BombDropper : MonoBehaviour
         // Get mesh filter
         meshFilter = GetComponent<MeshFilter>();
         vertices = meshFilter.mesh.vertices;
-        alphabetLCInstantiator = requestPlatform.GetComponent<AlphabetLCInstantiator>();
+        // alphabetLCInstantiator = requestPlatform.GetComponent<AlphabetLCInstantiator>();
 
         StartCoroutine(DropBombs());
 
@@ -30,7 +30,7 @@ public class BombDropper : MonoBehaviour
 
     IEnumerator DropBombs()
     {
-        while (!alphabetLCInstantiator.IsLevelCompleted)
+        while (!GameDataSave.IsLevelCompleted)
         {
             int randomVertexIndex = UnityEngine.Random.Range(0, vertices.Length);
             Vector3 vertexPos = transform.TransformPoint(vertices[randomVertexIndex]);

@@ -8,11 +8,11 @@ public class CannonsFireSequencer : MonoBehaviour
     int childCount;
     [SerializeField] float delayInSeconds = 3f;
     [SerializeField] GameObject requestPlatform;
-    AlphabetLCInstantiator alphabetLCInstantiator;
+    // AlphabetLCInstantiator alphabetLCInstantiator;
     void Start()
     {
         childCount = transform.childCount;
-        alphabetLCInstantiator = requestPlatform.GetComponent<AlphabetLCInstantiator>();
+        // alphabetLCInstantiator = requestPlatform.GetComponent<AlphabetLCInstantiator>();
         StartCoroutine(FireCannon());
     }
 
@@ -23,7 +23,7 @@ public class CannonsFireSequencer : MonoBehaviour
 
     IEnumerator FireCannon()
     {
-        while (!alphabetLCInstantiator.IsLevelCompleted)
+        while (!GameDataSave.IsLevelCompleted)
         {
             foreach (Transform child in transform)
             {

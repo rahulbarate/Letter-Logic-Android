@@ -1,4 +1,5 @@
-public enum PlaygroundTypes{
+public enum PlaygroundType
+{
     Alphabet,
     Numbers,
     Words,

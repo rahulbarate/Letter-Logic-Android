@@ -25,7 +25,8 @@ public class HintMechanism : MonoBehaviour
 
     private void ProcessHint()
     {
-        LetterCubeData letterCubeData = requestPlatform.GetComponent<AlphabetLCInstantiator>().GetCurrentLetterCubeData();
+        // LetterCubeData letterCubeData = requestPlatform.GetComponent<AlphabetLCInstantiator>().GetCurrentLetterCubeData();
+        LetterCubeData letterCubeData = GameDataSave.LetterCubeData;
         if (availableHints <= 0)
         {
             Debug.Log("No hints available!");
