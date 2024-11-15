@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LetterCubeData : MonoBehaviour
 {
-    [SerializeField] char letterOnTop;
+    [SerializeField] string letterOnTop;
     [SerializeField] Transform sideLetters;
     [SerializeField] Transform topFaceLetter;
 
@@ -35,11 +35,11 @@ public class LetterCubeData : MonoBehaviour
         return this.letterCubeState;
     }
 
-    public char GetLetterOnCube()
+    public string GetLetterOnCube()
     {
         return letterOnTop;
     }
-    public void SetLetterOnCube(char ch, GameObject letterCopy)
+    public void SetLetterOnCube(string ch, GameObject letterCopy)
     {
         letterOnTop = ch;
         if (sideLetters && sideLetters.transform.childCount > 0)

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SlotSensorData : MonoBehaviour
 {
-    [SerializeField] char letter; // field
-    public char Letter // property
+    [SerializeField] string letter; // field
+    public string Letter // property
     {
         get { return letter; }
         set { letter = value; }

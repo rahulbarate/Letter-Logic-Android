@@ -4,73 +4,60 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
-public class AlphabetLCInstantiator : MonoBehaviour
+public class NumberLCInstantiator : MonoBehaviour
 {
-    [SerializeField] GameObject allLetters;
+    [SerializeField] GameObject allNumbers;
     [SerializeField] GameObject letterCubeCopy;
+    [SerializeField] GameObject slotSensors;
     [SerializeField] GameObject invisibleCharacter;
     [SerializeField] GameObject vCam;
-    [SerializeField] GameObject slotSensors;
     [SerializeField] float letterCubeScale = 97f;
-    [SerializeField] AlphabetSubtype alphabetSubtype = AlphabetSubtype.C_Letters;
-    GameObject letterCopy;
+    [SerializeField] NumberSubtype numberSubtype = NumberSubtype.E_Numbers;
+    GameObject numberCopy;
     GameObject newLetterCube;
     LetterCubeData newLCData;
     LetterCubeHandler newLCHandler;
-
     SlotSensorsHandler slotSensorsHandler;
 
-    List<char> availableLetters;
+    List<int> availableNumbers;
 
     CinemachineFreeLook cineFreeCam;
-    // bool isLevelCompleted;
-
-    // public bool IsLevelCompleted
-    // {
-    //     get { return isLevelCompleted; }
-    //     set { isLevelCompleted = value; }
-    // }
-
-
     // Start is called before the first frame update
     void Start()
     {
         GameDataSave.IsLevelCompleted = false;
         cineFreeCam = vCam.GetComponent<CinemachineFreeLook>();
         GameDataSave.PlaygroundType = PlaygroundType.Alphabet;
-        GameDataSave.AlphabetSubtype = alphabetSubtype;
+        GameDataSave.NumberSubtype = numberSubtype;
         slotSensorsHandler = slotSensors.GetComponent<SlotSensorsHandler>();
-        GenerateAllLetters();
+        GenerateAllNumbers();
         InstantiateLetterCube();
     }
-    private void GenerateAllLetters()
+    void GenerateAllNumbers()
     {
-        availableLetters = new List<char>();
-        if (alphabetSubtype == AlphabetSubtype.C_Letters)
+        availableNumbers = new List<int>();
+        if (numberSubtype == NumberSubtype.E_Numbers)
         {
-            for (char i = 'A'; i <= 'D'; i++)
+            for (int i = 1; i <= 10; i++)
             {
-                availableLetters.Add(i);
+                availableNumbers.Add(i);
             }
-            slotSensorsHandler.AssignCLettersToSlotSensors();
-
+            slotSensorsHandler.AssignENumbersToSlotSensors();
         }
-
     }
 
     private void InstantiateLetterCube()
     {
-        if (availableLetters.Count != 0)
+        if (availableNumbers.Count != 0)
         {
-            // generating random index and calculating letter to fetch from 26 lettes
-            int randomLetterIndex = UnityEngine.Random.Range(0, availableLetters.Count);
-            int letterToFetch = 26 - (90 - Convert.ToInt32(availableLetters[randomLetterIndex])) - 1;
+            //generate random index
+            int randomIndex = UnityEngine.Random.Range(0, availableNumbers.Count);
+            int numberToFetch = availableNumbers[randomIndex] - 1;
 
-            //fetching letter object to be displayed on the Cube.
-            letterCopy = allLetters.transform.GetChild(letterToFetch).gameObject;
+            //fetch number;
+            numberCopy = allNumbers.transform.GetChild(numberToFetch).gameObject;
 
-
-            // Instantiating letter and setting scale.
+            //instantiating LetterCube and setting scale
             newLetterCube = Instantiate(letterCubeCopy, transform.position, Quaternion.identity);
             newLetterCube.transform.localScale = new Vector3(letterCubeScale, letterCubeScale, letterCubeScale);
 
@@ -88,21 +75,13 @@ public class AlphabetLCInstantiator : MonoBehaviour
             }
             newLCHandler = newLetterCube.GetComponent<LetterCubeHandler>();
 
-
-
-
-            // setting letter to be displayed on top and storing it in data script.
-            newLCData.SetLetterOnCube(availableLetters[randomLetterIndex].ToString(), letterCopy);
-            availableLetters.RemoveAt(randomLetterIndex);
+            newLCData.SetLetterOnCube(availableNumbers[randomIndex].ToString(), numberCopy);
+            availableNumbers.RemoveAt(randomIndex);
             GameDataSave.LetterCubeData = newLCData;
 
             // setting camera to follow newly created Letter Cube.
             cineFreeCam.Follow = newLetterCube.transform;
             cineFreeCam.LookAt = newLetterCube.transform;
-
-
-
-
         }
         else
         {
@@ -112,17 +91,12 @@ public class AlphabetLCInstantiator : MonoBehaviour
             cineFreeCam.Follow = invisibleCharacter.transform;
             cineFreeCam.LookAt = invisibleCharacter.transform;
             invisibleCharacter.SetActive(true);
-
         }
-
     }
-
-
 
     // Update is called once per frame
     void Update()
     {
-
         if (!GameDataSave.IsLevelCompleted)
         {
             LetterCubeState newLCState = newLCData.GetLetterCubeState();
@@ -130,6 +104,7 @@ public class AlphabetLCInstantiator : MonoBehaviour
             // checking if Letter Cube state is changed.
             if (newLCState == LetterCubeState.Matched)
             {
+                Debug.Log("here");
                 newLCHandler.ProcessCorrectLetterCube();
                 InstantiateLetterCube();
             }

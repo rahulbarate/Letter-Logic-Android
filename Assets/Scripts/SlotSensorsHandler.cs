@@ -8,16 +8,25 @@ public class SlotSensorsHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AssignLettersToSlotSensers();
+        // AssignCLettersToSlotSensers();
     }
 
-    private void AssignLettersToSlotSensers()
+    public void AssignCLettersToSlotSensors()
     {
         char ch = 'A';
         foreach (Transform child in transform)
         {
-            child.GetComponent<SlotSensorData>().Letter = ch;
+            child.GetComponent<SlotSensorData>().Letter = ch.ToString();
             ch++;
+        }
+    }
+    public void AssignENumbersToSlotSensors()
+    {
+        int i = 1;
+        foreach (Transform child in transform)
+        {
+            child.GetComponent<SlotSensorData>().Letter = i.ToString();
+            i++;
         }
     }
 }
