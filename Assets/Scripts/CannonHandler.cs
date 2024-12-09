@@ -10,22 +10,14 @@ public class CannonHandler : MonoBehaviour
     [SerializeField] float forceAmount = 500f;
     GameObject instantiatedCannonBall;
     Rigidbody cannonBallRigidbody;
-    
+
     // Start is called before the first frame update
     void Start()
     {
-      
+
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // if (Input.GetKeyDown(KeyCode.F))
-        // {
-        //     FireCannon();
-        // }
-    }
     public void FireCannon()
     {
         instantiatedCannonBall = Instantiate(cannonBallCopy, cannonBallSpawnPoint.transform.position, Quaternion.identity);

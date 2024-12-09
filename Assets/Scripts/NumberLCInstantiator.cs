@@ -27,7 +27,7 @@ public class NumberLCInstantiator : MonoBehaviour
     {
         GameDataSave.IsLevelCompleted = false;
         cineFreeCam = vCam.GetComponent<CinemachineFreeLook>();
-        GameDataSave.PlaygroundType = PlaygroundType.Alphabet;
+        GameDataSave.PlaygroundType = PlaygroundType.Numbers;
         GameDataSave.NumberSubtype = numberSubtype;
         slotSensorsHandler = slotSensors.GetComponent<SlotSensorsHandler>();
         GenerateAllNumbers();

@@ -7,7 +7,6 @@ public class LetterCubeHandler : MonoBehaviour
     LetterCubeData letterCubeData;
 
     Rigidbody rgbody;
-    LetterCubeHandler letterCubeHandler;
     [SerializeField] Transform sideLetters;
     [SerializeField] Transform sideLawnLayers;
     LetterCubeMovement letterCubeMovement;
@@ -23,17 +22,11 @@ public class LetterCubeHandler : MonoBehaviour
         letterCubeMovement = GetComponent<LetterCubeMovement>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void ProcessCorrectLetterCube()
     {
         Debug.Log("Correct Letter Cube");
         Destroy(rgbody);
-        Destroy(letterCubeHandler);
         Destroy(sideLetters.gameObject);
         Destroy(sideLawnLayers.gameObject);
         Destroy(letterCubeMovement);

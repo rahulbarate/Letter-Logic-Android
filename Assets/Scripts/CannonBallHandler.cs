@@ -24,11 +24,6 @@ public class CannonBallHandler : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     private void OnCollisionEnter(Collision other)
     {

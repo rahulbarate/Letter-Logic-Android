@@ -21,11 +21,7 @@ public class BombHandler : MonoBehaviour
         rgbody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
     private void OnCollisionEnter(Collision other)
     {
         if (!other.gameObject.CompareTag("Untagged"))
