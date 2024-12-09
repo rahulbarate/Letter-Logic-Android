@@ -14,9 +14,9 @@ public class NumberLCInstantiator : MonoBehaviour
     [SerializeField] float letterCubeScale = 97f;
     [SerializeField] NumberSubtype numberSubtype = NumberSubtype.E_Numbers;
     GameObject numberCopy;
-    GameObject newLetterCube;
-    LetterCubeData newLCData;
-    LetterCubeHandler newLCHandler;
+    GameObject activeLetterCube;
+    LetterCubeData activeLCData;
+    LetterCubeEventHandler activeLCEventHandler;
     SlotSensorsHandler slotSensorsHandler;
 
     List<int> availableNumbers;
@@ -58,30 +58,33 @@ public class NumberLCInstantiator : MonoBehaviour
             numberCopy = allNumbers.transform.GetChild(numberToFetch).gameObject;
 
             //instantiating LetterCube and setting scale
-            newLetterCube = Instantiate(letterCubeCopy, transform.position, Quaternion.identity);
-            newLetterCube.transform.localScale = new Vector3(letterCubeScale, letterCubeScale, letterCubeScale);
+            activeLetterCube = Instantiate(letterCubeCopy, transform.position, Quaternion.identity);
+            activeLetterCube.transform.localScale = new Vector3(letterCubeScale, letterCubeScale, letterCubeScale);
 
             //checking if letter cube has data script, else adding it.
-            if (newLetterCube.GetComponent<LetterCubeData>() == null)
+            if (activeLetterCube.GetComponent<LetterCubeData>() == null)
             {
-                newLetterCube.AddComponent<LetterCubeData>();
+                activeLetterCube.AddComponent<LetterCubeData>();
             }
-            newLCData = newLetterCube.GetComponent<LetterCubeData>();
+            activeLCData = activeLetterCube.GetComponent<LetterCubeData>();
 
             //checking if letter cube has handler script, else adding it.
-            if (newLetterCube.GetComponent<LetterCubeHandler>() == null)
+            if (activeLetterCube.GetComponent<LetterCubeEventHandler>() == null)
             {
-                newLetterCube.AddComponent<LetterCubeHandler>();
+                activeLetterCube.AddComponent<LetterCubeEventHandler>();
             }
-            newLCHandler = newLetterCube.GetComponent<LetterCubeHandler>();
+            activeLCEventHandler = activeLetterCube.GetComponent<LetterCubeEventHandler>();
 
-            newLCData.SetLetterOnCube(availableNumbers[randomIndex].ToString(), numberCopy);
+            //Subscribe to event
+            activeLCEventHandler.E_CorrectSlot += OnCorrectLCPlaced;
+
+            activeLCData.SetLetterOnCube(availableNumbers[randomIndex].ToString(), numberCopy);
             availableNumbers.RemoveAt(randomIndex);
-            GameDataSave.LetterCubeData = newLCData;
+            GameDataSave.LetterCubeData = activeLCData;
 
             // setting camera to follow newly created Letter Cube.
-            cineFreeCam.Follow = newLetterCube.transform;
-            cineFreeCam.LookAt = newLetterCube.transform;
+            cineFreeCam.Follow = activeLetterCube.transform;
+            cineFreeCam.LookAt = activeLetterCube.transform;
         }
         else
         {
@@ -94,28 +97,34 @@ public class NumberLCInstantiator : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCorrectLCPlaced()
     {
-        if (!GameDataSave.IsLevelCompleted)
-        {
-            LetterCubeState newLCState = newLCData.GetLetterCubeState();
-
-            // checking if Letter Cube state is changed.
-            if (newLCState == LetterCubeState.Matched)
-            {
-                Debug.Log("here");
-                newLCHandler.ProcessCorrectLetterCube();
-                InstantiateLetterCube();
-            }
-            else if (newLCState == LetterCubeState.Mismatched)
-            {
-                newLCHandler.ProcessIncorrectLetterCube(transform.localPosition);
-            }
-            else if (newLCState == LetterCubeState.Bombed)
-            {
-                newLCHandler.ProcessBombedLetterCube(transform.localPosition);
-            }
-        }
+        activeLCEventHandler.E_CorrectSlot -= OnCorrectLCPlaced;
+        InstantiateLetterCube();
     }
+
+    // Update is called once per frame
+    // void Update()
+    // {
+    //     if (!GameDataSave.IsLevelCompleted)
+    //     {
+    //         LetterCubeState newLCState = activeLCData.GetLetterCubeState();
+
+    //         // checking if Letter Cube state is changed.
+    //         if (newLCState == LetterCubeState.Matched)
+    //         {
+    //             Debug.Log("here");
+    //             activeLCEventHandler.ProcessCorrectLetterCube();
+    //             InstantiateLetterCube();
+    //         }
+    //         else if (newLCState == LetterCubeState.Mismatched)
+    //         {
+    //             // activeLCEventHandler.ProcessIncorrectLetterCube(transform.localPosition);
+    //         }
+    //         else if (newLCState == LetterCubeState.Bombed)
+    //         {
+    //             // activeLCEventHandler.ProcessBombedLetterCube(transform.localPosition);
+    //         }
+    //     }
+    // }
 }

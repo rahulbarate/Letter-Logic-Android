@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LetterCubeHandler : MonoBehaviour
+public class LetterCubeEventHandler : MonoBehaviour
 {
     LetterCubeData letterCubeData;
 
@@ -11,6 +12,11 @@ public class LetterCubeHandler : MonoBehaviour
     [SerializeField] Transform sideLawnLayers;
     LetterCubeMovement letterCubeMovement;
     Transform slotSensor;
+
+    //Event Register
+    public event Action E_CorrectSlot;
+    public event Action E_IncorrectSlot;
+    public event Action E_LetterCubeBombed;
 
 
 
@@ -33,16 +39,16 @@ public class LetterCubeHandler : MonoBehaviour
         Destroy(slotSensor.gameObject);
         Destroy(this);
     }
-    public void ProcessIncorrectLetterCube(Vector3 pos)
+    public void ProcessIncorrectLetterCube()
     {
         Debug.Log("Incorrect Letter Cube");
-        letterCubeMovement.MoveTo(pos);
+        letterCubeMovement.MoveToInitialPosition();
         letterCubeData.SetLetterCubeState(LetterCubeState.Idle);
     }
-    public void ProcessBombedLetterCube(Vector3 pos)
+    public void ProcessBombedLetterCube()
     {
         Debug.Log("Letter Cube Bombed");
-        letterCubeMovement.MoveTo(pos);
+        letterCubeMovement.MoveToInitialPosition();
         letterCubeData.SetLetterCubeState(LetterCubeState.Idle);
     }
 
@@ -57,10 +63,15 @@ public class LetterCubeHandler : MonoBehaviour
             {
                 letterCubeData.SetLetterCubeState(LetterCubeState.Matched);
 
+                E_CorrectSlot?.Invoke();
+                ProcessCorrectLetterCube();
+
             }
             else
             {
                 letterCubeData.SetLetterCubeState(LetterCubeState.Mismatched);
+                E_IncorrectSlot?.Invoke();
+                ProcessIncorrectLetterCube();
             }
         }
     }
@@ -70,6 +81,8 @@ public class LetterCubeHandler : MonoBehaviour
         {
             // Debug.Log("tag: " + other.gameObject.tag);
             letterCubeData.SetLetterCubeState(LetterCubeState.Bombed);
+            E_LetterCubeBombed?.Invoke();
+            ProcessBombedLetterCube();
         }
     }
 }

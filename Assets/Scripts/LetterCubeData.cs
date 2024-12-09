@@ -10,11 +10,12 @@ public class LetterCubeData : MonoBehaviour
     [SerializeField] Transform topFaceLetter;
 
     [SerializeField] LetterCubeState letterCubeState = LetterCubeState.Idle;
+    public Vector3 initialPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        initialPosition = transform.localPosition;
     }
 
 
@@ -54,5 +55,13 @@ public class LetterCubeData : MonoBehaviour
             instantiatedLetter.transform.localScale = Vector3.one;
         }
     }
+
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.CompareTag("Playground"))
+    //     {
+    //         initialPosition = transform.localPosition;
+    //     }
+    // }
 
 }

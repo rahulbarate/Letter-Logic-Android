@@ -5,12 +5,15 @@ public class LetterCubeMovement : MonoBehaviour
     [SerializeField] float movementSpeed = 5f;
     [SerializeField] float lerpSpeed = 5f;
 
+    LetterCubeData letterCubeData;
+
     // Start is called before the first frame update
     void Start()
     {
         // disabling cursor
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        letterCubeData = GetComponent<LetterCubeData>();
 
     }
 
@@ -41,9 +44,9 @@ public class LetterCubeMovement : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, targetPosition, lerpSpeed * Time.deltaTime);
     }
 
-    public void MoveTo(Vector3 pos)
+    public void MoveToInitialPosition()
     {
         // Debug.Log("pos: " + pos);
-        transform.localPosition = pos;
+        transform.localPosition = letterCubeData.initialPosition;
     }
 }
