@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
-public class NumberLCInstantiator : MonoBehaviour
+public class NumberLCSpawner : MonoBehaviour
 {
     [SerializeField] GameObject allNumbers;
     [SerializeField] GameObject letterCubeCopy;
@@ -53,34 +53,19 @@ public class NumberLCInstantiator : MonoBehaviour
             //generate random index
             int randomIndex = UnityEngine.Random.Range(0, availableNumbers.Count);
             int numberToFetch = availableNumbers[randomIndex] - 1;
-
             //fetch number;
             numberCopy = allNumbers.transform.GetChild(numberToFetch).gameObject;
+            string number = availableNumbers[randomIndex].ToString();
 
             //instantiating LetterCube and setting scale
-            activeLetterCube = Instantiate(letterCubeCopy, transform.position, Quaternion.identity);
-            activeLetterCube.transform.localScale = new Vector3(letterCubeScale, letterCubeScale, letterCubeScale);
-
-            //checking if letter cube has data script, else adding it.
-            if (activeLetterCube.GetComponent<LetterCubeData>() == null)
-            {
-                activeLetterCube.AddComponent<LetterCubeData>();
-            }
-            activeLCData = activeLetterCube.GetComponent<LetterCubeData>();
-
-            //checking if letter cube has handler script, else adding it.
-            if (activeLetterCube.GetComponent<LetterCubeEventHandler>() == null)
-            {
-                activeLetterCube.AddComponent<LetterCubeEventHandler>();
-            }
-            activeLCEventHandler = activeLetterCube.GetComponent<LetterCubeEventHandler>();
+            activeLetterCube = LetterCubeInstantiator.InstantiateLetterCube(letterCubeCopy, transform.position, letterCubeScale, number, numberCopy);
 
             //Subscribe to event
-            activeLCEventHandler.E_CorrectSlot += OnCorrectLCPlaced;
+            activeLetterCube.GetComponent<LetterCubeEventHandler>().E_CorrectSlot += OnCorrectLCPlaced;
 
-            activeLCData.SetLetterOnCube(availableNumbers[randomIndex].ToString(), numberCopy);
+            // activeLCData.SetLetterOnCube(availableNumbers[randomIndex].ToString(), numberCopy);
             availableNumbers.RemoveAt(randomIndex);
-            GameDataSave.LetterCubeData = activeLCData;
+            GameDataSave.LetterCubeData = activeLetterCube.GetComponent<LetterCubeData>();
 
             // setting camera to follow newly created Letter Cube.
             cineFreeCam.Follow = activeLetterCube.transform;
@@ -99,7 +84,7 @@ public class NumberLCInstantiator : MonoBehaviour
 
     private void OnCorrectLCPlaced()
     {
-        activeLCEventHandler.E_CorrectSlot -= OnCorrectLCPlaced;
+        activeLetterCube.GetComponent<LetterCubeEventHandler>().E_CorrectSlot -= OnCorrectLCPlaced;
         InstantiateLetterCube();
     }
 

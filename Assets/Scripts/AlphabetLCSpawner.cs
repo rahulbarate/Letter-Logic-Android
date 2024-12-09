@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
-public class AlphabetLCInstantiator : MonoBehaviour
+public class AlphabetLCSpawner : MonoBehaviour
 {
     [SerializeField] GameObject allLetters;
     [SerializeField] GameObject letterCubeCopy;
@@ -15,7 +15,7 @@ public class AlphabetLCInstantiator : MonoBehaviour
     [SerializeField] AlphabetSubtype alphabetSubtype = AlphabetSubtype.C_Letters;
     GameObject letterCopy;
     GameObject activeLetterCube;
-    LetterCubeData activeLCData;
+    // LetterCubeData activeLCData;
     LetterCubeEventHandler activeLCEventHandler;
 
     SlotSensorsHandler slotSensorsHandler;
@@ -65,47 +65,23 @@ public class AlphabetLCInstantiator : MonoBehaviour
             // generating random index and calculating letter to fetch from 26 lettes
             int randomLetterIndex = UnityEngine.Random.Range(0, availableLetters.Count);
             int letterToFetch = 26 - (90 - Convert.ToInt32(availableLetters[randomLetterIndex])) - 1;
+            //getting letter string
+            string letter = availableLetters[randomLetterIndex].ToString();
 
             //fetching letter object to be displayed on the Cube.
             letterCopy = allLetters.transform.GetChild(letterToFetch).gameObject;
-
-
-            // Instantiating letter and setting scale.
-            activeLetterCube = Instantiate(letterCubeCopy, transform.position, Quaternion.identity);
-            activeLetterCube.transform.localScale = new Vector3(letterCubeScale, letterCubeScale, letterCubeScale);
-
-            //checking if letter cube has data script, else adding it.
-            if (activeLetterCube.GetComponent<LetterCubeData>() == null)
-            {
-                activeLetterCube.AddComponent<LetterCubeData>();
-            }
-            activeLCData = activeLetterCube.GetComponent<LetterCubeData>();
-
-            //checking if letter cube has handler script, else adding it.
-            if (activeLetterCube.GetComponent<LetterCubeEventHandler>() == null)
-            {
-                activeLetterCube.AddComponent<LetterCubeEventHandler>();
-            }
-            activeLCEventHandler = activeLetterCube.GetComponent<LetterCubeEventHandler>();
+            //Instantiating Letter Cube
+            activeLetterCube = LetterCubeInstantiator.InstantiateLetterCube(letterCubeCopy, transform.position, letterCubeScale, letter, letterCopy);
 
             //Subscribing to event
-            activeLCEventHandler.E_CorrectSlot += OnCorrectLCPlaced;
-            // activeLCEventHandler.E_IncorrectSlot += OnInCorrectLCPlaced;
-            // activeLCEventHandler.E_LetterCubeBombed += OnLCBombed;
+            activeLetterCube.GetComponent<LetterCubeEventHandler>().E_CorrectSlot += OnCorrectLCPlaced;
 
-
-
-            // setting letter to be displayed on top and storing it in data script.
-            activeLCData.SetLetterOnCube(availableLetters[randomLetterIndex].ToString(), letterCopy);
             availableLetters.RemoveAt(randomLetterIndex);
-            GameDataSave.LetterCubeData = activeLCData;
+            GameDataSave.LetterCubeData = activeLetterCube.GetComponent<LetterCubeData>();
 
             // setting camera to follow newly created Letter Cube.
             cineFreeCam.Follow = activeLetterCube.transform;
             cineFreeCam.LookAt = activeLetterCube.transform;
-
-
-
 
         }
         else
@@ -121,46 +97,10 @@ public class AlphabetLCInstantiator : MonoBehaviour
 
     }
 
-    // private void OnLCBombed()
-    // {
-    //     throw new NotImplementedException();
-    // }
-
-    // private void OnInCorrectLCPlaced()
-    // {
-    //     throw new NotImplementedException();
-    // }
-
     private void OnCorrectLCPlaced()
     {
-        activeLCEventHandler.E_CorrectSlot -= OnCorrectLCPlaced;
+        activeLetterCube.GetComponent<LetterCubeEventHandler>().E_CorrectSlot -= OnCorrectLCPlaced;
         InstantiateLetterCube();
     }
 
-
-
-    // Update is called once per frame
-    // void Update()
-    // {
-
-    //     if (!GameDataSave.IsLevelCompleted)
-    //     {
-    //         LetterCubeState newLCState = activeLCData.GetLetterCubeState();
-
-    //         // checking if Letter Cube state is changed.
-    //         if (newLCState == LetterCubeState.Matched)
-    //         {
-    //             activeLCEventHandler.ProcessCorrectLetterCube();
-    //             InstantiateLetterCube();
-    //         }
-    //         else if (newLCState == LetterCubeState.Mismatched)
-    //         {
-    //             activeLCEventHandler.ProcessIncorrectLetterCube(transform.localPosition);
-    //         }
-    //         else if (newLCState == LetterCubeState.Bombed)
-    //         {
-    //             activeLCEventHandler.ProcessBombedLetterCube(transform.localPosition);
-    //         }
-    //     }
-    // }
 }
