@@ -32,10 +32,10 @@ public class HintMechanism : MonoBehaviour
             Debug.Log("No hints available!");
             return;
         }
-        if (letterCubeData && letterCubeData.GetLetterCubeState() == LetterCubeState.Matched)
-        {
-            return;
-        }
+        // if (letterCubeData && letterCubeData.GetLetterCubeState() == LetterCubeState.Matched)
+        // {
+        //     return;
+        // }
 
         // int slotSensorToHighlight = 26 - (90 - Convert.ToInt32(letterCubeData.GetLetterOnCube())) - 1;
 

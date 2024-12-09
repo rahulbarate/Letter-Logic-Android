@@ -9,7 +9,7 @@ public class LetterCubeData : MonoBehaviour
     [SerializeField] Transform sideLetters;
     [SerializeField] Transform topFaceLetter;
 
-    [SerializeField] LetterCubeState letterCubeState = LetterCubeState.Idle;
+    // [SerializeField] LetterCubeState letterCubeState = LetterCubeState.Idle;
     public Vector3 initialPosition;
 
     // Start is called before the first frame update
@@ -21,14 +21,14 @@ public class LetterCubeData : MonoBehaviour
 
 
 
-    public void SetLetterCubeState(LetterCubeState letterCubeState)
-    {
-        this.letterCubeState = letterCubeState;
-    }
-    public LetterCubeState GetLetterCubeState()
-    {
-        return this.letterCubeState;
-    }
+    // public void SetLetterCubeState(LetterCubeState letterCubeState)
+    // {
+    //     this.letterCubeState = letterCubeState;
+    // }
+    // public LetterCubeState GetLetterCubeState()
+    // {
+    //     return this.letterCubeState;
+    // }
 
     public string GetLetterOnCube()
     {

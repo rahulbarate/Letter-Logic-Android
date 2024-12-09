@@ -43,13 +43,13 @@ public class LetterCubeEventHandler : MonoBehaviour
     {
         Debug.Log("Incorrect Letter Cube");
         letterCubeMovement.MoveToInitialPosition();
-        letterCubeData.SetLetterCubeState(LetterCubeState.Idle);
+        // letterCubeData.SetLetterCubeState(LetterCubeState.Idle);
     }
     public void ProcessBombedLetterCube()
     {
         Debug.Log("Letter Cube Bombed");
         letterCubeMovement.MoveToInitialPosition();
-        letterCubeData.SetLetterCubeState(LetterCubeState.Idle);
+        // letterCubeData.SetLetterCubeState(LetterCubeState.Idle);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -61,7 +61,7 @@ public class LetterCubeEventHandler : MonoBehaviour
 
             if (slotSensor.GetComponent<SlotSensorData>().Letter == letterCubeData.GetLetterOnCube())
             {
-                letterCubeData.SetLetterCubeState(LetterCubeState.Matched);
+                // letterCubeData.SetLetterCubeState(LetterCubeState.Matched);
 
                 E_CorrectSlot?.Invoke();
                 ProcessCorrectLetterCube();
@@ -69,7 +69,7 @@ public class LetterCubeEventHandler : MonoBehaviour
             }
             else
             {
-                letterCubeData.SetLetterCubeState(LetterCubeState.Mismatched);
+                // letterCubeData.SetLetterCubeState(LetterCubeState.Mismatched);
                 E_IncorrectSlot?.Invoke();
                 ProcessIncorrectLetterCube();
             }
@@ -80,7 +80,7 @@ public class LetterCubeEventHandler : MonoBehaviour
         if (other.gameObject.CompareTag("Bomb"))
         {
             // Debug.Log("tag: " + other.gameObject.tag);
-            letterCubeData.SetLetterCubeState(LetterCubeState.Bombed);
+            // letterCubeData.SetLetterCubeState(LetterCubeState.Bombed);
             E_LetterCubeBombed?.Invoke();
             ProcessBombedLetterCube();
         }
