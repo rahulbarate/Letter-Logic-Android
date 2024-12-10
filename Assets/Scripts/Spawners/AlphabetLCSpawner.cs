@@ -13,6 +13,7 @@ public class AlphabetLCSpawner : MonoBehaviour
     [SerializeField] GameObject slotSensors;
     [SerializeField] float letterCubeScale = 97f;
     [SerializeField] AlphabetSubtype alphabetSubtype = AlphabetSubtype.C_Letters;
+    [SerializeField] GameDataSave gameDataSave;
     GameObject letterCopy;
     GameObject activeLetterCube;
     // LetterCubeData activeLCData;
@@ -35,10 +36,10 @@ public class AlphabetLCSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameDataSave.IsLevelCompleted = false;
+        // gameDataSave.IsLevelCompleted = false;
         cineFreeCam = vCam.GetComponent<CinemachineFreeLook>();
-        GameDataSave.PlaygroundType = PlaygroundType.Alphabet;
-        GameDataSave.AlphabetSubtype = alphabetSubtype;
+        // gameDataSave.PlaygroundType = PlaygroundType.Alphabet;
+        // gameDataSave.AlphabetSubtype = alphabetSubtype;
         slotSensorsHandler = slotSensors.GetComponent<SlotSensorsHandler>();
         GenerateAllLetters();
         InstantiateLetterCube();
@@ -46,15 +47,15 @@ public class AlphabetLCSpawner : MonoBehaviour
     private void GenerateAllLetters()
     {
         availableLetters = new List<char>();
-        if (alphabetSubtype == AlphabetSubtype.C_Letters)
+        // if (alphabetSubtype == AlphabetSubtype.C_Letters)
+        // {
+        for (char i = 'A'; i <= 'D'; i++)
         {
-            for (char i = 'A'; i <= 'D'; i++)
-            {
-                availableLetters.Add(i);
-            }
-            slotSensorsHandler.AssignCLettersToSlotSensors();
-
+            availableLetters.Add(i);
         }
+        slotSensorsHandler.AssignCLettersToSlotSensors();
+
+        // }
 
     }
 
@@ -77,7 +78,7 @@ public class AlphabetLCSpawner : MonoBehaviour
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_CorrectSlot += OnCorrectLCPlaced;
 
             availableLetters.RemoveAt(randomLetterIndex);
-            GameDataSave.LetterCubeData = activeLetterCube.GetComponent<LetterCubeData>();
+            gameDataSave.LetterCube = activeLetterCube;
 
             // setting camera to follow newly created Letter Cube.
             cineFreeCam.Follow = activeLetterCube.transform;
@@ -87,8 +88,8 @@ public class AlphabetLCSpawner : MonoBehaviour
         else
         {
             Debug.Log("Level Completed");
-            GameDataSave.IsLevelCompleted = true;
-            GameDataSave.LetterCubeData = null;
+            gameDataSave.IsLevelCompleted = true;
+            gameDataSave.LetterCube = null;
             cineFreeCam.Follow = invisibleCharacter.transform;
             cineFreeCam.LookAt = invisibleCharacter.transform;
             invisibleCharacter.SetActive(true);

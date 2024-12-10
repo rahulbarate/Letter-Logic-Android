@@ -10,6 +10,8 @@ public class BombDropper : MonoBehaviour
     [SerializeField] GameObject requestPlatform;
     // AlphabetLCInstantiator alphabetLCInstantiator;
     [SerializeField] float delayInBombing;
+    [SerializeField] GameDataSave gameDataSave;
+    bool isLevelCompleted = false;
 
 
     MeshFilter meshFilter;
@@ -22,15 +24,25 @@ public class BombDropper : MonoBehaviour
         // Get mesh filter
         meshFilter = GetComponent<MeshFilter>();
         vertices = meshFilter.mesh.vertices;
+        gameDataSave.E_LevelCompleted += SetIsLevelCompleted;
         // alphabetLCInstantiator = requestPlatform.GetComponent<AlphabetLCInstantiator>();
 
         StartCoroutine(DropBombs());
 
     }
 
+    private void SetIsLevelCompleted()
+    {
+        isLevelCompleted = true;
+    }
+    private void OnDisable()
+    {
+        gameDataSave.E_LevelCompleted -= SetIsLevelCompleted;
+    }
+
     IEnumerator DropBombs()
     {
-        while (!GameDataSave.IsLevelCompleted)
+        while (!isLevelCompleted)
         {
             int randomVertexIndex = UnityEngine.Random.Range(0, vertices.Length);
             Vector3 vertexPos = transform.TransformPoint(vertices[randomVertexIndex]);

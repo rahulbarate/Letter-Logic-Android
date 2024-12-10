@@ -11,6 +11,7 @@ public class NumberLCSpawner : MonoBehaviour
     [SerializeField] GameObject slotSensors;
     [SerializeField] GameObject invisibleCharacter;
     [SerializeField] GameObject vCam;
+    [SerializeField] GameDataSave gameDataSave;
     [SerializeField] float letterCubeScale = 97f;
     [SerializeField] NumberSubtype numberSubtype = NumberSubtype.E_Numbers;
     GameObject numberCopy;
@@ -25,10 +26,10 @@ public class NumberLCSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameDataSave.IsLevelCompleted = false;
+        gameDataSave.IsLevelCompleted = false;
         cineFreeCam = vCam.GetComponent<CinemachineFreeLook>();
-        GameDataSave.PlaygroundType = PlaygroundType.Numbers;
-        GameDataSave.NumberSubtype = numberSubtype;
+        gameDataSave.PlaygroundType = PlaygroundType.Numbers;
+        gameDataSave.NumberSubtype = numberSubtype;
         slotSensorsHandler = slotSensors.GetComponent<SlotSensorsHandler>();
         GenerateAllNumbers();
         InstantiateLetterCube();
@@ -65,7 +66,7 @@ public class NumberLCSpawner : MonoBehaviour
 
             // activeLCData.SetLetterOnCube(availableNumbers[randomIndex].ToString(), numberCopy);
             availableNumbers.RemoveAt(randomIndex);
-            GameDataSave.LetterCubeData = activeLetterCube.GetComponent<LetterCubeData>();
+            gameDataSave.LetterCube = activeLetterCube;
 
             // setting camera to follow newly created Letter Cube.
             cineFreeCam.Follow = activeLetterCube.transform;
@@ -74,8 +75,8 @@ public class NumberLCSpawner : MonoBehaviour
         else
         {
             Debug.Log("Level Completed");
-            GameDataSave.IsLevelCompleted = true;
-            GameDataSave.LetterCubeData = null;
+            gameDataSave.IsLevelCompleted = true;
+            gameDataSave.LetterCube = null;
             cineFreeCam.Follow = invisibleCharacter.transform;
             cineFreeCam.LookAt = invisibleCharacter.transform;
             invisibleCharacter.SetActive(true);
@@ -91,7 +92,7 @@ public class NumberLCSpawner : MonoBehaviour
     // Update is called once per frame
     // void Update()
     // {
-    //     if (!GameDataSave.IsLevelCompleted)
+    //     if (!gameDataSave.IsLevelCompleted)
     //     {
     //         LetterCubeState newLCState = activeLCData.GetLetterCubeState();
 

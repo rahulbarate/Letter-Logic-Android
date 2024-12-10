@@ -21,7 +21,6 @@ public enum NumberSubtype
 }
 public enum WordSubtype
 {
-    Word_2,
     Word_3,
     Word_4,
     Word_5

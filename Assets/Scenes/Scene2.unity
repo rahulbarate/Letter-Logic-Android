@@ -355,7 +355,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5062517}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0485479, y: 0.8437503, z: -0.34833252, w: 0.40545416}
+  m_LocalRotation: {x: 0.04854787, y: 0.84375024, z: -0.3483325, w: 0.4054541}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1029,7 +1029,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.34042522, y: -0.000000031763214, z: 0.000000011499869, w: 0.9402716}
+  m_LocalRotation: {x: 0.3404252, y: 0.000000028022281, z: -0.000000010145462, w: 0.9402716}
   m_LocalPosition: {x: 1.76, y: 9.9, z: 2.8899999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2696,6 +2696,7 @@ MonoBehaviour:
   slotSensors: {fileID: 4112974295500185980}
   invisibleCharacter: {fileID: 1776814847}
   vCam: {fileID: 890254438}
+  gameDataSave: {fileID: 11400000, guid: 6a365ee447c9b1d46884803d519a6ea0, type: 2}
   letterCubeScale: 97
   numberSubtype: 0
 --- !u!1001 &797452972
@@ -2843,7 +2844,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 810532535}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.03378776, y: 0.85584664, z: -0.3174534, w: 0.4069501}
+  m_LocalRotation: {x: 0.03378777, y: 0.8558466, z: -0.31745347, w: 0.40695}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6460,6 +6461,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 45966335394753562, guid: 6bec3dba99d8b59429a54f9c2e64051f,
         type: 3}
+      propertyPath: gameDataSave
+      value: 
+      objectReference: {fileID: 11400000, guid: 6a365ee447c9b1d46884803d519a6ea0,
+        type: 2}
+    - target: {fileID: 45966335394753562, guid: 6bec3dba99d8b59429a54f9c2e64051f,
+        type: 3}
       propertyPath: delayInBombing
       value: 1.5
       objectReference: {fileID: 0}
@@ -6498,6 +6505,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4482788261169951513, guid: 6bec3dba99d8b59429a54f9c2e64051f,
+        type: 3}
+      propertyPath: gameDataSave
+      value: 
+      objectReference: {fileID: 11400000, guid: 6a365ee447c9b1d46884803d519a6ea0,
+        type: 2}
     - target: {fileID: 4482788261169951513, guid: 6bec3dba99d8b59429a54f9c2e64051f,
         type: 3}
       propertyPath: requestPlatform
@@ -6593,6 +6606,12 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e776c67704629154dbf5fd7412d296cc, type: 2}
+    - target: {fileID: 9070920077436080454, guid: 6bec3dba99d8b59429a54f9c2e64051f,
+        type: 3}
+      propertyPath: gameDataSave
+      value: 
+      objectReference: {fileID: 11400000, guid: 6a365ee447c9b1d46884803d519a6ea0,
+        type: 2}
     - target: {fileID: 9070920077436080454, guid: 6bec3dba99d8b59429a54f9c2e64051f,
         type: 3}
       propertyPath: requestPlatform

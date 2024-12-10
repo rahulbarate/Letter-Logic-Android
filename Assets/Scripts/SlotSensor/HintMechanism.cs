@@ -7,6 +7,7 @@ public class HintMechanism : MonoBehaviour
 {
     [SerializeField] public int availableHints = 30;
     [SerializeField] GameObject requestPlatform;
+    [SerializeField] GameDataSave gameDataSave;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class HintMechanism : MonoBehaviour
     private void ProcessHint()
     {
         // LetterCubeData letterCubeData = requestPlatform.GetComponent<AlphabetLCInstantiator>().GetCurrentLetterCubeData();
-        LetterCubeData letterCubeData = GameDataSave.LetterCubeData;
+        GameObject letterCube = gameDataSave.LetterCube;
         if (availableHints <= 0)
         {
             Debug.Log("No hints available!");
@@ -43,7 +44,7 @@ public class HintMechanism : MonoBehaviour
         {
             SlotSensorData slotSensorData = child.GetComponent<SlotSensorData>();
             Light slotSensorLight = child.GetComponent<Light>();
-            if (slotSensorData.Letter == letterCubeData.GetLetterOnCube() && !slotSensorLight.enabled)
+            if (slotSensorData.Letter == letterCube.GetComponent<LetterCubeData>().GetLetterOnCube() && !slotSensorLight.enabled)
             {
 
                 availableHints--;
