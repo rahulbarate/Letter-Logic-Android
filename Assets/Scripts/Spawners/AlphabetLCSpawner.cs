@@ -53,7 +53,7 @@ public class AlphabetLCSpawner : MonoBehaviour
         {
             availableLetters.Add(i);
         }
-        slotSensorsHandler.AssignCLettersToSlotSensors();
+        // slotSensorsHandler.AssignCLettersToSlotSensors();
 
         // }
 
@@ -71,8 +71,10 @@ public class AlphabetLCSpawner : MonoBehaviour
 
             //fetching letter object to be displayed on the Cube.
             letterCopy = allLetters.transform.GetChild(letterToFetch).gameObject;
+
             //Instantiating Letter Cube
             activeLetterCube = LetterCubeInstantiator.InstantiateLetterCube(letterCubeCopy, transform.position, letterCubeScale, letter, letterCopy);
+
 
             //Subscribing to event
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_CorrectSlot += OnCorrectLCPlaced;
@@ -83,6 +85,9 @@ public class AlphabetLCSpawner : MonoBehaviour
             // setting camera to follow newly created Letter Cube.
             cineFreeCam.Follow = activeLetterCube.transform;
             cineFreeCam.LookAt = activeLetterCube.transform;
+
+            slotSensorsHandler.SetActive(letterToFetch);
+            // slotSensorsHandler.SetActive(randomLetterIndex);
 
         }
         else

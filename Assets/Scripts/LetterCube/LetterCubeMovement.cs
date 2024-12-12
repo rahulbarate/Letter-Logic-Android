@@ -1,11 +1,17 @@
+using System;
 using UnityEngine;
 
 public class LetterCubeMovement : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 5f;
-    [SerializeField] float lerpSpeed = 5f;
+    float movementSpeedAtRunTime;
+    [SerializeField] float lerpSpeed = 20f;
+    [SerializeField] float jumpForce = 10f;
+    bool isGrounded;
+    bool isInTheSlot = false;
 
     LetterCubeData letterCubeData;
+    Rigidbody rgbody;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +20,9 @@ public class LetterCubeMovement : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         letterCubeData = GetComponent<LetterCubeData>();
+        rgbody = GetComponent<Rigidbody>();
+        movementSpeedAtRunTime = movementSpeed;
+
 
     }
 
@@ -21,7 +30,6 @@ public class LetterCubeMovement : MonoBehaviour
     void Update()
     {
         ProcessMovement();
-
         //enabling cursor
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -32,16 +40,37 @@ public class LetterCubeMovement : MonoBehaviour
 
     private void ProcessMovement()
     {
-        // float xVal = Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed;
-        float xVal = Input.GetAxis("Horizontal");
-        // float zVal = Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed;
-        float zVal = Input.GetAxis("Vertical");
+        if (isGrounded)
+        {
+            movementSpeedAtRunTime = movementSpeed;
+        }
+        else
+        {
+            movementSpeedAtRunTime = movementSpeed / 3;
+        }
+        float xVal = Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeedAtRunTime;
+        float zVal = Input.GetAxis("Vertical") * Time.deltaTime * movementSpeedAtRunTime;
+        transform.Translate(new Vector3(xVal, 0f, zVal));
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            rgbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Playground"))
+        {
+            isGrounded = true;
+        }
+    }
 
-        // transform.Translate(xVal, 0f, zVal);
 
-        Vector3 targetPosition = transform.position + movementSpeed * Time.deltaTime * new Vector3(xVal, 0f, zVal);
-
-        transform.position = Vector3.Lerp(transform.position, targetPosition, lerpSpeed * Time.deltaTime);
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Playground"))
+        {
+            isGrounded = false;
+        }
     }
 
     public void MoveToInitialPosition()

@@ -52,5 +52,9 @@
         "Temp/": true
     },
     "dotnet.defaultSolution": "Letter Logic(PC).sln",
-    "dotnetAcquisitionExtension.installTimeoutValue": 1200
+    "dotnetAcquisitionExtension.installTimeoutValue": 1200,
+    "editor.fontSize": 20,
+    "window.zoomLevel": 0.5,
+    "terminal.integrated.mouseWheelZoom": true,
+    "editor.mouseWheelZoom": true
 }

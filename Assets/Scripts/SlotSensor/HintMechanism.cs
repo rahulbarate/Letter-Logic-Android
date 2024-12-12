@@ -42,17 +42,23 @@ public class HintMechanism : MonoBehaviour
 
         foreach (Transform child in transform)
         {
-            SlotSensorData slotSensorData = child.GetComponent<SlotSensorData>();
-            Light slotSensorLight = child.GetComponent<Light>();
-            if (slotSensorData.Letter == letterCube.GetComponent<LetterCubeData>().GetLetterOnCube() && !slotSensorLight.enabled)
+            if (child.gameObject.activeSelf == true)
             {
-
                 availableHints--;
-                slotSensorLight.enabled = true;
-                Debug.Log("Look for illuminated slot");
+                child.GetComponent<Light>().enabled = true;
                 return;
-
             }
+            // SlotSensorData slotSensorData = child.GetComponent<SlotSensorData>();
+            // Light slotSensorLight = child.GetComponent<Light>();
+            // if (slotSensorData.Letter == letterCube.GetComponent<LetterCubeData>().GetLetterOnCube() && !slotSensorLight.enabled)
+            // {
+
+            //     availableHints--;
+            //     slotSensorLight.enabled = true;
+            //     Debug.Log("Look for illuminated slot");
+            //     return;
+
+            // }
         }
         // transform.GetChild(slotSensorToHighlight).GetComponent<Light>().enabled = true;
 

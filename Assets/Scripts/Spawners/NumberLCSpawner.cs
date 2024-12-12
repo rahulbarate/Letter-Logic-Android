@@ -43,7 +43,7 @@ public class NumberLCSpawner : MonoBehaviour
             {
                 availableNumbers.Add(i);
             }
-            slotSensorsHandler.AssignENumbersToSlotSensors();
+            // slotSensorsHandler.AssignENumbersToSlotSensors();
         }
     }
 
@@ -71,6 +71,7 @@ public class NumberLCSpawner : MonoBehaviour
             // setting camera to follow newly created Letter Cube.
             cineFreeCam.Follow = activeLetterCube.transform;
             cineFreeCam.LookAt = activeLetterCube.transform;
+            slotSensorsHandler.SetActive(numberToFetch);
         }
         else
         {

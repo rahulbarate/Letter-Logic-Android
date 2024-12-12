@@ -31,12 +31,13 @@ public class LetterCubeEventHandler : MonoBehaviour
 
     public void ProcessCorrectLetterCube()
     {
-        Debug.Log("Correct Letter Cube");
+        // Debug.Log("Correct Letter Cube");
         Destroy(rgbody);
         Destroy(sideLetters.gameObject);
         Destroy(sideLawnLayers.gameObject);
         Destroy(letterCubeMovement);
-        Destroy(slotSensor.gameObject);
+        // Destroy(slotSensor.gameObject);
+        slotSensor.gameObject.SetActive(false);
         Destroy(this);
     }
     public void ProcessIncorrectLetterCube()
@@ -47,7 +48,7 @@ public class LetterCubeEventHandler : MonoBehaviour
     }
     public void ProcessBombedLetterCube()
     {
-        Debug.Log("Letter Cube Bombed");
+        // Debug.Log("Letter Cube Bombed");
         letterCubeMovement.MoveToInitialPosition();
         // letterCubeData.SetLetterCubeState(LetterCubeState.Idle);
     }
@@ -58,21 +59,23 @@ public class LetterCubeEventHandler : MonoBehaviour
         if (other.CompareTag("Slot Senser"))
         {
             slotSensor = other.transform;
+            E_CorrectSlot?.Invoke();
+            ProcessCorrectLetterCube();
 
-            if (slotSensor.GetComponent<SlotSensorData>().Letter == letterCubeData.GetLetterOnCube())
-            {
-                // letterCubeData.SetLetterCubeState(LetterCubeState.Matched);
+            // if (slotSensor.GetComponent<SlotSensorData>().Letter == letterCubeData.GetLetterOnCube())
+            // {
+            //     // letterCubeData.SetLetterCubeState(LetterCubeState.Matched);
 
-                E_CorrectSlot?.Invoke();
-                ProcessCorrectLetterCube();
+            //     E_CorrectSlot?.Invoke();
+            //     ProcessCorrectLetterCube();
 
-            }
-            else
-            {
-                // letterCubeData.SetLetterCubeState(LetterCubeState.Mismatched);
-                E_IncorrectSlot?.Invoke();
-                ProcessIncorrectLetterCube();
-            }
+            // }
+            // else
+            // {
+            //     // letterCubeData.SetLetterCubeState(LetterCubeState.Mismatched);
+            //     E_IncorrectSlot?.Invoke();
+            //     ProcessIncorrectLetterCube();
+            // }
         }
     }
     private void OnCollisionEnter(Collision other)

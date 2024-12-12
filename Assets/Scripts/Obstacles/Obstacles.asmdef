@@ -1,0 +1,16 @@
+{
+    "name": "Obstacles",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a9613c68d83d0a64681a2e54f7889fc8"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

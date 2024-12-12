@@ -1,0 +1,20 @@
+{
+    "name": "Spawners",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a9613c68d83d0a64681a2e54f7889fc8",
+        "GUID:4a91c3ecdea5f704fa210e235b26d57b",
+        "GUID:d97049de36618ca4b9ded20b708a0377",
+        "GUID:8ba1cf4afa640804e94ba034367104ab",
+        "GUID:4307f53044263cf4b835bd812fc161a4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

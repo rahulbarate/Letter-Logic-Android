@@ -29,4 +29,9 @@ public class SlotSensorsHandler : MonoBehaviour
             i++;
         }
     }
+    public void SetActive(int index)
+    {
+        // Debug.Log(index + " to Set Active");
+        transform.GetChild(index).gameObject.SetActive(true);
+    }
 }

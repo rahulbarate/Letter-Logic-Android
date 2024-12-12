@@ -1,0 +1,17 @@
+{
+    "name": "SlotSensor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a9613c68d83d0a64681a2e54f7889fc8",
+        "GUID:4a91c3ecdea5f704fa210e235b26d57b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
