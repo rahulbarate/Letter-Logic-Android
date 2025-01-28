@@ -10,16 +10,19 @@ public class GameDataSave : ScriptableObject
 
     public event Action E_WordCompleted;
 
+    Word currentWord;
+    public Word CurrentWord
+    {
+        get { return currentWord; }
+        set { currentWord = value; }
+    }
+
     private List<char> userCreatedWord;
     int noOfElementsInUserCreatedWord;
     public void SetCharInUserCreatedWord(int index, char ch)
     {
-        // Debug.Log("index in save data " + index);
         userCreatedWord[index] = ch;
         noOfElementsInUserCreatedWord++;
-        // Debug.Log("userCreatedWord.Length " + userCreatedWord.Count);
-        // Debug.Log("WordLength " + userCreatedWord.Count);
-        // Debug.Log("noOfElementsInUserCreatedWord " + noOfElementsInUserCreatedWord);
         if (noOfElementsInUserCreatedWord == WordLength)
         {
             IsWordCompleted = true;
@@ -28,10 +31,8 @@ public class GameDataSave : ScriptableObject
     }
     public void InitializeUserCreatedWord()
     {
-        // userCreatedWord = new char[WordLength];
         userCreatedWord = new List<char>(new char[WordLength]);
         noOfElementsInUserCreatedWord = 0;
-        // Debug.Log("User Created Word Initialized" + userCreatedWord);
     }
 
     public List<char> GetUserCreatedWord()

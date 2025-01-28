@@ -18,6 +18,7 @@ public class WordSpawner : MonoBehaviour
     [SerializeField] float letterCubeScale = 97f;
     [SerializeField] float distanceBetweenSpawnPoints = 1.5f;
     [SerializeField] GameDataSave gameDataSave;
+    [SerializeField] WordSubtype wordSubtype = WordSubtype.Word_3;
     GameObject instantiatedLetterCube;
     GameObject activeLetterCube;
     SlotSensorsHandler slotSensorsHandler;
@@ -49,7 +50,10 @@ public class WordSpawner : MonoBehaviour
 
         //subscribing to event
         gameDataSave.E_WordCompleted += WordCompleted;
+        gameDataSave.PlaygroundType = PlaygroundType.Words;
+        gameDataSave.WordSubtype = wordSubtype; 
 
+        
         gameDataSave.WordLength = wordLength;
         gameDataSave.IsWordCompleted = false;
 
@@ -117,6 +121,7 @@ public class WordSpawner : MonoBehaviour
         instantiatedLCList.Clear();
         placedLCList = new int[wordLength];
         activeLetterCubeIndex = 0;
+        gameDataSave.CurrentWord = word;
         gameDataSave.IsWordCompleted = false;
         gameDataSave.InitializeUserCreatedWord();
 

@@ -26,20 +26,27 @@ public class HintMechanism : MonoBehaviour
 
     private void ProcessHint()
     {
-        GameObject letterCube = gameDataSave.LetterCube;
-        if (availableHints <= 0)
+        if (gameDataSave.PlaygroundType == PlaygroundType.Words)
         {
-            Debug.Log("No hints available!");
-            return;
+            Debug.Log("Hint: " + gameDataSave.CurrentWord.Hint);
         }
-
-        foreach (Transform child in transform)
+        else if (gameDataSave.PlaygroundType == PlaygroundType.Numbers || gameDataSave.PlaygroundType == PlaygroundType.Alphabet)
         {
-            if (child.gameObject.activeSelf == true)
+            GameObject letterCube = gameDataSave.LetterCube;
+            if (availableHints <= 0)
             {
-                availableHints--;
-                child.GetComponent<Light>().enabled = true;
+                Debug.Log("No hints available!");
                 return;
+            }
+
+            foreach (Transform child in transform)
+            {
+                if (child.gameObject.activeSelf == true)
+                {
+                    availableHints--;
+                    child.GetComponent<Light>().enabled = true;
+                    return;
+                }
             }
         }
 

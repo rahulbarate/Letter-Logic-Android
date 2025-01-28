@@ -38,8 +38,8 @@ public class AlphabetLCSpawner : MonoBehaviour
     {
         // gameDataSave.IsLevelCompleted = false;
         cineFreeCam = vCam.GetComponent<CinemachineFreeLook>();
-        // gameDataSave.PlaygroundType = PlaygroundType.Alphabet;
-        // gameDataSave.AlphabetSubtype = alphabetSubtype;
+        gameDataSave.PlaygroundType = PlaygroundType.Alphabet;
+        gameDataSave.AlphabetSubtype = alphabetSubtype;
         slotSensorsHandler = slotSensors.GetComponent<SlotSensorsHandler>();
         GenerateAllLetters();
         InstantiateLetterCube();
