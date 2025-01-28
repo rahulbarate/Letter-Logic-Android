@@ -7,17 +7,53 @@ using UnityEngine;
 public class GameDataSave : ScriptableObject
 {
     public event Action E_LevelCompleted;
+
+    public event Action E_WordCompleted;
+
+    private List<char> userCreatedWord;
+    int noOfElementsInUserCreatedWord;
+    public void SetCharInUserCreatedWord(int index, char ch)
+    {
+        // Debug.Log("index in save data " + index);
+        userCreatedWord[index] = ch;
+        noOfElementsInUserCreatedWord++;
+        // Debug.Log("userCreatedWord.Length " + userCreatedWord.Count);
+        // Debug.Log("WordLength " + userCreatedWord.Count);
+        // Debug.Log("noOfElementsInUserCreatedWord " + noOfElementsInUserCreatedWord);
+        if (noOfElementsInUserCreatedWord == WordLength)
+        {
+            IsWordCompleted = true;
+            E_WordCompleted?.Invoke();
+        }
+    }
+    public void InitializeUserCreatedWord()
+    {
+        // userCreatedWord = new char[WordLength];
+        userCreatedWord = new List<char>(new char[WordLength]);
+        noOfElementsInUserCreatedWord = 0;
+        // Debug.Log("User Created Word Initialized" + userCreatedWord);
+    }
+
+    public List<char> GetUserCreatedWord()
+    {
+        return userCreatedWord;
+    }
+
+    bool isWordCompleted = false;
+    public bool IsWordCompleted
+    {
+        get { return isWordCompleted; }
+        set { isWordCompleted = value; }
+    }
+
+
+    int wordLength = 3;
+    public int WordLength
+    {
+        get { return wordLength; }
+        set { wordLength = value; }
+    }
     bool isLevelCompleted;
-
-    // private void OnEnable()
-    // {
-    //     Application.quitting += RestoreDataToDefault;
-    // }
-
-    // private void OnDisable()
-    // {
-    //     Application.quitting -= RestoreDataToDefault;
-    // }
     public bool IsLevelCompleted
     {
         get { return isLevelCompleted; }
@@ -30,6 +66,7 @@ public class GameDataSave : ScriptableObject
             isLevelCompleted = value;
         }
     }
+
 
     PlaygroundType playgroundType;
     public PlaygroundType PlaygroundType

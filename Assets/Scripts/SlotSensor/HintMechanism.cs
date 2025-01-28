@@ -26,19 +26,12 @@ public class HintMechanism : MonoBehaviour
 
     private void ProcessHint()
     {
-        // LetterCubeData letterCubeData = requestPlatform.GetComponent<AlphabetLCInstantiator>().GetCurrentLetterCubeData();
         GameObject letterCube = gameDataSave.LetterCube;
         if (availableHints <= 0)
         {
             Debug.Log("No hints available!");
             return;
         }
-        // if (letterCubeData && letterCubeData.GetLetterCubeState() == LetterCubeState.Matched)
-        // {
-        //     return;
-        // }
-
-        // int slotSensorToHighlight = 26 - (90 - Convert.ToInt32(letterCubeData.GetLetterOnCube())) - 1;
 
         foreach (Transform child in transform)
         {
@@ -48,19 +41,7 @@ public class HintMechanism : MonoBehaviour
                 child.GetComponent<Light>().enabled = true;
                 return;
             }
-            // SlotSensorData slotSensorData = child.GetComponent<SlotSensorData>();
-            // Light slotSensorLight = child.GetComponent<Light>();
-            // if (slotSensorData.Letter == letterCube.GetComponent<LetterCubeData>().GetLetterOnCube() && !slotSensorLight.enabled)
-            // {
-
-            //     availableHints--;
-            //     slotSensorLight.enabled = true;
-            //     Debug.Log("Look for illuminated slot");
-            //     return;
-
-            // }
         }
-        // transform.GetChild(slotSensorToHighlight).GetComponent<Light>().enabled = true;
 
     }
 }
