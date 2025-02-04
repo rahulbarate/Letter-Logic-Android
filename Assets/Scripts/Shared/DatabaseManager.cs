@@ -67,7 +67,6 @@ public class DatabaseManger
             new Word{ Text = "grape", Hint= "A small round fruit that grows in bunches", IsUsed= 0, TextLength= 5 },
             new Word{ Text = "light", Hint= "Something that helps you see in the dark", IsUsed= 0, TextLength= 5 }});
 
-
     public static List<Word> GetWords(int wordLength, int numberOfWords)
     {
         List<Word> wordsOfGivenLength = new List<Word>();
