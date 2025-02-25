@@ -9,6 +9,7 @@ using System.Collections.Generic;
 public class DatabaseManager : MonoBehaviour
 {
     private SQLiteConnection _connection;
+
     public DatabaseManager(string DatabaseName)
     {
 
@@ -60,7 +61,7 @@ public class DatabaseManager : MonoBehaviour
         var dbPath = filepath;
 #endif
         _connection = new SQLiteConnection(dbPath, SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
-        Debug.Log("Final PATH: " + dbPath);
+        // Debug.Log("Final PATH: " + dbPath);
 
     }
 
@@ -77,6 +78,12 @@ public class DatabaseManager : MonoBehaviour
         {
             Debug.LogError(e.Message);
         }
+    }
+    public int GetCountOfUnusedWords()
+    {
+        int count = _connection.Table<Word>().Where(x => x.IsUsed == 0).Count();
+        // Debug.Log(count);
+        return count;
     }
 
 

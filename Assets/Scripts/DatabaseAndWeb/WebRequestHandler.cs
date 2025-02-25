@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Plastic.Newtonsoft.Json;
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -25,9 +25,12 @@ public class WebRequestHandler : MonoBehaviour
 
     public IEnumerator GetWordsFromServer()
     {
-        // here we will check if the local database has unused words less than given minimum requirement
-        // if getUnusedWordsCount() < minNotUsedWordCount then we will fetch words from server
-        // else we will not fetch words from server
+        // check if database has enough unused words
+        if (!(databaseManager.GetCountOfUnusedWords() <= minNotUsedWordCount))
+        {
+            // Debug.Log("Enough unused words in database: " + databaseManager.GetCountOfUnusedWords() + ", " + minNotUsedWordCount);
+            yield break;
+        }
 
         // preparaing json data to be sent to server
         jsonDataToBeSent = $"{{\"wordsCount\": {wordsCount},\"lastWordCreatedAt\":\"{lastWordCreatedAt}\"}}";
@@ -49,6 +52,11 @@ public class WebRequestHandler : MonoBehaviour
             if (webRequest.result == UnityWebRequest.Result.Success)
             {
                 string responseJsonData = webRequest.downloadHandler.text;
+                if (responseJsonData == null)
+                {
+                    Debug.Log("No words received from server");
+                    yield break;
+                }
                 Debug.Log("Response: " + responseJsonData);
                 // Deserialize list of words from json to List<Word> type 
                 List<Word> words = JsonConvert.DeserializeObject<List<Word>>(responseJsonData);
@@ -56,6 +64,14 @@ public class WebRequestHandler : MonoBehaviour
                 {
                     databaseManager.AddWordsToDatabase(words);
                 }
+                else
+                {
+                    Debug.Log("error while deserializing words from json");
+                }
+            }
+            else
+            {
+                Debug.Log("Error: " + webRequest.error);
             }
 
 

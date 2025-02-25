@@ -58,6 +58,7 @@ public class LetterCubeEventHandler : MonoBehaviour
         // Debug.Log(other.tag);
         if (other.CompareTag("Slot Senser"))
         {
+            Debug.Log(other.tag);
             // slotSensor = other.transform;
             E_PlacedInSlot?.Invoke();
             ProcessCorrectLetterCube();

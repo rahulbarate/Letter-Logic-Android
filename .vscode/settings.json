@@ -54,7 +54,7 @@
     "dotnet.defaultSolution": "Letter Logic(PC).sln",
     "dotnetAcquisitionExtension.installTimeoutValue": 1200,
     "editor.fontSize": 20,
-    "window.zoomLevel": 0.5,
+    "window.zoomLevel": 1,
     "terminal.integrated.mouseWheelZoom": true,
     "editor.mouseWheelZoom": true
 }

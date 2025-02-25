@@ -108,6 +108,16 @@ public class WordSpawner : MonoBehaviour
         }
     }
 
+    void ResetVars(){
+        instantiatedLCList.Clear();
+        instantiatedLetterCube = null;
+        activeLetterCube = null;
+        placedLCList = new int[wordLength];
+        activeLetterCubeIndex = 0;
+        gameDataSave.CurrentWord = words[wordIndex];
+        gameDataSave.IsWordCompleted = false;
+        gameDataSave.InitializeUserCreatedWord();
+    }
     private void InstantiateWord()
     {
         if (wordIndex > words.Count - 1)
@@ -118,12 +128,8 @@ public class WordSpawner : MonoBehaviour
         DestroyLetterCubes();
         Word word = words[wordIndex];
         List<char> wordChars = new List<char>(word.Text.ToCharArray());
-        instantiatedLCList.Clear();
-        placedLCList = new int[wordLength];
-        activeLetterCubeIndex = 0;
-        gameDataSave.CurrentWord = word;
-        gameDataSave.IsWordCompleted = false;
-        gameDataSave.InitializeUserCreatedWord();
+        
+        ResetVars();
 
         Debug.Log("Hint:" + word.Hint);
 
@@ -149,7 +155,7 @@ public class WordSpawner : MonoBehaviour
         }
         // activeLetterCube = instantiatedLCList[activeLetterCubeIndex];
         // slotSensorsHandler.SetAllActive();
-        ActivateLetterCube();
+        ActivateLetterCube("InstantiateWord");
     }
 
     private void OnPlacedInSlot()
@@ -168,7 +174,7 @@ public class WordSpawner : MonoBehaviour
                 activeLetterCubeIndex = GetNextActiveElement();
             }
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot -= OnPlacedInSlot;
-            ActivateLetterCube();
+            ActivateLetterCube("OnPlacedInSlot");
         }
 
     }
@@ -194,9 +200,12 @@ public class WordSpawner : MonoBehaviour
         }
     }
 
-    private void ActivateLetterCube()
+    private void ActivateLetterCube(string calledFrom)
     {
+        Debug.Log("calledFrom: "+calledFrom);
         DeactivateLetterCube();
+        Debug.Log("activeLetterCubeIndex: "+activeLetterCubeIndex );
+
         activeLetterCube = instantiatedLCList[activeLetterCubeIndex];
         if (activeLetterCube.TryGetComponent<LetterCubeMovement>(out LetterCubeMovement letterCubeMovement))
         {
@@ -228,7 +237,7 @@ public class WordSpawner : MonoBehaviour
                 if (i < instantiatedLCList.Count)
                 {
                     activeLetterCubeIndex = i;
-                    ActivateLetterCube();
+                    ActivateLetterCube("ProcessInput-Alpha1");
                 }
                 else
                 {
@@ -244,7 +253,7 @@ public class WordSpawner : MonoBehaviour
             {
                 activeLetterCubeIndex = GetNextActiveElement();
             }
-            ActivateLetterCube();
+            ActivateLetterCube("KeyCode.Q");
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
