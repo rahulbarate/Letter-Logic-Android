@@ -19,17 +19,6 @@ public class LetterCubeData : MonoBehaviour
     }
 
 
-
-
-    // public void SetLetterCubeState(LetterCubeState letterCubeState)
-    // {
-    //     this.letterCubeState = letterCubeState;
-    // }
-    // public LetterCubeState GetLetterCubeState()
-    // {
-    //     return this.letterCubeState;
-    // }
-
     public string GetLetterOnCube()
     {
         return letterOnTop;
