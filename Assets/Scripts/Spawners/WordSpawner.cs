@@ -49,9 +49,11 @@ public class WordSpawner : MonoBehaviour
         activeLetterCubeIndex = 0;
 
         //subscribing to event
-        gameDataSave.E_WordCompleted += WordCompleted;
+        // gameDataSave.E_WordCompleted += WordCompleted;
         gameDataSave.PlaygroundType = PlaygroundType.Words;
         gameDataSave.WordSubtype = wordSubtype; 
+
+        // gameDataSave.E_PlacedInSlot += OnPlacedInSlot;
 
         
         gameDataSave.WordLength = wordLength;
@@ -76,6 +78,7 @@ public class WordSpawner : MonoBehaviour
         if (string.Concat(gameDataSave.GetUserCreatedWord()) == words[wordIndex].Text)
         {
             Debug.Log("Correct Word");
+            // gameDataSave.E_PlacedInSlot -= OnPlacedInSlot;
             wordIndex++;
             InstantiateWord();
         }
@@ -176,6 +179,9 @@ public class WordSpawner : MonoBehaviour
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot -= OnPlacedInSlot;
             ActivateLetterCube("OnPlacedInSlot");
         }
+        else{
+            WordCompleted();
+        }
 
     }
 
@@ -257,10 +263,12 @@ public class WordSpawner : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
+            // gameDataSave.E_PlacedInSlot -= OnPlacedInSlot;
             InstantiateWord();
         }
         if (Input.GetKeyDown(KeyCode.N))
         {
+            // gameDataSave.E_PlacedInSlot -= OnPlacedInSlot;
             wordIndex++;
             InstantiateWord();
         }
