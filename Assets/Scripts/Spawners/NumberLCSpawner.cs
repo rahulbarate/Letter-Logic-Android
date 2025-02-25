@@ -59,10 +59,10 @@ public class NumberLCSpawner : MonoBehaviour
             string number = availableNumbers[randomIndex].ToString();
 
             //instantiating LetterCube and setting scale
-            activeLetterCube = LetterCubeInstantiator.InstantiateLetterCube(letterCubeCopy, transform.position, letterCubeScale, number, numberCopy);
+            activeLetterCube = LetterCubeInstantiator.InstantiateLetterCube(letterCubeCopy, transform.position, letterCubeScale, number, numberCopy, true);
 
             //Subscribe to event
-            activeLetterCube.GetComponent<LetterCubeEventHandler>().E_CorrectSlot += OnCorrectLCPlaced;
+            activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
 
             // activeLCData.SetLetterOnCube(availableNumbers[randomIndex].ToString(), numberCopy);
             availableNumbers.RemoveAt(randomIndex);
@@ -84,9 +84,9 @@ public class NumberLCSpawner : MonoBehaviour
         }
     }
 
-    private void OnCorrectLCPlaced()
+    private void OnPlacedInSlot()
     {
-        activeLetterCube.GetComponent<LetterCubeEventHandler>().E_CorrectSlot -= OnCorrectLCPlaced;
+        activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot -= OnPlacedInSlot;
         InstantiateLetterCube();
     }
 

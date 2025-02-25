@@ -38,8 +38,8 @@ public class AlphabetLCSpawner : MonoBehaviour
     {
         // gameDataSave.IsLevelCompleted = false;
         cineFreeCam = vCam.GetComponent<CinemachineFreeLook>();
-        // gameDataSave.PlaygroundType = PlaygroundType.Alphabet;
-        // gameDataSave.AlphabetSubtype = alphabetSubtype;
+        gameDataSave.PlaygroundType = PlaygroundType.Alphabet;
+        gameDataSave.AlphabetSubtype = alphabetSubtype;
         slotSensorsHandler = slotSensors.GetComponent<SlotSensorsHandler>();
         GenerateAllLetters();
         InstantiateLetterCube();
@@ -73,11 +73,11 @@ public class AlphabetLCSpawner : MonoBehaviour
             letterCopy = allLetters.transform.GetChild(letterToFetch).gameObject;
 
             //Instantiating Letter Cube
-            activeLetterCube = LetterCubeInstantiator.InstantiateLetterCube(letterCubeCopy, transform.position, letterCubeScale, letter, letterCopy);
+            activeLetterCube = LetterCubeInstantiator.InstantiateLetterCube(letterCubeCopy, transform.position, letterCubeScale, letter, letterCopy, true);
 
 
             //Subscribing to event
-            activeLetterCube.GetComponent<LetterCubeEventHandler>().E_CorrectSlot += OnCorrectLCPlaced;
+            activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
 
             availableLetters.RemoveAt(randomLetterIndex);
             gameDataSave.LetterCube = activeLetterCube;
@@ -103,9 +103,9 @@ public class AlphabetLCSpawner : MonoBehaviour
 
     }
 
-    private void OnCorrectLCPlaced()
+    private void OnPlacedInSlot()
     {
-        activeLetterCube.GetComponent<LetterCubeEventHandler>().E_CorrectSlot -= OnCorrectLCPlaced;
+        activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot -= OnPlacedInSlot;
         InstantiateLetterCube();
     }
 

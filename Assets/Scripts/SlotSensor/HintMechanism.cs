@@ -26,41 +26,29 @@ public class HintMechanism : MonoBehaviour
 
     private void ProcessHint()
     {
-        // LetterCubeData letterCubeData = requestPlatform.GetComponent<AlphabetLCInstantiator>().GetCurrentLetterCubeData();
-        GameObject letterCube = gameDataSave.LetterCube;
-        if (availableHints <= 0)
+        if (gameDataSave.PlaygroundType == PlaygroundType.Words)
         {
-            Debug.Log("No hints available!");
-            return;
+            Debug.Log("Hint: " + gameDataSave.CurrentWord.Hint);
         }
-        // if (letterCubeData && letterCubeData.GetLetterCubeState() == LetterCubeState.Matched)
-        // {
-        //     return;
-        // }
-
-        // int slotSensorToHighlight = 26 - (90 - Convert.ToInt32(letterCubeData.GetLetterOnCube())) - 1;
-
-        foreach (Transform child in transform)
+        else if (gameDataSave.PlaygroundType == PlaygroundType.Numbers || gameDataSave.PlaygroundType == PlaygroundType.Alphabet)
         {
-            if (child.gameObject.activeSelf == true)
+            GameObject letterCube = gameDataSave.LetterCube;
+            if (availableHints <= 0)
             {
-                availableHints--;
-                child.GetComponent<Light>().enabled = true;
+                Debug.Log("No hints available!");
                 return;
             }
-            // SlotSensorData slotSensorData = child.GetComponent<SlotSensorData>();
-            // Light slotSensorLight = child.GetComponent<Light>();
-            // if (slotSensorData.Letter == letterCube.GetComponent<LetterCubeData>().GetLetterOnCube() && !slotSensorLight.enabled)
-            // {
 
-            //     availableHints--;
-            //     slotSensorLight.enabled = true;
-            //     Debug.Log("Look for illuminated slot");
-            //     return;
-
-            // }
+            foreach (Transform child in transform)
+            {
+                if (child.gameObject.activeSelf == true)
+                {
+                    availableHints--;
+                    child.GetComponent<Light>().enabled = true;
+                    return;
+                }
+            }
         }
-        // transform.GetChild(slotSensorToHighlight).GetComponent<Light>().enabled = true;
 
     }
 }
