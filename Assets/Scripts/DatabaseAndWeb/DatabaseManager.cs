@@ -61,7 +61,6 @@ public class DatabaseManager : MonoBehaviour
         var dbPath = filepath;
 #endif
         _connection = new SQLiteConnection(dbPath, SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
-        // Debug.Log("Final PATH: " + dbPath);
 
     }
 
@@ -82,7 +81,6 @@ public class DatabaseManager : MonoBehaviour
     public int GetCountOfUnusedWords()
     {
         int count = _connection.Table<Word>().Where(x => x.IsUsed == 0).Count();
-        // Debug.Log(count);
         return count;
     }
 
