@@ -75,7 +75,13 @@ public class LetterCubeMovement : MonoBehaviour
 
     public void MoveToInitialPosition()
     {
-        // Debug.Log("pos: " + pos);
-        transform.localPosition = letterCubeData.initialPosition;
+        if (letterCubeData != null)
+        {
+            transform.localPosition = letterCubeData.initialPosition;
+        }
+        else
+        {
+            Debug.LogError("LetterCubeData is null. Cannot move to initial position.");
+        }
     }
 }

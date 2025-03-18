@@ -8,7 +8,8 @@ public class GameDataSave : ScriptableObject
 {
     public event Action E_LevelCompleted;
 
-    public event Action E_WordCompleted;
+    // public event Action E_WordCompleted;
+    // public event Action E_PlacedInSlot;
 
     Word currentWord;
     public Word CurrentWord
@@ -26,8 +27,11 @@ public class GameDataSave : ScriptableObject
         if (noOfElementsInUserCreatedWord == WordLength)
         {
             IsWordCompleted = true;
-            E_WordCompleted?.Invoke();
+            // E_WordCompleted?.Invoke();
         }
+        // else{
+        //     E_PlacedInSlot?.Invoke();
+        // }
     }
     public void InitializeUserCreatedWord()
     {

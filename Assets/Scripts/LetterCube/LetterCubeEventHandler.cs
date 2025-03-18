@@ -48,8 +48,17 @@ public class LetterCubeEventHandler : MonoBehaviour
     }
     public void ProcessBombedLetterCube()
     {
+
+        if (transform.localPosition != letterCubeData.initialPosition)
+        {
+            transform.localPosition = letterCubeData.initialPosition;
+        }
         // Debug.Log("Letter Cube Bombed");
-        letterCubeMovement.MoveToInitialPosition();
+        // if (letterCubeMovement != null && letterCubeMovement.enabled == true)
+        // {
+        //     letterCubeMovement.MoveToInitialPosition();
+
+        // }
         // letterCubeData.SetLetterCubeState(LetterCubeState.Idle);
     }
 

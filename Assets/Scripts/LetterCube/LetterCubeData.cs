@@ -15,20 +15,10 @@ public class LetterCubeData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Debug.Log(transform.localPosition);
         initialPosition = transform.localPosition;
     }
 
-
-
-
-    // public void SetLetterCubeState(LetterCubeState letterCubeState)
-    // {
-    //     this.letterCubeState = letterCubeState;
-    // }
-    // public LetterCubeState GetLetterCubeState()
-    // {
-    //     return this.letterCubeState;
-    // }
 
     public string GetLetterOnCube()
     {
