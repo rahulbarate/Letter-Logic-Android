@@ -44,6 +44,29 @@ public class GameDataSave : ScriptableObject
         return userCreatedWord;
     }
 
+    Word firstWord3 = new Word();
+    public Word FirstWord3
+    {
+        get { return firstWord3; }
+        set { firstWord3 = value; }
+    }
+    Word firstWord4 = new Word();
+    public Word FirstWord4
+    {
+        get { return firstWord4; }
+        set { firstWord4 = value; }
+    }
+
+    Word firstWord5 = new Word();
+    public Word FirstWord5
+    {
+        get { return firstWord5; }
+        set { firstWord5 = value; }
+    }
+
+
+
+
     bool isWordCompleted = false;
     public bool IsWordCompleted
     {
