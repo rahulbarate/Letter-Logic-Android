@@ -51,7 +51,7 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Letter Logic Android.sln",
+    "dotnet.defaultSolution": "Letter-Logic-Android.sln",
     "dotnetAcquisitionExtension.installTimeoutValue": 1200,
     "editor.fontSize": 20,
     "window.zoomLevel": 1,
