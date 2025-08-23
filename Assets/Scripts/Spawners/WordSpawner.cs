@@ -33,11 +33,18 @@ public class WordSpawner : MonoBehaviour
 
     int wordIndex;
     int activeLetterCubeIndex;
+
+    DatabaseManager databaseManager;
+
+
     // int lastActiveLetterCubeIndex;
 
     // Start is called before the first frame update
     void Start()
     {
+        // initializing database manager connection
+        databaseManager = new DatabaseManager("wordsDatabase.db");
+
         // Objects initializations
         cineFreeCam = vCam.GetComponent<CinemachineFreeLook>();
         // cinemachTargetGroup = cinemachTargetObject.GetComponent<CinemachineTargetGroup>();
@@ -51,23 +58,33 @@ public class WordSpawner : MonoBehaviour
         //subscribing to event
         // gameDataSave.E_WordCompleted += WordCompleted;
         gameDataSave.PlaygroundType = PlaygroundType.Words;
-        gameDataSave.WordSubtype = wordSubtype; 
+        gameDataSave.WordSubtype = wordSubtype;
 
         // gameDataSave.E_PlacedInSlot += OnPlacedInSlot;
 
-        
+
         gameDataSave.WordLength = wordLength;
         gameDataSave.IsWordCompleted = false;
 
         // calculating spawn points
         CalculateSpawnPoints();
 
-        // getting words from database
-        words = DatabaseManger.GetWords(wordLength, numberOfWords);
+
+        // simulating getting words from database
+        // words = TempDatabaseManger.GetWords(wordLength, numberOfWords);
+        words = databaseManager.GetWordsFromDatabase(wordLength, numberOfWords);
         wordIndex = 0;
+        // GetWordsFromDB();
 
         // Instantiating first word
         InstantiateWord();
+    }
+
+    private void GetWordsFromDB()
+    {
+
+        databaseManager.GetWordsFromDatabase(wordLength, numberOfWords);
+
     }
 
     private void WordCompleted()
@@ -111,7 +128,8 @@ public class WordSpawner : MonoBehaviour
         }
     }
 
-    void ResetVars(){
+    void ResetVars()
+    {
         instantiatedLCList.Clear();
         instantiatedLetterCube = null;
         activeLetterCube = null;
@@ -131,7 +149,7 @@ public class WordSpawner : MonoBehaviour
         DestroyLetterCubes();
         Word word = words[wordIndex];
         List<char> wordChars = new List<char>(word.Text.ToCharArray());
-        
+
         ResetVars();
 
         Debug.Log("Hint:" + word.Hint);
@@ -182,7 +200,8 @@ public class WordSpawner : MonoBehaviour
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot -= OnPlacedInSlot;
             ActivateLetterCube();
         }
-        else{
+        else
+        {
             WordCompleted();
         }
 
@@ -195,7 +214,7 @@ public class WordSpawner : MonoBehaviour
 
         // start after active cube index, set and return if found else stop.
 
-        for (int i = activeLetterCubeIndex+1; i < wordLength; i++)
+        for (int i = activeLetterCubeIndex + 1; i < wordLength; i++)
         {
             if (placedLCList[i] == 0)
             {
@@ -204,12 +223,13 @@ public class WordSpawner : MonoBehaviour
             }
         }
         // no pendig LC after active LC, so start from 0 and go till active LC
-        for(int i = 0;i <activeLetterCubeIndex ; i++){
+        for (int i = 0; i < activeLetterCubeIndex; i++)
+        {
             if (placedLCList[i] == 0)
             {
                 activeLetterCubeIndex = i;
                 return;
-            } 
+            }
         }
     }
 
@@ -277,7 +297,7 @@ public class WordSpawner : MonoBehaviour
         {
             // activeLetterCubeIndex++;
             setNextPendingLCIndex();
-            Debug.Log("activeLetterCubeIndex(Q): "+activeLetterCubeIndex);
+            Debug.Log("activeLetterCubeIndex(Q): " + activeLetterCubeIndex);
             // if (activeLetterCubeIndex >= instantiatedLCList.Count)
             // {
             //     activeLetterCubeIndex = GetNextActiveElement();

@@ -44,6 +44,61 @@ public class GameDataSave : ScriptableObject
         return userCreatedWord;
     }
 
+    Word firstWord3 = new Word();
+    public Word FirstWord3
+    {
+        get { return firstWord3; }
+        set { firstWord3 = value; }
+    }
+    Word firstWord4 = new Word();
+    public Word FirstWord4
+    {
+        get { return firstWord4; }
+        set { firstWord4 = value; }
+    }
+
+    Word firstWord5 = new Word();
+    public Word FirstWord5
+    {
+        get { return firstWord5; }
+        set { firstWord5 = value; }
+    }
+
+    Word lastUsedWord3 = new Word();
+    public Word LastUsedWord3
+    {
+        get { return lastUsedWord3; }
+        set { lastUsedWord3 = value; }
+    }
+    Word lastUsedWord4 = new Word();
+    public Word LastUsedWord4
+    {
+        get { return lastUsedWord4; }
+        set { lastUsedWord4 = value; }
+    }
+
+    Word lastUsedWord5 = new Word();
+    public Word LastUsedWord5
+    {
+        get { return lastUsedWord5; }
+        set { lastUsedWord5 = value; }
+    }
+
+    int minNotUsedWordCount;
+    public int MinNotUsedWordCount
+    {
+        get { return minNotUsedWordCount; }
+        set { minNotUsedWordCount = value; }
+    }
+
+    int maxNotUsedWordCount;
+    public int MaxNotUsedWordCount
+    {
+        get { return maxNotUsedWordCount; }
+        set { maxNotUsedWordCount = value; }
+    }
+
+
     bool isWordCompleted = false;
     public bool IsWordCompleted
     {

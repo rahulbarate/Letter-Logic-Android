@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-public class DatabaseManger
+public class TempDatabaseManger
 {
     static List<Word> wordsOfLength3 = new List<Word>(new[]{
             new Word{Text= "cat", Hint="A small furry animal that purrs when happy", IsUsed= 0, TextLength= 3 },

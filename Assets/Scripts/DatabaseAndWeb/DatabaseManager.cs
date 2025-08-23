@@ -6,8 +6,9 @@ using System.IO;
 #endif
 using System.Collections.Generic;
 
-public class DatabaseManager : MonoBehaviour
+public class DatabaseManager
 {
+    // [SerializeField] GameDataSave gameDataSave;
     private SQLiteConnection _connection;
 
     public DatabaseManager(string DatabaseName)
@@ -69,8 +70,8 @@ public class DatabaseManager : MonoBehaviour
         try
         {
             // drop table and create table will be removed later
-            _connection.DropTable<Word>();
-            _connection.CreateTable<Word>();
+            // _connection.DropTable<Word>();
+            // _connection.CreateTable<Word>();
             _connection.InsertAll(words);
         }
         catch (System.Exception e)
@@ -78,11 +79,118 @@ public class DatabaseManager : MonoBehaviour
             Debug.LogError(e.Message);
         }
     }
-    public int GetCountOfUnusedWords()
+
+    public void DropTable()
     {
-        int count = _connection.Table<Word>().Where(x => x.IsUsed == 0).Count();
-        return count;
+        try
+        {
+            _connection.DropTable<Word>();
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError(e.Message);
+        }
     }
 
+    public void CreateTable()
+    {
+        try
+        {
+            _connection.CreateTable<Word>();
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError(e.Message);
+        }
+    }
 
+    public int[] GetCountOfUnusedWords()
+    {
+        int[] unusedWordCount = new int[3];
+        try
+        {
+            // Count unused words with TextLength of 3, 4, and 5
+            unusedWordCount[0] = _connection.Table<Word>().Where(x => x.IsUsed == 0 && x.TextLength == 3).Count();
+            unusedWordCount[1] = _connection.Table<Word>().Where(x => x.IsUsed == 0 && x.TextLength == 4).Count();
+            unusedWordCount[2] = _connection.Table<Word>().Where(x => x.IsUsed == 0 && x.TextLength == 5).Count();
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Error fetching unused word counts: {e.Message}");
+        }
+        return unusedWordCount;
+    }
+
+    // public string GetLastRecordCreatedAt(int textLength)
+    // {
+    //     try
+    //     {
+    //         // Query the database for the last record with the given TextLength
+    //         Word lastRecord = _connection.Table<Word>()
+    //             .Where(x => x.TextLength == textLength)
+    //             .OrderByDescending(x => x.CreatedAt) // Sorting works because the format is consistent
+    //             .FirstOrDefault();
+
+    //         // Return the CreatedAt property if a record is found
+    //         if (lastRecord != null)
+    //         {
+    //             return lastRecord.CreatedAt;
+    //         }
+    //         else
+    //         {
+    //             // Debug.LogWarning($"No records found in the database for TextLength: {textLength}");
+    //             return null;
+    //         }
+
+    //     }
+    //     catch (System.Exception e)
+    //     {
+    //         Debug.LogError($"Error fetching last record for TextLength {textLength}: {e.Message}");
+    //         return null;
+    //     }
+    // }
+
+    public void DeleteUsedWords()
+    {
+        try
+        {
+            // Delete all words that are used (IsUsed = 1)
+            _connection.Execute("DELETE FROM Word WHERE IsUsed = 1");
+            // Debug.Log("Deleted used words from the database.");
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Error deleting used words: {e.Message}");
+        }
+    }
+
+    public List<Word> GetWordsFromDatabase(int wordLength, int numberOfWords)
+    {
+        Debug.Log("GetWordsFromDatabase called with wordLength: " + wordLength + " and numberOfWords: " + numberOfWords);
+        List<Word> words = new List<Word>();
+        // var result = null;
+        try
+        {
+            // Fetch words from the database based on word length and number of words
+            TableQuery<Word> result = _connection.Table<Word>()
+            .Where(x => x.TextLength == wordLength && x.IsUsed == 0)
+            .Take(numberOfWords);
+
+            // Debug.Log(result.GetType());
+
+            foreach (Word word in result)
+            {
+                Debug.Log("Word: " + word.Text + " Hint: " + word.Hint);
+                words.Add(word);
+            }
+            return words;
+
+            // Debug.Log(result);
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Error fetching words from database: {e.Message}");
+        }
+        return words;
+    }
 }
