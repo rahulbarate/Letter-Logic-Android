@@ -23,17 +23,19 @@ public class WebRequestHandler : MonoBehaviour
 
     void Start()
     {
+        // gameDataSave.MinNotUsedWordCount = minNotUsedWordCount;
+        // gameDataSave.MaxNotUsedWordCount = maxNotUsedWordCount;
         // initialize database manager connection
-        databaseManager = new DatabaseManager("wordsDatabase.db");
-        databaseManager.DropTable();
-        databaseManager.CreateTable();
+        // databaseManager = new DatabaseManager("wordsDatabase.db");
+        // databaseManager.DropTable();
+        // databaseManager.CreateTable();
 
-        // update initial timestamps for words of length 3,4,5 then call GetWordsFromServer
-        OnCreatedAtUpdated onCreatedAtUpdated = GetWordsFromServer;
-        StartCoroutine(UpdateFirstCreatedAtTimestamps(onCreatedAtUpdated));
+        // // update initial timestamps for words of length 3,4,5 then call GetWordsFromServer
+        // OnCreatedAtUpdated onCreatedAtUpdated = GetWordsFromServer;
+        // StartCoroutine(UpdateFirstCreatedAtTimestamps(onCreatedAtUpdated));
 
-        // delete used words from database
-        databaseManager.DeleteUsedWords();
+        // // delete used words from database
+        // databaseManager.DeleteUsedWords();
 
 
 
@@ -83,7 +85,7 @@ public class WebRequestHandler : MonoBehaviour
 
                         // databaseManager.UpdateFirstCreatedAtTimestamp(word.wordLength, word.createdAt);
                     }
-                    Debug.Log("First word of all lengths updated in GameDataSave");
+                    // Debug.Log("First word of all lengths updated in GameDataSave");
                     onCreatedAtUpdated?.Invoke();
 
                 }
@@ -101,89 +103,37 @@ public class WebRequestHandler : MonoBehaviour
 
     }
 
-    public void GetWordsFromServer()
-    {
-        // check if database has enough unused words
-        int[] unusedWordsCounts = databaseManager.GetCountOfUnusedWords();
-        // bool hasEnoughUnusedWords = true;
+    // public void GetWordsFromServer()
+    // {
+    //     // check if database has enough unused words
+    //     int[] unusedWordsCounts = databaseManager.GetCountOfUnusedWords();
+    //     // bool hasEnoughUnusedWords = true;
 
-        for (int i = 0; i < unusedWordsCounts.Length; i++)
-        {
-            if (unusedWordsCounts[i] <= minNotUsedWordCount)
-            {
-                Debug.Log("Fetching words from server for WordLength of " + (i + 3));
-                jsonDataToBeSent = $"{{\"wordsCount\": {wordsCount},\"textLength\": {(i + 3)},\"createdAt\":\"{GetCorrectTimestamp((i + 3))}\"}}";
-                StartCoroutine(SendWebRequestAndGetResponse(jsonDataToBeSent, getListOfWordsURL));
-                // hasEnoughUnusedWords = false;
-                // break;
-            }
-        }
+    //     for (int i = 0; i < unusedWordsCounts.Length; i++)
+    //     {
+    //         if (unusedWordsCounts[i] <= gameDataSave.MinNotUsedWordCount)
+    //         {
+    //             // Debug.Log("Fetching words from server for WordLength of " + (i + 3));
+    //             jsonDataToBeSent = $"{{\"wordsCount\": {wordsCount},\"textLength\": {(i + 3)},\"createdAt\":\"{GetCorrectTimestamp((i + 3))}\"}}";
+    //             StartCoroutine(SendWebRequestAndGetResponse(jsonDataToBeSent, getListOfWordsURL));
+    //             // hasEnoughUnusedWords = false;
+    //             // break;
+    //         }
+    //     }
 
-        // if (hasEnoughUnusedWords)
-        // {
-        //     yield break;
-        // }
+    // }
 
-        // preparaing json data to be sent to server
-        // jsonDataToBeSent = $"{{\"wordsCount\": {wordsCount},\"TextLength\": {wordsCount},\"lastWordCreatedAt\":\"{lastWordCreatedAt}\"}}";
-        // StartCoroutine(SendWebRequestAndGetResponse(jsonDataToBeSent, getListOfWordsURL));
-
-
-
-        // using (UnityWebRequest webRequest = new UnityWebRequest(getListOfWordsURL, "POST"))
-        // {
-        //     // converting json data to raw
-        //     byte[] jsonDataInRaw = System.Text.Encoding.UTF8.GetBytes(jsonDataToBeSent);
-        //     // setting upload and download handlers
-        //     webRequest.uploadHandler = new UploadHandlerRaw(jsonDataInRaw);
-        //     webRequest.downloadHandler = new DownloadHandlerBuffer();
-        //     // setting request headers
-        //     webRequest.SetRequestHeader("Content-type", "application/json");
-
-        //     // code after this line is only executed once the web request is completed. 
-        //     yield return webRequest.SendWebRequest();
-
-        //     // checking if the request is completed successfully
-        //     if (webRequest.result == UnityWebRequest.Result.Success)
-        //     {
-        //         string responseJsonData = webRequest.downloadHandler.text;
-        //         if (responseJsonData == null)
-        //         {
-        //             Debug.Log("No words received from server");
-        //             yield break;
-        //         }
-        //         Debug.Log("Response: " + responseJsonData);
-        //         // Deserialize list of words from json to List<Word> type 
-        //         List<Word> words = JsonConvert.DeserializeObject<List<Word>>(responseJsonData);
-        //         if (words != null)
-        //         {
-        //             databaseManager.AddWordsToDatabase(words);
-        //         }
-        //         else
-        //         {
-        //             Debug.Log("error while deserializing words from json");
-        //         }
-        //     }
-        //     else
-        //     {
-        //         Debug.Log("Error: " + webRequest.error);
-        //     }
-
-
-        // }
-
-    }
-    private string GetCorrectTimestamp(int wordLength)
-    {
-        string timeStamp = databaseManager.GetLastRecordCreatedAt(wordLength);
-        if (!string.IsNullOrEmpty(timeStamp))
-            return timeStamp;
-        else if (wordLength == 3)
-            return gameDataSave.FirstWord3.CreatedAt;
-        else if (wordLength == 4)
-            return gameDataSave.FirstWord4.CreatedAt;
-        return gameDataSave.FirstWord5.CreatedAt;
-    }
+    // private string GetCorrectTimestamp(int wordLength)
+    // {
+    //     string timeStamp = databaseManager.GetLastRecordCreatedAt(wordLength);
+    //     if (!string.IsNullOrEmpty(timeStamp))
+    //         return timeStamp;
+    //     else if (wordLength == 3)
+    //         return gameDataSave.FirstWord3.CreatedAt;
+    //     else if (wordLength == 4)
+    //         return gameDataSave.FirstWord4.CreatedAt;
+    //     return gameDataSave.FirstWord5.CreatedAt;
+    // }
 
     private IEnumerator SendWebRequestAndGetResponse(string jsonDataToBeSent, string url)
     {
@@ -218,7 +168,7 @@ public class WebRequestHandler : MonoBehaviour
                 result = words;
                 if (result != null)
                 {
-                    Debug.Log("Adding words to database");
+                    // Debug.Log("Adding words to database");
                     databaseManager.AddWordsToDatabase(words);
                     // yield return result;
                 }

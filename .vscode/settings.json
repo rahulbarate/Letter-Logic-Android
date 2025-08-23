@@ -56,5 +56,52 @@
     "editor.fontSize": 20,
     "window.zoomLevel": 1,
     "terminal.integrated.mouseWheelZoom": true,
-    "editor.mouseWheelZoom": true
+    "editor.mouseWheelZoom": true,
+    "editor.quickSuggestions": {
+        "other": false,
+        "comments": false,
+        "strings": false
+    },
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.parameterHints.enabled": false,
+    // "editor.inlineSuggest.enabled": true,
+    "editor.wordBasedSuggestions": "off",
+    "multiCommand.commands": [
+        {
+            "command": "multiCommand.toggleInlineSuggest",
+            "sequence": [
+                {
+                    "command": "settings.cycle",
+                    "args": {
+                        "id": "toggleInlineSuggest",
+                        "overrideWorkspaceSettings": true,
+                        "values": [
+                            {
+                                "editor.inlineSuggest.enabled": true
+                            },
+                            {
+                                "editor.inlineSuggest.enabled": false
+                            }
+                        ]
+                    }
+                },
+                "workbench.action.reloadWindow"
+            ]
+        }
+    ]
+    // "settings.cycle": [
+    //     {
+    //         "id": "toggleInlineSuggest",
+    //         "overrideWorkspaceSettings": true,
+    //         "values": [
+    //             {
+    //                 "editor.inlineSuggest.enabled": true
+    //             },
+    //             {
+    //                 "editor.inlineSuggest.enabled": false
+    //             }
+    //         ]
+    //     }
+    // ],
+    // "settings.cycle.warnOnWorkspaceSettingsCollisions": true
 }

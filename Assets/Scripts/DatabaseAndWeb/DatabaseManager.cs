@@ -91,6 +91,7 @@ public class DatabaseManager
             Debug.LogError(e.Message);
         }
     }
+
     public void CreateTable()
     {
         try
@@ -102,6 +103,7 @@ public class DatabaseManager
             Debug.LogError(e.Message);
         }
     }
+
     public int[] GetCountOfUnusedWords()
     {
         int[] unusedWordCount = new int[3];
@@ -118,34 +120,35 @@ public class DatabaseManager
         }
         return unusedWordCount;
     }
-    public string GetLastRecordCreatedAt(int textLength)
-    {
-        try
-        {
-            // Query the database for the last record with the given TextLength
-            Word lastRecord = _connection.Table<Word>()
-                .Where(x => x.TextLength == textLength)
-                .OrderByDescending(x => x.CreatedAt) // Sorting works because the format is consistent
-                .FirstOrDefault();
 
-            // Return the CreatedAt property if a record is found
-            if (lastRecord != null)
-            {
-                return lastRecord.CreatedAt;
-            }
-            else
-            {
-                // Debug.LogWarning($"No records found in the database for TextLength: {textLength}");
-                return null;
-            }
+    // public string GetLastRecordCreatedAt(int textLength)
+    // {
+    //     try
+    //     {
+    //         // Query the database for the last record with the given TextLength
+    //         Word lastRecord = _connection.Table<Word>()
+    //             .Where(x => x.TextLength == textLength)
+    //             .OrderByDescending(x => x.CreatedAt) // Sorting works because the format is consistent
+    //             .FirstOrDefault();
 
-        }
-        catch (System.Exception e)
-        {
-            Debug.LogError($"Error fetching last record for TextLength {textLength}: {e.Message}");
-            return null;
-        }
-    }
+    //         // Return the CreatedAt property if a record is found
+    //         if (lastRecord != null)
+    //         {
+    //             return lastRecord.CreatedAt;
+    //         }
+    //         else
+    //         {
+    //             // Debug.LogWarning($"No records found in the database for TextLength: {textLength}");
+    //             return null;
+    //         }
+
+    //     }
+    //     catch (System.Exception e)
+    //     {
+    //         Debug.LogError($"Error fetching last record for TextLength {textLength}: {e.Message}");
+    //         return null;
+    //     }
+    // }
 
     public void DeleteUsedWords()
     {
@@ -161,4 +164,33 @@ public class DatabaseManager
         }
     }
 
+    public List<Word> GetWordsFromDatabase(int wordLength, int numberOfWords)
+    {
+        Debug.Log("GetWordsFromDatabase called with wordLength: " + wordLength + " and numberOfWords: " + numberOfWords);
+        List<Word> words = new List<Word>();
+        // var result = null;
+        try
+        {
+            // Fetch words from the database based on word length and number of words
+            TableQuery<Word> result = _connection.Table<Word>()
+            .Where(x => x.TextLength == wordLength && x.IsUsed == 0)
+            .Take(numberOfWords);
+
+            // Debug.Log(result.GetType());
+
+            foreach (Word word in result)
+            {
+                Debug.Log("Word: " + word.Text + " Hint: " + word.Hint);
+                words.Add(word);
+            }
+            return words;
+
+            // Debug.Log(result);
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Error fetching words from database: {e.Message}");
+        }
+        return words;
+    }
 }
