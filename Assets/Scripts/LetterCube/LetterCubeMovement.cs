@@ -51,27 +51,27 @@ public class LetterCubeMovement : MonoBehaviour
         float xVal = Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeedAtRunTime;
         float zVal = Input.GetAxis("Vertical") * Time.deltaTime * movementSpeedAtRunTime;
         transform.Translate(new Vector3(xVal, 0f, zVal));
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            rgbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
+        // if (Input.GetButtonDown("Jump") && isGrounded)
+        // {
+        //     rgbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        // }
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Playground"))
-        {
-            isGrounded = true;
-        }
-    }
+    // private void OnCollisionEnter(Collision collision)
+    // {
+    //     if (collision.gameObject.CompareTag("Playground"))
+    //     {
+    //         isGrounded = true;
+    //     }
+    // }
 
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Playground"))
-        {
-            isGrounded = false;
-        }
-    }
+    // private void OnCollisionExit(Collision collision)
+    // {
+    //     if (collision.gameObject.CompareTag("Playground"))
+    //     {
+    //         isGrounded = false;
+    //     }
+    // }
 
     public void MoveToInitialPosition()
     {

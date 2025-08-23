@@ -51,7 +51,7 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Letter Logic(PC).sln",
+    "dotnet.defaultSolution": "Letter Logic Android.sln",
     "dotnetAcquisitionExtension.installTimeoutValue": 1200,
     "editor.fontSize": 20,
     "window.zoomLevel": 1,
@@ -64,7 +64,6 @@
     },
     "editor.suggestOnTriggerCharacters": false,
     "editor.parameterHints.enabled": false,
-    // "editor.inlineSuggest.enabled": true,
     "editor.wordBasedSuggestions": "off",
     "multiCommand.commands": [
         {
@@ -89,19 +88,4 @@
             ]
         }
     ]
-    // "settings.cycle": [
-    //     {
-    //         "id": "toggleInlineSuggest",
-    //         "overrideWorkspaceSettings": true,
-    //         "values": [
-    //             {
-    //                 "editor.inlineSuggest.enabled": true
-    //             },
-    //             {
-    //                 "editor.inlineSuggest.enabled": false
-    //             }
-    //         ]
-    //     }
-    // ],
-    // "settings.cycle.warnOnWorkspaceSettingsCollisions": true
 }
