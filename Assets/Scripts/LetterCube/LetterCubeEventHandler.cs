@@ -14,7 +14,7 @@ public class LetterCubeEventHandler : MonoBehaviour
     Transform slotSensor;
 
     //Event Register
-    public event Action E_PlacedInSlot;
+    public event Action<string> E_PlacedInSlot;
     public event Action E_IncorrectSlot;
     public event Action E_LetterCubeBombed;
 
@@ -35,7 +35,8 @@ public class LetterCubeEventHandler : MonoBehaviour
         Destroy(rgbody);
         Destroy(sideLetters.gameObject);
         Destroy(sideLawnLayers.gameObject);
-        Destroy(letterCubeMovement);
+        // letterCubeMovement.DisableControls();
+        // Destroy(letterCubeMovement);
         // Destroy(slotSensor.gameObject);
         // slotSensor.gameObject.SetActive(false);
         Destroy(this);
@@ -43,7 +44,7 @@ public class LetterCubeEventHandler : MonoBehaviour
     public void ProcessIncorrectLetterCube()
     {
         Debug.Log("Incorrect Letter Cube");
-        letterCubeMovement.MoveToInitialPosition();
+        // letterCubeMovement.MoveToInitialPosition();
         // letterCubeData.SetLetterCubeState(LetterCubeState.Idle);
     }
     public void ProcessBombedLetterCube()
@@ -67,12 +68,14 @@ public class LetterCubeEventHandler : MonoBehaviour
         // Debug.Log(other.tag);
         if (other.CompareTag("Slot Senser"))
         {
-            Debug.Log(other.tag);
+            // Debug.Log(other.tag);
+            // other.GetComponent<SlotSensorData>().letter;
             // slotSensor = other.transform;
-            E_PlacedInSlot?.Invoke();
-            ProcessCorrectLetterCube();
+            E_PlacedInSlot?.Invoke(other.GetComponent<SlotSensorData>().letter);
+            // ProcessCorrectLetterCube();
 
-            // if (slotSensor.GetComponent<SlotSensorData>().Letter == letterCubeData.GetLetterOnCube())
+            // if (slotSensor.GetComponent<SlotSensorData>().Letter == letterCube
+            // Data.GetLetterOnCube())
             // {
             //     // letterCubeData.SetLetterCubeState(LetterCubeState.Matched);
 
