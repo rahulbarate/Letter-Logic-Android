@@ -7,15 +7,39 @@ public class LetterCubeMovement : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 5f;
     [SerializeField] private float verticalLookSensitivity = 1f;
+    [SerializeField] private InputActionAsset inputAsset;
     [SerializeField] private float horizontalLookSensitivity = 20f;
     float movementSpeedAtRunTime;
 
     [SerializeField] Cinemachine.CinemachineFreeLook freeLookCamera;
 
     public GameObject activeLetterCube = null;
+    public Vector2 moveInput;
+    public Vector2 lookInput;
+    private InputAction moveAction;
+    private InputAction lookAction;
 
     // public LetterCubeData letterCubeData;
     Rigidbody rgbody;
+
+    void Awake()
+    {
+
+        var map = inputAsset.FindActionMap("LetterCube");
+        moveAction = map.FindAction("Move");
+        lookAction = map.FindAction("Look");
+
+        moveAction.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        moveAction.canceled += _ => moveInput = Vector2.zero;
+
+        lookAction.performed += ctx => lookInput = ctx.ReadValue<Vector2>();
+        lookAction.canceled += _ => lookInput = Vector2.zero;
+
+        moveAction.Enable();
+        lookAction.Enable();
+    }
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,8 +64,8 @@ public class LetterCubeMovement : MonoBehaviour
     {
         if (activeLetterCube == null)
             return;
-        Vector2 moveInput = InputReader.Instance.MoveInput;
-        Vector2 lookInput = InputReader.Instance.LookInput;
+        // Vector2 moveInput = InputReader.Instance.MoveInput;
+        // Vector2 lookInput = InputReader.Instance.LookInput;
 
         Vector3 move = new Vector3(moveInput.x, 0, moveInput.y) * movementSpeed * Time.deltaTime;
         activeLetterCube.transform.Translate(move);
