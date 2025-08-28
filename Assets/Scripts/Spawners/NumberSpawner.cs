@@ -3,15 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlphabetSpawner : Spawner
+public class NumberSpawner : Spawner
 {
-    List<char> availableLetters;
+    List<int> availableNumbers;
     // Start is called before the first frame update
     void Start()
     {
         GenerateAllLetters();
         letterCubeMovement = GetComponent<LetterCubeMovement>();
-        slotSensorsHandler.AssignCLettersToSlotSensors();
+        slotSensorsHandler.AssignENumbersToSlotSensors();
         InstantiateLetterCube();
     }
 
@@ -22,23 +22,24 @@ public class AlphabetSpawner : Spawner
     }
     private void GenerateAllLetters()
     {
-        availableLetters = new List<char>();
+        availableNumbers = new List<int>();
 
-        for (char i = 'A'; i <= 'Z'; i++)
-            availableLetters.Add(i);
+        for (int i = 1; i <= 10; i++)
+            availableNumbers.Add(i);
     }
     private void InstantiateLetterCube()
     {
-        if (availableLetters.Count != 0)
+        if (availableNumbers.Count != 0)
         {
-            // generating random index and calculating letter to fetch from 26 lettes
-            int randomLetterIndex = UnityEngine.Random.Range(0, availableLetters.Count);
-            int letterToFetch = 26 - (90 - Convert.ToInt32(availableLetters[randomLetterIndex])) - 1;
-            //getting letter string
-            letterChoosen = availableLetters[randomLetterIndex].ToString();
+            // generating random index and calculating number to fetch from 10 numbers
+            int randomNumberIndex = UnityEngine.Random.Range(0, availableNumbers.Count);
+            int numberToFetch = availableNumbers[randomNumberIndex] - 1;
+
+            //getting and coverting number to string
+            letterChoosen = availableNumbers[randomNumberIndex].ToString();
 
             //fetching letter object to be displayed on the Cube.
-            single3DLetterModel = letters3DModels.transform.GetChild(letterToFetch).gameObject;
+            single3DLetterModel = letters3DModels.transform.GetChild(numberToFetch).gameObject;
 
             //Instantiating Letter Cube
             activeLetterCube = LetterCubeInstantiator.InstantiateLetterCube(letterCubeModel, transform.position, letterCubeScale, letterChoosen, single3DLetterModel);
@@ -48,7 +49,7 @@ public class AlphabetSpawner : Spawner
             activeLetterCubeEventHandler = activeLetterCube.GetComponent<LetterCubeEventHandler>();
             activeLetterCubeEventHandler.E_PlacedInSlot += OnPlacedInSlot;
 
-            availableLetters.RemoveAt(randomLetterIndex);
+            availableNumbers.RemoveAt(randomNumberIndex);
             // gameDataSave.LetterCube = activeLetterCube;
 
             // setting camera to follow newly created Letter Cube.
@@ -57,20 +58,12 @@ public class AlphabetSpawner : Spawner
 
             letterCubeMovement.ActiveLetterCube = activeLetterCube;
 
-
-            // slotSensorsHandler.SetActive(letterToFetch);
-            // slotSensorsHandler.SetActive(randomLetterIndex);
-
         }
         else
         {
             Debug.Log("Level Completed");
             gameDataSave.IsLevelCompleted = true;
             gameDataSave.LetterCube = null;
-            // cineFreeCam.Follow = invisibleCharacter.transform;
-            // cineFreeCam.LookAt = invisibleCharacter.transform;
-            // invisibleCharacter.SetActive(true);
-
         }
 
     }

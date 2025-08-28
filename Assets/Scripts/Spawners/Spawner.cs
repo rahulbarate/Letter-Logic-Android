@@ -10,14 +10,12 @@ public class Spawner : MonoBehaviour
     public SlotSensorsHandler slotSensorsHandler;
     public GameDataSave gameDataSave;
 
-    [Header("Do not assign anything to these")]
-    public GameObject single3DLetterModel;
-    public GameObject activeLetterCube;
-    public string letterChoosen;
-
-    public LetterCubeEventHandler activeLetterCubeEventHandler;
-    public LetterCubeMovement letterCubeMovement;
-
+    //
+    protected GameObject single3DLetterModel;
+    protected GameObject activeLetterCube;
+    protected string letterChoosen;
+    protected LetterCubeEventHandler activeLetterCubeEventHandler;
+    protected LetterCubeMovement letterCubeMovement;
     public virtual void OnPlacedInSlot(string letterOfSlotSensor) { }
 
 }

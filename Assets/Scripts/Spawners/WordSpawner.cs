@@ -1,7 +1,160 @@
-// using System;
-// using System.Collections.Generic;
-// using Cinemachine;
-// using UnityEngine;
+using System;
+using System.Collections.Generic;
+using Cinemachine;
+using UnityEngine;
+
+public class WordSpawner : MonoBehaviour
+{
+    [SerializeField] int textLength = 3;
+    [SerializeField] int numberOfWords = 3;
+    [SerializeField] GameObject alphabetLetterCubes;
+    [SerializeField] GameObject firstSpawnPoint;
+    [SerializeField] CinemachineFreeLook cineFreeCam;
+    [SerializeField] float distanceBetweenSpawnPoints = 1.5f;
+    [SerializeField] GameDataSave gameDataSave;
+    [SerializeField] PlaygroundType playgroundType = PlaygroundType.Words;
+    [SerializeField] SlotSensorsHandler slotSensorsHandler;
+
+    List<Vector3> spawnPoints;
+    List<Word> words;
+    DatabaseManager databaseManager;
+    int activeLetterCubeIndex;
+    int currentWordIndex;
+    Word wordChoosen;
+    List<char> wordChoosenInChars;
+    List<GameObject> letterCubesForChoosenWord;
+
+    int correctlyPlacedLCCount = 0;
+
+    GameObject activeLetterCube;
+    int activeLetterIndex;
+
+    LetterCubeMovement letterCubeMovement;
+
+    void Start()
+    {
+        databaseManager = new DatabaseManager("wordsDatabase.db");
+        spawnPoints = new List<Vector3>(textLength);
+        words = databaseManager.GetWordsFromDatabase(textLength, numberOfWords);
+        letterCubeMovement = GetComponent<LetterCubeMovement>();
+
+        activeLetterCubeIndex = 0;
+        currentWordIndex = -1;
+
+        CalculateSpawnPoints();
+        SpawnLetterCubes(false);
+    }
+    void CalculateSpawnPoints()
+    {
+        spawnPoints.Clear();
+        spawnPoints.Add(firstSpawnPoint.transform.position);
+        for (int i = 1; i < textLength; i++)
+        {
+            float xVal = spawnPoints[i - 1].x + distanceBetweenSpawnPoints;
+            Vector3 nextSpawnPoint = new Vector3(xVal, firstSpawnPoint.transform.position.y, firstSpawnPoint.transform.position.z);
+            spawnPoints.Add(nextSpawnPoint);
+        }
+    }
+
+    void SpawnLetterCubes(bool respawnLetterCubes)
+    {
+        // Hide all the Letter Cubes
+        ToggleLetterCubesVisibility(false);
+
+        // Fetch the Letters for new Letter Cubes and change the Letter on tops
+        if (respawnLetterCubes == false)
+        {
+            // choose the next word in line
+            ++currentWordIndex;
+            wordChoosen = words[currentWordIndex];
+            words.RemoveAt(currentWordIndex);
+            // split it into characters
+            wordChoosenInChars = new List<char>(wordChoosen.Text.ToCharArray());
+            //Display Hint
+            Debug.Log("Hint:" + wordChoosen.Hint);
+            //Assign Letters to the Slot Sensors;
+            slotSensorsHandler.AssignWord(wordChoosenInChars);
+
+            for (int i = 0; i < wordChoosen.TextLength; i++)
+            {
+                int randomCharIndex = UnityEngine.Random.Range(0, wordChoosenInChars.Count);
+
+                // to avoid first letter at the first position(specially for 3 letter words)
+                while (i == 0 && randomCharIndex == 0)
+                {
+                    randomCharIndex = UnityEngine.Random.Range(0, wordChoosenInChars.Count);
+                }
+                int letterCubeToFetch = 26 - (90 - Convert.ToInt32(Char.ToUpper(wordChoosenInChars[randomCharIndex]))) - 1;
+                GameObject letterCube = alphabetLetterCubes.transform.GetChild(letterCubeToFetch).gameObject;
+                letterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
+                letterCubesForChoosenWord.Add(letterCube);
+                wordChoosenInChars.RemoveAt(randomCharIndex);
+            }
+        }
+
+        // Resposition the Letter Cubes to spawn points
+        for (int i = 0; i < wordChoosen.TextLength; i++)
+        {
+            letterCubesForChoosenWord[i].transform.localPosition = spawnPoints[i];
+        }
+
+        // Un-hide the Letter Cubes
+        ToggleLetterCubesVisibility(true);
+
+        //Set the 1st Letter Cube Active
+        SetLetterCubeActive(0);
+
+    }
+
+    void ToggleLetterCubesVisibility(bool visibility)
+    {
+        foreach (GameObject letterCube in letterCubesForChoosenWord)
+        {
+            letterCube.SetActive(visibility);
+        }
+    }
+
+    void OnPlacedInSlot(string letterOnSlotSensor)
+    {
+        if (letterOnSlotSensor == wordChoosenInChars[activeLetterIndex].ToString())
+            correctlyPlacedLCCount++;
+        else
+            correctlyPlacedLCCount--;
+
+        // check if there are any Letter Cubes yet to be placed.
+        if (activeLetterIndex == textLength - 1)
+        {
+            // Check if all letter cubes placed correct or not.
+            if (correctlyPlacedLCCount == textLength)
+            {
+                Debug.Log("Correct word");
+                if (words.Count > 0)
+                    SpawnLetterCubes(false);
+                else
+                    Debug.Log("Level Completed");
+            }
+            else
+            {
+                Debug.Log("Incorrect word");
+                SpawnLetterCubes(true);
+            }
+        }
+        else
+        {
+            // change the active letter cube as the previous one is placed.
+            SetLetterCubeActive(++activeLetterCubeIndex);
+
+        }
+    }
+
+    void SetLetterCubeActive(int letterIndex)
+    {
+        letterCubeMovement.ActiveLetterCube = letterCubesForChoosenWord[letterIndex];
+        activeLetterIndex = letterIndex;
+    }
+
+}
+
 
 // public class WordSpawner : MonoBehaviour
 // {
@@ -114,17 +267,7 @@
 //         }
 //     }
 
-//     void CalculateSpawnPoints()
-//     {
-//         spawnPoints.Clear();
-//         spawnPoints.Add(firstSpawnPoint.transform.position);
-//         for (int i = 1; i < wordLength; i++)
-//         {
-//             float xVal = spawnPoints[i - 1].x + distanceBetweenSpawnPoints;
-//             Vector3 nextSpawnPoint = new Vector3(xVal, firstSpawnPoint.transform.position.y, firstSpawnPoint.transform.position.z);
-//             spawnPoints.Add(nextSpawnPoint);
-//         }
-//     }
+
 
 //     void ResetVars()
 //     {
@@ -137,45 +280,7 @@
 //         gameDataSave.IsWordCompleted = false;
 //         gameDataSave.InitializeUserCreatedWord();
 //     }
-//     private void InstantiateWord()
-//     {
-//         if (wordIndex > words.Count - 1)
-//         {
-//             Debug.Log("All words completed");
-//             return;
-//         }
-//         DestroyLetterCubes();
-//         Word word = words[wordIndex];
-//         List<char> wordChars = new List<char>(word.Text.ToCharArray());
 
-//         ResetVars();
-
-//         Debug.Log("Hint:" + word.Hint);
-
-//         // spawning Letter Cubes for each letter in word
-//         for (int i = 0; i < word.TextLength; i++)
-//         {
-//             int randomCharIndex = UnityEngine.Random.Range(0, wordChars.Count);
-
-//             // to avoid first letter at the first position(specially for 3 letter words)
-//             while (i == 0 && randomCharIndex == 0)
-//             {
-//                 randomCharIndex = UnityEngine.Random.Range(0, wordChars.Count);
-//             }
-
-
-//             int letterToFetch = 26 - (90 - Convert.ToInt32(Char.ToUpper(wordChars[randomCharIndex]))) - 1;
-//             GameObject alphabetLetterCopy = alphabetLetters.transform.GetChild(letterToFetch).gameObject;
-
-//             instantiatedLetterCube = LetterCubeInstantiator.InstantiateLetterCube(letterCubeCopy, spawnPoints[i], letterCubeScale, wordChars[randomCharIndex].ToString(), alphabetLetterCopy, false);
-//             instantiatedLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
-//             instantiatedLCList.Insert(i, instantiatedLetterCube);
-//             wordChars.RemoveAt(randomCharIndex);
-//         }
-//         // activeLetterCube = instantiatedLCList[activeLetterCubeIndex];
-//         // slotSensorsHandler.SetAllActive();
-//         ActivateLetterCube();
-//     }
 
 //     private void OnPlacedInSlot()
 //     {

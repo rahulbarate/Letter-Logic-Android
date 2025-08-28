@@ -13,11 +13,16 @@ public class LetterCubeMovement : MonoBehaviour
 
     [SerializeField] Cinemachine.CinemachineFreeLook freeLookCamera;
 
-    public GameObject activeLetterCube = null;
-    public Vector2 moveInput;
-    public Vector2 lookInput;
-    private InputAction moveAction;
-    private InputAction lookAction;
+    GameObject activeLetterCube = null;
+    public GameObject ActiveLetterCube
+    {
+        get { return activeLetterCube; }
+        set { activeLetterCube = value; }
+    }
+    Vector2 moveInput;
+    Vector2 lookInput;
+    InputAction moveAction;
+    InputAction lookAction;
 
     // public LetterCubeData letterCubeData;
     Rigidbody rgbody;
