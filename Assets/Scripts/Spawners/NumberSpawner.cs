@@ -76,8 +76,11 @@ public class NumberSpawner : Spawner
             // remove event listening.
             activeLetterCubeEventHandler.E_PlacedInSlot -= OnPlacedInSlot;
 
+            // setting isPlaced to true, so bombs won't affect it.
+            activeLetterCube.GetComponent<LetterCubeData>().isPlaced = true;
+
             //Start Correct Cube Sequence.
-            activeLetterCubeEventHandler.ProcessCorrectLetterCube();
+            // activeLetterCubeEventHandler.ProcessPlacedLetterCube();
 
             //Reset vars
             single3DLetterModel = null;

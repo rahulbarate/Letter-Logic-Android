@@ -11,6 +11,7 @@ public class SlotSensorsHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        childrenSlotSensorData = new();
         // get slot sensor data of every child
         foreach (Transform child in transform)
         {
@@ -37,9 +38,9 @@ public class SlotSensorsHandler : MonoBehaviour
     {
         // char ch = 'A';
         int i = 0;
-        foreach (SlotSensorData data in childrenSlotSensorData)
+        foreach (Transform child in transform)
         {
-            data.Letter = wordChoosen[i].ToString();
+            child.GetComponent<SlotSensorData>().Letter = wordChoosen[i].ToString();
             i++;
         }
     }
