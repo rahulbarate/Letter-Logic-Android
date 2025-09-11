@@ -27,7 +27,7 @@ public class LetterCubeInstantiator : MonoBehaviour
         {
             letterCube.AddComponent<LetterCubeEventHandler>();
         }
-        letterCube.GetComponent<LetterCubeData>().SetLetterOnCube(letter);
+        letterCube.GetComponent<LetterCubeData>().LetterOnTop = letter;
 
 
         return letterCube;

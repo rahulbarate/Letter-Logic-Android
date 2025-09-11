@@ -123,7 +123,7 @@ public class WordSpawner : MonoBehaviour
             else
                 letterCube.transform.localScale = new UnityEngine.Vector3(0.95f, 0.95f, 0.95f);
             letterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
-            letterCube.GetComponent<LetterCubeData>().SetLetterOnCube(wordChosenInChars[randomCharIndex].ToString());
+            letterCube.GetComponent<LetterCubeData>().LetterOnTop = wordChosenInChars[randomCharIndex].ToString();
             letterCube.transform.position = spawnPoints[i];
             letterCube.GetComponent<Rigidbody>().isKinematic = true;
             letterCube.GetComponent<Rigidbody>().useGravity = false;
@@ -203,7 +203,7 @@ public class WordSpawner : MonoBehaviour
         // {
         //     Debug.Log(wordChosenInChars[activeLetterCubeIndex].ToString());
         // }
-        if (letterOnSlotSensor == activeLetterCube.GetComponent<LetterCubeData>().GetLetterOnCube())
+        if (letterOnSlotSensor == activeLetterCube.GetComponent<LetterCubeData>().LetterOnTop)
         {
             // Debug.Log($"Correctly placed; letterOnSlotSensor:{letterOnSlotSensor} == {activeLetterCube.GetComponent<LetterCubeData>().GetLetterOnCube()}");
             correctlyPlacedLCCount++;

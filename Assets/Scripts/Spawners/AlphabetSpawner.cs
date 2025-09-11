@@ -6,13 +6,15 @@ using UnityEngine;
 public class AlphabetSpawner : Spawner
 {
     List<char> availableLetters;
+    [SerializeField] GameObject alphabetLetterCubes;
     // Start is called before the first frame update
     void Start()
     {
         GenerateAllLetters();
         letterCubeMovement = GetComponent<LetterCubeMovement>();
         slotSensorsHandler.AssignCLettersToSlotSensors();
-        InstantiateLetterCube();
+        SpawnLetterCubes();
+        // InstantiateLetterCube();
     }
 
     // Update is called once per frame
@@ -24,70 +26,66 @@ public class AlphabetSpawner : Spawner
     {
         availableLetters = new List<char>();
 
-        for (char i = 'A'; i <= 'Z'; i++)
+        for (char i = 'A'; i <= 'D'; i++)
             availableLetters.Add(i);
     }
-    private void InstantiateLetterCube()
+    void SpawnLetterCubes()
     {
         if (availableLetters.Count != 0)
         {
-            // generating random index and calculating letter to fetch from 26 lettes
+            // generating random index and calculating letter cube to fetch from 26 letter cubes
             int randomLetterIndex = UnityEngine.Random.Range(0, availableLetters.Count);
-            int letterToFetch = 26 - (90 - Convert.ToInt32(availableLetters[randomLetterIndex])) - 1;
+            int letterCubeToFetch = 26 - (90 - Convert.ToInt32(availableLetters[randomLetterIndex])) - 1;
+
             //getting letter string
             letterChoosen = availableLetters[randomLetterIndex].ToString();
 
-            //fetching letter object to be displayed on the Cube.
-            single3DLetterModel = letters3DModels.transform.GetChild(letterToFetch).gameObject;
+            activeLetterCube = alphabetLetterCubes.transform.GetChild(letterCubeToFetch).gameObject;
 
-            //Instantiating Letter Cube
-            activeLetterCube = LetterCubeInstantiator.InstantiateLetterCube(letterCubeModel, transform.position, letterCubeScale, letterChoosen, single3DLetterModel);
+            activeLetterCube.transform.localScale = new UnityEngine.Vector3(0.95f, 0.95f, 0.95f);
 
+            activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
 
-            //Subscribing to event
-            activeLetterCubeEventHandler = activeLetterCube.GetComponent<LetterCubeEventHandler>();
-            activeLetterCubeEventHandler.E_PlacedInSlot += OnPlacedInSlot;
+            activeLetterCube.GetComponent<LetterCubeData>().LetterOnTop = letterChoosen;
+
+            activeLetterCube.transform.position = transform.position;
+
+            activeLetterCube.GetComponent<Rigidbody>().isKinematic = false;
+            activeLetterCube.GetComponent<Rigidbody>().useGravity = true;
 
             availableLetters.RemoveAt(randomLetterIndex);
-            // gameDataSave.LetterCube = activeLetterCube;
 
             // setting camera to follow newly created Letter Cube.
             cineFreeCam.Follow = activeLetterCube.transform;
             cineFreeCam.LookAt = activeLetterCube.transform;
 
+            // set letter cube active
+            activeLetterCube.SetActive(true);
             letterCubeMovement.ActiveLetterCube = activeLetterCube;
-
-
-            // slotSensorsHandler.SetActive(letterToFetch);
-            // slotSensorsHandler.SetActive(randomLetterIndex);
-
         }
         else
         {
             Debug.Log("Level Completed");
             gameDataSave.IsLevelCompleted = true;
             gameDataSave.LetterCube = null;
-            // cineFreeCam.Follow = invisibleCharacter.transform;
-            // cineFreeCam.LookAt = invisibleCharacter.transform;
-            // invisibleCharacter.SetActive(true);
 
         }
-
     }
+
     public override void OnPlacedInSlot(string letterOnSlotSensor)
     {
         if (letterOnSlotSensor == letterChoosen)
         {
-            //Process correct Letter Cube placement
+
+            // making sure no forces are applied
+            activeLetterCube.GetComponent<Rigidbody>().isKinematic = true;
+            activeLetterCube.GetComponent<Rigidbody>().useGravity = false;
 
             // remove event listening.
-            activeLetterCubeEventHandler.E_PlacedInSlot -= OnPlacedInSlot;
+            activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot -= OnPlacedInSlot;
 
             // setting isPlaced to true, so bombs won't affect it.
             activeLetterCube.GetComponent<LetterCubeData>().isPlaced = true;
-
-            //Start Correct Cube Sequence.
-            // activeLetterCubeEventHandler.ProcessPlacedLetterCube();
 
             //Reset vars
             single3DLetterModel = null;
@@ -96,12 +94,15 @@ public class AlphabetSpawner : Spawner
             activeLetterCubeEventHandler = null;
             letterCubeMovement.ActiveLetterCube = null;
 
-            InstantiateLetterCube();
+            SpawnLetterCubes();
+
+            // InstantiateLetterCube();
         }
         else
         {
             // Process incorrect Letter Cube placement
-            activeLetterCubeEventHandler.ProcessIncorrectLetterCube();
+            Debug.Log("Incorrect Letter Cube");
+            // activeLetterCubeEventHandler.ProcessIncorrectLetterCube();
             letterCubeMovement.MoveToInitialPosition();
         }
     }
