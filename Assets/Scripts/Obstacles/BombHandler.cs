@@ -24,7 +24,7 @@ public class BombHandler : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (!other.gameObject.CompareTag("Untagged"))
+        if (!other.gameObject.CompareTag("BombLayer"))
         {
 
             Invoke(nameof(ExplosionEffect), explosionDelay);

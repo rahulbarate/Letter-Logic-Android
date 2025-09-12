@@ -8,6 +8,7 @@ TagManager:
   - Slot Senser
   - Playground
   - Bomb
+  - BombLayer
   layers:
   - Default
   - TransparentFX

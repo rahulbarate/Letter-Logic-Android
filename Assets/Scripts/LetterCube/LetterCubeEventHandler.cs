@@ -8,13 +8,13 @@ public class LetterCubeEventHandler : MonoBehaviour
     LetterCubeData letterCubeData;
 
     Rigidbody rgbody;
-    [SerializeField] Transform sideLetters;
-    [SerializeField] Transform sideLawnLayers;
+    // [SerializeField] Transform sideLetters;
+    // [SerializeField] Transform sideLawnLayers;
     LetterCubeMovement letterCubeMovement;
     Transform slotSensor;
 
     //Event Register
-    public event Action E_PlacedInSlot;
+    public event Action<string> E_PlacedInSlot;
     public event Action E_IncorrectSlot;
     public event Action E_LetterCubeBombed;
 
@@ -29,27 +29,28 @@ public class LetterCubeEventHandler : MonoBehaviour
     }
 
 
-    public void ProcessCorrectLetterCube()
-    {
-        // Debug.Log("Correct Letter Cube");
-        Destroy(rgbody);
-        Destroy(sideLetters.gameObject);
-        Destroy(sideLawnLayers.gameObject);
-        Destroy(letterCubeMovement);
-        // Destroy(slotSensor.gameObject);
-        // slotSensor.gameObject.SetActive(false);
-        Destroy(this);
-    }
+    // public void ProcessPlacedLetterCube()
+    // {
+    //     // Debug.Log("Correct Letter Cube");
+    //     // Destroy(rgbody);
+    //     // Destroy(sideLetters.gameObject);
+    //     // Destroy(sideLawnLayers.gameObject);
+    //     // letterCubeMovement.DisableControls();
+    //     // Destroy(letterCubeMovement);
+    //     // Destroy(slotSensor.gameObject);
+    //     // slotSensor.gameObject.SetActive(false);
+    //     // Destroy(this);
+    // }
     public void ProcessIncorrectLetterCube()
     {
         Debug.Log("Incorrect Letter Cube");
-        letterCubeMovement.MoveToInitialPosition();
+        // letterCubeMovement.MoveToInitialPosition();
         // letterCubeData.SetLetterCubeState(LetterCubeState.Idle);
     }
     public void ProcessBombedLetterCube()
     {
 
-        if (transform.localPosition != letterCubeData.initialPosition)
+        if (transform.localPosition != letterCubeData.initialPosition && letterCubeData.isPlaced == false)
         {
             transform.localPosition = letterCubeData.initialPosition;
         }
@@ -67,12 +68,14 @@ public class LetterCubeEventHandler : MonoBehaviour
         // Debug.Log(other.tag);
         if (other.CompareTag("Slot Senser"))
         {
-            Debug.Log(other.tag);
+            // Debug.Log(other.tag);
+            // other.GetComponent<SlotSensorData>().letter;
             // slotSensor = other.transform;
-            E_PlacedInSlot?.Invoke();
-            ProcessCorrectLetterCube();
+            E_PlacedInSlot?.Invoke(other.GetComponent<SlotSensorData>().letter);
+            // ProcessCorrectLetterCube();
 
-            // if (slotSensor.GetComponent<SlotSensorData>().Letter == letterCubeData.GetLetterOnCube())
+            // if (slotSensor.GetComponent<SlotSensorData>().Letter == letterCube
+            // Data.GetLetterOnCube())
             // {
             //     // letterCubeData.SetLetterCubeState(LetterCubeState.Matched);
 

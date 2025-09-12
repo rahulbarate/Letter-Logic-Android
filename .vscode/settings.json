@@ -87,5 +87,7 @@
                 "workbench.action.reloadWindow"
             ]
         }
-    ]
+    ],
+    "editor.inlineSuggest.edits.showCollapsed": false,
+    "editor.inlineSuggest.enabled": false
 }

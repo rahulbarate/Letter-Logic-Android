@@ -6,9 +6,17 @@ using UnityEngine;
 public class SlotSensorsHandler : MonoBehaviour
 {
     [SerializeField] GameDataSave gameDataSave;
+
+    List<SlotSensorData> childrenSlotSensorData;
     // Start is called before the first frame update
     void Start()
     {
+        childrenSlotSensorData = new();
+        // get slot sensor data of every child
+        foreach (Transform child in transform)
+        {
+            childrenSlotSensorData.Add(child.GetComponent<SlotSensorData>());
+        }
         // AssignCLettersToSlotSensers();
     }
 
@@ -24,6 +32,16 @@ public class SlotSensorsHandler : MonoBehaviour
         {
             child.GetComponent<SlotSensorData>().Letter = ch.ToString();
             ch++;
+        }
+    }
+    public void AssignWord(List<char> wordChoosen)
+    {
+        // char ch = 'A';
+        int i = 0;
+        foreach (Transform child in transform)
+        {
+            child.GetComponent<SlotSensorData>().Letter = wordChoosen[i].ToString();
+            i++;
         }
     }
     public void AssignENumbersToSlotSensors()

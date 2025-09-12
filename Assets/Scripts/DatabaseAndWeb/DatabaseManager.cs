@@ -166,7 +166,7 @@ public class DatabaseManager
 
     public List<Word> GetWordsFromDatabase(int wordLength, int numberOfWords)
     {
-        Debug.Log("GetWordsFromDatabase called with wordLength: " + wordLength + " and numberOfWords: " + numberOfWords);
+        // Debug.Log("GetWordsFromDatabase called with wordLength: " + wordLength + " and numberOfWords: " + numberOfWords);
         List<Word> words = new List<Word>();
         // var result = null;
         try
@@ -180,7 +180,7 @@ public class DatabaseManager
 
             foreach (Word word in result)
             {
-                Debug.Log("Word: " + word.Text + " Hint: " + word.Hint);
+                // Debug.Log("Word: " + word.Text + " Hint: " + word.Hint);
                 words.Add(word);
             }
             return words;
