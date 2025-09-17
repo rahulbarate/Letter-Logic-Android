@@ -26,7 +26,7 @@ public class AlphabetSpawner : Spawner
     {
         availableLetters = new List<char>();
 
-        for (char i = 'A'; i <= 'D'; i++)
+        for (char i = 'A'; i <= 'Z'; i++)
             availableLetters.Add(i);
     }
     void SpawnLetterCubes()
