@@ -14,6 +14,7 @@ public class WordSpawner : MonoBehaviour
     [SerializeField] float distanceBetweenSpawnPoints = 1.5f;
     [SerializeField] GameDataSave gameDataSave;
     [SerializeField] SlotSensorsHandler slotSensorsHandler;
+    [SerializeField] GameObject tempGameWonPanel;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject correctWordPanel;
     [SerializeField] GameObject incorrectWordPanel;
@@ -86,6 +87,8 @@ public class WordSpawner : MonoBehaviour
         if (words.Count == 0)
         {
             CustomLogger.Log("No more words to spawn.");
+            Time.timeScale = 0f;
+            tempGameWonPanel.SetActive(true);
             return;
         }
         wordChosen = words[0];
