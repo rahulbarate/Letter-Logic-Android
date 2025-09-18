@@ -8,25 +8,50 @@ public class CannonHandler : MonoBehaviour
     [SerializeField] GameObject cannonBallCopy;
     [SerializeField] GameObject cannonBallSpawnPoint;
     [SerializeField] float forceAmount = 500f;
-    GameObject instantiatedCannonBall;
-    Rigidbody cannonBallRigidbody;
+    [SerializeField] int poolSize = 10;
+    Queue<GameObject> cannonBallPool = new Queue<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
-
-
+        for (int i = 0; i < poolSize; i++)
+        {
+            GameObject obj = Instantiate(cannonBallCopy);
+            obj.SetActive(false);
+            Rigidbody rb = obj.AddComponent<Rigidbody>();
+            rb.isKinematic = true;
+            cannonBallPool.Enqueue(obj);
+        }
     }
 
     public void FireCannon()
     {
-        instantiatedCannonBall = Instantiate(cannonBallCopy, cannonBallSpawnPoint.transform.position, Quaternion.identity);
-        instantiatedCannonBall.SetActive(true);
-        instantiatedCannonBall.transform.localScale = new Vector3(27f, 27f, 27f);
-        instantiatedCannonBall.AddComponent<Rigidbody>();
-        cannonBallRigidbody = instantiatedCannonBall.GetComponent<Rigidbody>();
-        Vector3 localForce = new Vector3(0f, 0f, forceAmount);
-        Vector3 worldForce = transform.TransformDirection(localForce);
-        cannonBallRigidbody.AddForce(worldForce, ForceMode.Impulse);
+        if (cannonBallPool.Count > 0)
+        {
+            GameObject ball = cannonBallPool.Dequeue();
+            ball.transform.position = cannonBallSpawnPoint.transform.position;
+            ball.transform.rotation = Quaternion.identity;
+            ball.transform.localScale = new Vector3(27f, 27f, 27f);
+            ball.SetActive(true);
+            Rigidbody rb = ball.GetComponent<Rigidbody>();
+            rb.isKinematic = false;
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            ball.GetComponent<CannonBallHandler>().cannonHandler = this;
+            Vector3 localForce = new Vector3(0f, 0f, forceAmount);
+            Vector3 worldForce = transform.TransformDirection(localForce);
+            rb.AddForce(worldForce, ForceMode.Impulse);
+        }
+    }
+
+    public void ReturnToPool(GameObject obj)
+    {
+        obj.SetActive(false);
+        Rigidbody rb = obj.GetComponent<Rigidbody>();
+        rb.isKinematic = true;
+        CannonBallHandler handler = obj.GetComponent<CannonBallHandler>();
+        handler.meshRenderer.enabled = true;
+        handler.sphereCollider.enabled = true;
+        cannonBallPool.Enqueue(obj);
     }
 }

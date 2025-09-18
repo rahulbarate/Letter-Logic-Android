@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 using UnityEngine.UIElements;
 
 public class BombDropper : MonoBehaviour
@@ -13,6 +14,7 @@ public class BombDropper : MonoBehaviour
     [SerializeField] GameDataSave gameDataSave;
     bool isLevelCompleted = false;
 
+    private ObjectPool<GameObject> bombPool;
 
     MeshFilter meshFilter;
     Vector3[] vertices;
@@ -26,6 +28,21 @@ public class BombDropper : MonoBehaviour
         vertices = meshFilter.mesh.vertices;
         gameDataSave.E_LevelCompleted += SetIsLevelCompleted;
         // alphabetLCInstantiator = requestPlatform.GetComponent<AlphabetLCInstantiator>();
+
+        bombPool = new ObjectPool<GameObject>(
+            createFunc: () => Instantiate(bombCopy),
+            actionOnGet: (obj) => {
+                obj.SetActive(true);
+                var handler = obj.GetComponent<BombHandler>();
+                handler.ResetForPool();
+                handler.pool = bombPool;
+            },
+            actionOnRelease: (obj) => obj.SetActive(false),
+            actionOnDestroy: (obj) => Destroy(obj),
+            collectionCheck: false,
+            defaultCapacity: 10,
+            maxSize: 100
+        );
 
         StartCoroutine(DropBombs());
 
@@ -46,7 +63,9 @@ public class BombDropper : MonoBehaviour
         {
             int randomVertexIndex = UnityEngine.Random.Range(0, vertices.Length);
             Vector3 vertexPos = transform.TransformPoint(vertices[randomVertexIndex]);
-            Instantiate(bombCopy, vertexPos, Quaternion.Euler(0f, 0f, 180f));
+            GameObject bomb = bombPool.Get();
+            bomb.transform.position = vertexPos;
+            bomb.transform.rotation = Quaternion.Euler(0f, 0f, 180f);
             yield return new WaitForSeconds(delayInBombing);
 
         }

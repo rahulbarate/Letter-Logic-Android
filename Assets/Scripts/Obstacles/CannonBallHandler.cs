@@ -7,9 +7,10 @@ public class CannonBallHandler : MonoBehaviour
     [SerializeField] ParticleSystem explosion;
     [SerializeField] float destructionTime = 2f;
     [SerializeField] float explosionEffectTime = 0.1f;
-    MeshRenderer meshRenderer;
-    Collider sphereCollider;
+    public MeshRenderer meshRenderer;
+    public Collider sphereCollider;
     Rigidbody rgbody;
+    public CannonHandler cannonHandler;
 
 
 
@@ -37,13 +38,13 @@ public class CannonBallHandler : MonoBehaviour
     void ExplosionEffect()
     {
         explosion.Play();
-        Destroy(rgbody);
-        Destroy(meshRenderer);
-        Destroy(sphereCollider);
+        rgbody.isKinematic = true;
+        meshRenderer.enabled = false;
+        sphereCollider.enabled = false;
     }
 
     void SelfDestruct()
     {
-        Destroy(transform.gameObject);
+        cannonHandler.ReturnToPool(transform.gameObject);
     }
 }

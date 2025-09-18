@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class BombHandler : MonoBehaviour
 {
@@ -9,9 +10,29 @@ public class BombHandler : MonoBehaviour
     [SerializeField] float explosionDelay;
     [SerializeField] float destructionDelay;
 
-    MeshRenderer meshRenderer;
-    Collider boxCollider;
-    Rigidbody rgbody;
+    private MeshRenderer meshRenderer;
+    private Collider boxCollider;
+    private Rigidbody rgbody;
+    public ObjectPool<GameObject> pool;
+
+    public void ResetForPool()
+    {
+        // Initialize components if they haven't been initialized yet
+        if (meshRenderer == null)
+            meshRenderer = GetComponent<MeshRenderer>();
+        if (boxCollider == null)
+            boxCollider = GetComponent<Collider>();
+        if (rgbody == null)
+            rgbody = GetComponent<Rigidbody>();
+        
+        // Reset component states
+        if (meshRenderer != null)
+            meshRenderer.enabled = true;
+        if (boxCollider != null)
+            boxCollider.enabled = true;
+        if (rgbody != null)
+            rgbody.isKinematic = false;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -35,12 +56,12 @@ public class BombHandler : MonoBehaviour
     void ExplosionEffect()
     {
         explosion.Play();
-        Destroy(rgbody);
-        Destroy(meshRenderer);
-        Destroy(boxCollider);
+        meshRenderer.enabled = false;
+        boxCollider.enabled = false;
+        rgbody.isKinematic = true;
     }
     void SelfDestruct()
     {
-        Destroy(transform.gameObject);
+         pool.Release(gameObject);
     }
 }
