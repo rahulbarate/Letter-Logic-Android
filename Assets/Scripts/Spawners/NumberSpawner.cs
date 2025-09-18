@@ -7,14 +7,20 @@ public class NumberSpawner : Spawner
 {
     List<int> availableNumbers;
     [SerializeField] GameObject numberLetterCubes;
+    [SerializeField] GameObject gameOverPanel;
+    [SerializeField] GameObject gameWonPanel;
+    [SerializeField] GameObject healthBar;
     // Start is called before the first frame update
     void Start()
     {
         GenerateAllLetters();
+        currentHealth = maxHealth;
+        healthBarSegments = maxHealth;
         letterCubeMovement = GetComponent<LetterCubeMovement>();
         slotSensorsHandler.AssignENumbersToSlotSensors();
         // InstantiateLetterCube();
         SpawnLetterCubes();
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
@@ -46,6 +52,7 @@ public class NumberSpawner : Spawner
             activeLetterCube.transform.localScale = new UnityEngine.Vector3(0.95f, 0.95f, 0.95f);
 
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
+            activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed += OnLetterCubeBombed;
 
             activeLetterCube.GetComponent<LetterCubeData>().LetterOnTop = letterChoosen;
 
@@ -69,6 +76,8 @@ public class NumberSpawner : Spawner
             Debug.Log("Level Completed");
             gameDataSave.IsLevelCompleted = true;
             gameDataSave.LetterCube = null;
+            Time.timeScale = 0f;
+            gameWonPanel.SetActive(true);
         }
     }
 
@@ -83,6 +92,7 @@ public class NumberSpawner : Spawner
 
             // remove event listening.
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot -= OnPlacedInSlot;
+            activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed -= OnLetterCubeBombed;
 
             // setting isPlaced to true, so bombs won't affect it.
             activeLetterCube.GetComponent<LetterCubeData>().isPlaced = true;
@@ -100,9 +110,49 @@ public class NumberSpawner : Spawner
         else
         {
             // Process incorrect Letter Cube placement
-            Debug.Log("Incorrect Letter Cube");
+            // Debug.Log("Incorrect Letter Cube");
+            TakeDamage();
             // activeLetterCubeEventHandler.ProcessIncorrectLetterCube();
             letterCubeMovement.MoveToInitialPosition();
         }
+    }
+    public override void OnLetterCubeBombed(GameObject letterCubeHit)
+    {
+        letterCubeMovement.MoveToInitialPosition();
+        TakeDamage();
+    }
+
+    void TakeDamage()
+    {
+        --currentHealth;
+        // Debug.Log(currentHealth);
+        if (healthBarSegments >= 1 && healthBar != null && healthBar.transform.childCount > 0)
+        {
+            healthBarSegments--;
+            if (healthBarSegments >= 0 && healthBar.transform.GetChild(healthBarSegments) != null)
+                healthBar.transform.GetChild(healthBarSegments).gameObject.SetActive(false);
+        }
+
+        if (currentHealth <= 0)
+        {
+            Time.timeScale = 0f;
+            gameOverPanel.SetActive(true);
+        }
+    }
+
+    public void ReviveLevel()
+    {
+        currentHealth = maxHealth;
+        healthBarSegments = maxHealth;
+        if (healthBar != null)
+        {
+            healthBar.SetActive(true);
+            for (int i = 0; i < healthBar.transform.childCount; i++)
+            {
+                healthBar.transform.GetChild(i).gameObject.SetActive(true);
+            }
+        }
+        if (gameOverPanel != null) gameOverPanel.SetActive(false);
+        Time.timeScale = 1f;
     }
 }

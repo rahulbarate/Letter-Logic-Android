@@ -6,6 +6,9 @@ public class Spawner : MonoBehaviour
     public GameObject letterCubeModel;
     public Cinemachine.CinemachineFreeLook cineFreeCam;
     public float letterCubeScale = 97f;
+    public int currentHealth;
+    public int maxHealth = 5;
+    public int healthBarSegments;
     public PlaygroundType playgroundType = PlaygroundType.Alphabet;
     public SlotSensorsHandler slotSensorsHandler;
     public GameDataSave gameDataSave;
@@ -17,5 +20,7 @@ public class Spawner : MonoBehaviour
     protected LetterCubeEventHandler activeLetterCubeEventHandler;
     protected LetterCubeMovement letterCubeMovement;
     public virtual void OnPlacedInSlot(string letterOfSlotSensor) { }
+
+    public virtual void OnLetterCubeBombed(GameObject letterCubeHit) { }
 
 }

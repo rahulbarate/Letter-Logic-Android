@@ -6,9 +6,6 @@ using UnityEngine.UIElements;
 public class CharacterMovement : MonoBehaviour
 {
     [SerializeField] float movementSpeeed = 10f;
-    [SerializeField] float rotationSpeed = 10f;
-    bool isRotating = false;
-    float targetRotation = 0f;
     // Start is called before the first frame update
     void Start()
     {

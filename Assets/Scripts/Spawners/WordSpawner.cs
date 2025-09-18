@@ -13,13 +13,19 @@ public class WordSpawner : MonoBehaviour
     [SerializeField] CinemachineFreeLook cineFreeCam;
     [SerializeField] float distanceBetweenSpawnPoints = 1.5f;
     [SerializeField] GameDataSave gameDataSave;
-    [SerializeField] PlaygroundType playgroundType = PlaygroundType.Words;
     [SerializeField] SlotSensorsHandler slotSensorsHandler;
+    [SerializeField] GameObject gameOverPanel;
+    [SerializeField] GameObject correctWordPanel;
+    [SerializeField] GameObject incorrectWordPanel;
+    [SerializeField] GameObject healthBar;
 
     List<UnityEngine.Vector3> spawnPoints;
     List<Word> words;
     DatabaseManager databaseManager;
     int activeLetterCubeIndex;
+    public int currentHealth;
+    public int maxHealth = 3;
+    public int healthBarSegments;
     // int currentWordIndex;
     Word wordChosen;
     List<char> wordChosenInChars;
@@ -35,6 +41,8 @@ public class WordSpawner : MonoBehaviour
 
     void Start()
     {
+        currentHealth = maxHealth;
+        healthBarSegments = maxHealth;
         databaseManager = new DatabaseManager("wordsDatabase.db");
         spawnPoints = new List<UnityEngine.Vector3>(textLength);
         words = databaseManager.GetWordsFromDatabase(textLength, numberOfWords);
@@ -47,6 +55,8 @@ public class WordSpawner : MonoBehaviour
 
         CalculateSpawnPoints();
         SpawnLetterCubes();
+        Time.timeScale = 1f;
+
     }
     void CalculateSpawnPoints()
     {
@@ -123,6 +133,7 @@ public class WordSpawner : MonoBehaviour
             else
                 letterCube.transform.localScale = new UnityEngine.Vector3(0.95f, 0.95f, 0.95f);
             letterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
+            letterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed += OnLetterCubeBombed;
             letterCube.GetComponent<LetterCubeData>().LetterOnTop = wordChosenInChars[randomCharIndex].ToString();
             letterCube.transform.position = spawnPoints[i];
             letterCube.GetComponent<Rigidbody>().isKinematic = true;
@@ -160,7 +171,10 @@ public class WordSpawner : MonoBehaviour
             // reposition them to the spawn points
             letterCubesForChosenWord[i].transform.position = spawnPoints[i];
             // re register the event
+            letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_PlacedInSlot -= OnPlacedInSlot;
             letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
+            letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed -= OnLetterCubeBombed;
+            letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed += OnLetterCubeBombed;
             // set rigidbody is kinematic to true, so cube isn't moveable if it is not active.
             letterCubesForChosenWord[i].GetComponent<Rigidbody>().isKinematic = true;
             // disable the gravity
@@ -196,6 +210,7 @@ public class WordSpawner : MonoBehaviour
         // setting isPlaced to true so they won't be affected by bombing.
         activeLetterCube.GetComponent<LetterCubeData>().isPlaced = true;
         activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot -= OnPlacedInSlot;
+        activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed -= OnLetterCubeBombed;
         activeLetterCube.GetComponent<Rigidbody>().isKinematic = true;
         activeLetterCube.GetComponent<Rigidbody>().useGravity = false;
 
@@ -210,7 +225,7 @@ public class WordSpawner : MonoBehaviour
         }
         else
         {
-            // Debug.Log($"Correctly placed; letterOnSlotSensor:{letterOnSlotSensor} != {activeLetterCube.GetComponent<LetterCubeData>().GetLetterOnCube()}");
+            // Debug.Log($"In-Correctly placed; letterOnSlotSensor:{letterOnSlotSensor} != {activeLetterCube.GetComponent<LetterCubeData>().GetLetterOnCube()}");
             correctlyPlacedLCCount--;
         }
 
@@ -223,16 +238,22 @@ public class WordSpawner : MonoBehaviour
             {
                 CustomLogger.Log("Correct word");
 
+                // Time.timeScale = 0f;
+                correctWordPanel.SetActive(true);
+
+
                 //spawn next word
-                if (words.Count > 0)
-                    SpawnLetterCubes();
-                else
-                    CustomLogger.Log("Level Completed");
+                // if (words.Count > 0)
+                //     SpawnLetterCubes();
+                // else
+                //     CustomLogger.Log("Level Completed");
             }
             else
             {
                 CustomLogger.LogWarning("Incorrect word");
-                RespawnLetterCubes();
+                // Time.timeScale = 0f;
+                incorrectWordPanel.SetActive(true);
+                // RespawnLetterCubes();
             }
         }
         else
@@ -253,6 +274,54 @@ public class WordSpawner : MonoBehaviour
         // activeLetterCubeIndex = letterIndex;
         cineFreeCam.Follow = letterCubesForChosenWord[letterIndex].transform;
         cineFreeCam.LookAt = letterCubesForChosenWord[letterIndex].transform;
+    }
+    public void OnLetterCubeBombed(GameObject letterCubeHit)
+    {
+        if (activeLetterCube.gameObject == letterCubeHit)
+        {
+            CustomLogger.Log("Bombed");
+            letterCubeMovement.MoveToInitialPosition();
+            TakeDamage();
+        }
+    }
+    void TakeDamage()
+    {
+        --currentHealth;
+        // Debug.Log(currentHealth);
+        if (healthBarSegments >= 1 && healthBar != null && healthBar.transform.childCount > 0)
+        {
+            healthBarSegments--;
+            if (healthBarSegments >= 0 && healthBar.transform.GetChild(healthBarSegments) != null)
+                healthBar.transform.GetChild(healthBarSegments).gameObject.SetActive(false);
+        }
+
+        if (currentHealth <= 0)
+        {
+            Time.timeScale = 0f;
+            gameOverPanel.SetActive(true);
+        }
+    }
+    public void ReviveLevel()
+    {
+        currentHealth = maxHealth;
+        healthBarSegments = maxHealth;
+        if (healthBar != null)
+        {
+            healthBar.SetActive(true);
+            for (int i = 0; i < healthBar.transform.childCount; i++)
+            {
+                healthBar.transform.GetChild(i).gameObject.SetActive(true);
+            }
+        }
+        if (incorrectWordPanel != null) incorrectWordPanel.SetActive(false);
+        if (gameOverPanel != null) gameOverPanel.SetActive(false);
+        RespawnLetterCubes();
+        Time.timeScale = 1f;
+    }
+
+    public void SpawnNextWord()
+    {
+        SpawnLetterCubes();
     }
 
 }
