@@ -17,7 +17,10 @@ public class LetterCubeMovement : MonoBehaviour
     public GameObject ActiveLetterCube
     {
         get { return activeLetterCube; }
-        set { activeLetterCube = value; }
+        set {
+            activeLetterCube = value;
+            if (activeLetterCube != null) rgbody = activeLetterCube.GetComponent<Rigidbody>();
+        }
     }
     Vector2 moveInput;
     Vector2 lookInput;
@@ -53,7 +56,6 @@ public class LetterCubeMovement : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         // letterCubeData = activeLetterCube.GetComponent<LetterCubeData>();
-        rgbody = GetComponent<Rigidbody>();
         movementSpeedAtRunTime = movementSpeed;
 
         // check for cinemachine cam
@@ -72,11 +74,17 @@ public class LetterCubeMovement : MonoBehaviour
         // Vector2 moveInput = InputReader.Instance.MoveInput;
         // Vector2 lookInput = InputReader.Instance.LookInput;
 
-        Vector3 move = new Vector3(moveInput.x, 0, moveInput.y) * movementSpeed * Time.deltaTime;
-        activeLetterCube.transform.Translate(move);
-
         freeLookCamera.m_XAxis.Value += lookInput.x * horizontalLookSensitivity * Time.deltaTime;
         freeLookCamera.m_YAxis.Value -= lookInput.y * verticalLookSensitivity * Time.deltaTime;
+    }
+
+    void FixedUpdate()
+    {
+        if (activeLetterCube == null || rgbody == null)
+            return;
+
+        Vector3 move = new Vector3(moveInput.x, 0, moveInput.y) * movementSpeed * Time.fixedDeltaTime;
+        rgbody.MovePosition(rgbody.position + move);
     }
 
     public void MoveToInitialPosition()
