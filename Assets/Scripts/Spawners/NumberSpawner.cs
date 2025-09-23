@@ -45,6 +45,9 @@ public class NumberSpawner : Spawner
             //getting letter string
             letterChoosen = availableNumbers[randomNumberIndex].ToString();
 
+            correctSlotSensorIndex.Clear();
+            correctSlotSensorIndex.Add(numberToFetch);
+
             activeLetterCube = numberLetterCubes.transform.GetChild(numberToFetch).gameObject;
 
             activeLetterCube.transform.localScale = new UnityEngine.Vector3(0.95f, 0.95f, 0.95f);

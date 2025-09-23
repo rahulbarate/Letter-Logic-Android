@@ -30,7 +30,7 @@ public class LetterCubeEventHandler : MonoBehaviour
         // Debug.Log(other.tag);
         if (other.CompareTag("Slot Senser"))
         {
-            E_PlacedInSlot?.Invoke(other.GetComponent<SlotSensorData>().letter);
+            E_PlacedInSlot?.Invoke(other.GetComponent<SlotSensorHandler>().letter);
         }
     }
     private void OnCollisionEnter(Collision other)

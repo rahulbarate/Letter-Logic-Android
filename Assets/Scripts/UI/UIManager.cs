@@ -7,6 +7,7 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private HintMechanism hintMechanism;
     [SerializeField] private AlphabetSpawner alphabetSpawner;
     [SerializeField] private NumberSpawner numberSpawner;
     [SerializeField] private WordSpawner wordSpawner;
@@ -74,6 +75,11 @@ public class UIManager : MonoBehaviour
     {
         Application.Quit();
         CustomLogger.Log("Game is quitting");
+    }
+
+    public void UseHint()
+    {
+        hintMechanism.ProcessHint();
     }
 
     public void ReviveGroundWithAd()

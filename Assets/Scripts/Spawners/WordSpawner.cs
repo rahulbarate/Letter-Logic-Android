@@ -261,7 +261,14 @@ public class WordSpawner : Spawner
 
     void SetLetterCubeActive(int letterIndex)
     {
+        correctSlotSensorIndex.Clear();
         activeLetterCube = letterCubesForChosenWord[letterIndex];
+        // CustomLogger.Log(activeLetterCube.GetComponent<LetterCubeData>().LetterOnTop[0]);
+        int firstOccurance = wordChosen.Text.IndexOf(activeLetterCube.GetComponent<LetterCubeData>().LetterOnTop[0]);
+        correctSlotSensorIndex.Add(firstOccurance);
+        int lastOccurance = wordChosen.Text.LastIndexOf(activeLetterCube.GetComponent<LetterCubeData>().LetterOnTop[0]);
+        if (firstOccurance != lastOccurance)
+            correctSlotSensorIndex.Add(lastOccurance);
         letterCubeMovement.ActiveLetterCube = activeLetterCube;
         activeLetterCube.GetComponent<Rigidbody>().isKinematic = false;
         activeLetterCube.GetComponent<Rigidbody>().useGravity = true;

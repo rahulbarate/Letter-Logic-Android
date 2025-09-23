@@ -44,12 +44,15 @@ public class AlphabetSpawner : Spawner
         {
             // generating random index and calculating letter cube to fetch from 26 letter cubes
             int randomLetterIndex = UnityEngine.Random.Range(0, availableLetters.Count);
-            LetterCubeToFetch = 26 - (90 - Convert.ToInt32(availableLetters[randomLetterIndex])) - 1;
+            int letterCubeToFetch = 26 - (90 - Convert.ToInt32(availableLetters[randomLetterIndex])) - 1;
+
+            correctSlotSensorIndex.Clear();
+            correctSlotSensorIndex.Add(letterCubeToFetch);
 
             //getting letter string
             letterChoosen = availableLetters[randomLetterIndex].ToString();
 
-            activeLetterCube = alphabetLetterCubes.transform.GetChild(LetterCubeToFetch).gameObject;
+            activeLetterCube = alphabetLetterCubes.transform.GetChild(letterCubeToFetch).gameObject;
 
             activeLetterCube.transform.localScale = new UnityEngine.Vector3(0.95f, 0.95f, 0.95f);
 

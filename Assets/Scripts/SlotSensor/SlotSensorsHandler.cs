@@ -7,7 +7,7 @@ public class SlotSensorsHandler : MonoBehaviour
 {
     [SerializeField] GameDataSave gameDataSave;
 
-    List<SlotSensorData> childrenSlotSensorData;
+    List<SlotSensorHandler> childrenSlotSensorData;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +15,7 @@ public class SlotSensorsHandler : MonoBehaviour
         // get slot sensor data of every child
         foreach (Transform child in transform)
         {
-            childrenSlotSensorData.Add(child.GetComponent<SlotSensorData>());
+            childrenSlotSensorData.Add(child.GetComponent<SlotSensorHandler>());
         }
         // AssignCLettersToSlotSensers();
     }
@@ -30,7 +30,7 @@ public class SlotSensorsHandler : MonoBehaviour
         char ch = 'A';
         foreach (Transform child in transform)
         {
-            child.GetComponent<SlotSensorData>().Letter = ch.ToString();
+            child.GetComponent<SlotSensorHandler>().Letter = ch.ToString();
             ch++;
         }
     }
@@ -40,7 +40,7 @@ public class SlotSensorsHandler : MonoBehaviour
         int i = 0;
         foreach (Transform child in transform)
         {
-            child.GetComponent<SlotSensorData>().Letter = wordChoosen[i].ToString();
+            child.GetComponent<SlotSensorHandler>().Letter = wordChoosen[i].ToString();
             i++;
         }
     }
@@ -49,7 +49,7 @@ public class SlotSensorsHandler : MonoBehaviour
         int i = 1;
         foreach (Transform child in transform)
         {
-            child.GetComponent<SlotSensorData>().Letter = i.ToString();
+            child.GetComponent<SlotSensorHandler>().Letter = i.ToString();
             i++;
         }
     }

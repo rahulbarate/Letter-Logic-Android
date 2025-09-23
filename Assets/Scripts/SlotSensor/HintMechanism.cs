@@ -2,17 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class HintMechanism : MonoBehaviour
 {
     [SerializeField] public int availableHints = 30;
-    [SerializeField] GameObject requestPlatform;
-    [SerializeField] GameDataSave gameDataSave;
+    [SerializeField] GameObject slotSensorsParent;
+    [SerializeField] TextMeshProUGUI hintDisplayText;
+    [SerializeField] Spawner spawner;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        hintDisplayText.text = availableHints.ToString();
     }
 
     // Update is called once per frame
@@ -24,31 +26,29 @@ public class HintMechanism : MonoBehaviour
         }
     }
 
-    private void ProcessHint()
+    public void ProcessHint()
     {
-        if (gameDataSave.PlaygroundType == PlaygroundType.Words)
+        if (availableHints <= 0)
         {
-            Debug.Log("Hint: " + gameDataSave.CurrentWord.Hint);
+            Debug.Log("No hints available!");
+            return;
         }
-        else if (gameDataSave.PlaygroundType == PlaygroundType.Numbers || gameDataSave.PlaygroundType == PlaygroundType.Alphabet)
-        {
-            GameObject letterCube = gameDataSave.LetterCube;
-            if (availableHints <= 0)
-            {
-                Debug.Log("No hints available!");
-                return;
-            }
 
-            foreach (Transform child in transform)
+        foreach (int index in spawner.correctSlotSensorIndex)
+        {
+            // CustomLogger.Log(index);
+            GameObject slotSensor = slotSensorsParent.transform.GetChild(index).gameObject;
+            if (slotSensor != null)
             {
-                if (child.gameObject.activeSelf == true)
+                if (!slotSensor.GetComponent<Light>().enabled)
                 {
-                    availableHints--;
-                    child.GetComponent<Light>().enabled = true;
-                    return;
+                    --availableHints;
+                    slotSensor.GetComponent<Light>().enabled = true;
+                    hintDisplayText.text = availableHints.ToString();
                 }
+
             }
         }
-
+        spawner.correctSlotSensorIndex.Clear();
     }
 }
