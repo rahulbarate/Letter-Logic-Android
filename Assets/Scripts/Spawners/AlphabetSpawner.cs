@@ -7,9 +7,8 @@ public class AlphabetSpawner : Spawner
 {
     List<char> availableLetters;
     [SerializeField] GameObject alphabetLetterCubes;
-    [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject gameWonPanel;
-    [SerializeField] GameObject healthBar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,12 +44,12 @@ public class AlphabetSpawner : Spawner
         {
             // generating random index and calculating letter cube to fetch from 26 letter cubes
             int randomLetterIndex = UnityEngine.Random.Range(0, availableLetters.Count);
-            int letterCubeToFetch = 26 - (90 - Convert.ToInt32(availableLetters[randomLetterIndex])) - 1;
+            LetterCubeToFetch = 26 - (90 - Convert.ToInt32(availableLetters[randomLetterIndex])) - 1;
 
             //getting letter string
             letterChoosen = availableLetters[randomLetterIndex].ToString();
 
-            activeLetterCube = alphabetLetterCubes.transform.GetChild(letterCubeToFetch).gameObject;
+            activeLetterCube = alphabetLetterCubes.transform.GetChild(LetterCubeToFetch).gameObject;
 
             activeLetterCube.transform.localScale = new UnityEngine.Vector3(0.95f, 0.95f, 0.95f);
 
@@ -127,25 +126,7 @@ public class AlphabetSpawner : Spawner
         TakeDamage();
     }
 
-    void TakeDamage()
-    {
-        --currentHealth;
-        // Debug.Log(currentHealth);
-        if (healthBarSegments >= 1 && healthBar != null && healthBar.transform.childCount > 0)
-        {
-            healthBarSegments--;
-            if (healthBarSegments >= 0 && healthBar.transform.GetChild(healthBarSegments) != null)
-                healthBar.transform.GetChild(healthBarSegments).gameObject.SetActive(false);
-        }
-
-        if (currentHealth <= 0)
-        {
-            Time.timeScale = 0f;
-            gameOverPanel.SetActive(true);
-        }
-    }
-
-    public void ReviveLevel()
+    public override void ReviveLevel()
     {
         currentHealth = maxHealth;
         healthBarSegments = maxHealth;

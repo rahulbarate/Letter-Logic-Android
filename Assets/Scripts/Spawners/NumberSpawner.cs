@@ -7,9 +7,7 @@ public class NumberSpawner : Spawner
 {
     List<int> availableNumbers;
     [SerializeField] GameObject numberLetterCubes;
-    [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject gameWonPanel;
-    [SerializeField] GameObject healthBar;
     // Start is called before the first frame update
     void Start()
     {
@@ -122,25 +120,7 @@ public class NumberSpawner : Spawner
         TakeDamage();
     }
 
-    void TakeDamage()
-    {
-        --currentHealth;
-        // Debug.Log(currentHealth);
-        if (healthBarSegments >= 1 && healthBar != null && healthBar.transform.childCount > 0)
-        {
-            healthBarSegments--;
-            if (healthBarSegments >= 0 && healthBar.transform.GetChild(healthBarSegments) != null)
-                healthBar.transform.GetChild(healthBarSegments).gameObject.SetActive(false);
-        }
-
-        if (currentHealth <= 0)
-        {
-            Time.timeScale = 0f;
-            gameOverPanel.SetActive(true);
-        }
-    }
-
-    public void ReviveLevel()
+    public override void ReviveLevel()
     {
         currentHealth = maxHealth;
         healthBarSegments = maxHealth;

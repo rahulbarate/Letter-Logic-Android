@@ -4,29 +4,21 @@ using System.Numerics;
 using Cinemachine;
 using UnityEngine;
 
-public class WordSpawner : MonoBehaviour
+public class WordSpawner : Spawner
 {
     [SerializeField] int textLength = 3;
     [SerializeField] int numberOfWords = 3;
     [SerializeField] GameObject alphabetLetterCubes;
     [SerializeField] GameObject firstSpawnPoint;
-    [SerializeField] CinemachineFreeLook cineFreeCam;
     [SerializeField] float distanceBetweenSpawnPoints = 1.5f;
-    [SerializeField] GameDataSave gameDataSave;
-    [SerializeField] SlotSensorsHandler slotSensorsHandler;
     [SerializeField] GameObject tempGameWonPanel;
-    [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject correctWordPanel;
     [SerializeField] GameObject incorrectWordPanel;
-    [SerializeField] GameObject healthBar;
 
     List<UnityEngine.Vector3> spawnPoints;
     List<Word> words;
     DatabaseManager databaseManager;
     int activeLetterCubeIndex;
-    public int currentHealth;
-    public int maxHealth = 3;
-    public int healthBarSegments;
     // int currentWordIndex;
     Word wordChosen;
     List<char> wordChosenInChars;
@@ -35,13 +27,12 @@ public class WordSpawner : MonoBehaviour
 
     int correctlyPlacedLCCount = 0;
 
-    GameObject activeLetterCube;
+    // GameObject activeLetterCube;
     // int activeLetterIndex;
-
-    LetterCubeMovement letterCubeMovement;
 
     void Start()
     {
+        // maxHealth = 3;
         currentHealth = maxHealth;
         healthBarSegments = maxHealth;
         databaseManager = new DatabaseManager("wordsDatabase.db");
@@ -205,7 +196,7 @@ public class WordSpawner : MonoBehaviour
         }
     }
 
-    void OnPlacedInSlot(string letterOnSlotSensor)
+    public override void OnPlacedInSlot(string letterOnSlotSensor)
     {
         // CustomLogger.Log($"Cube placed; letterOnSlotSensor: {letterOnSlotSensor}, letterOnCube: {activeLetterCube.GetComponent<LetterCubeData>().GetLetterOnCube()}");
 
@@ -278,7 +269,7 @@ public class WordSpawner : MonoBehaviour
         cineFreeCam.Follow = letterCubesForChosenWord[letterIndex].transform;
         cineFreeCam.LookAt = letterCubesForChosenWord[letterIndex].transform;
     }
-    public void OnLetterCubeBombed(GameObject letterCubeHit)
+    public override void OnLetterCubeBombed(GameObject letterCubeHit)
     {
         if (activeLetterCube.gameObject == letterCubeHit)
         {
@@ -287,24 +278,7 @@ public class WordSpawner : MonoBehaviour
             TakeDamage();
         }
     }
-    void TakeDamage()
-    {
-        --currentHealth;
-        // Debug.Log(currentHealth);
-        if (healthBarSegments >= 1 && healthBar != null && healthBar.transform.childCount > 0)
-        {
-            healthBarSegments--;
-            if (healthBarSegments >= 0 && healthBar.transform.GetChild(healthBarSegments) != null)
-                healthBar.transform.GetChild(healthBarSegments).gameObject.SetActive(false);
-        }
-
-        if (currentHealth <= 0)
-        {
-            Time.timeScale = 0f;
-            gameOverPanel.SetActive(true);
-        }
-    }
-    public void ReviveLevel()
+    public override void ReviveLevel()
     {
         currentHealth = maxHealth;
         healthBarSegments = maxHealth;
