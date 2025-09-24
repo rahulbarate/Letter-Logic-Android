@@ -44,6 +44,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void AddHint()
+    {
+        hintMechanism.AddHint();
+        // ShowPopup(+1);
+    }
+
 
 
 
@@ -79,7 +85,7 @@ public class UIManager : MonoBehaviour
 
     public void UseHint()
     {
-        hintMechanism.ProcessHint();
+        hintMechanism.DeductHint();
     }
 
     public void ReviveGroundWithAd()
