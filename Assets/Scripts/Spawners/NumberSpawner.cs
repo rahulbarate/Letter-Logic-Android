@@ -75,8 +75,8 @@ public class NumberSpawner : Spawner
         else
         {
             Debug.Log("Level Completed");
-            gameDataSave.IsLevelCompleted = true;
-            gameDataSave.LetterCube = null;
+            // gameDataSave.IsLevelCompleted = true;
+            // gameDataSave.LetterCube = null;
             Time.timeScale = 0f;
             gameWonPanel.SetActive(true);
         }

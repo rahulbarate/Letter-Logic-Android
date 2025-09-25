@@ -26,12 +26,13 @@ public class BombDropper : MonoBehaviour
         // Get mesh filter
         meshFilter = GetComponent<MeshFilter>();
         vertices = meshFilter.mesh.vertices;
-        gameDataSave.E_LevelCompleted += SetIsLevelCompleted;
+        // gameDataSave.E_LevelCompleted += SetIsLevelCompleted;
         // alphabetLCInstantiator = requestPlatform.GetComponent<AlphabetLCInstantiator>();
 
         bombPool = new ObjectPool<GameObject>(
             createFunc: () => Instantiate(bombCopy),
-            actionOnGet: (obj) => {
+            actionOnGet: (obj) =>
+            {
                 obj.SetActive(true);
                 var handler = obj.GetComponent<BombHandler>();
                 handler.ResetForPool();
@@ -52,10 +53,10 @@ public class BombDropper : MonoBehaviour
     {
         isLevelCompleted = true;
     }
-    private void OnDisable()
-    {
-        gameDataSave.E_LevelCompleted -= SetIsLevelCompleted;
-    }
+    // private void OnDisable()
+    // {
+    //     gameDataSave.E_LevelCompleted -= SetIsLevelCompleted;
+    // }
 
     IEnumerator DropBombs()
     {

@@ -7,7 +7,7 @@ using DG.Tweening;
 
 public class HintMechanism : MonoBehaviour
 {
-    [SerializeField] public int availableHints = 30;
+
     [SerializeField] GameObject slotSensorsParent;
     [SerializeField] TextMeshProUGUI totalHintText;
     [SerializeField] Spawner spawner;
@@ -20,6 +20,7 @@ public class HintMechanism : MonoBehaviour
     [SerializeField] TextMeshProUGUI toastUIText;
     [SerializeField] GameObject toastUIButton;
     [SerializeField] TextMeshProUGUI toastUIButtonText;
+    [SerializeField] GameDataSave gameDataSave;
     private Vector3 initialPosition;
     private Color initialColor;
     private Vector3 toastInitialPosition;
@@ -27,7 +28,7 @@ public class HintMechanism : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        totalHintText.text = availableHints.ToString();
+        totalHintText.text = gameDataSave.TotalAvailableHints.ToString();
         initialPosition = hintPopupText.rectTransform.localPosition;
         initialColor = hintPopupText.color;
         toastInitialPosition = toastUI.GetComponent<RectTransform>().localPosition;
@@ -44,7 +45,7 @@ public class HintMechanism : MonoBehaviour
 
     public void DeductHint()
     {
-        if (availableHints <= 0)
+        if (gameDataSave.TotalAvailableHints <= 0)
         {
             Debug.Log("No hints available!");
             return;
@@ -58,9 +59,9 @@ public class HintMechanism : MonoBehaviour
             {
                 if (!slotSensor.GetComponent<Light>().enabled)
                 {
-                    --availableHints;
+                    --gameDataSave.TotalAvailableHints;
                     slotSensor.GetComponent<Light>().enabled = true;
-                    totalHintText.text = availableHints.ToString();
+                    totalHintText.text = gameDataSave.TotalAvailableHints.ToString();
                     ShowPopup(-1);
                 }
 
@@ -71,8 +72,8 @@ public class HintMechanism : MonoBehaviour
 
     public void AddHint()
     {
-        availableHints += 1;
-        totalHintText.text = availableHints.ToString();
+        gameDataSave.TotalAvailableHints += 1;
+        totalHintText.text = gameDataSave.TotalAvailableHints.ToString();
         ShowPopup(1);
         ShowAdToast();
     }

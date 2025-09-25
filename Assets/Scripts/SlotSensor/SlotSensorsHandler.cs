@@ -20,10 +20,10 @@ public class SlotSensorsHandler : MonoBehaviour
         // AssignCLettersToSlotSensers();
     }
 
-    public void SetCharInUserCreatedWord(int index, char ch)
-    {
-        gameDataSave.SetCharInUserCreatedWord(index, ch);
-    }
+    // public void SetCharInUserCreatedWord(int index, char ch)
+    // {
+    //     gameDataSave.SetCharInUserCreatedWord(index, ch);
+    // }
 
     public void AssignCLettersToSlotSensors()
     {

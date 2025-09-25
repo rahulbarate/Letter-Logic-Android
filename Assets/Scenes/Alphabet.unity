@@ -4119,7 +4119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99d85b5bf3cee0a4f9c27d3a8d32e14c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availableHints: 2
   slotSensorsParent: {fileID: 1794246981}
   totalHintText: {fileID: 555042980}
   spawner: {fileID: 802721052}
@@ -4132,6 +4131,7 @@ MonoBehaviour:
   toastUIText: {fileID: 1358819128}
   toastUIButton: {fileID: 949737861}
   toastUIButtonText: {fileID: 497071137}
+  gameDataSave: {fileID: 11400000, guid: 6a365ee447c9b1d46884803d519a6ea0, type: 2}
 --- !u!1001 &804268732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4297,7 +4297,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 810532535}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6339889, y: 0.00000010007497, z: -0.00000008204184, w: 0.7733422}
+  m_LocalRotation: {x: 0.6339889, y: -0.00000010007497, z: 0.00000008204186, w: 0.7733422}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

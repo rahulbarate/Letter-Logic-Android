@@ -15,7 +15,7 @@ public class CannonsFireSequencer : MonoBehaviour
     void Start()
     {
         childCount = transform.childCount;
-        gameDataSave.E_LevelCompleted += SetIsLevelCompleted;
+        // gameDataSave.E_LevelCompleted += SetIsLevelCompleted;
         // alphabetLCInstantiator = requestPlatform.GetComponent<AlphabetLCInstantiator>();
         StartCoroutine(FireCannon());
     }
@@ -52,8 +52,8 @@ public class CannonsFireSequencer : MonoBehaviour
         }
     }
 
-    private void OnDisable()
-    {
-        gameDataSave.E_LevelCompleted -= SetIsLevelCompleted;
-    }
+    // private void OnDisable()
+    // {
+    //     gameDataSave.E_LevelCompleted -= SetIsLevelCompleted;
+    // }
 }
