@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GameDataSave", menuName = "Scriptble Objects/GameDataSave")]
 public class GameDataSave : ScriptableObject
 {
+    [SerializeField]
     int totalAvailableHints = 2;
     public int TotalAvailableHints
     {

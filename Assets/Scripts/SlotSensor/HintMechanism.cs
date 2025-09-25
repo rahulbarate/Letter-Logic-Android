@@ -13,17 +13,12 @@ public class HintMechanism : MonoBehaviour
     [SerializeField] Spawner spawner;
     [SerializeField] TextMeshProUGUI hintPopupText;
     [SerializeField] float hintPopupDuration = 1f;
-    [SerializeField] float toastAppearDuration = 0.5f;
-    [SerializeField] float toastStayDuration = 2f;
-    [SerializeField] float toastDisappearDuration = 0.5f;
-    [SerializeField] GameObject toastUI;
-    [SerializeField] TextMeshProUGUI toastUIText;
-    [SerializeField] GameObject toastUIButton;
-    [SerializeField] TextMeshProUGUI toastUIButtonText;
+
     [SerializeField] GameDataSave gameDataSave;
+    [SerializeField] ToastUI toastUI;
     private Vector3 initialPosition;
     private Color initialColor;
-    private Vector3 toastInitialPosition;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +26,6 @@ public class HintMechanism : MonoBehaviour
         totalHintText.text = gameDataSave.TotalAvailableHints.ToString();
         initialPosition = hintPopupText.rectTransform.localPosition;
         initialColor = hintPopupText.color;
-        toastInitialPosition = toastUI.GetComponent<RectTransform>().localPosition;
     }
 
     // Update is called once per frame
@@ -48,6 +42,7 @@ public class HintMechanism : MonoBehaviour
         if (gameDataSave.TotalAvailableHints <= 0)
         {
             Debug.Log("No hints available!");
+            toastUI.ShowToast("Sorry, no hints available!", "");
             return;
         }
 
@@ -70,12 +65,13 @@ public class HintMechanism : MonoBehaviour
         spawner.correctSlotSensorIndex.Clear();
     }
 
-    public void AddHint()
+    public void AddHint(int value, bool showAd = true)
     {
-        gameDataSave.TotalAvailableHints += 1;
+        gameDataSave.TotalAvailableHints += value;
         totalHintText.text = gameDataSave.TotalAvailableHints.ToString();
-        ShowPopup(1);
-        ShowAdToast();
+        ShowPopup(value);
+        if (showAd)
+            toastUI.ShowToast("", "2x hint(Ad)");
     }
     public void ShowPopup(int value)
     {
@@ -102,26 +98,5 @@ public class HintMechanism : MonoBehaviour
         });
     }
 
-    public void ShowAdToast()
-    {
-        toastUI.transform.DOKill();
-        toastUIText.gameObject.SetActive(false);
-        toastUIButtonText.text = "+1 hint(Watch Ad)";
-        toastUIButton.SetActive(true);
-        toastUI.SetActive(true);
-        RectTransform toastRect = toastUI.GetComponent<RectTransform>();
-        toastRect.localPosition = toastInitialPosition;
-        float visibleY = toastInitialPosition.y - 130f;
-        toastRect.DOLocalMoveY(visibleY, toastAppearDuration).OnComplete(() =>
-        {
-            DOVirtual.DelayedCall(toastStayDuration, () =>
-            {
-                toastRect.DOLocalMoveY(toastInitialPosition.y, toastDisappearDuration).OnComplete(() =>
-                {
-                    toastUI.SetActive(false);
-                    toastUIButton.SetActive(false);
-                });
-            });
-        });
-    }
+
 }

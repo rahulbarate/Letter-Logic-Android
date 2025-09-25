@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class UIManager : MonoBehaviour
+public class UIInteractionController : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private HintMechanism hintMechanism;
@@ -46,7 +46,7 @@ public class UIManager : MonoBehaviour
 
     public void AddHint()
     {
-        hintMechanism.AddHint();
+        hintMechanism.AddHint(1);
         // ShowPopup(+1);
     }
 

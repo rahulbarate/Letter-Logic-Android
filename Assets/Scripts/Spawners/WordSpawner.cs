@@ -14,6 +14,7 @@ public class WordSpawner : Spawner
     [SerializeField] GameObject tempGameWonPanel;
     [SerializeField] GameObject correctWordPanel;
     [SerializeField] GameObject incorrectWordPanel;
+    [SerializeField] HintMechanism hintMechanism;
 
     List<UnityEngine.Vector3> spawnPoints;
     List<Word> words;
@@ -26,6 +27,12 @@ public class WordSpawner : Spawner
     List<GameObject> instantiatedLetterCubes;
 
     int correctlyPlacedLCCount = 0;
+    private int consecutiveWins = 0;
+    private int totalWins = 0;
+    [SerializeField]
+    private int consecutiveThreshold = 3;
+    [SerializeField]
+    private int totalThreshold = 10;
 
     // GameObject activeLetterCube;
     // int activeLetterIndex;
@@ -232,6 +239,21 @@ public class WordSpawner : Spawner
             {
                 CustomLogger.Log("Correct word");
 
+                totalWins++;
+                consecutiveWins++;
+
+                if (consecutiveWins >= consecutiveThreshold)
+                {
+                    hintMechanism.AddHint(1);
+                    consecutiveWins = 0;
+                }
+
+                if (totalWins >= totalThreshold)
+                {
+                    hintMechanism.AddHint(2);
+                    totalWins = 0;
+                }
+
                 // Time.timeScale = 0f;
                 correctWordPanel.SetActive(true);
 
@@ -245,6 +267,7 @@ public class WordSpawner : Spawner
             else
             {
                 CustomLogger.LogWarning("Incorrect word");
+                consecutiveWins = 0;
                 // Time.timeScale = 0f;
                 incorrectWordPanel.SetActive(true);
                 // RespawnLetterCubes();

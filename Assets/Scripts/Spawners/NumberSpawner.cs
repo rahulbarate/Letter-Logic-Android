@@ -8,12 +8,16 @@ public class NumberSpawner : Spawner
     List<int> availableNumbers;
     [SerializeField] GameObject numberLetterCubes;
     [SerializeField] GameObject gameWonPanel;
+    [SerializeField] HintMechanism hintMechanism;
+    private int consecutiveCorrect;
+    private int threshold = 4;
     // Start is called before the first frame update
     void Start()
     {
         GenerateAllLetters();
         currentHealth = maxHealth;
         healthBarSegments = maxHealth;
+        consecutiveCorrect = 0;
         letterCubeMovement = GetComponent<LetterCubeMovement>();
         slotSensorsHandler.AssignENumbersToSlotSensors();
         // InstantiateLetterCube();
@@ -75,9 +79,10 @@ public class NumberSpawner : Spawner
         else
         {
             Debug.Log("Level Completed");
+            hintMechanism.AddHint(2, false);
             // gameDataSave.IsLevelCompleted = true;
             // gameDataSave.LetterCube = null;
-            Time.timeScale = 0f;
+            // Time.timeScale = 0f;
             gameWonPanel.SetActive(true);
         }
     }
@@ -105,6 +110,13 @@ public class NumberSpawner : Spawner
             activeLetterCubeEventHandler = null;
             letterCubeMovement.ActiveLetterCube = null;
 
+            consecutiveCorrect++;
+            if (consecutiveCorrect >= threshold)
+            {
+                hintMechanism.AddHint(1);
+                consecutiveCorrect = 0;
+            }
+
             // InstantiateLetterCube();
             SpawnLetterCubes();
         }
@@ -115,6 +127,7 @@ public class NumberSpawner : Spawner
             TakeDamage();
             // activeLetterCubeEventHandler.ProcessIncorrectLetterCube();
             letterCubeMovement.MoveToInitialPosition();
+            consecutiveCorrect = 0;
         }
     }
     public override void OnLetterCubeBombed(GameObject letterCubeHit)
@@ -127,6 +140,7 @@ public class NumberSpawner : Spawner
     {
         currentHealth = maxHealth;
         healthBarSegments = maxHealth;
+        consecutiveCorrect = 0;
         if (healthBar != null)
         {
             healthBar.SetActive(true);

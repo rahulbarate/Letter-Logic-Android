@@ -8,6 +8,12 @@ public class AlphabetSpawner : Spawner
     List<char> availableLetters;
     [SerializeField] GameObject alphabetLetterCubes;
     [SerializeField] GameObject gameWonPanel;
+    [SerializeField] HintMechanism hintMechanism;
+    [SerializeField] char startChar = 'A';
+    [SerializeField] char endChar = 'Z';
+
+    private int consecutiveCorrect;
+    private int threshold = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +22,7 @@ public class AlphabetSpawner : Spawner
         letterCubeMovement = GetComponent<LetterCubeMovement>();
         currentHealth = maxHealth;
         healthBarSegments = maxHealth;
+        consecutiveCorrect = 0;
         slotSensorsHandler.AssignCLettersToSlotSensors();
         SpawnLetterCubes();
         Time.timeScale = 1f;
@@ -35,7 +42,7 @@ public class AlphabetSpawner : Spawner
     {
         availableLetters = new List<char>();
 
-        for (char i = 'A'; i <= 'D'; i++)
+        for (char i = startChar; i <= endChar; i++)
             availableLetters.Add(i);
     }
     void SpawnLetterCubes()
@@ -79,9 +86,10 @@ public class AlphabetSpawner : Spawner
         else
         {
             Debug.Log("Level Completed");
+            hintMechanism.AddHint(2, false);
             // gameDataSave.IsLevelCompleted = true;
             // gameDataSave.LetterCube = null;
-            Time.timeScale = 0f;
+            // Time.timeScale = 0f;
             gameWonPanel.SetActive(true);
         }
     }
@@ -109,6 +117,13 @@ public class AlphabetSpawner : Spawner
             activeLetterCubeEventHandler = null;
             letterCubeMovement.ActiveLetterCube = null;
 
+            consecutiveCorrect++;
+            if (consecutiveCorrect >= threshold)
+            {
+                hintMechanism.AddHint(1);
+                consecutiveCorrect = 0;
+            }
+
             SpawnLetterCubes();
 
             // InstantiateLetterCube();
@@ -120,6 +135,7 @@ public class AlphabetSpawner : Spawner
             TakeDamage();
             // activeLetterCubeEventHandler.ProcessIncorrectLetterCube();
             letterCubeMovement.MoveToInitialPosition();
+            consecutiveCorrect = 0;
         }
     }
 
@@ -133,6 +149,7 @@ public class AlphabetSpawner : Spawner
     {
         currentHealth = maxHealth;
         healthBarSegments = maxHealth;
+        consecutiveCorrect = 0;
         if (healthBar != null)
         {
             healthBar.SetActive(true);
