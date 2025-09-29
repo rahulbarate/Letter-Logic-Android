@@ -147,4 +147,9 @@ public class UIInteractionController : MonoBehaviour
         timerText.text = messagePrefix + "0 sec";
         onTimerFinished();
     }
+
+    public void ShowTextualHint()
+    {
+        wordSpawner.ShowTextualHint();
+    }
 }

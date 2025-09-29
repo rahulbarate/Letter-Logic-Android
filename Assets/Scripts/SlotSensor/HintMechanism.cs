@@ -58,6 +58,11 @@ public class HintMechanism : MonoBehaviour
                     slotSensor.GetComponent<Light>().enabled = true;
                     totalHintText.text = gameDataSave.TotalAvailableHints.ToString();
                     ShowPopup(-1);
+                    if (spawner is WordSpawner)
+                    {
+                        WordSpawner wordSpawner = (WordSpawner)spawner;
+                        wordSpawner.ShowTextualHint();
+                    }
                 }
 
             }

@@ -15,7 +15,7 @@ public class ToastUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI toastUIButtonText;
     private Vector3 toastInitialPosition;
 
-    void Start()
+    void Awake()
     {
         toastInitialPosition = toastUI.GetComponent<RectTransform>().localPosition;
     }

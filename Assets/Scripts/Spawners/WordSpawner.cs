@@ -17,6 +17,8 @@ public class WordSpawner : Spawner
     [SerializeField] GameObject incorrectWordPanel;
     [SerializeField] HintMechanism hintMechanism;
 
+    [SerializeField] ToastUI toastUI;
+
     List<UnityEngine.Vector3> spawnPoints;
     List<Word> words;
     DatabaseManager databaseManager;
@@ -98,6 +100,7 @@ public class WordSpawner : Spawner
 
         //Display Hint
         CustomLogger.Log("Hint:" + wordChosen.Hint);
+        ShowTextualHint();
         //Assign Letters to the Slot Sensors;
         slotSensorsHandler.AssignWord(wordChosenInChars);
 
@@ -191,6 +194,8 @@ public class WordSpawner : Spawner
 
         //Set the Letter Cube Active
         SetLetterCubeActive(0);
+
+        ShowTextualHint();
     }
 
     void ToggleLetterCubesVisibility(bool visibility)
@@ -343,6 +348,14 @@ public class WordSpawner : Spawner
     public void SpawnNextWord()
     {
         SpawnLetterCubes();
+    }
+
+    public void ShowTextualHint()
+    {
+        if (wordChosen != null && toastUI != null)
+        {
+            toastUI.ShowToast($"{wordChosen.Hint}", "");
+        }
     }
 
 }
