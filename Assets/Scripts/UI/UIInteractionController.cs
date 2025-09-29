@@ -13,6 +13,7 @@ public class UIInteractionController : MonoBehaviour
     [SerializeField] private WordSpawner wordSpawner;
     [SerializeField] private GameObject exitConfirmDialog;
     [SerializeField] private GameObject correctWordPanel;
+    [SerializeField] private GameObject correctWordPanelAdButton;
     [SerializeField] private GameObject incorrectWordPanel;
     [SerializeField] private TextMeshProUGUI correctWordPanelTimer;
     [SerializeField] private TextMeshProUGUI incorrectWordPanelTimer;
@@ -112,6 +113,7 @@ public class UIInteractionController : MonoBehaviour
     {
         wordSpawner.SpawnNextWord();
         correctWordPanel.SetActive(false);
+        correctWordPanelAdButton.SetActive(false);
         exitConfirmDialog.SetActive(false);
         StopCoroutine(timerCoroutine);
         Time.timeScale = 1f;
@@ -122,6 +124,7 @@ public class UIInteractionController : MonoBehaviour
     {
         // isTimerRunning = false;
         correctWordPanel.SetActive(false);
+        correctWordPanelAdButton.SetActive(false);
         incorrectWordPanel.SetActive(false);
         exitConfirmDialog.SetActive(false);
         if (pauseMenu.activeSelf)

@@ -356,7 +356,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5062517}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18073766, y: 0.67969275, z: -0.60931754, w: 0.3661746}
+  m_LocalRotation: {x: 0.18073751, y: 0.67969286, z: -0.60931754, w: 0.3661745}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3105,7 +3105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154557353}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18073769, y: 0.6796927, z: -0.60931754, w: 0.36617467}
+  m_LocalRotation: {x: 0.18073753, y: 0.6796928, z: -0.6093176, w: 0.3661745}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3740,7 +3740,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6339889, y: -0.000000047434202, z: 0.000000038886746, w: 0.77334213}
+  m_LocalRotation: {x: 0.6339889, y: 0.00000015107446, z: -0.00000012385142, w: 0.7733422}
   m_LocalPosition: {x: 1.87, y: 14.77, z: 6.402}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5486,10 +5486,11 @@ MonoBehaviour:
   distanceBetweenSpawnPoints: 1.5
   tempGameWonPanel: {fileID: 1226199160}
   correctWordPanel: {fileID: 125116819}
+  correctWordPanelAdButton: {fileID: 1672214478}
   incorrectWordPanel: {fileID: 807293713}
   hintMechanism: {fileID: 789526170}
   consecutiveThreshold: 3
-  totalThreshold: 10
+  totalThreshold: 5
 --- !u!114 &789526169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5678,7 +5679,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 810532535}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18073751, y: 0.67969286, z: -0.60931754, w: 0.3661745}
+  m_LocalRotation: {x: 0.18073764, y: 0.6796928, z: -0.60931754, w: 0.36617464}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8777,6 +8778,11 @@ PrefabInstance:
       propertyPath: incorrectWordPanelTimer
       value: 
       objectReference: {fileID: 39864808}
+    - target: {fileID: 3708937864556872992, guid: 75d7e5021a2f4504fac82709f7295684,
+        type: 3}
+      propertyPath: correctWordPanelAdButton
+      value: 
+      objectReference: {fileID: 1672214478}
     - target: {fileID: 6614929492007092551, guid: 75d7e5021a2f4504fac82709f7295684,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9517,6 +9523,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 413e0c5e0e12a984fa27168e7cd87fbc,
     type: 3}
   m_PrefabInstance: {fileID: 1654346149}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1672214478 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2135228165406035776, guid: 47631618f2d4ab1448ebc8932992305d,
+    type: 3}
+  m_PrefabInstance: {fileID: 125116816}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1727084200
 PrefabInstance:

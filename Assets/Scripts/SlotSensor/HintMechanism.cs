@@ -52,7 +52,7 @@ public class HintMechanism : MonoBehaviour
             GameObject slotSensor = slotSensorsParent.transform.GetChild(index).gameObject;
             if (slotSensor != null)
             {
-                if (!slotSensor.GetComponent<Light>().enabled)
+                if (!slotSensor.GetComponent<Light>().enabled && gameDataSave.TotalAvailableHints >= 1)
                 {
                     --gameDataSave.TotalAvailableHints;
                     slotSensor.GetComponent<Light>().enabled = true;

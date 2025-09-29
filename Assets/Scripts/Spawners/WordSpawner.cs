@@ -13,6 +13,7 @@ public class WordSpawner : Spawner
     [SerializeField] float distanceBetweenSpawnPoints = 1.5f;
     [SerializeField] GameObject tempGameWonPanel;
     [SerializeField] GameObject correctWordPanel;
+    [SerializeField] GameObject correctWordPanelAdButton;
     [SerializeField] GameObject incorrectWordPanel;
     [SerializeField] HintMechanism hintMechanism;
 
@@ -207,13 +208,13 @@ public class WordSpawner : Spawner
     {
         // CustomLogger.Log($"Cube placed; letterOnSlotSensor: {letterOnSlotSensor}, letterOnCube: {activeLetterCube.GetComponent<LetterCubeData>().GetLetterOnCube()}");
 
-
         // setting isPlaced to true so they won't be affected by bombing.
         activeLetterCube.GetComponent<LetterCubeData>().isPlaced = true;
         activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot -= OnPlacedInSlot;
         activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed -= OnLetterCubeBombed;
         activeLetterCube.GetComponent<Rigidbody>().isKinematic = true;
         activeLetterCube.GetComponent<Rigidbody>().useGravity = false;
+        letterCubeMovement.ActiveLetterCube = null;
 
         // for (int i = 0; i <= textLength - 1; i++)
         // {
@@ -237,25 +238,38 @@ public class WordSpawner : Spawner
             // Check if all letter cubes placed correct or not.
             if (correctlyPlacedLCCount == textLength)
             {
+                if (words.Count == 0)
+                {
+                    CustomLogger.Log("No more words to spawn.");
+                    Time.timeScale = 0f;
+                    tempGameWonPanel.SetActive(true);
+                    return;
+                }
                 CustomLogger.Log("Correct word");
 
-                totalWins++;
-                consecutiveWins++;
+                totalWins += 1;
+                consecutiveWins += 1;
+
+                correctWordPanel.SetActive(true);
 
                 if (consecutiveWins >= consecutiveThreshold)
                 {
-                    hintMechanism.AddHint(1);
+                    CustomLogger.Log($"Consec won {totalWins}, {consecutiveWins}");
+                    hintMechanism.AddHint(1, false);// don't show toast
+                    correctWordPanelAdButton.SetActive(true);
                     consecutiveWins = 0;
                 }
 
                 if (totalWins >= totalThreshold)
                 {
-                    hintMechanism.AddHint(2);
+                    CustomLogger.Log($"Total won {totalWins}, {consecutiveWins}");
+                    hintMechanism.AddHint(2, false);
+                    correctWordPanelAdButton.SetActive(true);
                     totalWins = 0;
+                    consecutiveWins = 0;
                 }
 
                 // Time.timeScale = 0f;
-                correctWordPanel.SetActive(true);
 
 
                 //spawn next word
