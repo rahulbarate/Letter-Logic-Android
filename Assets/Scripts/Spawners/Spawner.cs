@@ -24,6 +24,7 @@ public class Spawner : MonoBehaviour
     public virtual void OnPlacedInSlot(string letterOfSlotSensor) { }
 
     public virtual void OnLetterCubeBombed(GameObject letterCubeHit) { }
+    public virtual void OnLetterCubeFell(GameObject letterCubeHit) { }
 
     public virtual void ReviveLevel() { }
 
@@ -35,8 +36,8 @@ public class Spawner : MonoBehaviour
         {
             --healthBarSegments;
             // Debug.Log(healthBarSegments);
-            if (healthBarSegments >= 0 && healthBar.transform.GetChild(healthBarSegments) != null)
-                healthBar.transform.GetChild(healthBarSegments).gameObject.SetActive(false);
+            if (healthBarSegments >= 0 && healthBar.transform.GetChild((maxHealth - healthBarSegments) - 1) != null)
+                healthBar.transform.GetChild((maxHealth - healthBarSegments) - 1).gameObject.SetActive(false);
         }
 
         if (currentHealth <= 0)

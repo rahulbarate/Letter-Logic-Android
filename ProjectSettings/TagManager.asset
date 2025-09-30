@@ -9,6 +9,7 @@ TagManager:
   - Playground
   - Bomb
   - BombLayer
+  - Water
   layers:
   - Default
   - TransparentFX

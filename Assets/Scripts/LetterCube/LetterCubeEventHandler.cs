@@ -14,6 +14,7 @@ public class LetterCubeEventHandler : MonoBehaviour
     //Event Register
     public event Action<string> E_PlacedInSlot;
     public event Action<GameObject> E_LetterCubeBombed;
+    public event Action<GameObject> E_LetterCubeFell;
 
 
 
@@ -31,6 +32,7 @@ public class LetterCubeEventHandler : MonoBehaviour
         if (other.CompareTag("Slot Senser"))
         {
             E_PlacedInSlot?.Invoke(other.GetComponent<SlotSensorHandler>().letter);
+            transform.position = new Vector3(other.transform.position.x, transform.position.y, other.transform.position.z);
         }
     }
     private void OnCollisionEnter(Collision other)
@@ -39,6 +41,10 @@ public class LetterCubeEventHandler : MonoBehaviour
         {
             E_LetterCubeBombed?.Invoke(this.gameObject);
             // ProcessBombedLetterCube();
+        }
+        else if (other.gameObject.CompareTag("Water"))
+        {
+            E_LetterCubeFell?.Invoke(this.gameObject);
         }
     }
 }

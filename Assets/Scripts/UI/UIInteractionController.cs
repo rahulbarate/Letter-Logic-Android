@@ -8,9 +8,8 @@ public class UIInteractionController : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private HintMechanism hintMechanism;
-    [SerializeField] private AlphabetSpawner alphabetSpawner;
-    [SerializeField] private NumberSpawner numberSpawner;
-    [SerializeField] private WordSpawner wordSpawner;
+    [SerializeField] private Spawner spawner;
+    private WordSpawner wordSpawner;
     [SerializeField] private GameObject exitConfirmDialog;
     [SerializeField] private GameObject correctWordPanel;
     [SerializeField] private GameObject correctWordPanelAdButton;
@@ -21,6 +20,12 @@ public class UIInteractionController : MonoBehaviour
 
     private Coroutine timerCoroutine;
     private bool isTimerRunning = false;
+
+    void Start()
+    {
+        if (spawner is WordSpawner spawner1)
+            wordSpawner = spawner1;
+    }
 
     void Update()
     {
@@ -91,22 +96,7 @@ public class UIInteractionController : MonoBehaviour
 
     public void ReviveGroundWithAd()
     {
-        switch (SceneManager.GetActiveScene().buildIndex)
-        {
-            case 1:
-                alphabetSpawner.ReviveLevel();
-                break;
-            case 2:
-                numberSpawner.ReviveLevel();
-                break;
-            case 3:
-            case 4:
-            case 5:
-                wordSpawner.ReviveLevel();
-                break;
-            default:
-                return;
-        }
+        spawner.ReviveLevel();
     }
 
     public void NextWord()

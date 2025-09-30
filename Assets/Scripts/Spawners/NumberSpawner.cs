@@ -58,6 +58,7 @@ public class NumberSpawner : Spawner
 
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed += OnLetterCubeBombed;
+            activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeFell += OnLetterCubeFell;
 
             activeLetterCube.GetComponent<LetterCubeData>().LetterOnTop = letterChoosen;
 
@@ -99,6 +100,7 @@ public class NumberSpawner : Spawner
             // remove event listening.
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot -= OnPlacedInSlot;
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed -= OnLetterCubeBombed;
+            activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeFell -= OnLetterCubeFell;
 
             // setting isPlaced to true, so bombs won't affect it.
             activeLetterCube.GetComponent<LetterCubeData>().isPlaced = true;
@@ -131,6 +133,11 @@ public class NumberSpawner : Spawner
         }
     }
     public override void OnLetterCubeBombed(GameObject letterCubeHit)
+    {
+        letterCubeMovement.MoveToInitialPosition();
+        TakeDamage();
+    }
+    public override void OnLetterCubeFell(GameObject letterCubeHit)
     {
         letterCubeMovement.MoveToInitialPosition();
         TakeDamage();

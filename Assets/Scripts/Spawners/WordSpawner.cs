@@ -139,6 +139,7 @@ public class WordSpawner : Spawner
                 letterCube.transform.localScale = new UnityEngine.Vector3(0.95f, 0.95f, 0.95f);
             letterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
             letterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed += OnLetterCubeBombed;
+            letterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeFell += OnLetterCubeFell;
             letterCube.GetComponent<LetterCubeData>().LetterOnTop = wordChosenInChars[randomCharIndex].ToString();
             letterCube.transform.position = spawnPoints[i];
             letterCube.GetComponent<Rigidbody>().isKinematic = true;
@@ -180,6 +181,8 @@ public class WordSpawner : Spawner
             letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
             letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed -= OnLetterCubeBombed;
             letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed += OnLetterCubeBombed;
+            letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_LetterCubeFell -= OnLetterCubeFell;
+            letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_LetterCubeFell += OnLetterCubeFell;
             // set rigidbody is kinematic to true, so cube isn't moveable if it is not active.
             letterCubesForChosenWord[i].GetComponent<Rigidbody>().isKinematic = true;
             // disable the gravity
@@ -217,6 +220,7 @@ public class WordSpawner : Spawner
         activeLetterCube.GetComponent<LetterCubeData>().isPlaced = true;
         activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot -= OnPlacedInSlot;
         activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed -= OnLetterCubeBombed;
+        activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeFell -= OnLetterCubeFell;
         activeLetterCube.GetComponent<Rigidbody>().isKinematic = true;
         activeLetterCube.GetComponent<Rigidbody>().useGravity = false;
         letterCubeMovement.ActiveLetterCube = null;
@@ -323,6 +327,15 @@ public class WordSpawner : Spawner
         if (activeLetterCube.gameObject == letterCubeHit)
         {
             CustomLogger.Log("Bombed");
+            letterCubeMovement.MoveToInitialPosition();
+            TakeDamage();
+        }
+    }
+    public override void OnLetterCubeFell(GameObject letterCubeHit)
+    {
+        if (activeLetterCube.gameObject == letterCubeHit)
+        {
+            CustomLogger.Log("Fell in ocean");
             letterCubeMovement.MoveToInitialPosition();
             TakeDamage();
         }
