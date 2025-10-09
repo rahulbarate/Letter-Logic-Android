@@ -1,5 +1,6 @@
 using SQLite4Unity3d;
 using UnityEngine;
+using UnityEngine.Networking;
 #if !UNITY_EDITOR
 using System.Collections;
 using System.IO;
@@ -27,10 +28,19 @@ public class DatabaseManager
             // open StreamingAssets directory and load the db ->
 
 #if UNITY_ANDROID
-            var loadDb = new WWW("jar:file://" + Application.dataPath + "!/assets/" + DatabaseName);  // this is the path to your StreamingAssets in android
+            UnityWebRequest loadDb = UnityWebRequest.Get("jar:file://" + Application.dataPath + "!/assets/" + DatabaseName);  // this is the path to your StreamingAssets in android
+            loadDb.SendWebRequest();
             while (!loadDb.isDone) { }  // CAREFUL here, for safety reasons you shouldn't let this while loop unattended, place a timer and error check
             // then save to Application.persistentDataPath
-            File.WriteAllBytes(filepath, loadDb.bytes);
+            if (loadDb.result == UnityWebRequest.Result.Success)
+            {
+                File.WriteAllBytes(filepath, loadDb.downloadHandler.data);
+            }
+            else
+            {
+                Debug.LogError("Failed to load database: " + loadDb.error);
+            }
+            loadDb.Dispose();
 #elif UNITY_IOS
                  var loadDb = Application.dataPath + "/Raw/" + DatabaseName;  // this is the path to your StreamingAssets in iOS
                 // then save to Application.persistentDataPath

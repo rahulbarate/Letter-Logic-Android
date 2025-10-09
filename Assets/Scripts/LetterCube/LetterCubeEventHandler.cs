@@ -32,7 +32,7 @@ public class LetterCubeEventHandler : MonoBehaviour
         if (other.CompareTag("Slot Senser"))
         {
             E_PlacedInSlot?.Invoke(other.GetComponent<SlotSensorHandler>().letter);
-            transform.position = new Vector3(other.transform.position.x, transform.position.y, other.transform.position.z);
+            // transform.position = new Vector3(other.transform.position.x, transform.position.y, other.transform.position.z);
         }
     }
     private void OnCollisionEnter(Collision other)

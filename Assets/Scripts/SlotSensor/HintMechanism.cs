@@ -28,13 +28,13 @@ public class HintMechanism : MonoBehaviour
         initialColor = hintPopupText.color;
     }
 
-    // Update is called once per frame
+    // Update is called once per frame  
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            DeductHint();
-        }
+        // if (Input.GetKeyDown(KeyCode.H))
+        // {
+        //     DeductHint();
+        // }
     }
 
     public void DeductHint()

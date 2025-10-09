@@ -18,6 +18,7 @@ public class LetterCubeData : MonoBehaviour
     {
         // Debug.Log(transform.localPosition);
         initialPosition = transform.localPosition;
+        // Debug.Log($"{initialPosition.x}-{initialPosition.y}-{initialPosition.z}");
     }
 
 

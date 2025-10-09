@@ -17,7 +17,8 @@ public class LetterCubeMovement : MonoBehaviour
     public GameObject ActiveLetterCube
     {
         get { return activeLetterCube; }
-        set {
+        set
+        {
             activeLetterCube = value;
             if (activeLetterCube != null) rgbody = activeLetterCube.GetComponent<Rigidbody>();
         }
@@ -58,8 +59,6 @@ public class LetterCubeMovement : MonoBehaviour
         // letterCubeData = activeLetterCube.GetComponent<LetterCubeData>();
         movementSpeedAtRunTime = movementSpeed;
 
-        // check for cinemachine cam
-        freeLookCamera = FindObjectOfType<Cinemachine.CinemachineFreeLook>();
         if (freeLookCamera == null)
         {
             Debug.LogError("CinemachineFreeLook camera not found in the scene.");

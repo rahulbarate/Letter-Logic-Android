@@ -35,7 +35,7 @@ public class CannonHandler : MonoBehaviour
             ball.SetActive(true);
             Rigidbody rb = ball.GetComponent<Rigidbody>();
             rb.isKinematic = false;
-            rb.velocity = Vector3.zero;
+            rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
             ball.GetComponent<CannonBallHandler>().cannonHandler = this;
             Vector3 localForce = new Vector3(0f, 0f, forceAmount);
