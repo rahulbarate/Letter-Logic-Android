@@ -472,7 +472,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 3791839794671161628}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 3791839794671161629}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f224c0b5d9fce459353acadba0ae97, type: 3}
@@ -764,7 +764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &215415314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2477,7 +2477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Content: {fileID: 457264043}
   m_Horizontal: 1
-  m_Vertical: 1
+  m_Vertical: 0
   m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1
@@ -3640,6 +3640,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 3708937864556872992, guid: 75d7e5021a2f4504fac82709f7295684,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6614929492007092551, guid: 75d7e5021a2f4504fac82709f7295684,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3693,8 +3698,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2407584937219464484, guid: 75d7e5021a2f4504fac82709f7295684,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3791839794671161630}
   m_SourcePrefab: {fileID: 100100000, guid: 75d7e5021a2f4504fac82709f7295684, type: 3}
+--- !u!1 &3791839794671161629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2407584937219464484, guid: 75d7e5021a2f4504fac82709f7295684,
+    type: 3}
+  m_PrefabInstance: {fileID: 3791839794671161628}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3791839794671161630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3791839794671161629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c231651a3087c184181003e90157d55c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainMenuVideoLoader
+  videoPlayers:
+  - {fileID: 1935720748}
+  - {fileID: 1861209977}
+  - {fileID: 1567123428}
+  - {fileID: 2021366091}
+  - {fileID: 2111255262}
+  loadingTexture: {fileID: 2800000, guid: f8edb601e5a9f834688863f0ac49d364, type: 3}
 --- !u!1001 &4596661198505317974
 PrefabInstance:
   m_ObjectHideFlags: 0

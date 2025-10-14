@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Cinemachine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -17,6 +19,11 @@ public class UIInteractionController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI correctWordPanelTimer;
     [SerializeField] private TextMeshProUGUI incorrectWordPanelTimer;
     [SerializeField] private float timerDuration = 5f;
+    [SerializeField] private Cinemachine.CinemachineFreeLook vCam;
+    [SerializeField] private Image zoomButtonImage;
+    [SerializeField] private Sprite zoomInTexture;
+    [SerializeField] private Sprite zoomOutTexture;
+
 
     private Coroutine timerCoroutine;
     private bool isTimerRunning = false;
@@ -141,5 +148,19 @@ public class UIInteractionController : MonoBehaviour
     public void ShowTextualHint()
     {
         wordSpawner.ShowTextualHint();
+    }
+
+    public void Zoom()
+    {
+        if (vCam.m_Lens.FieldOfView == 40f) // need to zoom in
+        {
+            vCam.m_Lens.FieldOfView = 60f;
+            zoomButtonImage.sprite = zoomInTexture;
+        }
+        else
+        {
+            vCam.m_Lens.FieldOfView = 40f;
+            zoomButtonImage.sprite = zoomOutTexture;
+        }
     }
 }

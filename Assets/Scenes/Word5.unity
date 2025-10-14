@@ -1261,6 +1261,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3708937864556872992, guid: 75d7e5021a2f4504fac82709f7295684,
         type: 3}
+      propertyPath: vCam
+      value: 
+      objectReference: {fileID: 890254439}
+    - target: {fileID: 3708937864556872992, guid: 75d7e5021a2f4504fac82709f7295684,
+        type: 3}
       propertyPath: spawner
       value: 
       objectReference: {fileID: 789526166}
@@ -1284,6 +1289,23 @@ PrefabInstance:
       propertyPath: timerDuration
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3708937864556872992, guid: 75d7e5021a2f4504fac82709f7295684,
+        type: 3}
+      propertyPath: zoomInTexture
+      value: 
+      objectReference: {fileID: 21300000, guid: ca756319fbc968a44b9fe2ba3a0f749f,
+        type: 3}
+    - target: {fileID: 3708937864556872992, guid: 75d7e5021a2f4504fac82709f7295684,
+        type: 3}
+      propertyPath: zoomOutTexture
+      value: 
+      objectReference: {fileID: 21300000, guid: c10165de11827a744b205ab0624069b5,
+        type: 3}
+    - target: {fileID: 3708937864556872992, guid: 75d7e5021a2f4504fac82709f7295684,
+        type: 3}
+      propertyPath: zoomButtonImage
+      value: 
+      objectReference: {fileID: 1129643459}
     - target: {fileID: 3708937864556872992, guid: 75d7e5021a2f4504fac82709f7295684,
         type: 3}
       propertyPath: correctWordPanel
@@ -3751,6 +3773,36 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -55
       objectReference: {fileID: 0}
+    - target: {fileID: 381394000139624549, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 381394000139624549, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 381394000139624549, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 381394000139624549, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 381394000139624549, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 381394000139624549, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 484331604873534051, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_text
@@ -4276,6 +4328,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -310.08002
       objectReference: {fileID: 0}
+    - target: {fileID: 2536923555099442910, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_Name
+      value: Zoom button
+      objectReference: {fileID: 0}
     - target: {fileID: 2676675149698785005, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4626,6 +4683,36 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3806735978108612680, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806735978108612680, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806735978108612680, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806735978108612680, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806735978108612680, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 425
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806735978108612680, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -100
+      objectReference: {fileID: 0}
     - target: {fileID: 3954751252782667493, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_Padding.m_Top
@@ -4905,6 +4992,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695817501542268256, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_Name
+      value: Zoom button image
       objectReference: {fileID: 0}
     - target: {fileID: 4952323657815833016, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
@@ -5386,6 +5478,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hint Popup Text
       objectReference: {fileID: 0}
+    - target: {fileID: 6450667663487762869, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_MovementRange
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 6483463839050316556, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -5747,6 +5844,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7907597029144310662, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 197346250}
+    - target: {fileID: 7907597029144310662, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Zoom
+      objectReference: {fileID: 0}
     - target: {fileID: 7917733356927924282, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -5801,6 +5908,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370675975206564657, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_MovementRange
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 8408627818657457958, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
@@ -5870,7 +5982,7 @@ PrefabInstance:
     - target: {fileID: 8956576038475865379, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 425
+      value: 525
       objectReference: {fileID: 0}
     - target: {fileID: 8956576038475865379, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
@@ -6595,7 +6707,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cineFreeCam: {fileID: 890254439}
-  letterCubeScale: 97
   healthBar: {fileID: 721063723}
   gameOverPanel: {fileID: 721063722}
   currentHealth: 4
@@ -7730,6 +7841,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c5e32787d45c2743ad46a40131999d0, type: 3}
+--- !u!114 &1129643459 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5381614782639390760, guid: 47631618f2d4ab1448ebc8932992305d,
+    type: 3}
+  m_PrefabInstance: {fileID: 721063719}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1139732027
 PrefabInstance:
   m_ObjectHideFlags: 0
