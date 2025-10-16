@@ -27488,11 +27488,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -100
       objectReference: {fileID: 0}
-    - target: {fileID: 6450667663487762869, guid: 47631618f2d4ab1448ebc8932992305d,
-        type: 3}
-      propertyPath: m_MovementRange
-      value: 150
-      objectReference: {fileID: 0}
     - target: {fileID: 6509955217893030100, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -27657,11 +27652,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ChildForceExpandHeight
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8370675975206564657, guid: 47631618f2d4ab1448ebc8932992305d,
-        type: 3}
-      propertyPath: m_MovementRange
-      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 8568085130616997638, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
