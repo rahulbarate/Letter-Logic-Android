@@ -5,7 +5,8 @@ using System.Collections.Generic;
 public class Spawner : MonoBehaviour
 {
     public CinemachineFreeLook cineFreeCam;
-    float letterCubeScale = 95f;
+    public MilestoneManager milestoneManager;
+    protected float letterCubeScale = 0.93f;
     [SerializeField] public GameObject healthBar;
     [SerializeField] public GameObject gameOverPanel;
     public int currentHealth;

@@ -54,7 +54,7 @@ public class NumberSpawner : Spawner
 
             activeLetterCube = numberLetterCubes.transform.GetChild(numberToFetch).gameObject;
 
-            activeLetterCube.transform.localScale = new UnityEngine.Vector3(0.95f, 0.95f, 0.95f);
+            activeLetterCube.transform.localScale = new UnityEngine.Vector3(letterCubeScale, letterCubeScale, letterCubeScale);
 
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed += OnLetterCubeBombed;
@@ -92,6 +92,8 @@ public class NumberSpawner : Spawner
     {
         if (letterOnSlotSensor == letterChoosen)
         {
+            // update milstone
+            milestoneManager.HandleCubePlaced();
 
             // making sure no forces are applied
             activeLetterCube.GetComponent<Rigidbody>().isKinematic = true;
@@ -127,6 +129,11 @@ public class NumberSpawner : Spawner
             // Process incorrect Letter Cube placement
             // Debug.Log("Incorrect Letter Cube");
             TakeDamage();
+
+            // update milestone
+            milestoneManager.HandleDamageTaken();
+
+
             // activeLetterCubeEventHandler.ProcessIncorrectLetterCube();
             letterCubeMovement.MoveToInitialPosition();
             consecutiveCorrect = 0;
@@ -136,11 +143,15 @@ public class NumberSpawner : Spawner
     {
         letterCubeMovement.MoveToInitialPosition();
         TakeDamage();
+        // update milestone
+        milestoneManager.HandleDamageTaken();
     }
     public override void OnLetterCubeFell(GameObject letterCubeHit)
     {
         letterCubeMovement.MoveToInitialPosition();
         TakeDamage();
+        // update milestone
+        milestoneManager.HandleDamageTaken();
     }
 
     public override void ReviveLevel()

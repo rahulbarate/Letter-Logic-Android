@@ -133,10 +133,10 @@ public class WordSpawner : Spawner
                     instantiatedLetterCubes[letterCubeToFetch] = letterCube;
                 }
 
-                letterCube.transform.localScale = new UnityEngine.Vector3(97f, 97f, 97f);
+                letterCube.transform.localScale = new UnityEngine.Vector3(letterCubeScale * 100f, letterCubeScale * 100f, letterCubeScale * 100f);
             }
             else
-                letterCube.transform.localScale = new UnityEngine.Vector3(0.95f, 0.95f, 0.95f);
+                letterCube.transform.localScale = new UnityEngine.Vector3(letterCubeScale, letterCubeScale, letterCubeScale);
             letterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
             letterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed += OnLetterCubeBombed;
             letterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeFell += OnLetterCubeFell;
@@ -233,6 +233,9 @@ public class WordSpawner : Spawner
         {
             // Debug.Log($"Correctly placed; letterOnSlotSensor:{letterOnSlotSensor} == {activeLetterCube.GetComponent<LetterCubeData>().GetLetterOnCube()}");
             correctlyPlacedLCCount++;
+
+            // update milestone
+            // milestoneManager.HandleCubePlaced();
         }
         else
         {
@@ -247,6 +250,15 @@ public class WordSpawner : Spawner
             // Check if all letter cubes placed correct or not.
             if (correctlyPlacedLCCount == textLength)
             {
+
+                CustomLogger.Log("Correct word");
+
+                // update milstone
+                milestoneManager.HandleWordCompleted();
+
+                totalWins += 1;
+                consecutiveWins += 1;
+
                 if (words.Count == 0)
                 {
                     CustomLogger.Log("No more words to spawn.");
@@ -254,42 +266,37 @@ public class WordSpawner : Spawner
                     tempGameWonPanel.SetActive(true);
                     return;
                 }
-                CustomLogger.Log("Correct word");
-
-                totalWins += 1;
-                consecutiveWins += 1;
-
-                correctWordPanel.SetActive(true);
-
-                if (consecutiveWins >= consecutiveThreshold)
+                else
                 {
-                    CustomLogger.Log($"Consec won {totalWins}, {consecutiveWins}");
-                    hintMechanism.AddHint(1, false);// don't show toast
-                    correctWordPanelAdButton.SetActive(true);
-                    consecutiveWins = 0;
+
+                    correctWordPanel.SetActive(true);
+
+                    if (consecutiveWins >= consecutiveThreshold)
+                    {
+                        CustomLogger.Log($"Consec won {totalWins}, {consecutiveWins}");
+                        hintMechanism.AddHint(1, false);// don't show toast
+                        correctWordPanelAdButton.SetActive(true);
+                        consecutiveWins = 0;
+                    }
+
+                    if (totalWins >= totalThreshold)
+                    {
+                        CustomLogger.Log($"Total won {totalWins}, {consecutiveWins}");
+                        hintMechanism.AddHint(2, false);
+                        correctWordPanelAdButton.SetActive(true);
+                        totalWins = 0;
+                        consecutiveWins = 0;
+                    }
                 }
 
-                if (totalWins >= totalThreshold)
-                {
-                    CustomLogger.Log($"Total won {totalWins}, {consecutiveWins}");
-                    hintMechanism.AddHint(2, false);
-                    correctWordPanelAdButton.SetActive(true);
-                    totalWins = 0;
-                    consecutiveWins = 0;
-                }
-
-                // Time.timeScale = 0f;
-
-
-                //spawn next word
-                // if (words.Count > 0)
-                //     SpawnLetterCubes();
-                // else
-                //     CustomLogger.Log("Level Completed");
             }
             else
             {
                 CustomLogger.LogWarning("Incorrect word");
+
+                // update milestone
+                milestoneManager.HandleIncorrectWord();
+
                 consecutiveWins = 0;
                 // Time.timeScale = 0f;
                 incorrectWordPanel.SetActive(true);
@@ -329,6 +336,9 @@ public class WordSpawner : Spawner
             CustomLogger.Log("Bombed");
             letterCubeMovement.MoveToInitialPosition();
             TakeDamage();
+
+            // update milestone
+            milestoneManager.HandleDamageTaken();
         }
     }
     public override void OnLetterCubeFell(GameObject letterCubeHit)
@@ -338,6 +348,9 @@ public class WordSpawner : Spawner
             CustomLogger.Log("Fell in ocean");
             letterCubeMovement.MoveToInitialPosition();
             TakeDamage();
+
+            // update milestone
+            milestoneManager.HandleDamageTaken();
         }
     }
     public override void ReviveLevel()

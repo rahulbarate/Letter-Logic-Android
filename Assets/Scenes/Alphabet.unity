@@ -4097,6 +4097,7 @@ GameObject:
   - component: {fileID: 802721052}
   - component: {fileID: 802721053}
   - component: {fileID: 802721054}
+  - component: {fileID: 802721055}
   m_Layer: 0
   m_Name: RequestPlatform
   m_TagString: Untagged
@@ -4132,6 +4133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cineFreeCam: {fileID: 890254439}
+  milestoneManager: {fileID: 802721055}
   healthBar: {fileID: 345129676}
   gameOverPanel: {fileID: 530551996}
   currentHealth: 0
@@ -4183,6 +4185,19 @@ MonoBehaviour:
   hintPopupDuration: 2
   gameDataSave: {fileID: 11400000, guid: 6a365ee447c9b1d46884803d519a6ea0, type: 2}
   toastUI: {fileID: 1077924792}
+--- !u!114 &802721055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802721048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3709b1cd168b56e4b8384f71a88f1f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MilestoneManager
+  collection: {fileID: 11400000, guid: e2e4f4f097d0f944fa97417de98add04, type: 2}
 --- !u!1001 &804268732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27423,6 +27438,36 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -110.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6051187674966456890, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -27553,6 +27598,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -26
       objectReference: {fileID: 0}
+    - target: {fileID: 7143925936308014910, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7282201725033871462, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -27682,6 +27732,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739870367394548191, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_text
+      value: Congratulations, all letters finished.
       objectReference: {fileID: 0}
     - target: {fileID: 8956576038475865379, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}

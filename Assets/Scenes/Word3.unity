@@ -1167,6 +1167,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4595100110737011271, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4681496855894718735, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1337,6 +1342,36 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -87.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6084075090346870994, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_Name
@@ -1436,6 +1471,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -36
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143925936308014910, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143925936308014910, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7282201725033871462, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
@@ -4220,6 +4265,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 789526170}
+    - targetCorrespondingSourceObject: {fileID: 7350778343534765958, guid: e17506d87d7866a41972dec7e54ed3e1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 789526171}
   m_SourcePrefab: {fileID: 100100000, guid: e17506d87d7866a41972dec7e54ed3e1, type: 3}
 --- !u!1 &789526165 stripped
 GameObject:
@@ -4240,6 +4289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cineFreeCam: {fileID: 890254439}
+  milestoneManager: {fileID: 789526171}
   healthBar: {fileID: 125116820}
   gameOverPanel: {fileID: 125116818}
   currentHealth: 2
@@ -4299,6 +4349,19 @@ MonoBehaviour:
   hintPopupDuration: 2
   gameDataSave: {fileID: 11400000, guid: 6a365ee447c9b1d46884803d519a6ea0, type: 2}
   toastUI: {fileID: 1577868829}
+--- !u!114 &789526171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789526165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3709b1cd168b56e4b8384f71a88f1f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MilestoneManager
+  collection: {fileID: 11400000, guid: e41afbca9d55c204da6a5ed64e6b6884, type: 2}
 --- !u!1001 &797452972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6254,7 +6317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1266098238
 Transform:
   m_ObjectHideFlags: 0
@@ -10212,7 +10275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!33 &3433960340936181939
 MeshFilter:
   m_ObjectHideFlags: 0

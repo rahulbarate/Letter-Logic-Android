@@ -4194,6 +4194,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 789526168}
+    - targetCorrespondingSourceObject: {fileID: 7350778343534765958, guid: e17506d87d7866a41972dec7e54ed3e1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 789526169}
   m_SourcePrefab: {fileID: 100100000, guid: e17506d87d7866a41972dec7e54ed3e1, type: 3}
 --- !u!1 &789526165 stripped
 GameObject:
@@ -4214,6 +4218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cineFreeCam: {fileID: 890254439}
+  milestoneManager: {fileID: 789526169}
   healthBar: {fileID: 1342632194}
   gameOverPanel: {fileID: 1342632192}
   currentHealth: 4
@@ -4263,6 +4268,19 @@ MonoBehaviour:
   hintPopupDuration: 1
   gameDataSave: {fileID: 11400000, guid: 6a365ee447c9b1d46884803d519a6ea0, type: 2}
   toastUI: {fileID: 2112623159}
+--- !u!114 &789526169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789526165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3709b1cd168b56e4b8384f71a88f1f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MilestoneManager
+  collection: {fileID: 11400000, guid: 03fdd021b9969e24686e6e15f749d26d, type: 2}
 --- !u!1001 &797452972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8293,6 +8311,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739870367394548191, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_text
+      value: Congratulations, all numbers finished.
       objectReference: {fileID: 0}
     - target: {fileID: 8956576038475865379, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
