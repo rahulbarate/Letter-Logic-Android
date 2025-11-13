@@ -15,7 +15,7 @@ public class WordSpawner : Spawner
     [SerializeField] GameObject correctWordPanel;
     [SerializeField] GameObject correctWordPanelAdButton;
     [SerializeField] GameObject incorrectWordPanel;
-    [SerializeField] HintMechanism hintMechanism;
+    // [SerializeField] HintMechanism hintMechanism;
 
     [SerializeField] ToastUI toastUI;
 
@@ -271,22 +271,22 @@ public class WordSpawner : Spawner
 
                     correctWordPanel.SetActive(true);
 
-                    if (consecutiveWins >= consecutiveThreshold)
-                    {
-                        CustomLogger.Log($"Consec won {totalWins}, {consecutiveWins}");
-                        hintMechanism.AddHint(1, false);// don't show toast
-                        correctWordPanelAdButton.SetActive(true);
-                        consecutiveWins = 0;
-                    }
+                    // if (consecutiveWins >= consecutiveThreshold)
+                    // {
+                    //     CustomLogger.Log($"Consec won {totalWins}, {consecutiveWins}");
+                    //     hintMechanism.AddHint(1, false);// don't show toast
+                    //     correctWordPanelAdButton.SetActive(true);
+                    //     consecutiveWins = 0;
+                    // }
 
-                    if (totalWins >= totalThreshold)
-                    {
-                        CustomLogger.Log($"Total won {totalWins}, {consecutiveWins}");
-                        hintMechanism.AddHint(2, false);
-                        correctWordPanelAdButton.SetActive(true);
-                        totalWins = 0;
-                        consecutiveWins = 0;
-                    }
+                    // if (totalWins >= totalThreshold)
+                    // {
+                    //     CustomLogger.Log($"Total won {totalWins}, {consecutiveWins}");
+                    //     hintMechanism.AddHint(2, false);
+                    //     correctWordPanelAdButton.SetActive(true);
+                    //     totalWins = 0;
+                    //     consecutiveWins = 0;
+                    // }
                 }
 
             }

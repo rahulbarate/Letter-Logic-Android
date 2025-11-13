@@ -8,7 +8,7 @@ public class AlphabetSpawner : Spawner
     List<char> availableLetters;
     [SerializeField] GameObject alphabetLetterCubes;
     [SerializeField] GameObject gameWonPanel;
-    [SerializeField] HintMechanism hintMechanism;
+    // [SerializeField] HintMechanism hintMechanism;
     [SerializeField] char startChar = 'A';
     [SerializeField] char endChar = 'Z';
 
@@ -89,7 +89,7 @@ public class AlphabetSpawner : Spawner
         else
         {
             Debug.Log("Level Completed");
-            hintMechanism.AddHint(2, false);
+            // hintMechanism.AddHint(2, false);
             // gameDataSave.IsLevelCompleted = true;
             // gameDataSave.LetterCube = null;
             // Time.timeScale = 0f;
@@ -123,12 +123,12 @@ public class AlphabetSpawner : Spawner
             activeLetterCubeEventHandler = null;
             letterCubeMovement.ActiveLetterCube = null;
 
-            consecutiveCorrect++;
-            if (consecutiveCorrect >= threshold)
-            {
-                hintMechanism.AddHint(1);
-                consecutiveCorrect = 0;
-            }
+            // consecutiveCorrect++;
+            // if (consecutiveCorrect >= threshold)
+            // {
+            //     hintMechanism.AddHint(1);
+            //     consecutiveCorrect = 0;
+            // }
 
             SpawnLetterCubes();
 

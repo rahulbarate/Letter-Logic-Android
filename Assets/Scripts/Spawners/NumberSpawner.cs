@@ -8,7 +8,7 @@ public class NumberSpawner : Spawner
     List<int> availableNumbers;
     [SerializeField] GameObject numberLetterCubes;
     [SerializeField] GameObject gameWonPanel;
-    [SerializeField] HintMechanism hintMechanism;
+    // [SerializeField] HintMechanism hintMechanism;
     private int consecutiveCorrect;
     private int threshold = 4;
     // Start is called before the first frame update
@@ -80,7 +80,7 @@ public class NumberSpawner : Spawner
         else
         {
             Debug.Log("Level Completed");
-            hintMechanism.AddHint(2, false);
+            // hintMechanism.AddHint(2, false);
             // gameDataSave.IsLevelCompleted = true;
             // gameDataSave.LetterCube = null;
             // Time.timeScale = 0f;
@@ -114,12 +114,12 @@ public class NumberSpawner : Spawner
             activeLetterCubeEventHandler = null;
             letterCubeMovement.ActiveLetterCube = null;
 
-            consecutiveCorrect++;
-            if (consecutiveCorrect >= threshold)
-            {
-                hintMechanism.AddHint(1);
-                consecutiveCorrect = 0;
-            }
+            // consecutiveCorrect++;
+            // if (consecutiveCorrect >= threshold)
+            // {
+            //     hintMechanism.AddHint(1);
+            //     consecutiveCorrect = 0;
+            // }
 
             // InstantiateLetterCube();
             SpawnLetterCubes();
