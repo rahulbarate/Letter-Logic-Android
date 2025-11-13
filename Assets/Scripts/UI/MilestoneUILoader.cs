@@ -112,7 +112,7 @@ public class MilestoneUILoader : MonoBehaviour
         }
 
         milestoneCard.SetActive(true);
-        Debug.Log($"Updated milestone card {cardIndex} with milestone #{milestone.no}, card name {milestoneCard.name}");
+        Debug.Log($"Updated milestone card {cardIndex} with milestone #{milestone.id}, card name {milestoneCard.name}");
     }
 
     private Image FindIconImageInCard(GameObject milestoneCard)
@@ -184,7 +184,7 @@ public class MilestoneUILoader : MonoBehaviour
     private string FormatMilestoneText(MilestoneData milestone)
     {
         string taskDescription = GetTaskDescription(milestone);
-        return $"Milestone #{milestone.no} \n{taskDescription} \nReward - {milestone.rewardCoins} coins \nCompleted {milestone.noOfTimesCompleted} time{(milestone.noOfTimesCompleted != 1 ? "s" : "")} \nRepeatable - {(milestone.repeatable == true ? "Yes" : "No")}.";
+        return $"Milestone ID #{milestone.id} \n{taskDescription} \nReward - {milestone.rewardCoins} coins \nCompleted {milestone.noOfTimesCompleted} time{(milestone.noOfTimesCompleted != 1 ? "s" : "")} \nRepeatable - {(milestone.repeatable == true ? "Yes" : "No")}.";
     }
 
     private string GetTaskDescription(MilestoneData milestone)
@@ -213,7 +213,7 @@ public class MilestoneUILoader : MonoBehaviour
                 return $"Place {milestone.cubesToPlace} Letter cubes in {milestone.timeLimit} seconds with max {milestone.maxDamageAllowed} damage";
 
             default:
-                return $"Complete milestone #{milestone.no}";
+                return $"Complete milestone #{milestone.id}";
         }
     }
 
@@ -225,7 +225,7 @@ public class MilestoneUILoader : MonoBehaviour
             return;
         }
 
-        Debug.Log($"Milestone #{milestone.no}");
+        Debug.Log($"Milestone #{milestone.id}");
         Debug.Log($"  Type: {milestone.type}");
         Debug.Log($"  Cubes to Place: {milestone.cubesToPlace}");
         Debug.Log($"  Time Limit: {milestone.timeLimit}");

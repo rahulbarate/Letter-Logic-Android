@@ -1709,6 +1709,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4595100110737011271, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4681496855894718735, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1837,32 +1842,32 @@ PrefabInstance:
     - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 297.75
       objectReference: {fileID: 0}
     - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 40.22
       objectReference: {fileID: 0}
     - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -30.11
       objectReference: {fileID: 0}
     - target: {fileID: 6084075090346870994, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
@@ -1962,7 +1967,12 @@ PrefabInstance:
     - target: {fileID: 7143925936308014910, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 60.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143925936308014910, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 7282201725033871462, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
@@ -4495,7 +4505,6 @@ MonoBehaviour:
   correctWordPanel: {fileID: 288226179}
   correctWordPanelAdButton: {fileID: 1115995937}
   incorrectWordPanel: {fileID: 288226178}
-  hintMechanism: {fileID: 789526169}
   toastUI: {fileID: 1051227363}
   consecutiveThreshold: 3
   totalThreshold: 5
@@ -4549,6 +4558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MilestoneManager
   collection: {fileID: 11400000, guid: 1473606bf545cd64aba75f977bb29ca7, type: 2}
+  toastUI: {fileID: 1051227363}
 --- !u!1001 &797452972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5624,6 +5634,7 @@ MonoBehaviour:
   toastUIText: {fileID: 167354938}
   toastUIButton: {fileID: 167354937}
   toastUIButtonText: {fileID: 167354936}
+  offScreenPosition: {x: 0, y: 120, z: 0}
 --- !u!1001 &1052966682
 PrefabInstance:
   m_ObjectHideFlags: 0

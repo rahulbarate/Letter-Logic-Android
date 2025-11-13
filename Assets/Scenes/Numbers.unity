@@ -4230,7 +4230,6 @@ MonoBehaviour:
   correctSlotSensorIndex: 
   numberLetterCubes: {fileID: 919132148180949132}
   gameWonPanel: {fileID: 1342632193}
-  hintMechanism: {fileID: 789526168}
 --- !u!114 &789526167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4281,6 +4280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MilestoneManager
   collection: {fileID: 11400000, guid: 03fdd021b9969e24686e6e15f749d26d, type: 2}
+  toastUI: {fileID: 2112623159}
 --- !u!1001 &797452972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7730,32 +7730,32 @@ PrefabInstance:
     - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 297.75
       objectReference: {fileID: 0}
     - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 40.22
       objectReference: {fileID: 0}
     - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 5910299434774809691, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -30.11
       objectReference: {fileID: 0}
     - target: {fileID: 6051187674966456890, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
@@ -8015,7 +8015,12 @@ PrefabInstance:
     - target: {fileID: 7143925936308014910, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 60.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143925936308014910, guid: 47631618f2d4ab1448ebc8932992305d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 7166519460871527830, guid: 47631618f2d4ab1448ebc8932992305d,
         type: 3}
@@ -11757,6 +11762,7 @@ MonoBehaviour:
   toastUIText: {fileID: 554370638}
   toastUIButton: {fileID: 1820054323}
   toastUIButtonText: {fileID: 481241602}
+  offScreenPosition: {x: 0, y: 120, z: 0}
 --- !u!4 &2135084178 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7729325971456172656, guid: e5c9351f95f44e04abd4beda90317b47,

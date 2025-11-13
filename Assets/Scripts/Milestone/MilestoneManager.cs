@@ -6,12 +6,13 @@ public class MilestoneManager : MonoBehaviour
     [SerializeField]
     MilestoneCollection collection;
     List<MilestoneTracker> trackers = new();
+    [SerializeField] ToastUI toastUI;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         foreach (MilestoneData data in collection.milestones)
         {
-            trackers.Add(new MilestoneTracker(data));
+            trackers.Add(new MilestoneTracker(data, ShowToast));
         }
     }
 
@@ -42,5 +43,11 @@ public class MilestoneManager : MonoBehaviour
     public void HandleIncorrectWord()
     {
         trackers.ForEach(t => t.Reset());
+    }
+
+    public void ShowToast(string text)
+    {
+        Debug.Log("Called for " + text);
+        toastUI.ShowToast(text, "");
     }
 }

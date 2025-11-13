@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MilestoneTracker
 {
     MilestoneData data;
+    Action<string> showToast;
     int cubesPlaced;
     int wordsCompleted;
     float elapsedTime;
@@ -12,9 +14,10 @@ public class MilestoneTracker
     int damageTaken;
 
 
-    public MilestoneTracker(MilestoneData milestone)
+    public MilestoneTracker(MilestoneData milestone, Action<string> showToastAction)
     {
         data = milestone;
+        showToast = showToastAction;
         Reset();
     }
     public void Reset()
@@ -78,10 +81,14 @@ public class MilestoneTracker
     {
         isMilestoneCompleted = true;
         data.noOfTimesCompleted += 1;
+
+        // show toast
+        showToast?.Invoke($"Milestone {data.id} Achieved. Rewarded {data.rewardCoins} coins.");
+
         if (SceneManager.GetActiveScene().buildIndex >= 3)
-            CustomLogger.Log($"Milestone {data.no} Achieved. Completed {data.wordsToComplete} words in {elapsedTime} seconds with {damageTaken} damage. Rewarded {data.rewardCoins} coins.");
+            CustomLogger.Log($"Milestone {data.id} Achieved. Completed {data.wordsToComplete} words in {elapsedTime} seconds with {damageTaken} damage. Rewarded {data.rewardCoins} coins.");
         else
-            CustomLogger.Log($"Milestone {data.no} Achieved. Placed {data.cubesToPlace} in {elapsedTime} seconds with {damageTaken} damage. Rewarded {data.rewardCoins} coins.");
+            CustomLogger.Log($"Milestone {data.id} Achieved. Placed {data.cubesToPlace} in {elapsedTime} seconds with {damageTaken} damage. Rewarded {data.rewardCoins} coins.");
 
         if (!data.repeatable)
             isActive = false;
