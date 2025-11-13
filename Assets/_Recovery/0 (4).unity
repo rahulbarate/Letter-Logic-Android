@@ -619,11 +619,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milestone Card
       objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1181,11 +1176,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milestone Card (6)
       objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1371,11 +1361,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milestone Card (8)
       objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1499,11 +1484,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Milestone Card (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -1643,11 +1623,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milestone Card (8)
       objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1772,11 +1747,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milestone Card (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1795,7 +1765,7 @@ PrefabInstance:
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -1805,17 +1775,17 @@ PrefabInstance:
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 560
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -1914,11 +1884,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Milestone Card (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -2282,11 +2247,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Milestone Card (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -2768,11 +2728,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milestone Card (6)
       objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2896,11 +2851,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Milestone Card (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -3114,11 +3064,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Milestone Card (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -3631,11 +3576,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milestone Card (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -3850,11 +3790,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milestone Card (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -3979,11 +3914,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milestone Card (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -4002,7 +3932,7 @@ PrefabInstance:
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -4012,17 +3942,17 @@ PrefabInstance:
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 560
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -4062,12 +3992,12 @@ PrefabInstance:
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 932.5
+      value: 347.5
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -550
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -4121,11 +4051,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Milestone Card (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -4607,11 +4532,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milestone Card
       objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -5007,11 +4927,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milestone Card (8)
       objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -5304,7 +5219,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1280, y: 0}
+  m_SizeDelta: {x: 1280, y: 1100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1172046520
 MonoBehaviour:
@@ -5325,7 +5240,7 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 4
   m_StartCorner: 0
-  m_StartAxis: 0
+  m_StartAxis: 1
   m_CellSize: {x: 560, y: 200}
   m_Spacing: {x: 25, y: 25}
   m_Constraint: 1
@@ -5358,12 +5273,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MilestoneUILoader
   milestoneCollections:
   - {fileID: 11400000, guid: e2e4f4f097d0f944fa97417de98add04, type: 2}
-  milestoneCardTemplate: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
+  milestoneCardTemplate: {fileID: 0}
   milestoneCardChildName: milestoneCard
   textComponentName: Text (TMP)
-  defaultMilestoneIconColor: {r: 1, g: 1, b: 0, a: 1}
-  completedMilestoneIconColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1001 &1187094026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5390,11 +5302,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Milestone Card (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -5533,11 +5440,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Milestone Card (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -6405,11 +6307,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milestone Card (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -7020,11 +6917,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milestone Card (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -7432,11 +7324,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milestone Card (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -7722,11 +7609,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milestone Card (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -7918,7 +7800,7 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 4
   m_StartCorner: 0
-  m_StartAxis: 0
+  m_StartAxis: 1
   m_CellSize: {x: 560, y: 200}
   m_Spacing: {x: 25, y: 25}
   m_Constraint: 1
@@ -7937,12 +7819,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MilestoneUILoader
   milestoneCollections:
   - {fileID: 11400000, guid: 03fdd021b9969e24686e6e15f749d26d, type: 2}
-  milestoneCardTemplate: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
+  milestoneCardTemplate: {fileID: 0}
   milestoneCardChildName: milestoneCard
   textComponentName: Text (TMP)
-  defaultMilestoneIconColor: {r: 1, g: 1, b: 0, a: 1}
-  completedMilestoneIconColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1001 &1635746887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7955,11 +7834,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Milestone Card (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -8158,7 +8032,7 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 4
   m_StartCorner: 0
-  m_StartAxis: 0
+  m_StartAxis: 1
   m_CellSize: {x: 560, y: 200}
   m_Spacing: {x: 25, y: 25}
   m_Constraint: 1
@@ -8179,12 +8053,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e41afbca9d55c204da6a5ed64e6b6884, type: 2}
   - {fileID: 11400000, guid: 1473606bf545cd64aba75f977bb29ca7, type: 2}
   - {fileID: 11400000, guid: 521d6baf5ee9f45409e6c3a235aedcb7, type: 2}
-  milestoneCardTemplate: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
+  milestoneCardTemplate: {fileID: 0}
   milestoneCardChildName: milestoneCard
   textComponentName: Text (TMP)
-  defaultMilestoneIconColor: {r: 1, g: 1, b: 0, a: 1}
-  completedMilestoneIconColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &1782346838
 GameObject:
   m_ObjectHideFlags: 0
@@ -9048,11 +8919,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milestone Card (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -9434,11 +9300,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Milestone Card (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -9961,11 +9822,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milestone Card
       objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -9984,7 +9840,7 @@ PrefabInstance:
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -9994,17 +9850,17 @@ PrefabInstance:
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 560
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -10044,12 +9900,12 @@ PrefabInstance:
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 347.5
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -10089,11 +9945,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3708937864556872992, guid: 75d7e5021a2f4504fac82709f7295684,
-        type: 3}
-      propertyPath: scrollRect
-      value: 
-      objectReference: {fileID: 2038808175}
     - target: {fileID: 3708937864556872992, guid: 75d7e5021a2f4504fac82709f7295684,
         type: 3}
       propertyPath: milestonePanel

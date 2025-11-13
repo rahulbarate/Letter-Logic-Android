@@ -9,6 +9,11 @@ using TMPro;
 public class UIInteractionController : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject milestonePanel;
+    [SerializeField] private GameObject alphabetMilestonesScrollContent;
+    [SerializeField] private GameObject numbersMilestonesScrollContent;
+    [SerializeField] private GameObject wordsMilestonesScrollContent;
+    [SerializeField] private ScrollRect scrollRect;
     [SerializeField] private HintMechanism hintMechanism;
     [SerializeField] private Spawner spawner;
     private WordSpawner wordSpawner;
@@ -162,5 +167,38 @@ public class UIInteractionController : MonoBehaviour
             vCam.m_Lens.FieldOfView = 40f;
             zoomButtonImage.sprite = zoomOutTexture;
         }
+    }
+
+    public void ToggleMilestonePanel()
+    {
+        if (milestonePanel != null)
+        {
+            milestonePanel.SetActive(!milestonePanel.activeSelf);
+        }
+    }
+
+    public void ToggleMilestoneContent(int no)
+    {
+        alphabetMilestonesScrollContent.SetActive(false);
+        numbersMilestonesScrollContent.SetActive(false);
+        wordsMilestonesScrollContent.SetActive(false);
+        if (no == 1)
+        {
+            alphabetMilestonesScrollContent.SetActive(true);
+            scrollRect.content = alphabetMilestonesScrollContent.GetComponent<RectTransform>();
+        }
+
+        else if (no == 2)
+        {
+            numbersMilestonesScrollContent.SetActive(true);
+            scrollRect.content = numbersMilestonesScrollContent.GetComponent<RectTransform>();
+        }
+        else if (no == 3)
+        {
+            wordsMilestonesScrollContent.SetActive(true);
+            scrollRect.content = wordsMilestonesScrollContent.GetComponent<RectTransform>();
+
+        }
+
     }
 }

@@ -9,7 +9,9 @@ public class MilestoneData
     public float timeLimit;
     public int maxDamageAllowed;
     public int wordsToComplete;
+    public int wordLength = 3;
     public bool repeatable;
+    public int noOfTimesCompleted = 0;
     public int rewardCoins;
 
 }

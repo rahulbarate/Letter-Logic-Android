@@ -77,6 +77,7 @@ public class MilestoneTracker
     void ProcessMilestoneCompletion()
     {
         isMilestoneCompleted = true;
+        data.noOfTimesCompleted += 1;
         if (SceneManager.GetActiveScene().buildIndex >= 3)
             CustomLogger.Log($"Milestone {data.no} Achieved. Completed {data.wordsToComplete} words in {elapsedTime} seconds with {damageTaken} damage. Rewarded {data.rewardCoins} coins.");
         else

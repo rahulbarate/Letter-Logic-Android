@@ -592,149 +592,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69296294}
   m_CullTransparentMesh: 1
---- !u!1001 &77575958
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1587657206}
-    m_Modifications:
-    - target: {fileID: 6735074224166124058, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_text
-      value: 'Milestone 2
-
-        Place 3 Letter cubes in 30 seconds
-
-        Reward
-        - 10 coins
-
-        Completed 1 time.
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Name
-      value: Milestone Card
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 347.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19ea0de33e649a2439f2c83b70e53a8e, type: 3}
---- !u!224 &77575959 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 77575958}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &130798010 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3708937864556872992, guid: 75d7e5021a2f4504fac82709f7295684,
@@ -1154,149 +1011,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1001 &211217108
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1768354135}
-    m_Modifications:
-    - target: {fileID: 6735074224166124058, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_text
-      value: 'Milestone 3
-
-        Place 3 Letter cubes in 30 seconds
-
-        Reward
-        - 10 coins
-
-        Completed 1 time.
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Name
-      value: Milestone Card (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 560
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 932.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19ea0de33e649a2439f2c83b70e53a8e, type: 3}
---- !u!224 &211217109 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 211217108}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &215415313
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,149 +1058,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &219938138
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1587657206}
-    m_Modifications:
-    - target: {fileID: 6735074224166124058, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_text
-      value: 'Milestone 2
-
-        Place 3 Letter cubes in 30 seconds
-
-        Reward
-        - 10 coins
-
-        Completed 1 time.
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Name
-      value: Milestone Card (8)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 932.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -775
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19ea0de33e649a2439f2c83b70e53a8e, type: 3}
---- !u!224 &219938139 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 219938138}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &223374453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1499,11 +1070,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Milestone Card (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -1616,37 +1182,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 223374453}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &261753746
+--- !u!1001 &281306893
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1768354135}
+    m_TransformParent: {fileID: 1172046519}
     m_Modifications:
-    - target: {fileID: 6735074224166124058, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_text
-      value: 'Milestone 3
-
-        Place 3 Letter cubes in 30 seconds
-
-        Reward
-        - 10 coins
-
-        Completed 1 time.
-
-'
-      objectReference: {fileID: 0}
     - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Name
-      value: Milestone Card (8)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: Milestone Card (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -1687,135 +1234,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 932.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -775
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19ea0de33e649a2439f2c83b70e53a8e, type: 3}
---- !u!224 &261753747 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 261753746}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &281306893
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1172046519}
-    m_Modifications:
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Name
-      value: Milestone Card (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -1888,149 +1306,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 281306893}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &288946919
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1768354135}
-    m_Modifications:
-    - target: {fileID: 6735074224166124058, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_text
-      value: 'Milestone 3
-
-        Place 3 Letter cubes in 30 seconds
-
-        Reward
-        - 10 coins
-
-        Completed 1 time.
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Name
-      value: Milestone Card (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 560
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 347.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -775
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19ea0de33e649a2439f2c83b70e53a8e, type: 3}
---- !u!224 &288946920 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 288946919}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &317857776
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,8 +1338,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1172046519}
-  - {fileID: 1587657206}
-  - {fileID: 1768354135}
   m_Father: {fileID: 2038808174}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2157,9 +1430,9 @@ RectTransform:
   - {fileID: 1782346839}
   m_Father: {fileID: 1899659586}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 640.00006, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 218.91, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &326705017
@@ -2205,19 +1478,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 326705018}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 130798010}
-        m_TargetAssemblyTypeName: UIInteractionController, Assembly-CSharp
-        m_MethodName: ToggleMilestoneContent
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &326705018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2256,149 +1517,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 326705015}
   m_CullTransparentMesh: 1
---- !u!1001 &341987569
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1587657206}
-    m_Modifications:
-    - target: {fileID: 6735074224166124058, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_text
-      value: 'Milestone 2
-
-        Place 3 Letter cubes in 30 seconds
-
-        Reward
-        - 10 coins
-
-        Completed 1 time.
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Name
-      value: Milestone Card (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 932.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19ea0de33e649a2439f2c83b70e53a8e, type: 3}
---- !u!224 &341987570 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 341987569}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &415923732
 GameObject:
   m_ObjectHideFlags: 0
@@ -2741,149 +1859,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 0
---- !u!1001 &509716667
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1587657206}
-    m_Modifications:
-    - target: {fileID: 6735074224166124058, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_text
-      value: 'Milestone 2
-
-        Place 3 Letter cubes in 30 seconds
-
-        Reward
-        - 10 coins
-
-        Completed 1 time.
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Name
-      value: Milestone Card (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 932.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19ea0de33e649a2439f2c83b70e53a8e, type: 3}
---- !u!224 &509716668 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 509716667}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &560342725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2896,11 +1871,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Milestone Card (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -3088,149 +2058,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592116476}
   m_CullTransparentMesh: 1
---- !u!1001 &657731025
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1768354135}
-    m_Modifications:
-    - target: {fileID: 6735074224166124058, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_text
-      value: 'Milestone 3
-
-        Place 3 Letter cubes in 30 seconds
-
-        Reward
-        - 10 coins
-
-        Completed 1 time.
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Name
-      value: Milestone Card (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 560
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 347.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19ea0de33e649a2439f2c83b70e53a8e, type: 3}
---- !u!224 &657731026 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 657731025}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &683199241
 GameObject:
   m_ObjectHideFlags: 0
@@ -3604,149 +2431,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!1001 &717451870
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1768354135}
-    m_Modifications:
-    - target: {fileID: 6735074224166124058, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_text
-      value: 'Milestone 3
-
-        Place 3 Letter cubes in 30 seconds
-
-        Reward
-        - 10 coins
-
-        Completed 1 time.
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Name
-      value: Milestone Card (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 560
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 347.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -550
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19ea0de33e649a2439f2c83b70e53a8e, type: 3}
---- !u!224 &717451871 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 717451870}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &779452471
 GameObject:
   m_ObjectHideFlags: 0
@@ -3823,149 +2507,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 779452471}
   m_CullTransparentMesh: 1
---- !u!1001 &791879993
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1768354135}
-    m_Modifications:
-    - target: {fileID: 6735074224166124058, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_text
-      value: 'Milestone 3
-
-        Place 3 Letter cubes in 30 seconds
-
-        Reward
-        - 10 coins
-
-        Completed 1 time.
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Name
-      value: Milestone Card (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 560
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 932.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -550
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19ea0de33e649a2439f2c83b70e53a8e, type: 3}
---- !u!224 &791879994 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 791879993}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &794543448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3978,154 +2519,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Milestone Card (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 932.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19ea0de33e649a2439f2c83b70e53a8e, type: 3}
---- !u!224 &794543449 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 794543448}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &964899804
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1768354135}
-    m_Modifications:
-    - target: {fileID: 6735074224166124058, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_text
-      value: 'Milestone 3
-
-        Place 3 Letter cubes in 30 seconds
-
-        Reward
-        - 10 coins
-
-        Completed 1 time.
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Name
-      value: Milestone Card (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -4210,7 +2603,7 @@ PrefabInstance:
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -325
+      value: -550
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -4232,11 +2625,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19ea0de33e649a2439f2c83b70e53a8e, type: 3}
---- !u!224 &964899805 stripped
+--- !u!224 &794543449 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
     type: 3}
-  m_PrefabInstance: {fileID: 964899804}
+  m_PrefabInstance: {fileID: 794543448}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &995366169
 GameObject:
@@ -4481,9 +2874,9 @@ RectTransform:
   - {fileID: 190308056}
   m_Father: {fileID: 1899659586}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 213.33334, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 218.91, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1049090940
@@ -4529,19 +2922,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1049090941}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 130798010}
-        m_TargetAssemblyTypeName: UIInteractionController, Assembly-CSharp
-        m_MethodName: ToggleMilestoneContent
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1049090941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4580,149 +2961,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049090938}
   m_CullTransparentMesh: 1
---- !u!1001 &1063242648
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1768354135}
-    m_Modifications:
-    - target: {fileID: 6735074224166124058, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_text
-      value: 'Milestone 3
-
-        Place 3 Letter cubes in 30 seconds
-
-        Reward
-        - 10 coins
-
-        Completed 1 time.
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Name
-      value: Milestone Card
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 560
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 347.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19ea0de33e649a2439f2c83b70e53a8e, type: 3}
---- !u!224 &1063242649 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1063242648}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1067452658
 GameObject:
   m_ObjectHideFlags: 0
@@ -5007,11 +3245,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milestone Card (8)
       objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -5270,9 +3503,8 @@ GameObject:
   - component: {fileID: 1172046519}
   - component: {fileID: 1172046520}
   - component: {fileID: 1172046521}
-  - component: {fileID: 1172046522}
   m_Layer: 5
-  m_Name: Alphabet  milestones
+  m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5325,7 +3557,7 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 4
   m_StartCorner: 0
-  m_StartAxis: 0
+  m_StartAxis: 1
   m_CellSize: {x: 560, y: 200}
   m_Spacing: {x: 25, y: 25}
   m_Constraint: 1
@@ -5344,312 +3576,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
   m_HorizontalFit: 0
   m_VerticalFit: 2
---- !u!114 &1172046522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1172046518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c7c1477da29938439863bdd30343111, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MilestoneUILoader
-  milestoneCollections:
-  - {fileID: 11400000, guid: e2e4f4f097d0f944fa97417de98add04, type: 2}
-  milestoneCardTemplate: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
-  milestoneCardChildName: milestoneCard
-  textComponentName: Text (TMP)
-  defaultMilestoneIconColor: {r: 1, g: 1, b: 0, a: 1}
-  completedMilestoneIconColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
---- !u!1001 &1187094026
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1587657206}
-    m_Modifications:
-    - target: {fileID: 6735074224166124058, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_text
-      value: 'Milestone 2
-
-        Place 3 Letter cubes in 30 seconds
-
-        Reward
-        - 10 coins
-
-        Completed 1 time.
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Name
-      value: Milestone Card (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 347.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19ea0de33e649a2439f2c83b70e53a8e, type: 3}
---- !u!224 &1187094027 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1187094026}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1208444215
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1587657206}
-    m_Modifications:
-    - target: {fileID: 6735074224166124058, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_text
-      value: 'Milestone 2
-
-        Place 3 Letter cubes in 30 seconds
-
-        Reward
-        - 10 coins
-
-        Completed 1 time.
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Name
-      value: Milestone Card (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 347.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -550
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19ea0de33e649a2439f2c83b70e53a8e, type: 3}
---- !u!224 &1208444216 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1208444215}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1248883527
 GameObject:
   m_ObjectHideFlags: 0
@@ -5682,10 +3608,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2139108728}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 59.315002, y: -23.41}
-  m_SizeDelta: {x: 58.63, y: 26.82}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1248883529
 MonoBehaviour:
@@ -6253,13 +4179,13 @@ PrefabInstance:
     - target: {fileID: 6357256341754772754, guid: cb6065db67c3e124bb19aaf7c5771683,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6357256341754772754, guid: cb6065db67c3e124bb19aaf7c5771683,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 130798010}
+      objectReference: {fileID: 2019162603}
     - target: {fileID: 6357256341754772754, guid: cb6065db67c3e124bb19aaf7c5771683,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -6268,12 +4194,12 @@ PrefabInstance:
     - target: {fileID: 6357256341754772754, guid: cb6065db67c3e124bb19aaf7c5771683,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToggleMilestonePanel
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 6357256341754772754, guid: cb6065db67c3e124bb19aaf7c5771683,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UIInteractionController, Assembly-CSharp
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6357256341754772754, guid: cb6065db67c3e124bb19aaf7c5771683,
         type: 3}
@@ -6378,149 +4304,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307899821}
   m_CullTransparentMesh: 1
---- !u!1001 &1315197214
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1587657206}
-    m_Modifications:
-    - target: {fileID: 6735074224166124058, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_text
-      value: 'Milestone 2
-
-        Place 3 Letter cubes in 30 seconds
-
-        Reward
-        - 10 coins
-
-        Completed 1 time.
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Name
-      value: Milestone Card (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 347.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19ea0de33e649a2439f2c83b70e53a8e, type: 3}
---- !u!224 &1315197215 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1315197214}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1343332735
 GameObject:
   m_ObjectHideFlags: 0
@@ -7020,11 +4803,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milestone Card (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -7306,9 +5084,9 @@ RectTransform:
   - {fileID: 1167828411}
   m_Father: {fileID: 1899659586}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1066.6667, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 218.91, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1475100984
@@ -7354,19 +5132,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1475100985}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 130798010}
-        m_TargetAssemblyTypeName: UIInteractionController, Assembly-CSharp
-        m_MethodName: ToggleMilestoneContent
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1475100985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7405,149 +5171,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475100982}
   m_CullTransparentMesh: 1
---- !u!1001 &1529887386
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1587657206}
-    m_Modifications:
-    - target: {fileID: 6735074224166124058, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_text
-      value: 'Milestone 2
-
-        Place 3 Letter cubes in 30 seconds
-
-        Reward
-        - 10 coins
-
-        Completed 1 time.
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Name
-      value: Milestone Card (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 347.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -775
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19ea0de33e649a2439f2c83b70e53a8e, type: 3}
---- !u!224 &1529887387 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1529887386}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1558695438
 GameObject:
   m_ObjectHideFlags: 0
@@ -7695,254 +5318,6 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
---- !u!1001 &1575489688
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1587657206}
-    m_Modifications:
-    - target: {fileID: 6735074224166124058, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_text
-      value: 'Milestone 2
-
-        Place 3 Letter cubes in 30 seconds
-
-        Reward
-        - 10 coins
-
-        Completed 1 time.
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Name
-      value: Milestone Card (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 932.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -550
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19ea0de33e649a2439f2c83b70e53a8e, type: 3}
---- !u!224 &1575489689 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1575489688}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1587657205
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1587657206}
-  - component: {fileID: 1587657208}
-  - component: {fileID: 1587657207}
-  - component: {fileID: 1587657209}
-  m_Layer: 5
-  m_Name: Numbers milestones
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1587657206
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1587657205}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 77575959}
-  - {fileID: 1315197215}
-  - {fileID: 1208444216}
-  - {fileID: 1529887387}
-  - {fileID: 1187094027}
-  - {fileID: 341987570}
-  - {fileID: 509716668}
-  - {fileID: 1575489689}
-  - {fileID: 219938139}
-  m_Father: {fileID: 317857777}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1280, y: 1100}
-  m_Pivot: {x: 0.5, y: 1}
---- !u!114 &1587657207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1587657205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
-  m_HorizontalFit: 0
-  m_VerticalFit: 2
---- !u!114 &1587657208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1587657205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GridLayoutGroup
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 4
-  m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 560, y: 200}
-  m_Spacing: {x: 25, y: 25}
-  m_Constraint: 1
-  m_ConstraintCount: 2
---- !u!114 &1587657209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1587657205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c7c1477da29938439863bdd30343111, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MilestoneUILoader
-  milestoneCollections:
-  - {fileID: 11400000, guid: 03fdd021b9969e24686e6e15f749d26d, type: 2}
-  milestoneCardTemplate: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
-  milestoneCardChildName: milestoneCard
-  textComponentName: Text (TMP)
-  defaultMilestoneIconColor: {r: 1, g: 1, b: 0, a: 1}
-  completedMilestoneIconColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1001 &1635746887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7955,11 +5330,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Milestone Card (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -8078,113 +5448,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4596661198505317974}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1768354134
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1768354135}
-  - component: {fileID: 1768354137}
-  - component: {fileID: 1768354136}
-  - component: {fileID: 1768354138}
-  m_Layer: 5
-  m_Name: Words milestones
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1768354135
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768354134}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1063242649}
-  - {fileID: 964899805}
-  - {fileID: 717451871}
-  - {fileID: 288946920}
-  - {fileID: 657731026}
-  - {fileID: 2024636366}
-  - {fileID: 211217109}
-  - {fileID: 791879994}
-  - {fileID: 261753747}
-  m_Father: {fileID: 317857777}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1280, y: 1100}
-  m_Pivot: {x: 0.5, y: 1}
---- !u!114 &1768354136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768354134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
-  m_HorizontalFit: 0
-  m_VerticalFit: 2
---- !u!114 &1768354137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768354134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GridLayoutGroup
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 4
-  m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 560, y: 200}
-  m_Spacing: {x: 25, y: 25}
-  m_Constraint: 1
-  m_ConstraintCount: 2
---- !u!114 &1768354138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768354134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c7c1477da29938439863bdd30343111, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MilestoneUILoader
-  milestoneCollections:
-  - {fileID: 11400000, guid: e41afbca9d55c204da6a5ed64e6b6884, type: 2}
-  - {fileID: 11400000, guid: 1473606bf545cd64aba75f977bb29ca7, type: 2}
-  - {fileID: 11400000, guid: 521d6baf5ee9f45409e6c3a235aedcb7, type: 2}
-  milestoneCardTemplate: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
-  milestoneCardChildName: milestoneCard
-  textComponentName: Text (TMP)
-  defaultMilestoneIconColor: {r: 1, g: 1, b: 0, a: 1}
-  completedMilestoneIconColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &1782346838
 GameObject:
   m_ObjectHideFlags: 0
@@ -8813,7 +6076,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2019162604
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9021,149 +6284,6 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
---- !u!1001 &2024636365
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1768354135}
-    m_Modifications:
-    - target: {fileID: 6735074224166124058, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_text
-      value: 'Milestone 3
-
-        Place 3 Letter cubes in 30 seconds
-
-        Reward
-        - 10 coins
-
-        Completed 1 time.
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Name
-      value: Milestone Card (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 560
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 932.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19ea0de33e649a2439f2c83b70e53a8e, type: 3}
---- !u!224 &2024636366 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 2024636365}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2038808173
 GameObject:
   m_ObjectHideFlags: 0
@@ -9435,11 +6555,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milestone Card (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -9686,7 +6801,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -70, y: 0}
-  m_SizeDelta: {x: 118.630005, y: 46.82}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &2139108729
 MonoBehaviour:
@@ -9772,10 +6887,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 130798010}
-        m_TargetAssemblyTypeName: UIInteractionController, Assembly-CSharp
-        m_MethodName: ToggleMilestonePanel
-        m_Mode: 1
+      - m_Target: {fileID: 2019162603}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9961,11 +7076,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milestone Card
       objectReference: {fileID: 0}
-    - target: {fileID: 7017333310418800254, guid: 19ea0de33e649a2439f2c83b70e53a8e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -9984,7 +7094,7 @@ PrefabInstance:
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -9994,17 +7104,17 @@ PrefabInstance:
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 560
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -10044,12 +7154,12 @@ PrefabInstance:
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 347.5
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 7631045237162271281, guid: 19ea0de33e649a2439f2c83b70e53a8e,
         type: 3}
@@ -10089,31 +7199,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3708937864556872992, guid: 75d7e5021a2f4504fac82709f7295684,
-        type: 3}
-      propertyPath: scrollRect
-      value: 
-      objectReference: {fileID: 2038808175}
-    - target: {fileID: 3708937864556872992, guid: 75d7e5021a2f4504fac82709f7295684,
-        type: 3}
-      propertyPath: milestonePanel
-      value: 
-      objectReference: {fileID: 2019162603}
-    - target: {fileID: 3708937864556872992, guid: 75d7e5021a2f4504fac82709f7295684,
-        type: 3}
-      propertyPath: wordsMilestonesScrollContent
-      value: 
-      objectReference: {fileID: 1768354134}
-    - target: {fileID: 3708937864556872992, guid: 75d7e5021a2f4504fac82709f7295684,
-        type: 3}
-      propertyPath: numbersMilestonesScrollContent
-      value: 
-      objectReference: {fileID: 1587657205}
-    - target: {fileID: 3708937864556872992, guid: 75d7e5021a2f4504fac82709f7295684,
-        type: 3}
-      propertyPath: alphabetMilestonesScrollContent
-      value: 
-      objectReference: {fileID: 1172046518}
     - target: {fileID: 6614929492007092551, guid: 75d7e5021a2f4504fac82709f7295684,
         type: 3}
       propertyPath: m_LocalPosition.x
