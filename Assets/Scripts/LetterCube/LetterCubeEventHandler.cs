@@ -14,6 +14,7 @@ public class LetterCubeEventHandler : MonoBehaviour
     //Event Register
     public event Action<string> E_PlacedInSlot;
     public event Action<GameObject> E_LetterCubeBombed;
+    public event Action<PowerUpData> E_PickedPowerUp;
     public event Action<GameObject> E_LetterCubeFell;
 
 
@@ -34,6 +35,12 @@ public class LetterCubeEventHandler : MonoBehaviour
             E_PlacedInSlot?.Invoke(other.GetComponent<SlotSensorHandler>().letter);
             // transform.position = new Vector3(other.transform.position.x, transform.position.y, other.transform.position.z);
         }
+        else if (other.CompareTag("PowerUp"))
+        {
+            // CustomLogger.Log("Picked Power Up " + other.GetComponent<PowerUpManager>().powerUpData.type);
+            E_PickedPowerUp?.Invoke(other.GetComponent<PowerUpCollector>().powerUpData);
+        }
+
     }
     private void OnCollisionEnter(Collision other)
     {

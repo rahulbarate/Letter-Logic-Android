@@ -5,7 +5,9 @@ using Cinemachine;
 
 public class LetterCubeMovement : MonoBehaviour
 {
-    [SerializeField] float movementSpeed = 5f;
+    [SerializeField] float defaultMovementSpeed = 5f;
+    float movementSpeed;
+    [SerializeField] float powerUpMovementSpeed = 10f;
     [SerializeField] private float verticalLookSensitivity = 1f;
     [SerializeField] private InputActionAsset inputAsset;
     [SerializeField] private float horizontalLookSensitivity = 20f;
@@ -53,6 +55,7 @@ public class LetterCubeMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        movementSpeed = defaultMovementSpeed;
         // disabling cursor
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -96,5 +99,13 @@ public class LetterCubeMovement : MonoBehaviour
         {
             Debug.LogError("LetterCubeData is null. Cannot move to initial position.");
         }
+    }
+
+    public void ToggleMovementSpeed()
+    {
+        if (movementSpeed == defaultMovementSpeed)
+            movementSpeed = powerUpMovementSpeed;
+        else
+            movementSpeed = defaultMovementSpeed;
     }
 }

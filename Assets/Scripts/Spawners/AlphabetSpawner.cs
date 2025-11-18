@@ -15,11 +15,14 @@ public class AlphabetSpawner : Spawner
     private int consecutiveCorrect;
     private int threshold = 5;
 
+    PowerUpManager powerUpManager;
+
     // Start is called before the first frame update
     void Start()
     {
         GenerateAllLetters();
         letterCubeMovement = GetComponent<LetterCubeMovement>();
+        powerUpManager = GetComponent<PowerUpManager>();
         currentHealth = maxHealth;
         healthBarSegments = maxHealth;
         consecutiveCorrect = 0;
@@ -67,6 +70,7 @@ public class AlphabetSpawner : Spawner
 
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed += OnLetterCubeBombed;
+            activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PickedPowerUp += powerUpManager.OnPowerUpPickedUp;
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeFell += OnLetterCubeFell;
 
             activeLetterCube.GetComponent<LetterCubeData>().LetterOnTop = letterChoosen;
@@ -111,6 +115,7 @@ public class AlphabetSpawner : Spawner
             // remove event listening.
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot -= OnPlacedInSlot;
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed -= OnLetterCubeBombed;
+            activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PickedPowerUp -= powerUpManager.OnPowerUpPickedUp;
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeFell -= OnLetterCubeFell;
 
             // setting isPlaced to true, so bombs won't affect it.
