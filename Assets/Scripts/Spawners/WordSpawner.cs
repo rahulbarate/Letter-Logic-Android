@@ -15,7 +15,6 @@ public class WordSpawner : Spawner
     [SerializeField] GameObject correctWordPanel;
     [SerializeField] GameObject correctWordPanelAdButton;
     [SerializeField] GameObject incorrectWordPanel;
-    // [SerializeField] HintMechanism hintMechanism;
 
     [SerializeField] ToastUI toastUI;
 
@@ -23,7 +22,6 @@ public class WordSpawner : Spawner
     List<Word> words;
     DatabaseManager databaseManager;
     int activeLetterCubeIndex;
-    // int currentWordIndex;
     Word wordChosen;
     List<char> wordChosenInChars;
     List<GameObject> letterCubesForChosenWord;
@@ -36,15 +34,13 @@ public class WordSpawner : Spawner
     private int consecutiveThreshold = 3;
     [SerializeField]
     private int totalThreshold = 10;
+    PowerUpManager powerUpManager;
 
-    // GameObject activeLetterCube;
-    // int activeLetterIndex;
 
     void Start()
     {
-        // maxHealth = 3;
+        powerUpManager = GetComponent<PowerUpManager>();
         currentHealth = maxHealth;
-        healthBarSegments = maxHealth;
         databaseManager = new DatabaseManager("wordsDatabase.db");
         spawnPoints = new List<UnityEngine.Vector3>(textLength);
         words = databaseManager.GetWordsFromDatabase(textLength, numberOfWords);
@@ -137,9 +133,11 @@ public class WordSpawner : Spawner
             }
             else
                 letterCube.transform.localScale = new UnityEngine.Vector3(letterCubeScale, letterCubeScale, letterCubeScale);
-            letterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
-            letterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed += OnLetterCubeBombed;
-            letterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeFell += OnLetterCubeFell;
+
+
+            // Register to events
+            RegisterEvents(letterCube);
+
             letterCube.GetComponent<LetterCubeData>().LetterOnTop = wordChosenInChars[randomCharIndex].ToString();
             letterCube.transform.position = spawnPoints[i];
             letterCube.GetComponent<Rigidbody>().isKinematic = true;
@@ -161,6 +159,21 @@ public class WordSpawner : Spawner
         SetLetterCubeActive(0);
     }
 
+    private void RegisterEvents(GameObject letterCube)
+    {
+        letterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
+        letterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed += OnLetterCubeBombed;
+        letterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeFell += OnLetterCubeFell;
+        letterCube.GetComponent<LetterCubeEventHandler>().E_PickedPowerUp += powerUpManager.OnPowerUpPickedUp;
+    }
+    private void UnregisterEvents(GameObject letterCube)
+    {
+        letterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot -= OnPlacedInSlot;
+        letterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed -= OnLetterCubeBombed;
+        letterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeFell -= OnLetterCubeFell;
+        letterCube.GetComponent<LetterCubeEventHandler>().E_PickedPowerUp -= powerUpManager.OnPowerUpPickedUp;
+    }
+
     void RespawnLetterCubes()
     {
         // Hide all the Letter Cubes
@@ -176,13 +189,19 @@ public class WordSpawner : Spawner
             letterCubesForChosenWord[i].GetComponent<LetterCubeData>().isPlaced = false;
             // reposition them to the spawn points
             letterCubesForChosenWord[i].transform.position = spawnPoints[i];
+
+            // unsubscribe to events
+            UnregisterEvents(letterCubesForChosenWord[i]);
             // re register the event
-            letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_PlacedInSlot -= OnPlacedInSlot;
-            letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
-            letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed -= OnLetterCubeBombed;
-            letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed += OnLetterCubeBombed;
-            letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_LetterCubeFell -= OnLetterCubeFell;
-            letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_LetterCubeFell += OnLetterCubeFell;
+            RegisterEvents(letterCubesForChosenWord[i]);
+            // letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_PlacedInSlot -= OnPlacedInSlot;
+            // letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
+            // letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed -= OnLetterCubeBombed;
+            // letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed += OnLetterCubeBombed;
+            // letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_LetterCubeFell -= OnLetterCubeFell;
+            // letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_LetterCubeFell -= OnLetterCubeFell;
+            // letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_PickedPowerUp -= powerUpManager.OnPowerUpPickedUp;
+            // letterCubesForChosenWord[i].GetComponent<LetterCubeEventHandler>().E_PickedPowerUp += powerUpManager.OnPowerUpPickedUp;
             // set rigidbody is kinematic to true, so cube isn't moveable if it is not active.
             letterCubesForChosenWord[i].GetComponent<Rigidbody>().isKinematic = true;
             // disable the gravity
@@ -218,9 +237,8 @@ public class WordSpawner : Spawner
 
         // setting isPlaced to true so they won't be affected by bombing.
         activeLetterCube.GetComponent<LetterCubeData>().isPlaced = true;
-        activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot -= OnPlacedInSlot;
-        activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed -= OnLetterCubeBombed;
-        activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeFell -= OnLetterCubeFell;
+        UnregisterEvents(activeLetterCube);
+
         activeLetterCube.GetComponent<Rigidbody>().isKinematic = true;
         activeLetterCube.GetComponent<Rigidbody>().useGravity = false;
         letterCubeMovement.ActiveLetterCube = null;
@@ -312,6 +330,8 @@ public class WordSpawner : Spawner
         }
     }
 
+
+
     void SetLetterCubeActive(int letterIndex)
     {
         correctSlotSensorIndex.Clear();
@@ -356,15 +376,7 @@ public class WordSpawner : Spawner
     public override void ReviveLevel()
     {
         currentHealth = maxHealth;
-        healthBarSegments = maxHealth;
-        if (healthBar != null)
-        {
-            healthBar.SetActive(true);
-            for (int i = 0; i < healthBar.transform.childCount; i++)
-            {
-                healthBar.transform.GetChild(i).gameObject.SetActive(true);
-            }
-        }
+        healthText.text = currentHealth.ToString();
         if (incorrectWordPanel != null) incorrectWordPanel.SetActive(false);
         if (gameOverPanel != null) gameOverPanel.SetActive(false);
         RespawnLetterCubes();

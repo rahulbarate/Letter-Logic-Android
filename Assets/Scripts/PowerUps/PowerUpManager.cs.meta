@@ -1,2 +1,23 @@
 fileFormatVersion: 2
 guid: 1cb18360a02fd2e4eb7e62df2f0d69c8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - letterCubeMovement: {instanceID: 0}
+  - protectivePowerUpImage: {instanceID: 0}
+  - protectivePowerUpTimer: {instanceID: 0}
+  - movementPowerUpImage: {instanceID: 0}
+  - movementPowerUpTimer: {instanceID: 0}
+  - cannonShieldTexture: {fileID: 21300000, guid: 21920ad65ee357f4f86626254356cded,
+      type: 3}
+  - bombShieldTexture: {fileID: 21300000, guid: eec4daef201dd064d86789f79d63129e,
+      type: 3}
+  - diamondShieldTexture: {fileID: 21300000, guid: 95d19fdbc991fff4d96f5b97781624f8,
+      type: 3}
+  - speedRunTexture: {fileID: 21300000, guid: 50050d9e1c66a004587e2f14b50eef65, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

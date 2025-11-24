@@ -5,8 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PowerUp", menuName = "Power Up/Create Power Up Data")]
 public class PowerUpData : ScriptableObject
 {
-    public enum Type { BombShield, CannonShield, DiamondShield, SpeedRun }
+    public enum SubType { BombShield, CannonShield, DiamondShield, SpeedRun }
+    public enum Type { Protective, Movement }
     public Type type;
+    public SubType subType;
 
     public List<float> maxDurationsPerLevel = new List<float>(4);
     public int currentLevel = 1;

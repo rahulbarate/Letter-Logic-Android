@@ -8,7 +8,6 @@ public class AlphabetSpawner : Spawner
     List<char> availableLetters;
     [SerializeField] GameObject alphabetLetterCubes;
     [SerializeField] GameObject gameWonPanel;
-    // [SerializeField] HintMechanism hintMechanism;
     [SerializeField] char startChar = 'A';
     [SerializeField] char endChar = 'Z';
 
@@ -24,7 +23,7 @@ public class AlphabetSpawner : Spawner
         letterCubeMovement = GetComponent<LetterCubeMovement>();
         powerUpManager = GetComponent<PowerUpManager>();
         currentHealth = maxHealth;
-        healthBarSegments = maxHealth;
+        // healthBarSegments = maxHealth;
         consecutiveCorrect = 0;
         slotSensorsHandler.AssignCLettersToSlotSensors();
         SpawnLetterCubes();
@@ -171,16 +170,8 @@ public class AlphabetSpawner : Spawner
     public override void ReviveLevel()
     {
         currentHealth = maxHealth;
-        healthBarSegments = maxHealth;
+        healthText.text = currentHealth.ToString();
         consecutiveCorrect = 0;
-        if (healthBar != null)
-        {
-            healthBar.SetActive(true);
-            for (int i = 0; i < healthBar.transform.childCount; i++)
-            {
-                healthBar.transform.GetChild(i).gameObject.SetActive(true);
-            }
-        }
         if (gameOverPanel != null) gameOverPanel.SetActive(false);
         Time.timeScale = 1f;
     }

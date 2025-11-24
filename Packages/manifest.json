@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.unity.2d.sprite": "1.0.0",
     "com.unity.build-report-inspector": "0.3.0-preview",
     "com.unity.cinemachine": "2.10.4",
     "com.unity.device-simulator.devices": "1.0.0",

@@ -8,15 +8,15 @@ public class NumberSpawner : Spawner
     List<int> availableNumbers;
     [SerializeField] GameObject numberLetterCubes;
     [SerializeField] GameObject gameWonPanel;
-    // [SerializeField] HintMechanism hintMechanism;
     private int consecutiveCorrect;
     private int threshold = 4;
+    PowerUpManager powerUpManager;
     // Start is called before the first frame update
     void Start()
     {
         GenerateAllLetters();
+        powerUpManager = GetComponent<PowerUpManager>();
         currentHealth = maxHealth;
-        healthBarSegments = maxHealth;
         consecutiveCorrect = 0;
         letterCubeMovement = GetComponent<LetterCubeMovement>();
         slotSensorsHandler.AssignENumbersToSlotSensors();
@@ -59,6 +59,7 @@ public class NumberSpawner : Spawner
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed += OnLetterCubeBombed;
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeFell += OnLetterCubeFell;
+            activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PickedPowerUp += powerUpManager.OnPowerUpPickedUp;
 
             activeLetterCube.GetComponent<LetterCubeData>().LetterOnTop = letterChoosen;
 
@@ -103,6 +104,7 @@ public class NumberSpawner : Spawner
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot -= OnPlacedInSlot;
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed -= OnLetterCubeBombed;
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeFell -= OnLetterCubeFell;
+            activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PickedPowerUp -= powerUpManager.OnPowerUpPickedUp;
 
             // setting isPlaced to true, so bombs won't affect it.
             activeLetterCube.GetComponent<LetterCubeData>().isPlaced = true;
@@ -157,16 +159,7 @@ public class NumberSpawner : Spawner
     public override void ReviveLevel()
     {
         currentHealth = maxHealth;
-        healthBarSegments = maxHealth;
-        consecutiveCorrect = 0;
-        if (healthBar != null)
-        {
-            healthBar.SetActive(true);
-            for (int i = 0; i < healthBar.transform.childCount; i++)
-            {
-                healthBar.transform.GetChild(i).gameObject.SetActive(true);
-            }
-        }
+        healthText.text = currentHealth.ToString();
         if (gameOverPanel != null) gameOverPanel.SetActive(false);
         Time.timeScale = 1f;
     }
