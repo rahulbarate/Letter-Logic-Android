@@ -43,7 +43,7 @@ public class MilestoneUILoader : MonoBehaviour
             return;
         }
 
-        Debug.Log($"=== Loading {milestoneCollections.Count} Milestone Collection(s) ===");
+        // Debug.Log($"=== Loading {milestoneCollections.Count} Milestone Collection(s) ===");
 
         int milestoneIndex = 0;
 
@@ -63,7 +63,7 @@ public class MilestoneUILoader : MonoBehaviour
                 continue;
             }
 
-            Debug.Log($"--- Milestone Collection {i + 1} ({collection.milestones.Count} milestones) ---");
+            // Debug.Log($"--- Milestone Collection {i + 1} ({collection.milestones.Count} milestones) ---");
 
             foreach (MilestoneData milestone in collection.milestones)
             {
@@ -112,7 +112,7 @@ public class MilestoneUILoader : MonoBehaviour
         }
 
         milestoneCard.SetActive(true);
-        Debug.Log($"Updated milestone card {cardIndex} with milestone #{milestone.id}, card name {milestoneCard.name}");
+        // Debug.Log($"Updated milestone card {cardIndex} with milestone #{milestone.id}, card name {milestoneCard.name}");
     }
 
     private Image FindIconImageInCard(GameObject milestoneCard)

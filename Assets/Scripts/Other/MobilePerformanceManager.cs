@@ -46,7 +46,7 @@ public class MobilePerformanceManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Strong device detected → Using full render scale.");
+            // Debug.Log("Strong device detected → Using full render scale.");
             ScalableBufferManager.ResizeBuffers(renderScaleHigh, renderScaleHigh);
         }
 
@@ -67,11 +67,11 @@ public class MobilePerformanceManager : MonoBehaviour
 
     private bool DetectWeakDevice()
     {
-       
+
         string gpu = SystemInfo.graphicsDeviceName.ToLower();
         int ram = SystemInfo.systemMemorySize;
 
-        Debug.Log($"Device: {SystemInfo.deviceModel}, GPU: {SystemInfo.graphicsDeviceName}, RAM: {ram}MB");
+        // Debug.Log($"Device: {SystemInfo.deviceModel}, GPU: {SystemInfo.graphicsDeviceName}, RAM: {ram}MB");
 
         if (ram < 5000) return true; // Less than 5 GB RAM → weak
         if (gpu.Contains("mali") || gpu.Contains("adreno 6")) return true; // Mid-tier GPU families
