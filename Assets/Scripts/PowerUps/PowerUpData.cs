@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PowerUp", menuName = "Power Up/Create Power Up Data")]
 public class PowerUpData : ScriptableObject
 {
+    public Sprite powerUpUIIcon;
     public enum SubType { BombShield, CannonShield, DiamondShield, SpeedRun }
     public enum Type { Protective, Movement }
     public Type type;
