@@ -13,6 +13,12 @@ public class GameDataSave : ScriptableObject
         get { return totalAvailableHints; }
         set { totalAvailableHints = value; }
     }
+    [SerializeField] int totalAvailableCoins = 10000;
+    public int TotalAvailableCoins
+    {
+        get { return totalAvailableCoins; }
+        set { totalAvailableCoins = value; }
+    }
 
 
 

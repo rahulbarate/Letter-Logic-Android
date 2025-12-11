@@ -42,7 +42,7 @@ public class HintMechanism : MonoBehaviour
         if (gameDataSave.TotalAvailableHints <= 0)
         {
             Debug.Log("No hints available!");
-            toastUI.ShowToast("Sorry, no hints available!", "");
+            toastUI.ShowToast("Sorry, no hints available!");
             return;
         }
 
@@ -75,8 +75,8 @@ public class HintMechanism : MonoBehaviour
         gameDataSave.TotalAvailableHints += value;
         totalHintText.text = gameDataSave.TotalAvailableHints.ToString();
         ShowPopup(value);
-        if (showAd)
-            toastUI.ShowToast("", "2x hint(Ad)");
+        // if (showAd)
+        //     toastUI.ShowToast("", "2x hint(Ad)");
     }
     public void ShowPopup(int value)
     {

@@ -11,26 +11,28 @@ public class ToastUI : MonoBehaviour
     [SerializeField] float toastDisappearDuration = 0.5f;
     [SerializeField] GameObject toastUI;
     [SerializeField] TextMeshProUGUI toastUIText;
-    [SerializeField] GameObject toastUIButton;
-    [SerializeField] TextMeshProUGUI toastUIButtonText;
-    [SerializeField] Vector3 offScreenPosition;
+    // [SerializeField] GameObject toastUIButton;
+    // [SerializeField] TextMeshProUGUI toastUIButtonText;
+    // [SerializeField] Vector3 offScreenPosition;
+    [SerializeField] float visibleY = 280f;
+    [SerializeField] float initialY = 500f;
     private Vector3 toastInitialPosition;
 
     // Queue system for handling multiple toasts
-    private Queue<(string toastText, string buttonText)> toastQueue = new Queue<(string, string)>();
+    private Queue<string> toastQueue = new Queue<string>();
     private bool isProcessingQueue = false;
 
     void Awake()
     {
-        toastInitialPosition = offScreenPosition;
+        toastInitialPosition = toastUI.GetComponent<RectTransform>().position;
     }
 
-    public void ShowToast(string toastText, string buttonText)
+    public void ShowToast(string toastText)
     {
-        Debug.Log($"[ToastUI] ShowToast called with: '{toastText}', Button: '{buttonText}' | Queue count: {toastQueue.Count}");
+        Debug.Log($"[ToastUI] ShowToast called with: '{toastText}' | Queue count: {toastQueue.Count}");
 
         // Add to queue
-        toastQueue.Enqueue((toastText, buttonText));
+        toastQueue.Enqueue(toastText);
 
         // Process queue if not already processing
         if (!isProcessingQueue)
@@ -48,7 +50,7 @@ public class ToastUI : MonoBehaviour
         }
 
         isProcessingQueue = true;
-        var (toastText, buttonText) = toastQueue.Dequeue();
+        var toastText = toastQueue.Dequeue();
 
         Debug.Log($"[ToastUI] Processing toast: '{toastText}' | Remaining in queue: {toastQueue.Count}");
 
@@ -57,22 +59,22 @@ public class ToastUI : MonoBehaviour
 
         // Reset UI elements
         toastUIText.gameObject.SetActive(false);
-        toastUIButton.SetActive(false);
+        // toastUIButton.SetActive(false);
         toastUI.SetActive(false);
 
         toastUIText.text = toastText;
-        toastUIButtonText.text = buttonText;
+        // toastUIButtonText.text = buttonText;
 
         if (toastText != "")
             toastUIText.gameObject.SetActive(true);
-        if (buttonText != "")
-            toastUIButton.SetActive(true);
+        // if (buttonText != "")
+        //     toastUIButton.SetActive(true);
 
         toastUI.SetActive(true);
 
         RectTransform toastRect = toastUI.GetComponent<RectTransform>();
-        toastRect.localPosition = toastInitialPosition;
-        float visibleY = toastInitialPosition.y - 180f;
+        // toastRect.localPosition = toastInitialPosition;
+        // float visibleY = toastInitialPosition.y - 180f;
 
         Debug.Log($"[ToastUI] Starting appear animation for: '{toastText}'");
         toastRect.DOLocalMoveY(visibleY, toastAppearDuration).OnComplete(() =>
@@ -81,7 +83,7 @@ public class ToastUI : MonoBehaviour
             DOVirtual.DelayedCall(toastStayDuration, () =>
             {
                 Debug.Log($"[ToastUI] Stay timer complete for: '{toastText}', starting disappear animation");
-                toastRect.DOLocalMoveY(toastInitialPosition.y, toastDisappearDuration).OnComplete(() =>
+                toastRect.DOLocalMoveY(initialY, toastDisappearDuration).OnComplete(() =>
                 {
                     Debug.Log($"[ToastUI] Disappear complete for: '{toastText}', processing next toast");
                     // Process next toast after current one completes

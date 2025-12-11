@@ -48,6 +48,6 @@ public class MilestoneManager : MonoBehaviour
     public void ShowToast(string text)
     {
         Debug.Log("Called for " + text);
-        toastUI.ShowToast(text, "");
+        toastUI.ShowToast(text);
     }
 }

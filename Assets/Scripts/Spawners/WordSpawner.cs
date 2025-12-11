@@ -392,7 +392,7 @@ public class WordSpawner : Spawner
     {
         if (wordChosen != null && toastUI != null)
         {
-            toastUI.ShowToast($"{wordChosen.Hint}", "");
+            toastUI.ShowToast($"{wordChosen.Hint}");
         }
     }
 

@@ -8,6 +8,18 @@ using TMPro;
 public class MainMenuCanvasManager : MonoBehaviour
 {
     [SerializeField] private GameObject milestonePanel;
+    [SerializeField] TextMeshProUGUI coinsTMPro;
+    [SerializeField] GameDataSave gameDataSave;
+
+    void OnEnable()
+    {
+        UpdateAvailableCoins();
+    }
+
+    void Update()
+    {
+        UpdateAvailableCoins();
+    }
 
     public void LoadLevel(int levelIndex)
     {
@@ -26,6 +38,12 @@ public class MainMenuCanvasManager : MonoBehaviour
         {
             milestonePanel.SetActive(!milestonePanel.activeSelf);
         }
+    }
+
+    public void UpdateAvailableCoins()
+    {
+        if (gameDataSave != null && coinsTMPro != null && coinsTMPro.text != gameDataSave.TotalAvailableCoins.ToString())
+            coinsTMPro.text = gameDataSave.TotalAvailableCoins.ToString();
     }
 
 }
