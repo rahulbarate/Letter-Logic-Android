@@ -6,8 +6,8 @@ using UnityEngine;
 public class PowerUpData : ScriptableObject
 {
     public Sprite powerUpUIIcon;
-    public enum SubType { BombShield, CannonShield, DiamondShield, SpeedRun }
-    public enum Type { Protective, Movement }
+    public enum SubType { BombShield, CannonShield, DiamondShield, SpeedRun, Hint }
+    public enum Type { Protective, Movement, Guide }
     public Type type;
     public SubType subType;
 

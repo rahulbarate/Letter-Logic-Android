@@ -10,6 +10,8 @@ public class DialogeUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI body;
     [SerializeField] Button trueButton;
     [SerializeField] Button falseButton;
+
+    [SerializeField] GameObject pauseMenu;
     TextMeshProUGUI trueButtonText;
     TextMeshProUGUI falseButtonText;
 
@@ -30,7 +32,7 @@ public class DialogeUI : MonoBehaviour
 
     public void ShowDialoge(string heading, string trueButtonText, string falseButtonText, UnityEngine.Events.UnityAction trueButtonAction, string body = null)
     {
-        CustomLogger.Log("In Here");
+        // CustomLogger.Log("In Here");
         trueButton.onClick.RemoveAllListeners();
         dialogePanel.SetActive(false);
         this.heading.text = heading;
@@ -39,5 +41,14 @@ public class DialogeUI : MonoBehaviour
         this.falseButtonText.text = falseButtonText;
         trueButton.onClick.AddListener(trueButtonAction);
         dialogePanel.SetActive(true);
+    }
+    public void HideDialoge()
+    {
+        if (dialogePanel.activeSelf == true)
+        {
+            if (!pauseMenu.activeSelf)
+                Time.timeScale = 1f;
+            dialogePanel.SetActive(false);
+        }
     }
 }

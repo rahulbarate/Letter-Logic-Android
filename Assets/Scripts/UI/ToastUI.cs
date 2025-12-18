@@ -29,7 +29,7 @@ public class ToastUI : MonoBehaviour
 
     public void ShowToast(string toastText)
     {
-        Debug.Log($"[ToastUI] ShowToast called with: '{toastText}' | Queue count: {toastQueue.Count}");
+        // Debug.Log($"[ToastUI] ShowToast called with: '{toastText}' | Queue count: {toastQueue.Count}");
 
         // Add to queue
         toastQueue.Enqueue(toastText);
@@ -52,7 +52,7 @@ public class ToastUI : MonoBehaviour
         isProcessingQueue = true;
         var toastText = toastQueue.Dequeue();
 
-        Debug.Log($"[ToastUI] Processing toast: '{toastText}' | Remaining in queue: {toastQueue.Count}");
+        // Debug.Log($"[ToastUI] Processing toast: '{toastText}' | Remaining in queue: {toastQueue.Count}");
 
         // Stop any existing animations and reset state
         toastUI.transform.DOKill();
@@ -76,16 +76,16 @@ public class ToastUI : MonoBehaviour
         // toastRect.localPosition = toastInitialPosition;
         // float visibleY = toastInitialPosition.y - 180f;
 
-        Debug.Log($"[ToastUI] Starting appear animation for: '{toastText}'");
+        // Debug.Log($"[ToastUI] Starting appear animation for: '{toastText}'");
         toastRect.DOLocalMoveY(visibleY, toastAppearDuration).OnComplete(() =>
         {
-            Debug.Log($"[ToastUI] Appear complete for: '{toastText}', starting stay timer");
+            // Debug.Log($"[ToastUI] Appear complete for: '{toastText}', starting stay timer");
             DOVirtual.DelayedCall(toastStayDuration, () =>
             {
-                Debug.Log($"[ToastUI] Stay timer complete for: '{toastText}', starting disappear animation");
+                // Debug.Log($"[ToastUI] Stay timer complete for: '{toastText}', starting disappear animation");
                 toastRect.DOLocalMoveY(initialY, toastDisappearDuration).OnComplete(() =>
                 {
-                    Debug.Log($"[ToastUI] Disappear complete for: '{toastText}', processing next toast");
+                    // Debug.Log($"[ToastUI] Disappear complete for: '{toastText}', processing next toast");
                     // Process next toast after current one completes
                     ProcessNextToast();
                 });

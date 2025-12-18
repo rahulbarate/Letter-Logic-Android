@@ -1,0 +1,98 @@
+using System.Collections;
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class MenuUIManager : CommonUITasks
+{
+    [SerializeField] private Spawner spawner;
+    [SerializeField] private GameObject correctWordPanel;
+    [SerializeField] private GameObject incorrectWordPanel;
+    [SerializeField] private float timerDuration = 3f;
+    [SerializeField] private TextMeshProUGUI correctWordPanelTimer;
+    [SerializeField] private TextMeshProUGUI incorrectWordPanelTimer;
+
+
+    private Coroutine timerCoroutine;
+    private bool isTimerRunning = false;
+    private WordSpawner wordSpawner;
+
+
+    void Start()
+    {
+        if (spawner is WordSpawner spawner1)
+            wordSpawner = spawner1;
+    }
+
+    void Update()
+    {
+        if (SceneManager.GetActiveScene().buildIndex >= 3)
+        {
+            if (correctWordPanel.activeSelf && !isTimerRunning)
+            {
+                isTimerRunning = true;
+                timerCoroutine = StartCoroutine(StartTimer("next Word in \n", NextWord, correctWordPanelTimer));
+            }
+            else if (incorrectWordPanel.activeSelf && !isTimerRunning)
+            {
+                isTimerRunning = true;
+                timerCoroutine = StartCoroutine(StartTimer("Respawning in \n", RespawnWord, incorrectWordPanelTimer));
+            }
+            else if (!correctWordPanel.activeSelf && !incorrectWordPanel.activeSelf && isTimerRunning)
+            {
+                StopCoroutine(timerCoroutine);
+                isTimerRunning = false;
+            }
+
+        }
+    }
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
+    }
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
+    }
+    public void ReviveGroundWithAd()
+    {
+        spawner.ReviveLevel();
+    }
+
+    private IEnumerator StartTimer(string messagePrefix, System.Action onTimerFinished, TextMeshProUGUI timerText)
+    {
+        float remaining = timerDuration;
+        while (remaining > 0)
+        {
+            timerText.text = messagePrefix + Mathf.CeilToInt(remaining) + " sec";
+            yield return new WaitForSeconds(1f);
+            remaining -= 1f;
+        }
+        timerText.text = messagePrefix + "0 sec";
+        onTimerFinished();
+    }
+    public void RespawnWord()
+    {
+        // isTimerRunning = false;
+        correctWordPanel.SetActive(false);
+        incorrectWordPanel.SetActive(false);
+        // if (pauseMenu.activeSelf)
+        // hudCanvasManager.TogglePauseMenu();
+        if (timerCoroutine != null) StopCoroutine(timerCoroutine);
+        wordSpawner.ReviveLevel();
+        Time.timeScale = 1f;
+        // Time.timeScale = 1f;
+    }
+    public void NextWord()
+    {
+        wordSpawner.SpawnNextWord();
+        correctWordPanel.SetActive(false);
+        // correctWordPanelAdButton.SetActive(false);
+        // exitConfirmDialog.SetActive(false);
+        StopCoroutine(timerCoroutine);
+        Time.timeScale = 1f;
+        // isTimerRunning = false;
+    }
+}

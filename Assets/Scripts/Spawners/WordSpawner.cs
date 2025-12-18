@@ -41,6 +41,7 @@ public class WordSpawner : Spawner
     {
         powerUpManager = GetComponent<PowerUpManager>();
         currentHealth = maxHealth;
+        healthText.text = currentHealth.ToString();
         databaseManager = new DatabaseManager("wordsDatabase.db");
         spawnPoints = new List<UnityEngine.Vector3>(textLength);
         words = databaseManager.GetWordsFromDatabase(textLength, numberOfWords);
@@ -242,6 +243,9 @@ public class WordSpawner : Spawner
         activeLetterCube.GetComponent<Rigidbody>().isKinematic = true;
         activeLetterCube.GetComponent<Rigidbody>().useGravity = false;
         letterCubeMovement.ActiveLetterCube = null;
+
+        // disabling hints
+        powerUpManager.DisableHintPowerUp();
 
         // for (int i = 0; i <= textLength - 1; i++)
         // {

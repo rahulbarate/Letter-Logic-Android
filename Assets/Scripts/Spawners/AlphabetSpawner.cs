@@ -23,6 +23,7 @@ public class AlphabetSpawner : Spawner
         letterCubeMovement = GetComponent<LetterCubeMovement>();
         powerUpManager = GetComponent<PowerUpManager>();
         currentHealth = maxHealth;
+        healthText.text = currentHealth.ToString();
         // healthBarSegments = maxHealth;
         consecutiveCorrect = 0;
         slotSensorsHandler.AssignCLettersToSlotSensors();
@@ -119,6 +120,10 @@ public class AlphabetSpawner : Spawner
 
             // setting isPlaced to true, so bombs won't affect it.
             activeLetterCube.GetComponent<LetterCubeData>().isPlaced = true;
+
+            // disabling hints
+            powerUpManager.DisableHintPowerUp();
+
 
             //Reset vars
             single3DLetterModel = null;

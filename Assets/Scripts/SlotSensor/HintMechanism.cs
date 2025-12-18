@@ -14,7 +14,7 @@ public class HintMechanism : MonoBehaviour
     [SerializeField] TextMeshProUGUI hintPopupText;
     [SerializeField] float hintPopupDuration = 1f;
 
-    [SerializeField] GameDataSave gameDataSave;
+    [SerializeField] PowerUpData hintPowerUpData;
     [SerializeField] ToastUI toastUI;
     private Vector3 initialPosition;
     private Color initialColor;
@@ -23,9 +23,14 @@ public class HintMechanism : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        totalHintText.text = gameDataSave.TotalAvailableHints.ToString();
-        initialPosition = hintPopupText.rectTransform.localPosition;
-        initialColor = hintPopupText.color;
+        if (hintPowerUpData.type != PowerUpData.Type.Guide || hintPowerUpData.subType != PowerUpData.SubType.Hint)
+        {
+            Debug.LogError("Wrong PowerUp Data assigned");
+            return;
+        }
+        // totalHintText.text = hintPowerUpData.availableCount.ToString();
+        // initialPosition = hintPopupText.rectTransform.localPosition;
+        // initialColor = hintPopupText.color;
     }
 
     // Update is called once per frame  
@@ -39,7 +44,7 @@ public class HintMechanism : MonoBehaviour
 
     public void DeductHint()
     {
-        if (gameDataSave.TotalAvailableHints <= 0)
+        if (hintPowerUpData.availableCount <= 0)
         {
             Debug.Log("No hints available!");
             toastUI.ShowToast("Sorry, no hints available!");
@@ -52,12 +57,12 @@ public class HintMechanism : MonoBehaviour
             GameObject slotSensor = slotSensorsParent.transform.GetChild(index).gameObject;
             if (slotSensor != null)
             {
-                if (!slotSensor.GetComponent<Light>().enabled && gameDataSave.TotalAvailableHints >= 1)
+                if (!slotSensor.GetComponent<Light>().enabled && hintPowerUpData.availableCount >= 1)
                 {
-                    --gameDataSave.TotalAvailableHints;
+                    --hintPowerUpData.availableCount;
                     slotSensor.GetComponent<Light>().enabled = true;
-                    totalHintText.text = gameDataSave.TotalAvailableHints.ToString();
-                    ShowPopup(-1);
+                    // totalHintText.text = hintPowerUpData.availableCount.ToString();
+                    // ShowPopup(-1);
                     if (spawner is WordSpawner)
                     {
                         WordSpawner wordSpawner = (WordSpawner)spawner;
@@ -72,9 +77,9 @@ public class HintMechanism : MonoBehaviour
 
     public void AddHint(int value, bool showAd = true)
     {
-        gameDataSave.TotalAvailableHints += value;
-        totalHintText.text = gameDataSave.TotalAvailableHints.ToString();
-        ShowPopup(value);
+        hintPowerUpData.availableCount += value;
+        // totalHintText.text = hintPowerUpData.availableCount.ToString();
+        // ShowPopup(value);
         // if (showAd)
         //     toastUI.ShowToast("", "2x hint(Ad)");
     }

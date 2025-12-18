@@ -10,6 +10,7 @@ public class ShopCardHandler : MonoBehaviour
     [SerializeField] GameDataSave gameDataSave;
     [SerializeField] DialogeUI dialogeUI;
     [SerializeField] ToastUI toastUI;
+    [SerializeField] GameObject upgradeButton;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,8 +25,10 @@ public class ShopCardHandler : MonoBehaviour
         {
 
             powerUpIcon.sprite = powerUpData.powerUpUIIcon;
-            string text = $"<b>{GetPowerUpName(powerUpData.subType)}({powerUpData.type})</b>\nAvailable: <u><color=blue>{powerUpData.availableCount}</color></u>\nLv. <u><color=blue>{powerUpData.currentLevel}/4</color></u> | Duration: <u><color=blue>{powerUpData.maxDurationsPerLevel[powerUpData.currentLevel - 1]}s</color></u>\nPrice: <u><color=blue>{powerUpData.buyPricePerLevel[powerUpData.currentLevel - 1]}$</color></u> | Upgrade: <u><color=blue>{(powerUpData.currentLevel < 4 ? powerUpData.upgradePricePerLevel[powerUpData.currentLevel - 1] : "-")}$</color></u>";
+            string text = $"<b>{GetPowerUpName(powerUpData.subType)}({powerUpData.type})</b>\nAvailable: <u><color=blue>{powerUpData.availableCount}</color></u>\nLv. <u><color=blue>{powerUpData.currentLevel}/4</color></u> | Duration: <u><color=blue>{((powerUpData.maxDurationsPerLevel.Count > 0) ? powerUpData.maxDurationsPerLevel[powerUpData.currentLevel - 1] : "Infinite")}</color></u>\nPrice: <u><color=blue>{powerUpData.buyPricePerLevel[powerUpData.currentLevel - 1]}$</color></u>{(powerUpData.currentLevel < 4 ? " | Upgrade: <u><color=blue>" + powerUpData.upgradePricePerLevel[powerUpData.currentLevel - 1] + "$</color></u>" : "")}";
             powerUpDetails.text = text;
+            if (powerUpData.currentLevel >= 4)
+                upgradeButton.SetActive(false);
         }
     }
 
@@ -39,6 +42,8 @@ public class ShopCardHandler : MonoBehaviour
             return "Diamond Shield";
         else if (subType == PowerUpData.SubType.SpeedRun)
             return "Speed Run";
+        else if (subType == PowerUpData.SubType.Hint)
+            return "Hint";
         else
             return "";
     }
@@ -88,13 +93,13 @@ public class ShopCardHandler : MonoBehaviour
         {
             gameDataSave.TotalAvailableCoins -= powerUpData.buyPricePerLevel[powerUpData.currentLevel - 1];
             powerUpData.availableCount += 1;
-            CustomLogger.Log("Bought " + GetPowerUpName(powerUpData.subType));
+            // CustomLogger.Log("Bought " + GetPowerUpName(powerUpData.subType));
             toastUI.ShowToast(GetPowerUpName(powerUpData.subType) + " +1");
             UpdateCardDetails();
         }
         else
         {
-            CustomLogger.Log("Not enough money!");
+            // CustomLogger.Log("Not enough money!");
             toastUI.ShowToast("Not enough money!");
         }
     }
@@ -104,13 +109,14 @@ public class ShopCardHandler : MonoBehaviour
         {
             gameDataSave.TotalAvailableCoins -= powerUpData.upgradePricePerLevel[powerUpData.currentLevel - 1];
             powerUpData.currentLevel += 1;
-            CustomLogger.Log("Upgraded " + GetPowerUpName(powerUpData.subType));
+            // CustomLogger.Log("Upgraded " + GetPowerUpName(powerUpData.subType));
             toastUI.ShowToast("Upgraded " + GetPowerUpName(powerUpData.subType) + $" Lv.{powerUpData.currentLevel - 1} -> Lv. {powerUpData.currentLevel}");
             UpdateCardDetails();
+            dialogeUI.HideDialoge();
         }
         else
         {
-            CustomLogger.Log("Not enough money!");
+            // CustomLogger.Log("Not enough money!");
             toastUI.ShowToast("Not enough money!");
         }
     }

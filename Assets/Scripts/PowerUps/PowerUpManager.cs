@@ -10,15 +10,18 @@ public class PowerUpManager : MonoBehaviour
     int cannonBallLayer = 7;
     int bombLayer = 8;
     [SerializeField] LetterCubeMovement letterCubeMovement;
+    [SerializeField] HintMechanism hintMechanism;
 
     [SerializeField] Image protectivePowerUpImage;
     [SerializeField] TextMeshProUGUI protectivePowerUpTimer;
     [SerializeField] Image movementPowerUpImage;
+    [SerializeField] Image guidePowerUpImage;
     [SerializeField] TextMeshProUGUI movementPowerUpTimer;
     [SerializeField] Sprite cannonShieldTexture;
     [SerializeField] Sprite bombShieldTexture;
     [SerializeField] Sprite diamondShieldTexture;
     [SerializeField] Sprite speedRunTexture;
+    [SerializeField] Sprite hintTexture;
 
 
 
@@ -35,41 +38,50 @@ public class PowerUpManager : MonoBehaviour
 
     bool isProtectivePowerUpActive = false;
     bool isMovementPowerUpActive = false;
+    bool isGuidePowerUpActive = false;
 
     public void OnPowerUpPickedUp(PowerUpData powerUpData)
     {
         if (powerUpData.type == PowerUpData.Type.Protective && (!isProtectivePowerUpActive))
         {
             isProtectivePowerUpActive = true;
-            protectivePowerUpImage.gameObject.SetActive(true);
+            // protectivePowerUpImage.gameObject.SetActive(true);
         }
         else if (powerUpData.type == PowerUpData.Type.Movement && (!isMovementPowerUpActive))
         {
             isMovementPowerUpActive = true;
-            movementPowerUpImage.gameObject.SetActive(true);
+            // movementPowerUpImage.gameObject.SetActive(true);
+        }
+        else if (powerUpData.type == PowerUpData.Type.Guide && (!isGuidePowerUpActive))
+        {
+            isGuidePowerUpActive = true;
+            // guidePowerUpImage.gameObject.SetActive(true);
         }
         else
             return;
 
         CustomLogger.Log(powerUpData.subType + " is activated");
+        ToggleHUDImages();
         TogglePowerUp(powerUpData);
-        powerUpData.availableCount -= 1;
-        StartCoroutine(StartPowerUpTimer(powerUpData));
+        if (powerUpData.type != PowerUpData.Type.Guide)
+        {
+            powerUpData.availableCount -= 1;
+            StartCoroutine(StartPowerUpTimer(powerUpData));
+        }
 
+    }
 
+    public void DisableHintPowerUp()
+    {
+        isGuidePowerUpActive = false;
+        ToggleHUDImages();
+    }
 
-        // if (!isPowerUpActive[powerUpData.subType]) // set power up active when it is not
-        // {
-        //     isPowerUpActive[powerUpData.subType] = true;
-        //     TogglePowerUp(powerUpData);
-        //     powerUpData.availableCount -= 1;
-        //     StartCoroutine(StartPowerUpTimer(powerUpData));
-        //     CustomLogger.Log(powerUpData.subType + " is activated");
-        // }
-        // else
-        // {
-        //     CustomLogger.Log(powerUpData.subType + " is already active");
-        // }
+    public void ToggleHUDImages()
+    {
+        protectivePowerUpImage.gameObject.SetActive(isProtectivePowerUpActive);
+        movementPowerUpImage.gameObject.SetActive(isMovementPowerUpActive);
+        guidePowerUpImage.gameObject.SetActive(isGuidePowerUpActive);
     }
 
     IEnumerator StartPowerUpTimer(PowerUpData powerUpData)
@@ -102,17 +114,18 @@ public class PowerUpManager : MonoBehaviour
         if (powerUpData.type == PowerUpData.Type.Protective)
         {
             isProtectivePowerUpActive = false;
-            protectivePowerUpImage.gameObject.SetActive(false);
+            // protectivePowerUpImage.gameObject.SetActive(false);
         }
         if (powerUpData.type == PowerUpData.Type.Movement)
         {
 
             isMovementPowerUpActive = false;
-            movementPowerUpImage.gameObject.SetActive(false);
+            // movementPowerUpImage.gameObject.SetActive(false);
         }
-
+        ToggleHUDImages();
         TogglePowerUp(powerUpData);
     }
+
     void TogglePowerUp(PowerUpData powerUpData)
     {
         switch (powerUpData.subType)
@@ -134,6 +147,10 @@ public class PowerUpManager : MonoBehaviour
                 letterCubeMovement.ToggleMovementSpeed();
                 movementPowerUpImage.sprite = speedRunTexture;
                 break;
+            case PowerUpData.SubType.Hint:
+                hintMechanism.DeductHint();
+                break;
+
         }
     }
 }

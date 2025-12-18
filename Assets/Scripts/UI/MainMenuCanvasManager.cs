@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using Cinemachine;
 using UnityEngine.SceneManagement;
 using TMPro;
-public class MainMenuCanvasManager : MonoBehaviour
+public class MainMenuCanvasManager : CommonUITasks
 {
     [SerializeField] private GameObject milestonePanel;
     [SerializeField] TextMeshProUGUI coinsTMPro;
@@ -26,11 +26,7 @@ public class MainMenuCanvasManager : MonoBehaviour
         // Load the specified level by index
         SceneManager.LoadScene(levelIndex);
     }
-    public void QuitGame()
-    {
-        Application.Quit();
-        CustomLogger.Log("Game is quitting");
-    }
+
 
     public void ToggleMilestonePanel()
     {
