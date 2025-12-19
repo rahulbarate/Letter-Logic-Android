@@ -6,6 +6,7 @@ public class MilestoneTracker
 {
     MilestoneData data;
     Action<string> showToast;
+    Action<int> addCoins;
     int cubesPlaced;
     int wordsCompleted;
     float elapsedTime;
@@ -14,10 +15,11 @@ public class MilestoneTracker
     int damageTaken;
 
 
-    public MilestoneTracker(MilestoneData milestone, Action<string> showToastAction)
+    public MilestoneTracker(MilestoneData milestone, Action<string> showToastAction, Action<int> addCoinsAction)
     {
         data = milestone;
         showToast = showToastAction;
+        addCoins = addCoinsAction;
         Reset();
     }
     public void Reset()
@@ -84,6 +86,7 @@ public class MilestoneTracker
 
         // show toast
         showToast?.Invoke($"Milestone {data.id} Achieved. Rewarded {data.rewardCoins} coins.");
+        addCoins?.Invoke(data.rewardCoins);
 
         if (SceneManager.GetActiveScene().buildIndex >= 3)
             CustomLogger.Log($"Milestone {data.id} Achieved. Completed {data.wordsToComplete} words in {elapsedTime} seconds with {damageTaken} damage. Rewarded {data.rewardCoins} coins.");

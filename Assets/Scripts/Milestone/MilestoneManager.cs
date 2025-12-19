@@ -7,12 +7,13 @@ public class MilestoneManager : MonoBehaviour
     MilestoneCollection collection;
     List<MilestoneTracker> trackers = new();
     [SerializeField] ToastUI toastUI;
+    [SerializeField] GameDataSave gameDataSave;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         foreach (MilestoneData data in collection.milestones)
         {
-            trackers.Add(new MilestoneTracker(data, ShowToast));
+            trackers.Add(new MilestoneTracker(data, ShowToast, AddCoins));
         }
     }
 
@@ -49,5 +50,9 @@ public class MilestoneManager : MonoBehaviour
     {
         Debug.Log("Called for " + text);
         toastUI.ShowToast(text);
+    }
+    public void AddCoins(int coins)
+    {
+        gameDataSave.TotalAvailableCoins += coins;
     }
 }

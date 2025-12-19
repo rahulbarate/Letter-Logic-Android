@@ -184,7 +184,7 @@ public class MilestoneUILoader : MonoBehaviour
     private string FormatMilestoneText(MilestoneData milestone)
     {
         string taskDescription = GetTaskDescription(milestone);
-        return $"Milestone ID #{milestone.id} \n{taskDescription} \nReward - {milestone.rewardCoins} coins \nCompleted {milestone.noOfTimesCompleted} time{(milestone.noOfTimesCompleted != 1 ? "s" : "")} \nRepeatable - {(milestone.repeatable == true ? "Yes" : "No")}.";
+        return $"<b>Milestone ID <color=blue><u>#{milestone.id}</u></color></b> \n{taskDescription} \nReward - <color=blue><u><b>{milestone.rewardCoins}</b></u></color> coins \nCompleted <color=blue><u>{milestone.noOfTimesCompleted} time{(milestone.noOfTimesCompleted != 1 ? "s" : "")}</u></color> \nRepeatable - <color=blue><u>{(milestone.repeatable == true ? "Yes" : "No")}</u></color>.";
     }
 
     private string GetTaskDescription(MilestoneData milestone)
@@ -194,23 +194,23 @@ public class MilestoneUILoader : MonoBehaviour
             case MilestoneData.Type.TimeBased:
                 if (milestone.wordsToComplete > 0)
                 {
-                    return $"Complete {milestone.wordsToComplete} words of {milestone.wordLength} letters in {milestone.timeLimit} seconds";
+                    return $"Complete <color=blue><u>{milestone.wordsToComplete}</u></color> words of <color=blue><u>{milestone.wordLength}</u></color> letters in <color=blue><u>{milestone.timeLimit}</u></color> seconds";
                 }
-                return $"Place {milestone.cubesToPlace} Letter cubes in {milestone.timeLimit} seconds";
+                return $"Place <color=blue><u>{milestone.cubesToPlace}</u></color> Letter cubes in <color=blue><u>{milestone.timeLimit}</u></color> seconds";
 
             case MilestoneData.Type.DamageBased:
                 if (milestone.wordsToComplete > 0)
                 {
-                    return $"Complete {milestone.wordsToComplete} words of {milestone.wordLength} letters with max {milestone.maxDamageAllowed} damage";
+                    return $"Complete <color=blue><u>{milestone.wordsToComplete}</u></color> words of <color=blue><u>{milestone.wordLength}</u></color> letters with max <color=blue><u>{milestone.maxDamageAllowed}</u></color> damage";
                 }
-                return $"Place {milestone.cubesToPlace} Letter cubes with max {milestone.maxDamageAllowed} damage";
+                return $"Place <color=blue><u>{milestone.cubesToPlace}</u></color> Letter cubes with max <color=blue><u>{milestone.maxDamageAllowed}</u></color> damage";
 
             case MilestoneData.Type.Mixed:
                 if (milestone.wordsToComplete > 0)
                 {
-                    return $"Complete {milestone.wordsToComplete} words of {milestone.wordLength} letters in {milestone.timeLimit} seconds with max {milestone.maxDamageAllowed} damage";
+                    return $"Complete <color=blue><u>{milestone.wordsToComplete}</u></color> words of <color=blue><u>{milestone.wordLength}</u></color> letters in <color=blue><u>{milestone.timeLimit}</u></color> seconds with max <color=blue><u>{milestone.maxDamageAllowed}</u></color> damage";
                 }
-                return $"Place {milestone.cubesToPlace} Letter cubes in {milestone.timeLimit} seconds with max {milestone.maxDamageAllowed} damage";
+                return $"Place <color=blue><u>{milestone.cubesToPlace}</u></color> Letter cubes in <color=blue><u>{milestone.timeLimit}</u></color> seconds with max <color=blue><u>{milestone.maxDamageAllowed}</u></color> damage";
 
             default:
                 return $"Complete milestone #{milestone.id}";

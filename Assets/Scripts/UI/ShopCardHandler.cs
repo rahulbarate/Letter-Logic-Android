@@ -25,7 +25,7 @@ public class ShopCardHandler : MonoBehaviour
         {
 
             powerUpIcon.sprite = powerUpData.powerUpUIIcon;
-            string text = $"<b>{GetPowerUpName(powerUpData.subType)}({powerUpData.type})</b>\nAvailable: <u><color=blue>{powerUpData.availableCount}</color></u>\nLv. <u><color=blue>{powerUpData.currentLevel}/4</color></u> | Duration: <u><color=blue>{((powerUpData.maxDurationsPerLevel.Count > 0) ? powerUpData.maxDurationsPerLevel[powerUpData.currentLevel - 1] : "Infinite")}</color></u>\nPrice: <u><color=blue>{powerUpData.buyPricePerLevel[powerUpData.currentLevel - 1]}$</color></u>{(powerUpData.currentLevel < 4 ? " | Upgrade: <u><color=blue>" + powerUpData.upgradePricePerLevel[powerUpData.currentLevel - 1] + "$</color></u>" : "")}";
+            string text = $"<b>{GetPowerUpName(powerUpData.subType)}({powerUpData.type})</b>\nAvailable: <u><color=blue>{powerUpData.availableCount}</color></u>\nLv. <u><color=blue>{powerUpData.currentLevel}/4</color></u> | Duration: <u><color=blue>{((powerUpData.maxDurationsPerLevel.Count > 0) ? powerUpData.maxDurationsPerLevel[powerUpData.currentLevel - 1] : "Infinite")}</color></u>\nPrice: <u><color=blue>{powerUpData.buyPricePerLevel[powerUpData.currentLevel - 1]}C</color></u>{(powerUpData.currentLevel < 4 ? " | Upgrade: <u><color=blue>" + powerUpData.upgradePricePerLevel[powerUpData.currentLevel - 1] + "C</color></u>" : "")}";
             powerUpDetails.text = text;
             if (powerUpData.currentLevel >= 4)
                 upgradeButton.SetActive(false);
@@ -58,7 +58,7 @@ public class ShopCardHandler : MonoBehaviour
     {
         if (dialogeUI != null)
         {
-            dialogeUI.ShowDialoge("Are you sure ?", "Buy", "Cancel", Buy, $"This will add 1 quantity of <u><color=blue>{GetPowerUpName(powerUpData.subType)}</u></color> Power Up in your inventory for <u><color=blue>{powerUpData.buyPricePerLevel[powerUpData.currentLevel - 1]}$</u></color>");
+            dialogeUI.ShowDialoge("Are you sure ?", "Buy", "Cancel", Buy, $"This will add 1 quantity of <u><color=blue>{GetPowerUpName(powerUpData.subType)}</u></color> Power Up in your inventory for <u><color=blue>{powerUpData.buyPricePerLevel[powerUpData.currentLevel - 1]}C</u></color>");
         }
         else
         {
@@ -73,7 +73,7 @@ public class ShopCardHandler : MonoBehaviour
         {
             if (powerUpData.currentLevel < 4)
             {
-                dialogeUI.ShowDialoge("Are you sure ?", "Upgrade", "Cancel", Upgrade, $"This will Upgrade your <u><color=blue>{GetPowerUpName(powerUpData.subType)}</u></color> Power Up from <u><color=blue>Lv.{powerUpData.currentLevel} to the Lv.{powerUpData.currentLevel + 1}</u></color> for <u><color=blue>{powerUpData.upgradePricePerLevel[powerUpData.currentLevel - 1]}$</u></color>");
+                dialogeUI.ShowDialoge("Are you sure ?", "Upgrade", "Cancel", Upgrade, $"This will Upgrade your <u><color=blue>{GetPowerUpName(powerUpData.subType)}</u></color> Power Up from <u><color=blue>Lv.{powerUpData.currentLevel} to the Lv.{powerUpData.currentLevel + 1}</u></color> for <u><color=blue>{powerUpData.upgradePricePerLevel[powerUpData.currentLevel - 1]}C</u></color>");
             }
             else
             {

@@ -1,15 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MilestoneCanvasUIManager : MonoBehaviour
 {
 
     [SerializeField] private GameObject alphabetMilestonesScrollContent;
-    [SerializeField] private Image alphabetMilestoneButtonImage;
+    [SerializeField] private TextMeshProUGUI alphabetMilestoneButtonImage;
     [SerializeField] private GameObject numbersMilestonesScrollContent;
-    [SerializeField] private Image numbersMilestoneButtonImage;
+    [SerializeField] private TextMeshProUGUI numbersMilestoneButtonImage;
     [SerializeField] private GameObject wordsMilestonesScrollContent;
-    [SerializeField] private Image wordsMilestoneButtonImage;
+    [SerializeField] private TextMeshProUGUI wordsMilestoneButtonImage;
     [SerializeField] private ScrollRect scrollRect;
     [SerializeField] private Color selectedColor;
     [SerializeField] private Color defaultColor;

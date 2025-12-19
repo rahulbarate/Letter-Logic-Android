@@ -46,7 +46,7 @@ public class DialogeUI : MonoBehaviour
     {
         if (dialogePanel.activeSelf == true)
         {
-            if (!pauseMenu.activeSelf)
+            if (pauseMenu != null && !pauseMenu.activeSelf)
                 Time.timeScale = 1f;
             dialogePanel.SetActive(false);
         }
