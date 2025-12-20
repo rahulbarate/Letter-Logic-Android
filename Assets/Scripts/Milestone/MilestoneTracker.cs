@@ -6,6 +6,7 @@ public class MilestoneTracker
 {
     MilestoneData data;
     Action<string> showToast;
+    Action<int, int> showMilestonePopup;
     Action<int> addCoins;
     int cubesPlaced;
     int wordsCompleted;
@@ -15,11 +16,12 @@ public class MilestoneTracker
     int damageTaken;
 
 
-    public MilestoneTracker(MilestoneData milestone, Action<string> showToastAction, Action<int> addCoinsAction)
+    public MilestoneTracker(MilestoneData milestone, Action<string> showToastAction, Action<int> addCoinsAction, Action<int, int> showMilestonePopupAction)
     {
         data = milestone;
         showToast = showToastAction;
         addCoins = addCoinsAction;
+        showMilestonePopup = showMilestonePopupAction;
         Reset();
     }
     public void Reset()
@@ -85,7 +87,8 @@ public class MilestoneTracker
         data.noOfTimesCompleted += 1;
 
         // show toast
-        showToast?.Invoke($"Milestone {data.id} Achieved. Rewarded {data.rewardCoins} coins.");
+        // showToast?.Invoke($"Milestone {data.id} Achieved. Rewarded {data.rewardCoins} coins.");
+        showMilestonePopup?.Invoke(data.id, data.rewardCoins);
         addCoins?.Invoke(data.rewardCoins);
 
         if (SceneManager.GetActiveScene().buildIndex >= 3)

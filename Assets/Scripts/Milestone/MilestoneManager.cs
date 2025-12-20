@@ -13,7 +13,7 @@ public class MilestoneManager : MonoBehaviour
     {
         foreach (MilestoneData data in collection.milestones)
         {
-            trackers.Add(new MilestoneTracker(data, ShowToast, AddCoins));
+            trackers.Add(new MilestoneTracker(data, ShowToast, AddCoins, ShowMilestonePopup));
         }
     }
 
@@ -54,5 +54,9 @@ public class MilestoneManager : MonoBehaviour
     public void AddCoins(int coins)
     {
         gameDataSave.TotalAvailableCoins += coins;
+    }
+    public void ShowMilestonePopup(int id, int rewardCoins)
+    {
+        toastUI.ShowMilestonePopup(id, rewardCoins);
     }
 }

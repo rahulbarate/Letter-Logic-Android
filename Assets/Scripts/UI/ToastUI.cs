@@ -22,9 +22,36 @@ public class ToastUI : MonoBehaviour
     private Queue<string> toastQueue = new Queue<string>();
     private bool isProcessingQueue = false;
 
+    // Milestone Popup System
+    [Header("Milestone Popup Settings")]
+    [SerializeField] GameObject milestonePopupUI;
+    [SerializeField] TextMeshProUGUI milestoneIDText;
+    [SerializeField] TextMeshProUGUI rewardedCoinText;
+    [SerializeField] UnityEngine.UI.Image milestoneImage;
+    [SerializeField] Color defaultColor = Color.gray;
+    [SerializeField] Color milestoneAchievedColor = Color.green;
+    [SerializeField] float imageFillReduceDuration = 1f;
+    [SerializeField] float imageFillIncreaseDuration = 1f;
+    [SerializeField] float milestoneAppearDuration = 0.5f;
+    [SerializeField] float milestoneDisappearDuration = 0.5f;
+    [SerializeField] float milestoneStayDuration = 0.5f;
+    [SerializeField] float visibleX = 0f;
+    [SerializeField] float initialX = 800f;
+
+    // Queue system for handling multiple milestone popups
+    private Queue<(int milestoneID, int rewardedCoin)> milestoneQueue = new Queue<(int, int)>();
+    private bool isProcessingMilestoneQueue = false;
+
     void Awake()
     {
         toastInitialPosition = toastUI.GetComponent<RectTransform>().position;
+
+        // Initialize milestone popup
+        if (milestoneImage != null)
+        {
+            milestoneImage.color = defaultColor;
+            milestoneImage.fillAmount = 1f;
+        }
     }
 
     public void ShowToast(string toastText)
@@ -93,5 +120,100 @@ public class ToastUI : MonoBehaviour
         });
     }
 
-    
+    public void ShowMilestonePopup(int milestoneID, int rewardedCoin)
+    {
+        // Add to milestone queue
+        milestoneQueue.Enqueue((milestoneID, rewardedCoin));
+
+        // Process queue if not already processing
+        if (!isProcessingMilestoneQueue)
+        {
+            ProcessNextMilestonePopup();
+        }
+    }
+
+    private void ProcessNextMilestonePopup()
+    {
+        if (milestoneQueue.Count == 0)
+        {
+            isProcessingMilestoneQueue = false;
+            return;
+        }
+
+        isProcessingMilestoneQueue = true;
+        var (milestoneID, rewardedCoin) = milestoneQueue.Dequeue();
+
+        // Stop any existing animations and reset state
+        milestonePopupUI.transform.DOKill();
+        if (milestoneImage != null)
+        {
+            milestoneImage.DOKill();
+        }
+
+        // Reset UI elements
+        milestonePopupUI.SetActive(false);
+
+        // Set text values
+        if (milestoneIDText != null)
+            milestoneIDText.text = "Milestone Achieved: " + milestoneID.ToString();
+        if (rewardedCoinText != null)
+            rewardedCoinText.text = "Reward coins: " + rewardedCoin.ToString();
+
+        // Reset image state
+        if (milestoneImage != null)
+        {
+            milestoneImage.color = defaultColor;
+            milestoneImage.fillAmount = 1f;
+        }
+
+        milestonePopupUI.SetActive(true);
+
+        RectTransform milestoneRect = milestonePopupUI.GetComponent<RectTransform>();
+
+        // Start the milestone animation sequence
+        milestoneRect.DOAnchorPosX(visibleX, milestoneAppearDuration).OnComplete(() =>
+        {
+            // Step 1: Reduce fill amount from 1 to 0
+            if (milestoneImage != null)
+            {
+                milestoneImage.DOFillAmount(0f, imageFillReduceDuration).OnComplete(() =>
+                {
+                    // Step 2: Change color to achieved color
+                    milestoneImage.DOColor(milestoneAchievedColor, 0.3f).OnComplete(() =>
+                    {
+                        // Step 3: Increase fill amount from 0 to 1
+                        milestoneImage.DOFillAmount(1f, imageFillIncreaseDuration).OnComplete(() =>
+                        {
+                            DOVirtual.DelayedCall(milestoneStayDuration, () =>
+                            {
+                                // Step 4: Hide popup and reset color
+                                milestoneRect.DOAnchorPosX(initialX, milestoneDisappearDuration).OnComplete(() =>
+                                {
+                                    milestoneImage.color = defaultColor;
+                                    ProcessNextMilestonePopup();
+                                    // milestoneImage.DOColor(defaultColor, 0.3f).OnComplete(() =>
+                                    // {
+                                    //     // Process next milestone popup
+                                    // });
+                                });
+                            });
+                        });
+                    });
+                });
+            }
+            else
+            {
+                // If no milestone image, just hide after a delay
+                DOVirtual.DelayedCall(2f, () =>
+                {
+                    milestoneRect.DOAnchorPosX(initialX, milestoneDisappearDuration).OnComplete(() =>
+                    {
+                        ProcessNextMilestonePopup();
+                    });
+                });
+            }
+        });
+    }
+
+
 }
