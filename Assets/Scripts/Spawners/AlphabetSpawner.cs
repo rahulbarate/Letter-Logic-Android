@@ -2,12 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class AlphabetSpawner : Spawner
 {
     List<char> availableLetters;
     [SerializeField] GameObject alphabetLetterCubes;
     [SerializeField] GameObject gameWonPanel;
+    [SerializeField] GameObject gameWonAdPanel;
+    [SerializeField] TextMeshProUGUI gameWonPanelRewardText;
+    [SerializeField] int gameWonRewardCoins = 200;
     [SerializeField] char startChar = 'A';
     [SerializeField] char endChar = 'Z';
 
@@ -29,6 +33,7 @@ public class AlphabetSpawner : Spawner
         slotSensorsHandler.AssignCLettersToSlotSensors();
         SpawnLetterCubes();
         Time.timeScale = 1f;
+        // gameDataSave.NoOfTimesGameOver = 0;
         // InstantiateLetterCube();
     }
 
@@ -50,8 +55,14 @@ public class AlphabetSpawner : Spawner
     }
     void SpawnLetterCubes()
     {
+
         if (availableLetters.Count != 0)
         {
+            AdService.E_RewardedAdCompleted -= OnRewardedAdCompleted;
+            AdService.E_RewardedAdCompleted += OnRewardedAdCompleted;
+
+            isLevelWon = false;
+
             // generating random index and calculating letter cube to fetch from 26 letter cubes
             int randomLetterIndex = UnityEngine.Random.Range(0, availableLetters.Count);
             int letterCubeToFetch = 26 - (90 - Convert.ToInt32(availableLetters[randomLetterIndex])) - 1;
@@ -93,10 +104,18 @@ public class AlphabetSpawner : Spawner
         else
         {
             Debug.Log("Level Completed");
-            // hintMechanism.AddHint(2, false);
-            // gameDataSave.IsLevelCompleted = true;
-            // gameDataSave.LetterCube = null;
-            // Time.timeScale = 0f;
+            isLevelWon = true;
+
+            // reward user with coins
+            gameDataSave.TotalAvailableCoins += gameWonRewardCoins;
+
+            gameWonPanelRewardText.text = $"Congratulations, you have been rewarded with {gameWonRewardCoins}C";
+            // display get 2x reward ad panel if ad is available.
+            if (AdService.Instance.IsRewardedAdReady())
+                gameWonAdPanel.SetActive(true);
+            else
+                gameWonAdPanel.SetActive(false);
+
             gameWonPanel.SetActive(true);
         }
     }
@@ -176,8 +195,13 @@ public class AlphabetSpawner : Spawner
     {
         currentHealth = maxHealth;
         healthText.text = currentHealth.ToString();
-        consecutiveCorrect = 0;
         if (gameOverPanel != null) gameOverPanel.SetActive(false);
         Time.timeScale = 1f;
+        // AdService.E_RewardedAdCompleted -= ReviveLevel;
+    }
+    public override void GetDoubleReward()
+    {
+        gameDataSave.TotalAvailableCoins += gameWonRewardCoins;
+        gameWonPanelRewardText.text = $"Hurray your reward is doubled! total coins earned {gameWonRewardCoins * 2}";
     }
 }

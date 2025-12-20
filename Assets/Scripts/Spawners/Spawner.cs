@@ -3,6 +3,7 @@ using UnityEngine;
 using Cinemachine;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class Spawner : MonoBehaviour
 {
     public CinemachineFreeLook cineFreeCam;
@@ -11,6 +12,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] public TextMeshProUGUI healthText;
     // [SerializeField] public GameObject healthBar;
     [SerializeField] public GameObject gameOverPanel;
+    [SerializeField] public GameObject gameOverAdPanel;
     public int currentHealth;
     public int maxHealth = 5;
     // public int healthBarSegments;
@@ -23,6 +25,7 @@ public class Spawner : MonoBehaviour
     protected string letterChoosen;
     protected LetterCubeEventHandler activeLetterCubeEventHandler;
     protected LetterCubeMovement letterCubeMovement;
+    protected bool isLevelWon = false;
 
     public virtual void OnPlacedInSlot(string letterOfSlotSensor) { }
 
@@ -30,6 +33,8 @@ public class Spawner : MonoBehaviour
     public virtual void OnLetterCubeFell(GameObject letterCubeHit) { }
 
     public virtual void ReviveLevel() { }
+    public virtual void GetDoubleReward() { }
+
 
     protected void TakeDamage()
     {
@@ -47,10 +52,65 @@ public class Spawner : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            gameDataSave.NoOfTimesGameOver += 1;
             Time.timeScale = 0f;
+            if (gameDataSave.NoOfTimesGameOver == 1)
+            {
+                gameOverAdPanel.SetActive(true);
+            }
+            else
+            {
+                AdService.E_RewardedAdCompleted -= OnRewardedAdCompleted;
+                gameOverAdPanel.SetActive(false);
+            }
             gameOverPanel.SetActive(true);
+
+            if (gameDataSave.NoOfTimesGameOver >= 3)
+            {
+                // show Interestitial add
+                AdService.Instance.ShowInterstitialAd();
+                // reset counter
+                gameDataSave.NoOfTimesGameOver = 0;
+            }
         }
 
     }
+    protected void OnRewardedAdCompleted()
+    {
+        if (isLevelWon)
+        {
+            GetDoubleReward();
+        }
+        else
+        {
+            ReviveLevel();
+        }
+        AdService.E_RewardedAdCompleted -= OnRewardedAdCompleted;
+    }
+
+    void OnDisable()
+    {
+        AdService.E_RewardedAdCompleted -= OnRewardedAdCompleted;
+        // SceneManager.activeSceneChanged -= OnSceneChanged;
+    }
+    void OnDestroy()
+    {
+        AdService.E_RewardedAdCompleted -= OnRewardedAdCompleted;
+        // SceneManager.activeSceneChanged -= OnSceneChanged;
+    }
+    void OnEnable()
+    {
+        // SceneManager.activeSceneChanged += OnSceneChanged;
+    }
+    // void OnSceneChanged(Scene current, Scene next)
+    // {
+    //     if (current != next)
+    //         gameDataSave.NoOfTimesGameOver = 0;
+    // }
+
+    // void OnDisable()
+    // {
+    //     // SceneManager.activeSceneChanged -= OnSceneChanged;
+    // }
 
 }

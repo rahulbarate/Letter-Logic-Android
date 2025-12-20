@@ -2,12 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class NumberSpawner : Spawner
 {
     List<int> availableNumbers;
     [SerializeField] GameObject numberLetterCubes;
     [SerializeField] GameObject gameWonPanel;
+    [SerializeField] GameObject gameWonAdPanel;
+    [SerializeField] TextMeshProUGUI gameWonPanelRewardText;
+    [SerializeField] int gameWonRewardCoins = 200;
     private int consecutiveCorrect;
     private int threshold = 4;
     PowerUpManager powerUpManager;
@@ -24,6 +28,7 @@ public class NumberSpawner : Spawner
         // InstantiateLetterCube();
         SpawnLetterCubes();
         Time.timeScale = 1f;
+        // gameDataSave.NoOfTimesGameOver = 0;
     }
 
     // Update is called once per frame
@@ -43,6 +48,10 @@ public class NumberSpawner : Spawner
     {
         if (availableNumbers.Count != 0)
         {
+            AdService.E_RewardedAdCompleted -= OnRewardedAdCompleted;
+            AdService.E_RewardedAdCompleted += OnRewardedAdCompleted;
+
+            isLevelWon = false;
             // generating random index and calculating letter cube to fetch from 26 letter cubes
             int randomNumberIndex = UnityEngine.Random.Range(0, availableNumbers.Count);
             int numberToFetch = availableNumbers[randomNumberIndex] - 1;
@@ -82,10 +91,17 @@ public class NumberSpawner : Spawner
         else
         {
             Debug.Log("Level Completed");
-            // hintMechanism.AddHint(2, false);
-            // gameDataSave.IsLevelCompleted = true;
-            // gameDataSave.LetterCube = null;
-            // Time.timeScale = 0f;
+            isLevelWon = true;
+
+            // reward user with coins
+            gameDataSave.TotalAvailableCoins += gameWonRewardCoins;
+
+            gameWonPanelRewardText.text = $"Congratulations, you have been rewarded with {gameWonRewardCoins}C";
+            // display get 2x reward ad panel if ad is available.
+            if (AdService.Instance.IsRewardedAdReady())
+                gameWonAdPanel.SetActive(true);
+            else
+                gameWonAdPanel.SetActive(false);
             gameWonPanel.SetActive(true);
         }
     }
@@ -166,5 +182,10 @@ public class NumberSpawner : Spawner
         healthText.text = currentHealth.ToString();
         if (gameOverPanel != null) gameOverPanel.SetActive(false);
         Time.timeScale = 1f;
+    }
+    public override void GetDoubleReward()
+    {
+        gameDataSave.TotalAvailableCoins += gameWonRewardCoins;
+        gameWonPanelRewardText.text = $"Hurray your reward is doubled! total coins earned {gameWonRewardCoins * 2}";
     }
 }

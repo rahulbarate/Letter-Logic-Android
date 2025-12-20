@@ -12,6 +12,9 @@ public class MenuUIManager : CommonUITasks
     [SerializeField] private TextMeshProUGUI correctWordPanelTimer;
     [SerializeField] private TextMeshProUGUI incorrectWordPanelTimer;
 
+    [SerializeField] private GameObject reviveButtonPanel;
+    [SerializeField] private GameObject getDoubleRewardPanel;
+
 
     private Coroutine timerCoroutine;
     private bool isTimerRunning = false;
@@ -58,7 +61,24 @@ public class MenuUIManager : CommonUITasks
     }
     public void ReviveGroundWithAd()
     {
-        spawner.ReviveLevel();
+        if (AdService.Instance.IsRewardedAdReady())
+        {
+            AdService.Instance.ShowRewardedAd();
+        }
+        if (reviveButtonPanel != null)
+            reviveButtonPanel.SetActive(false);
+
+        // spawner.ReviveLevel();
+    }
+    public void GetDoubleRewardButton()
+    {
+        if (AdService.Instance.IsRewardedAdReady())
+        {
+            AdService.Instance.ShowRewardedAd();
+        }
+        if (getDoubleRewardPanel != null)
+            getDoubleRewardPanel.SetActive(false);
+
     }
 
     private IEnumerator StartTimer(string messagePrefix, System.Action onTimerFinished, TextMeshProUGUI timerText)

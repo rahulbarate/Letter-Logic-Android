@@ -20,6 +20,13 @@ public class GameDataSave : ScriptableObject
         set { totalAvailableCoins = value; }
     }
 
+    [SerializeField] int noOfTimesGameOver = 0;
+    public int NoOfTimesGameOver
+    {
+        get { return noOfTimesGameOver; }
+        set { noOfTimesGameOver = value; }
+    }
+
 
 
     Word lastUsedWord3 = new Word();
