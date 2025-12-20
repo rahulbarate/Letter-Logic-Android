@@ -77,13 +77,13 @@ public class ToastUI : MonoBehaviour
         // float visibleY = toastInitialPosition.y - 180f;
 
         // Debug.Log($"[ToastUI] Starting appear animation for: '{toastText}'");
-        toastRect.DOLocalMoveY(visibleY, toastAppearDuration).OnComplete(() =>
+        toastRect.DOAnchorPosY(visibleY, toastAppearDuration).OnComplete(() =>
         {
             // Debug.Log($"[ToastUI] Appear complete for: '{toastText}', starting stay timer");
             DOVirtual.DelayedCall(toastStayDuration, () =>
             {
                 // Debug.Log($"[ToastUI] Stay timer complete for: '{toastText}', starting disappear animation");
-                toastRect.DOLocalMoveY(initialY, toastDisappearDuration).OnComplete(() =>
+                toastRect.DOAnchorPosY(initialY, toastDisappearDuration).OnComplete(() =>
                 {
                     // Debug.Log($"[ToastUI] Disappear complete for: '{toastText}', processing next toast");
                     // Process next toast after current one completes
@@ -92,4 +92,6 @@ public class ToastUI : MonoBehaviour
             });
         });
     }
+
+    
 }
