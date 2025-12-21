@@ -54,7 +54,7 @@ public class AdService : MonoBehaviour
     {
         MobileAds.Initialize((InitializationStatus status) =>
         {
-            CustomLogger.Log("Google mobile Ads initialized");
+            // CustomLogger.Log("Google mobile Ads initialized");
             LoadRewardedAd();
             LoadInterstitialAd();
             HandleBannerForScene(SceneManager.GetActiveScene().buildIndex);
@@ -65,7 +65,7 @@ public class AdService : MonoBehaviour
 
     private void LoadInterstitialAd()
     {
-        CustomLogger.Log("Loading Interstitial ad");
+        // CustomLogger.Log("Loading Interstitial ad");
         if (_interstitialAd != null)
         {
             _interstitialAd.Destroy();
@@ -76,9 +76,9 @@ public class AdService : MonoBehaviour
         {
             if (error != null || ad == null)
             {
-                CustomLogger.Log("Failed to load interstitial ad with error" + error?.GetMessage());
+                CustomLogger.LogError("Failed to load interstitial ad with error" + error?.GetMessage());
             }
-            CustomLogger.Log("Interstitial Ad loaded successfully");
+            // CustomLogger.Log("Interstitial Ad loaded successfully");
             _interstitialAd = ad;
             RegisterInterstitialAdEventHandlers(ad);
         });
@@ -86,11 +86,11 @@ public class AdService : MonoBehaviour
 
     private void RegisterInterstitialAdEventHandlers(InterstitialAd ad)
     {
-        ad.OnAdFullScreenContentOpened += () => CustomLogger.Log("Interstial Ad opened");
-        ad.OnAdFullScreenContentFailed += (err) => CustomLogger.Log("Failed to show ad with error: " + err.GetMessage());
+        // ad.OnAdFullScreenContentOpened += () => CustomLogger.Log("Interstial Ad opened");
+        ad.OnAdFullScreenContentFailed += (err) => CustomLogger.LogError("Failed to show ad with error: " + err.GetMessage());
         ad.OnAdFullScreenContentClosed += () =>
         {
-            CustomLogger.Log("Interstitial Ad Closed");
+            // CustomLogger.Log("Interstitial Ad Closed");
             LoadInterstitialAd();
         };
     }
@@ -116,7 +116,7 @@ public class AdService : MonoBehaviour
     }
     private void LoadRewardedAd()
     {
-        CustomLogger.Log("Loading rewarded ad.");
+        // CustomLogger.Log("Loading rewarded ad.");
         if (_rewardedAd != null)
         {
             _rewardedAd.Destroy();
@@ -129,21 +129,21 @@ public class AdService : MonoBehaviour
             {
                 CustomLogger.LogError("Failed to load rewarded ad with error: " + error?.GetMessage());
             }
-            CustomLogger.Log("Rewarded ad loaded successfully");
+            // CustomLogger.Log("Rewarded ad loaded successfully");
             _rewardedAd = ad;
             RegisterRewardedAdEventHandlers(ad);
         });
     }
     private void RegisterRewardedAdEventHandlers(RewardedAd ad)
     {
-        ad.OnAdFullScreenContentOpened += () => CustomLogger.Log("Rewarded ad opened.");
+        // ad.OnAdFullScreenContentOpened += () => CustomLogger.Log("Rewarded ad opened.");
         ad.OnAdFullScreenContentFailed += (err) =>
         {
-            CustomLogger.Log("Failed to show ad with error: " + err.GetMessage());
+            CustomLogger.LogError("Failed to show ad with error: " + err.GetMessage());
         };
         ad.OnAdFullScreenContentClosed += () =>
         {
-            CustomLogger.Log("Rewarded Ad closed");
+            // CustomLogger.Log("Rewarded Ad closed");
             E_RewardedAdCompleted?.Invoke();
             LoadRewardedAd();
 
@@ -160,7 +160,10 @@ public class AdService : MonoBehaviour
     {
         if (_rewardedAd != null && _rewardedAd.CanShowAd())
         {
-            _rewardedAd.Show((Reward reward) => { CustomLogger.Log($"User earned reward: {reward.Amount} {reward.Type}"); });
+            _rewardedAd.Show((Reward reward) =>
+            {
+                // CustomLogger.Log($"User earned reward: {reward.Amount} {reward.Type}"); 
+            });
         }
         else
         {
@@ -170,7 +173,7 @@ public class AdService : MonoBehaviour
     void HandleBannerForScene(int index)
     {
 
-        CustomLogger.Log("Handling banners for scene index " + index);
+        // CustomLogger.Log("Handling banners for scene index " + index);
         if (index == 0)
         {
             HideBannerAd();
@@ -189,13 +192,13 @@ public class AdService : MonoBehaviour
 
     void CreateBannerAd(AdPosition position)
     {
-        CustomLogger.Log("Creating banner ad");
+        // CustomLogger.Log("Creating banner ad");
         if (_bannerView != null)
             _bannerView.Destroy();
         AdSize adSize = AdSize.Banner;
         _bannerView = new BannerView(_bannerUnitId, adSize, position);
-        _bannerView.OnBannerAdLoaded += () => CustomLogger.Log("Banner Ad Loaded");
-        _bannerView.OnBannerAdLoadFailed += (err) => CustomLogger.Log("Banner Ad failed to load: " + err.GetMessage());
+        // _bannerView.OnBannerAdLoaded += () => CustomLogger.Log("Banner Ad Loaded");
+        _bannerView.OnBannerAdLoadFailed += (err) => CustomLogger.LogError("Banner Ad failed to load: " + err.GetMessage());
         _bannerView.LoadAd(new AdRequest());
     }
 

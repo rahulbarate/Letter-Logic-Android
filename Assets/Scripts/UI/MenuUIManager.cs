@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MenuUIManager : CommonUITasks
@@ -14,6 +15,8 @@ public class MenuUIManager : CommonUITasks
 
     [SerializeField] private GameObject reviveButtonPanel;
     [SerializeField] private GameObject getDoubleRewardPanel;
+    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private Button gameOverRestartButton;
 
 
     private Coroutine timerCoroutine;
@@ -24,7 +27,14 @@ public class MenuUIManager : CommonUITasks
     void Start()
     {
         if (spawner is WordSpawner spawner1)
+        {
             wordSpawner = spawner1;
+            gameOverRestartButton.onClick.AddListener(RespawnWord);
+        }
+        else
+        {
+            gameOverRestartButton.onClick.AddListener(ReloadScene);
+        }
     }
 
     void Update()
@@ -98,10 +108,11 @@ public class MenuUIManager : CommonUITasks
         // isTimerRunning = false;
         correctWordPanel.SetActive(false);
         incorrectWordPanel.SetActive(false);
+        if (gameOverPanel != null) gameOverPanel.SetActive(false);
         // if (pauseMenu.activeSelf)
         // hudCanvasManager.TogglePauseMenu();
         if (timerCoroutine != null) StopCoroutine(timerCoroutine);
-        wordSpawner.ReviveLevel();
+        wordSpawner.RespawnLetterCubes();
         Time.timeScale = 1f;
         // Time.timeScale = 1f;
     }

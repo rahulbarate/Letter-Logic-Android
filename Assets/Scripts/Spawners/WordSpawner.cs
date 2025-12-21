@@ -36,12 +36,13 @@ public class WordSpawner : Spawner
     private int totalThreshold = 10;
     PowerUpManager powerUpManager;
 
+    int wordSpawned = 0;
+
 
     void Start()
     {
         powerUpManager = GetComponent<PowerUpManager>();
-        currentHealth = maxHealth;
-        healthText.text = currentHealth.ToString();
+        ResetHealth();
         databaseManager = new DatabaseManager("wordsDatabase.db");
         spawnPoints = new List<UnityEngine.Vector3>(textLength);
         words = databaseManager.GetWordsFromDatabase(textLength, numberOfWords);
@@ -57,6 +58,13 @@ public class WordSpawner : Spawner
         Time.timeScale = 1f;
 
     }
+
+    private void ResetHealth()
+    {
+        currentHealth = maxHealth;
+        healthText.text = currentHealth.ToString();
+    }
+
     void CalculateSpawnPoints()
     {
         spawnPoints.Clear();
@@ -71,6 +79,19 @@ public class WordSpawner : Spawner
 
     void SpawnLetterCubes()
     {
+        AdService.E_RewardedAdCompleted -= OnRewardedAdCompleted;
+        AdService.E_RewardedAdCompleted += OnRewardedAdCompleted;
+        ResetHealth();
+        wordSpawned += 1;
+        if (wordSpawned >= 5)
+        {
+            if (AdService.Instance.IsInterstitialAdReady())
+                AdService.Instance.ShowInterstitialAd();
+            wordSpawned = 0;
+        }
+
+        isLevelWon = false;
+
         // Hide previous letter cubes if any
         ToggleLetterCubesVisibility(false);
 
@@ -96,7 +117,7 @@ public class WordSpawner : Spawner
         wordChosenInChars = new List<char>(wordChosen.Text.ToCharArray());
 
         //Display Hint
-        CustomLogger.Log("Hint:" + wordChosen.Hint);
+        // CustomLogger.Log("Hint:" + wordChosen.Hint);
         ShowTextualHint();
         //Assign Letters to the Slot Sensors;
         slotSensorsHandler.AssignWord(wordChosenInChars);
@@ -175,8 +196,21 @@ public class WordSpawner : Spawner
         letterCube.GetComponent<LetterCubeEventHandler>().E_PickedPowerUp -= powerUpManager.OnPowerUpPickedUp;
     }
 
-    void RespawnLetterCubes()
+    public void RespawnLetterCubes()
     {
+        ResetHealth();
+        AdService.E_RewardedAdCompleted -= OnRewardedAdCompleted;
+        AdService.E_RewardedAdCompleted += OnRewardedAdCompleted;
+        isLevelWon = false;
+        wordSpawned += 1;
+        if (wordSpawned >= 5)
+        {
+            if (AdService.Instance.IsInterstitialAdReady())
+                AdService.Instance.ShowInterstitialAd();
+            wordSpawned = 0;
+        }   
+
+
         // Hide all the Letter Cubes
         ToggleLetterCubesVisibility(false);
 
@@ -272,8 +306,11 @@ public class WordSpawner : Spawner
             // Check if all letter cubes placed correct or not.
             if (correctlyPlacedLCCount == textLength)
             {
+                // AdService.E_RewardedAdCompleted -= OnRewardedAdCompleted;
+                // AdService.E_RewardedAdCompleted += OnRewardedAdCompleted;
 
                 CustomLogger.Log("Correct word");
+                isLevelWon = true;
 
                 // update milstone
                 milestoneManager.HandleWordCompleted();
@@ -315,6 +352,7 @@ public class WordSpawner : Spawner
             else
             {
                 CustomLogger.LogWarning("Incorrect word");
+                isLevelWon = false;
 
                 // update milestone
                 milestoneManager.HandleIncorrectWord();
@@ -357,7 +395,7 @@ public class WordSpawner : Spawner
     {
         if (activeLetterCube.gameObject == letterCubeHit)
         {
-            CustomLogger.Log("Bombed");
+            // CustomLogger.Log("Bombed");
             letterCubeMovement.MoveToInitialPosition();
             TakeDamage();
 
@@ -379,11 +417,12 @@ public class WordSpawner : Spawner
     }
     public override void ReviveLevel()
     {
+        CustomLogger.Log("In ReviveLevel");
         currentHealth = maxHealth;
         healthText.text = currentHealth.ToString();
         if (incorrectWordPanel != null) incorrectWordPanel.SetActive(false);
         if (gameOverPanel != null) gameOverPanel.SetActive(false);
-        RespawnLetterCubes();
+        // RespawnLetterCubes();
         Time.timeScale = 1f;
     }
 

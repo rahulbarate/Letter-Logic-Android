@@ -4203,7 +4203,7 @@ MonoBehaviour:
   gameOverPanel: {fileID: 1495181107}
   gameOverAdPanel: {fileID: 1495181111}
   currentHealth: 0
-  maxHealth: 2
+  maxHealth: 3
   playgroundType: 1
   slotSensorsHandler: {fileID: 9097036320719120431}
   gameDataSave: {fileID: 11400000, guid: 6a365ee447c9b1d46884803d519a6ea0, type: 2}
