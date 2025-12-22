@@ -83,7 +83,7 @@ public class WordSpawner : Spawner
         AdService.E_RewardedAdCompleted += OnRewardedAdCompleted;
         ResetHealth();
         wordSpawned += 1;
-        if (wordSpawned >= 5)
+        if (wordSpawned >= 7)
         {
             if (AdService.Instance.IsInterstitialAdReady())
                 AdService.Instance.ShowInterstitialAd();
@@ -203,12 +203,12 @@ public class WordSpawner : Spawner
         AdService.E_RewardedAdCompleted += OnRewardedAdCompleted;
         isLevelWon = false;
         wordSpawned += 1;
-        if (wordSpawned >= 5)
+        if (wordSpawned >= 7)
         {
             if (AdService.Instance.IsInterstitialAdReady())
                 AdService.Instance.ShowInterstitialAd();
             wordSpawned = 0;
-        }   
+        }
 
 
         // Hide all the Letter Cubes

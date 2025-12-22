@@ -54,7 +54,7 @@ public class Spawner : MonoBehaviour
         {
             gameDataSave.NoOfTimesGameOver += 1;
             Time.timeScale = 0f;
-            if (gameDataSave.NoOfTimesGameOver == 1)
+            if (gameDataSave.NoOfTimesGameOver == 1 || gameDataSave.NoOfTimesGameOver == 3)
             {
                 gameOverAdPanel.SetActive(true);
             }
@@ -65,7 +65,7 @@ public class Spawner : MonoBehaviour
             }
             gameOverPanel.SetActive(true);
 
-            if (gameDataSave.NoOfTimesGameOver >= 3)
+            if (gameDataSave.NoOfTimesGameOver >= 5)
             {
                 // show Interestitial add
                 AdService.Instance.ShowInterstitialAd();
