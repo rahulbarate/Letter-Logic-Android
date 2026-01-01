@@ -91,10 +91,10 @@ public class MilestoneTracker
         showMilestonePopup?.Invoke(data.id, data.rewardCoins);
         addCoins?.Invoke(data.rewardCoins);
 
-        if (SceneManager.GetActiveScene().buildIndex >= 3)
-            CustomLogger.Log($"Milestone {data.id} Achieved. Completed {data.wordsToComplete} words in {elapsedTime} seconds with {damageTaken} damage. Rewarded {data.rewardCoins} coins.");
-        else
-            CustomLogger.Log($"Milestone {data.id} Achieved. Placed {data.cubesToPlace} in {elapsedTime} seconds with {damageTaken} damage. Rewarded {data.rewardCoins} coins.");
+        // if (SceneManager.GetActiveScene().buildIndex >= 3)
+        //     CustomLogger.Log($"Milestone {data.id} Achieved. Completed {data.wordsToComplete} words in {elapsedTime} seconds with {damageTaken} damage. Rewarded {data.rewardCoins} coins.");
+        // else
+        //     CustomLogger.Log($"Milestone {data.id} Achieved. Placed {data.cubesToPlace} in {elapsedTime} seconds with {damageTaken} damage. Rewarded {data.rewardCoins} coins.");
 
         if (!data.repeatable)
             isActive = false;

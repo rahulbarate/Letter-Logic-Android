@@ -13,12 +13,19 @@ public class LetterCubeData : MonoBehaviour
 
     public bool isPlaced = false;
 
+    public ParticleSystem swirlEffect;
+
     // Start is called before the first frame update
     void Start()
     {
         // Debug.Log(transform.localPosition);
         initialPosition = transform.localPosition;
+
         // Debug.Log($"{initialPosition.x}-{initialPosition.y}-{initialPosition.z}");
+    }
+    void OnEnable()
+    {
+        swirlEffect = transform.GetChild(1).GetComponent<ParticleSystem>();
     }
 
 

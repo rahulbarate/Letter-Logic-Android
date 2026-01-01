@@ -60,7 +60,7 @@ public class PowerUpManager : MonoBehaviour
         else
             return;
 
-        CustomLogger.Log(powerUpData.subType + " is activated");
+        // CustomLogger.Log(powerUpData.subType + " is activated");
         ToggleHUDImages();
         TogglePowerUp(powerUpData);
         if (powerUpData.type != PowerUpData.Type.Guide)
@@ -75,6 +75,7 @@ public class PowerUpManager : MonoBehaviour
     {
         isGuidePowerUpActive = false;
         ToggleHUDImages();
+        ToggleSwirlEffect();
     }
 
     public void ToggleHUDImages()
@@ -132,25 +133,49 @@ public class PowerUpManager : MonoBehaviour
         {
             case PowerUpData.SubType.BombShield:
                 Physics.IgnoreLayerCollision(letterCubeLayer, bombLayer, isProtectivePowerUpActive);
+                ToggleSwirlEffect();
                 protectivePowerUpImage.sprite = bombShieldTexture;
                 break;
             case PowerUpData.SubType.CannonShield:
                 Physics.IgnoreLayerCollision(letterCubeLayer, cannonBallLayer, isProtectivePowerUpActive);
+                ToggleSwirlEffect();
                 protectivePowerUpImage.sprite = cannonShieldTexture;
                 break;
             case PowerUpData.SubType.DiamondShield:
                 Physics.IgnoreLayerCollision(letterCubeLayer, bombLayer, isProtectivePowerUpActive);
                 Physics.IgnoreLayerCollision(letterCubeLayer, cannonBallLayer, isProtectivePowerUpActive);
+                ToggleSwirlEffect();
                 protectivePowerUpImage.sprite = diamondShieldTexture;
                 break;
             case PowerUpData.SubType.SpeedRun:
                 letterCubeMovement.ToggleMovementSpeed();
+                ToggleSwirlEffect();
                 movementPowerUpImage.sprite = speedRunTexture;
                 break;
             case PowerUpData.SubType.Hint:
                 hintMechanism.DeductHint();
+                ToggleSwirlEffect();
                 break;
 
+        }
+    }
+
+    public void ToggleSwirlEffect()
+    {
+        LetterCubeData letterCubeData = letterCubeMovement.ActiveLetterCube.GetComponent<LetterCubeData>();
+        if (isProtectivePowerUpActive || isMovementPowerUpActive || isGuidePowerUpActive)
+        {
+            if (letterCubeData != null && letterCubeData.swirlEffect != null)
+                letterCubeData.swirlEffect.Play();
+            else
+                CustomLogger.Log("letterCubeData or swirlEffect is missing");
+        }
+        else
+        {
+            if (letterCubeData != null && letterCubeData.swirlEffect != null)
+                letterCubeData.swirlEffect.Stop();
+            else
+                CustomLogger.Log("letterCubeData or swirlEffect is missing");
         }
     }
 }

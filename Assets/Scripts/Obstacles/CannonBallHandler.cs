@@ -30,6 +30,7 @@ public class CannonBallHandler : MonoBehaviour
     {
         if (!other.gameObject.CompareTag("Untagged"))
         {
+            Debug.Log("Cannon hit " + other.gameObject.tag);
             Invoke(nameof(ExplosionEffect), explosionEffectTime);
             Invoke(nameof(SelfDestruct), destructionTime);
             // SelfDestruct();

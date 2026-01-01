@@ -33,6 +33,7 @@ public class LetterCubeEventHandler : MonoBehaviour
         if (other.CompareTag("Slot Senser"))
         {
             E_PlacedInSlot?.Invoke(other.GetComponent<SlotSensorHandler>().letter);
+            letterCubeData.swirlEffect.Stop();
             // transform.position = new Vector3(other.transform.position.x, transform.position.y, other.transform.position.z);
         }
         else if (other.CompareTag("PowerUp"))

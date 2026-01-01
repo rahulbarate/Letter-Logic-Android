@@ -269,6 +269,7 @@ public class WordSpawner : Spawner
     public override void OnPlacedInSlot(string letterOnSlotSensor)
     {
         // CustomLogger.Log($"Cube placed; letterOnSlotSensor: {letterOnSlotSensor}, letterOnCube: {activeLetterCube.GetComponent<LetterCubeData>().GetLetterOnCube()}");
+        powerUpManager.DisableHintPowerUp();
 
         // setting isPlaced to true so they won't be affected by bombing.
         activeLetterCube.GetComponent<LetterCubeData>().isPlaced = true;
@@ -279,7 +280,6 @@ public class WordSpawner : Spawner
         letterCubeMovement.ActiveLetterCube = null;
 
         // disabling hints
-        powerUpManager.DisableHintPowerUp();
 
         // for (int i = 0; i <= textLength - 1; i++)
         // {
@@ -309,7 +309,7 @@ public class WordSpawner : Spawner
                 // AdService.E_RewardedAdCompleted -= OnRewardedAdCompleted;
                 // AdService.E_RewardedAdCompleted += OnRewardedAdCompleted;
 
-                CustomLogger.Log("Correct word");
+                // CustomLogger.Log("Correct word");
                 isLevelWon = true;
 
                 // update milstone
@@ -351,7 +351,7 @@ public class WordSpawner : Spawner
             }
             else
             {
-                CustomLogger.LogWarning("Incorrect word");
+                // CustomLogger.LogWarning("Incorrect word");
                 isLevelWon = false;
 
                 // update milestone
@@ -390,6 +390,7 @@ public class WordSpawner : Spawner
         // activeLetterCubeIndex = letterIndex;
         cineFreeCam.Follow = letterCubesForChosenWord[letterIndex].transform;
         cineFreeCam.LookAt = letterCubesForChosenWord[letterIndex].transform;
+        powerUpManager.ToggleSwirlEffect();
     }
     public override void OnLetterCubeBombed(GameObject letterCubeHit)
     {
@@ -407,7 +408,7 @@ public class WordSpawner : Spawner
     {
         if (activeLetterCube.gameObject == letterCubeHit)
         {
-            CustomLogger.Log("Fell in ocean");
+            // CustomLogger.Log("Fell in ocean");
             letterCubeMovement.MoveToInitialPosition();
             TakeDamage();
 
@@ -417,7 +418,7 @@ public class WordSpawner : Spawner
     }
     public override void ReviveLevel()
     {
-        CustomLogger.Log("In ReviveLevel");
+        // CustomLogger.Log("In ReviveLevel");
         currentHealth = maxHealth;
         healthText.text = currentHealth.ToString();
         if (incorrectWordPanel != null) incorrectWordPanel.SetActive(false);
