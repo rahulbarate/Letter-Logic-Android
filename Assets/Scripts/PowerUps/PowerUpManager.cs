@@ -162,7 +162,10 @@ public class PowerUpManager : MonoBehaviour
 
     public void ToggleSwirlEffect()
     {
-        LetterCubeData letterCubeData = letterCubeMovement.ActiveLetterCube.GetComponent<LetterCubeData>();
+        LetterCubeData letterCubeData = null;
+        if (letterCubeMovement != null && letterCubeMovement.ActiveLetterCube != null)
+            letterCubeData = letterCubeMovement.ActiveLetterCube.GetComponent<LetterCubeData>();
+
         if (isProtectivePowerUpActive || isMovementPowerUpActive || isGuidePowerUpActive)
         {
             if (letterCubeData != null && letterCubeData.swirlEffect != null)

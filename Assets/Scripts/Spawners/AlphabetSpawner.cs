@@ -10,6 +10,7 @@ public class AlphabetSpawner : Spawner
     [SerializeField] GameObject alphabetLetterCubes;
     [SerializeField] GameObject gameWonPanel;
     [SerializeField] GameObject gameWonAdPanel;
+    [SerializeField] ParticleSystem gameWonParticleEffect;
     [SerializeField] TextMeshProUGUI gameWonPanelRewardText;
     [SerializeField] int gameWonRewardCoins = 200;
     [SerializeField] char startChar = 'A';
@@ -100,6 +101,7 @@ public class AlphabetSpawner : Spawner
             // set letter cube active
             activeLetterCube.SetActive(true);
             letterCubeMovement.ActiveLetterCube = activeLetterCube;
+            powerUpManager.ToggleSwirlEffect();
         }
         else
         {
@@ -111,12 +113,13 @@ public class AlphabetSpawner : Spawner
 
             gameWonPanelRewardText.text = $"Congratulations, you have been rewarded with {gameWonRewardCoins}C";
             // display get 2x reward ad panel if ad is available.
-            if (AdService.Instance.IsRewardedAdReady())
+            if (AdService.Instance != null && AdService.Instance.IsRewardedAdReady())
                 gameWonAdPanel.SetActive(true);
             else
                 gameWonAdPanel.SetActive(false);
 
             gameWonPanel.SetActive(true);
+            gameWonParticleEffect.Play();
         }
     }
 

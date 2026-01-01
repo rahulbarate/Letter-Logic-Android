@@ -25,6 +25,7 @@ public class ToastUI : MonoBehaviour
     // Milestone Popup System
     [Header("Milestone Popup Settings")]
     [SerializeField] GameObject milestonePopupUI;
+    [SerializeField] ParticleSystem confettiParticleSystem;
     [SerializeField] TextMeshProUGUI milestoneIDText;
     [SerializeField] TextMeshProUGUI rewardedCoinText;
     [SerializeField] UnityEngine.UI.Image milestoneImage;
@@ -184,6 +185,7 @@ public class ToastUI : MonoBehaviour
                         // Step 3: Increase fill amount from 0 to 1
                         milestoneImage.DOFillAmount(1f, imageFillIncreaseDuration).OnComplete(() =>
                         {
+                            confettiParticleSystem.Play();
                             DOVirtual.DelayedCall(milestoneStayDuration, () =>
                             {
                                 // Step 4: Hide popup and reset color
