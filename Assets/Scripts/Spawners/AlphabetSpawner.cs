@@ -182,6 +182,7 @@ public class AlphabetSpawner : Spawner
 
     public override void OnLetterCubeBombed(GameObject letterCubeHit)
     {
+        cameraEffect.ShakeCamera();
         letterCubeMovement.MoveToInitialPosition();
         TakeDamage();
         // update milestone

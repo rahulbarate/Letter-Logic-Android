@@ -14,7 +14,8 @@ public class SlotSensorHandler : MonoBehaviour
     {
         if (other.CompareTag("Letter Cube"))
         {
-            transform.GetComponent<Light>().enabled = false;
+            // transform.GetComponent<Light>().enabled = false;
+            transform.GetChild(0).GetComponent<ParticleSystem>().Stop();
             // // Debug.Log(other.GetComponent<LetterCubeData>().GetLetterOnCube());
             // // Debug.Log(other.GetComponent<LetterCubeData>().GetLetterOnCube()[0]);
             // char ch = other.GetComponent<LetterCubeData>().LetterOnTop[0];

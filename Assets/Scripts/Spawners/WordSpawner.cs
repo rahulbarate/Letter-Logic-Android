@@ -397,6 +397,7 @@ public class WordSpawner : Spawner
         if (activeLetterCube.gameObject == letterCubeHit)
         {
             // CustomLogger.Log("Bombed");
+            cameraEffect.ShakeCamera();
             letterCubeMovement.MoveToInitialPosition();
             TakeDamage();
 

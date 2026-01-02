@@ -60,7 +60,8 @@ public class HintMechanism : MonoBehaviour
                 if (!slotSensor.GetComponent<Light>().enabled && hintPowerUpData.availableCount >= 1)
                 {
                     --hintPowerUpData.availableCount;
-                    slotSensor.GetComponent<Light>().enabled = true;
+                    // slotSensor.GetComponent<Light>().enabled = true;
+                    slotSensor.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
                     // totalHintText.text = hintPowerUpData.availableCount.ToString();
                     // ShowPopup(-1);
                     if (spawner is WordSpawner)

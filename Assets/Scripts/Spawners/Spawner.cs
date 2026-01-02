@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Spawner : MonoBehaviour
 {
     public CinemachineFreeLook cineFreeCam;
+    public CameraEffect cameraEffect;
     public MilestoneManager milestoneManager;
     protected float letterCubeScale = 0.93f;
     [SerializeField] public TextMeshProUGUI healthText;
