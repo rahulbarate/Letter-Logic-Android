@@ -10,7 +10,7 @@ public class BombHandler : MonoBehaviour
     [SerializeField] ParticleSystem explosion;
     [SerializeField] float explosionDelay;
     [SerializeField] float destructionDelay;
-    [SerializeField] GameDataSave gameDataSave;
+    [SerializeField] GameSettings gameSettings;
 
 
     private MeshRenderer meshRenderer;
@@ -72,7 +72,7 @@ public class BombHandler : MonoBehaviour
             //     ShakeCamera();
             // }
 
-            if (!gameDataSave.MuteAllAudio)
+            if (!gameSettings.MuteAllAudio)
                 audioSource.Play();
                 
             Invoke(nameof(ExplosionEffect), explosionDelay);

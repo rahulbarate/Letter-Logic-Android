@@ -18,17 +18,13 @@ public class HUDCanvasManager : CommonUITasks
     [SerializeField] private Image powerUpPanelToggleButton;
     [SerializeField] private Sprite leftArrow;
     [SerializeField] private Sprite rightArrow;
-    [SerializeField] GameDataSave gameDataSave;
+    [SerializeField] AudioManager audioManager;
 
 
     bool isPowerUpPanelActive = false;
 
     void Start()
     {
-        if (gameDataSave.MuteAllAudio)
-            gameDataSave.audioMixer.SetFloat("MasterVolume", gameDataSave.MuteVolume);
-        else
-            gameDataSave.audioMixer.SetFloat("MasterVolume", gameDataSave.MaxVolume);
     }
 
 
@@ -74,17 +70,6 @@ public class HUDCanvasManager : CommonUITasks
     }
     public void ToggleMute()
     {
-        // mute all
-        if (gameDataSave.MuteAllAudio)
-        {
-            gameDataSave.audioMixer.SetFloat("MasterVolume", gameDataSave.MaxVolume);
-            gameDataSave.MuteAllAudio = false;
-        }
-        else
-        {
-            gameDataSave.audioMixer.SetFloat("MasterVolume", gameDataSave.MuteVolume);
-            gameDataSave.MuteAllAudio = true;
-        }
-
+        audioManager.ToggleMute();
     }
 }

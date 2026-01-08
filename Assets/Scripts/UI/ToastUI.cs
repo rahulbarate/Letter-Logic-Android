@@ -16,7 +16,7 @@ public class ToastUI : MonoBehaviour
     // [SerializeField] Vector3 offScreenPosition;
     [SerializeField] float visibleY = 280f;
     [SerializeField] float initialY = 500f;
-    [SerializeField] GameDataSave gameDataSave;
+    [SerializeField] GameSettings gameSettings;
     private Vector3 toastInitialPosition;
 
     // Queue system for handling multiple toasts
@@ -188,7 +188,7 @@ public class ToastUI : MonoBehaviour
                         // Step 3: Increase fill amount from 0 to 1
                         milestoneImage.DOFillAmount(1f, imageFillIncreaseDuration).OnComplete(() =>
                         {
-                            if (!gameDataSave.MuteAllAudio)
+                            if (!gameSettings.MuteAllAudio)
                                 audioSource.Play();
                             confettiParticleSystem.Play();
                             DOVirtual.DelayedCall(milestoneStayDuration, () =>

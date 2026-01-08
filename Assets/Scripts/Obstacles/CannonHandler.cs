@@ -9,7 +9,7 @@ public class CannonHandler : MonoBehaviour
     [SerializeField] GameObject cannonBallSpawnPoint;
     [SerializeField] float forceAmount = 500f;
     [SerializeField] int poolSize = 10;
-    [SerializeField] GameDataSave gameDataSave;
+    [SerializeField] GameSettings gameSettings;
     Queue<GameObject> cannonBallPool = new Queue<GameObject>();
 
     AudioSource audioSource;
@@ -32,7 +32,7 @@ public class CannonHandler : MonoBehaviour
     {
         if (cannonBallPool.Count > 0)
         {
-            if (!gameDataSave.MuteAllAudio)
+            if (!gameSettings.MuteAllAudio)
                 audioSource.Play();
             audioSource.Play();
             GameObject ball = cannonBallPool.Dequeue();
