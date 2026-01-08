@@ -10,6 +10,13 @@ public class MainMenuCanvasManager : CommonUITasks
     [SerializeField] private GameObject milestonePanel;
     [SerializeField] TextMeshProUGUI coinsTMPro;
     [SerializeField] GameDataSave gameDataSave;
+    void Start()
+    {
+        if (gameDataSave.MuteAllAudio)
+            gameDataSave.audioMixer.SetFloat("MasterVolume", gameDataSave.MuteVolume);
+        else
+            gameDataSave.audioMixer.SetFloat("MasterVolume", gameDataSave.MaxVolume);
+    }
 
     void OnEnable()
     {
@@ -40,6 +47,22 @@ public class MainMenuCanvasManager : CommonUITasks
     {
         if (gameDataSave != null && coinsTMPro != null && coinsTMPro.text != gameDataSave.TotalAvailableCoins.ToString())
             coinsTMPro.text = gameDataSave.TotalAvailableCoins.ToString();
+    }
+
+    public void ToggleMute()
+    {
+        // mute all
+        if (gameDataSave.MuteAllAudio)
+        {
+            gameDataSave.audioMixer.SetFloat("MasterVolume", gameDataSave.MaxVolume);
+            gameDataSave.MuteAllAudio = false;
+        }
+        else
+        {
+            gameDataSave.audioMixer.SetFloat("MasterVolume", gameDataSave.MuteVolume);
+            gameDataSave.MuteAllAudio = true;
+        }
+
     }
 
 }

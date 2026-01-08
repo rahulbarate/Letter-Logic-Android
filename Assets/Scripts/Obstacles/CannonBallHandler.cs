@@ -7,9 +7,11 @@ public class CannonBallHandler : MonoBehaviour
     [SerializeField] ParticleSystem explosion;
     [SerializeField] float destructionTime = 2f;
     [SerializeField] float explosionEffectTime = 0.1f;
+    [SerializeField] GameDataSave gameDataSave;
     public MeshRenderer meshRenderer;
     public Collider sphereCollider;
     Rigidbody rgbody;
+    AudioSource audioSource;
     public CannonHandler cannonHandler;
 
 
@@ -22,6 +24,7 @@ public class CannonBallHandler : MonoBehaviour
         meshRenderer = GetComponent<MeshRenderer>();
         sphereCollider = GetComponent<Collider>();
         rgbody = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -30,6 +33,8 @@ public class CannonBallHandler : MonoBehaviour
     {
         if (!other.gameObject.CompareTag("Untagged"))
         {
+            if (!gameDataSave.MuteAllAudio)
+                audioSource.Play();
             // Debug.Log("Cannon hit " + other.gameObject.tag);
             Invoke(nameof(ExplosionEffect), explosionEffectTime);
             Invoke(nameof(SelfDestruct), destructionTime);

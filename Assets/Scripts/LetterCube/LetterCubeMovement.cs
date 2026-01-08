@@ -25,6 +25,8 @@ public class LetterCubeMovement : MonoBehaviour
             if (activeLetterCube != null) rgbody = activeLetterCube.GetComponent<Rigidbody>();
         }
     }
+
+    public bool disableMovement = false;
     Vector2 moveInput;
     Vector2 lookInput;
     InputAction moveAction;
@@ -82,7 +84,7 @@ public class LetterCubeMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (activeLetterCube == null || rgbody == null)
+        if (activeLetterCube == null || rgbody == null || disableMovement)
             return;
 
         Vector3 move = new Vector3(moveInput.x, 0, moveInput.y) * movementSpeed * Time.fixedDeltaTime;

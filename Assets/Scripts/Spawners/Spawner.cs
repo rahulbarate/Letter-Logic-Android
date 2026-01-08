@@ -21,6 +21,8 @@ public class Spawner : MonoBehaviour
     public SlotSensorsHandler slotSensorsHandler;
     public GameDataSave gameDataSave;
     public List<int> correctSlotSensorIndex = new();
+
+    public float afterBombedSequenceDelay = 2f;
     protected GameObject single3DLetterModel;
     protected GameObject activeLetterCube;
     protected string letterChoosen;

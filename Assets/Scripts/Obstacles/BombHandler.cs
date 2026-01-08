@@ -10,14 +10,18 @@ public class BombHandler : MonoBehaviour
     [SerializeField] ParticleSystem explosion;
     [SerializeField] float explosionDelay;
     [SerializeField] float destructionDelay;
-    
+    [SerializeField] GameDataSave gameDataSave;
+
 
     private MeshRenderer meshRenderer;
     private Collider boxCollider;
     private Rigidbody rgbody;
+
+    private AudioSource audioSource;
     public ObjectPool<GameObject> pool;
 
-    
+
+
 
     public void ResetForPool()
     {
@@ -46,17 +50,18 @@ public class BombHandler : MonoBehaviour
         meshRenderer = GetComponent<MeshRenderer>();
         boxCollider = GetComponent<Collider>();
         rgbody = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
 
     }
 
-    
 
-    
+
+
 
 
     private void OnCollisionEnter(Collision other)
     {
-        
+
         if (!other.gameObject.CompareTag("BombLayer"))
         {
 
@@ -67,8 +72,12 @@ public class BombHandler : MonoBehaviour
             //     ShakeCamera();
             // }
 
+            if (!gameDataSave.MuteAllAudio)
+                audioSource.Play();
+                
             Invoke(nameof(ExplosionEffect), explosionDelay);
             Invoke(nameof(SelfDestruct), destructionDelay);
+
 
         }
 

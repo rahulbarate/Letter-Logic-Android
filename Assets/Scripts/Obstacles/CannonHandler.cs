@@ -9,7 +9,10 @@ public class CannonHandler : MonoBehaviour
     [SerializeField] GameObject cannonBallSpawnPoint;
     [SerializeField] float forceAmount = 500f;
     [SerializeField] int poolSize = 10;
+    [SerializeField] GameDataSave gameDataSave;
     Queue<GameObject> cannonBallPool = new Queue<GameObject>();
+
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +25,16 @@ public class CannonHandler : MonoBehaviour
             rb.isKinematic = true;
             cannonBallPool.Enqueue(obj);
         }
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void FireCannon()
     {
         if (cannonBallPool.Count > 0)
         {
+            if (!gameDataSave.MuteAllAudio)
+                audioSource.Play();
+            audioSource.Play();
             GameObject ball = cannonBallPool.Dequeue();
             ball.transform.position = cannonBallSpawnPoint.transform.position;
             ball.transform.rotation = Quaternion.identity;
