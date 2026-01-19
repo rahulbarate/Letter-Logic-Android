@@ -95,6 +95,7 @@ public class ShopCardHandler : MonoBehaviour
             powerUpData.availableCount += 1;
             // CustomLogger.Log("Bought " + GetPowerUpName(powerUpData.subType));
             toastUI.ShowToast(GetPowerUpName(powerUpData.subType) + " +1");
+            AudioManager.instance.PlayPurchaseSFX();
             UpdateCardDetails();
         }
         else
@@ -111,6 +112,7 @@ public class ShopCardHandler : MonoBehaviour
             powerUpData.currentLevel += 1;
             // CustomLogger.Log("Upgraded " + GetPowerUpName(powerUpData.subType));
             toastUI.ShowToast("Upgraded " + GetPowerUpName(powerUpData.subType) + $" Lv.{powerUpData.currentLevel - 1} -> Lv. {powerUpData.currentLevel}");
+            AudioManager.instance.PlayPurchaseSFX();
             UpdateCardDetails();
             dialogeUI.HideDialoge();
         }

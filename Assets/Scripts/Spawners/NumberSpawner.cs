@@ -106,6 +106,7 @@ public class NumberSpawner : Spawner
                 gameWonAdPanel.SetActive(false);
 
             gameWonPanel.SetActive(true);
+            AudioManager.instance.PlayGameWonSFX();
             gameWonParticleEffect.Play();
         }
     }
@@ -168,10 +169,15 @@ public class NumberSpawner : Spawner
     public override void OnLetterCubeBombed(GameObject letterCubeHit)
     {
         cameraEffect.ShakeCamera();
-        letterCubeMovement.MoveToInitialPosition();
-        TakeDamage();
-        // update milestone
         milestoneManager.HandleDamageTaken();
+        letterCubeMovement.disableMovement = true;
+        Invoke(nameof(AfterBombedSequence), afterBombedSequenceDelay);
+    }
+    void AfterBombedSequence()
+    {
+        TakeDamage();
+        letterCubeMovement.MoveToInitialPosition();
+        letterCubeMovement.disableMovement = false;
     }
     public override void OnLetterCubeFell(GameObject letterCubeHit)
     {

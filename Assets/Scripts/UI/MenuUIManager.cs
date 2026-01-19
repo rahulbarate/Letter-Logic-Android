@@ -114,6 +114,7 @@ public class MenuUIManager : CommonUITasks
         if (timerCoroutine != null) StopCoroutine(timerCoroutine);
         wordSpawner.RespawnLetterCubes();
         Time.timeScale = 1f;
+        AudioManager.instance.TransitionToDefault();
         // Time.timeScale = 1f;
     }
     public void NextWord()

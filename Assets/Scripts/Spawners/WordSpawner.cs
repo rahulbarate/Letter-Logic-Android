@@ -398,12 +398,16 @@ public class WordSpawner : Spawner
         {
             // CustomLogger.Log("Bombed");
             cameraEffect.ShakeCamera();
-            letterCubeMovement.MoveToInitialPosition();
-            TakeDamage();
-
-            // update milestone
+            letterCubeMovement.disableMovement = true;
             milestoneManager.HandleDamageTaken();
+            Invoke(nameof(AfterBombedSequence), afterBombedSequenceDelay);
         }
+    }
+    void AfterBombedSequence()
+    {
+        TakeDamage();
+        letterCubeMovement.MoveToInitialPosition();
+        letterCubeMovement.disableMovement = false;
     }
     public override void OnLetterCubeFell(GameObject letterCubeHit)
     {

@@ -18,13 +18,13 @@ public class HUDCanvasManager : CommonUITasks
     [SerializeField] private Image powerUpPanelToggleButton;
     [SerializeField] private Sprite leftArrow;
     [SerializeField] private Sprite rightArrow;
-    [SerializeField] AudioManager audioManager;
 
 
     bool isPowerUpPanelActive = false;
 
     void Start()
     {
+        MuteButtonImageCheck();
     }
 
 
@@ -70,6 +70,7 @@ public class HUDCanvasManager : CommonUITasks
     }
     public void ToggleMute()
     {
-        audioManager.ToggleMute();
+        AudioManager.instance.ToggleMute();
+        MuteButtonImageCheck();
     }
 }

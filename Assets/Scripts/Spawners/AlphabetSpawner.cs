@@ -119,6 +119,7 @@ public class AlphabetSpawner : Spawner
                 gameWonAdPanel.SetActive(false);
 
             gameWonPanel.SetActive(true);
+            AudioManager.instance.PlayGameWonSFX();
             gameWonParticleEffect.Play();
         }
     }
@@ -183,7 +184,6 @@ public class AlphabetSpawner : Spawner
     public override void OnLetterCubeBombed(GameObject letterCubeHit)
     {
         cameraEffect.ShakeCamera();
-        TakeDamage();
         milestoneManager.HandleDamageTaken();
         letterCubeMovement.disableMovement = true;
         Invoke(nameof(AfterBombedSequence), afterBombedSequenceDelay);
@@ -191,9 +191,9 @@ public class AlphabetSpawner : Spawner
     }
     void AfterBombedSequence()
     {
+        TakeDamage();
         letterCubeMovement.MoveToInitialPosition();
         letterCubeMovement.disableMovement = false;
-        // update milestone
     }
     public override void OnLetterCubeFell(GameObject letterCubeHit)
     {

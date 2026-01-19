@@ -62,6 +62,7 @@ public class PowerUpManager : MonoBehaviour
 
         // CustomLogger.Log(powerUpData.subType + " is activated");
         ToggleHUDImages();
+        AudioManager.instance.PlayPowerUpSFX();
         TogglePowerUp(powerUpData);
         if (powerUpData.type != PowerUpData.Type.Guide)
         {

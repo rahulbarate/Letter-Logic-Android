@@ -16,7 +16,6 @@ public class ToastUI : MonoBehaviour
     // [SerializeField] Vector3 offScreenPosition;
     [SerializeField] float visibleY = 280f;
     [SerializeField] float initialY = 500f;
-    [SerializeField] GameSettings gameSettings;
     private Vector3 toastInitialPosition;
 
     // Queue system for handling multiple toasts
@@ -39,8 +38,6 @@ public class ToastUI : MonoBehaviour
     [SerializeField] float milestoneStayDuration = 0.5f;
     [SerializeField] float visibleX = 0f;
     [SerializeField] float initialX = 800f;
-
-    [SerializeField] AudioSource audioSource;
 
     // Queue system for handling multiple milestone popups
     private Queue<(int milestoneID, int rewardedCoin)> milestoneQueue = new Queue<(int, int)>();
@@ -188,8 +185,7 @@ public class ToastUI : MonoBehaviour
                         // Step 3: Increase fill amount from 0 to 1
                         milestoneImage.DOFillAmount(1f, imageFillIncreaseDuration).OnComplete(() =>
                         {
-                            if (!gameSettings.MuteAllAudio)
-                                audioSource.Play();
+                            AudioManager.instance.PlayMilestoneSFX();
                             confettiParticleSystem.Play();
                             DOVirtual.DelayedCall(milestoneStayDuration, () =>
                             {

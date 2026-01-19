@@ -55,6 +55,7 @@ public class Spawner : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            AudioManager.instance.PlayGameOverSFX();
             gameDataSave.NoOfTimesGameOver += 1;
             Time.timeScale = 0f;
             if (gameDataSave.NoOfTimesGameOver == 1 || gameDataSave.NoOfTimesGameOver == 3)
@@ -68,7 +69,7 @@ public class Spawner : MonoBehaviour
             }
             gameOverPanel.SetActive(true);
 
-            if (gameDataSave.NoOfTimesGameOver >= 5)
+            if (gameDataSave.NoOfTimesGameOver >= 5 && AdService.Instance != null)
             {
                 // show Interestitial add
                 AdService.Instance.ShowInterstitialAd();

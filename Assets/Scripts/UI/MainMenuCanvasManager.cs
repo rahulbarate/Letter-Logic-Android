@@ -10,9 +10,9 @@ public class MainMenuCanvasManager : CommonUITasks
     [SerializeField] private GameObject milestonePanel;
     [SerializeField] TextMeshProUGUI coinsTMPro;
     [SerializeField] GameDataSave gameDataSave;
-    [SerializeField] AudioManager audioManager;
     void Start()
     {
+        MuteButtonImageCheck();
     }
 
     void OnEnable()
@@ -48,7 +48,8 @@ public class MainMenuCanvasManager : CommonUITasks
 
     public void ToggleMute()
     {
-        audioManager.ToggleMute();
+        AudioManager.instance.ToggleMute();
+        MuteButtonImageCheck();
     }
 
 }
