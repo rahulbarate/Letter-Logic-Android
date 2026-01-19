@@ -118,15 +118,21 @@ public class AudioManager : MonoBehaviour
 
     public void PlayGameWonSFX()
     {
-        GoToSnapshot(gameWonSnapshot);
-        gameWonAudioSource.Play();
-        fireworkAudioSource.Play();
+        if (!gameSettings.MuteAllAudio)
+        {
+            GoToSnapshot(gameWonSnapshot);
+            gameWonAudioSource.Play();
+            fireworkAudioSource.Play();
+        }
     }
     public void PlayGameOverSFX()
     {
-        CustomLogger.Log("PlayGameOverSFX");
-        GoToSnapshot(gameOverSnapshot, 0f);
-        gameOverAudioSource.Play();
+        if (!gameSettings.MuteAllAudio)
+        {
+            GoToSnapshot(gameOverSnapshot, 0f);
+            gameOverAudioSource.Play();
+        }
+        // CustomLogger.Log("PlayGameOverSFX");
     }
     public void PlayPowerUpSFX()
     {
@@ -146,6 +152,7 @@ public class AudioManager : MonoBehaviour
     public void TransitionToDefault()
     {
         GoToSnapshot(defaultSnapshot);
+        MuteCheck();
         // if (!gameSettings.MuteAllAudio)
         //     backgroundMusicAudioSource.Play();
     }
