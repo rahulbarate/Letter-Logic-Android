@@ -186,6 +186,9 @@ public class AlphabetSpawner : Spawner
         cameraEffect.ShakeCamera();
         milestoneManager.HandleDamageTaken();
         letterCubeMovement.disableMovement = true;
+        lCDebris.transform.position = activeLetterCube.transform.position + Vector3.up * 1f;
+        lCDebris.SetActive(true);
+        activeLetterCube.SetActive(false);
         Invoke(nameof(AfterBombedSequence), afterBombedSequenceDelay);
 
     }
@@ -194,6 +197,11 @@ public class AlphabetSpawner : Spawner
         TakeDamage();
         letterCubeMovement.MoveToInitialPosition();
         letterCubeMovement.disableMovement = false;
+        activeLetterCube.SetActive(true);
+        lCDebris.SetActive(false);
+
+        foreach (Transform child in lCDebris.transform)
+            child.localPosition = Vector3.zero;
     }
     public override void OnLetterCubeFell(GameObject letterCubeHit)
     {

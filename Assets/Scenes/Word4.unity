@@ -4496,6 +4496,7 @@ MonoBehaviour:
   gameDataSave: {fileID: 11400000, guid: 6a365ee447c9b1d46884803d519a6ea0, type: 2}
   correctSlotSensorIndex: 
   afterBombedSequenceDelay: 2
+  lCDebris: {fileID: 1946292662}
   textLength: 4
   numberOfWords: 5
   alphabetLetterCubes: {fileID: 1907636016}
@@ -9349,6 +9350,80 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1318452086}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1946292661
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 25413179254323497, guid: c43819e116e70db4e8ef87979c3c5e63,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.83517
+      objectReference: {fileID: 0}
+    - target: {fileID: 25413179254323497, guid: c43819e116e70db4e8ef87979c3c5e63,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.15705
+      objectReference: {fileID: 0}
+    - target: {fileID: 25413179254323497, guid: c43819e116e70db4e8ef87979c3c5e63,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.04304
+      objectReference: {fileID: 0}
+    - target: {fileID: 25413179254323497, guid: c43819e116e70db4e8ef87979c3c5e63,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 25413179254323497, guid: c43819e116e70db4e8ef87979c3c5e63,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 25413179254323497, guid: c43819e116e70db4e8ef87979c3c5e63,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 25413179254323497, guid: c43819e116e70db4e8ef87979c3c5e63,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 25413179254323497, guid: c43819e116e70db4e8ef87979c3c5e63,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 25413179254323497, guid: c43819e116e70db4e8ef87979c3c5e63,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 25413179254323497, guid: c43819e116e70db4e8ef87979c3c5e63,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509359906813227710, guid: c43819e116e70db4e8ef87979c3c5e63,
+        type: 3}
+      propertyPath: m_Name
+      value: LCDebris
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c43819e116e70db4e8ef87979c3c5e63, type: 3}
+--- !u!1 &1946292662 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7509359906813227710, guid: c43819e116e70db4e8ef87979c3c5e63,
+    type: 3}
+  m_PrefabInstance: {fileID: 1946292661}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1959026580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11762,3 +11837,4 @@ SceneRoots:
   - {fileID: 1907636015}
   - {fileID: 339610785}
   - {fileID: 1265526327}
+  - {fileID: 1946292661}

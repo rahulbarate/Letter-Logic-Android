@@ -23,6 +23,8 @@ public class Spawner : MonoBehaviour
     public List<int> correctSlotSensorIndex = new();
 
     public float afterBombedSequenceDelay = 2f;
+
+    public GameObject lCDebris;
     protected GameObject single3DLetterModel;
     protected GameObject activeLetterCube;
     protected string letterChoosen;

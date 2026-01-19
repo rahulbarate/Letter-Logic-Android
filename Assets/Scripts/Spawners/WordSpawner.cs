@@ -400,6 +400,9 @@ public class WordSpawner : Spawner
             cameraEffect.ShakeCamera();
             letterCubeMovement.disableMovement = true;
             milestoneManager.HandleDamageTaken();
+            lCDebris.transform.position = activeLetterCube.transform.position + UnityEngine.Vector3.up * 1f;
+            lCDebris.SetActive(true);
+            activeLetterCube.SetActive(false);
             Invoke(nameof(AfterBombedSequence), afterBombedSequenceDelay);
         }
     }
@@ -408,6 +411,11 @@ public class WordSpawner : Spawner
         TakeDamage();
         letterCubeMovement.MoveToInitialPosition();
         letterCubeMovement.disableMovement = false;
+        activeLetterCube.SetActive(true);
+        lCDebris.SetActive(false);
+
+        foreach (Transform child in lCDebris.transform)
+            child.localPosition = UnityEngine.Vector3.zero;
     }
     public override void OnLetterCubeFell(GameObject letterCubeHit)
     {
