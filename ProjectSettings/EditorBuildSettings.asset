@@ -23,4 +23,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Word5.unity
     guid: 8810645338a497a4889e59d4b57da9e9
+  - enabled: 1
+    path: Assets/Scenes/TutorialPlayground.unity
+    guid: 554591fafb4146e40a6e916bcc1695e8
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

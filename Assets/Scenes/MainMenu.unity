@@ -6115,6 +6115,41 @@ PrefabInstance:
       propertyPath: m_Padding.m_Bottom
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 6357256341754772754, guid: cb6065db67c3e124bb19aaf7c5771683,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6357256341754772754, guid: cb6065db67c3e124bb19aaf7c5771683,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6357256341754772754, guid: cb6065db67c3e124bb19aaf7c5771683,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 199213355}
+    - target: {fileID: 6357256341754772754, guid: cb6065db67c3e124bb19aaf7c5771683,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6357256341754772754, guid: cb6065db67c3e124bb19aaf7c5771683,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HelpButtonClickHandler
+      objectReference: {fileID: 0}
+    - target: {fileID: 6357256341754772754, guid: cb6065db67c3e124bb19aaf7c5771683,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuCanvasManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6357256341754772754, guid: cb6065db67c3e124bb19aaf7c5771683,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9163621613022121660, guid: cb6065db67c3e124bb19aaf7c5771683,
         type: 3}
       propertyPath: m_Sprite

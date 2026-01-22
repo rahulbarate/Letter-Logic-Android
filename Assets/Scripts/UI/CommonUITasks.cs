@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class CommonUITasks : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
-    [SerializeField] DialogeUI dialogeUI;
+    [SerializeField] public DialogeUI dialogeUI;
     [SerializeField] GameSettings gameSettings;
     [SerializeField] private Sprite audioOn;
     [SerializeField] private Sprite audioOff;

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class HUDCanvasManager : CommonUITasks
 {
@@ -18,16 +19,20 @@ public class HUDCanvasManager : CommonUITasks
     [SerializeField] private Image powerUpPanelToggleButton;
     [SerializeField] private Sprite leftArrow;
     [SerializeField] private Sprite rightArrow;
+    [SerializeField] TutorialSequencer tutorialSequencer;
+    [SerializeField] GameDataSave gameDataSave;
 
 
     bool isPowerUpPanelActive = false;
+
+    bool isPowerupPanelSequenceOn = false;
+
+    bool isTutorialCloseDialogActive = false;
 
     void Start()
     {
         MuteButtonImageCheck();
     }
-
-
 
     public void UseHint()
     {
@@ -59,6 +64,11 @@ public class HUDCanvasManager : CommonUITasks
             powerUpPanelRectTransform.DOAnchorPosX(visibleX, panelAppearDuration);
             isPowerUpPanelActive = true;
             powerUpPanelToggleButton.sprite = rightArrow;
+            if (isPowerupPanelSequenceOn == false && gameDataSave.IsTutorialOn)
+            {
+                tutorialSequencer.PowerupPanelOnSequence();
+                isPowerupPanelSequenceOn = true;
+            }
         }
         else
         {
@@ -67,6 +77,14 @@ public class HUDCanvasManager : CommonUITasks
             powerUpPanelToggleButton.sprite = leftArrow;
         }
 
+    }
+    public void ToggleTutorialCloseButton()
+    {
+        // if (!isTutorialCloseDialogActive)
+        // {
+        //     // isTutorialCloseDialogActive = true;
+        dialogeUI.ShowDialoge("Exit tutorial?", "Yes", "No", () => { gameDataSave.IsTutorialOn = false; SceneManager.LoadScene(0); }, "Are you sure you want to exit tutorial?", () => dialogeUI.HideDialoge());
+        // }
     }
     public void ToggleMute()
     {

@@ -3962,6 +3962,7 @@ MonoBehaviour:
   inputAsset: {fileID: -944628639613478452, guid: c4dcc79d93ad6564a94cf0f8067d7fc8,
     type: 3}
   horizontalLookSensitivity: 50
+  gameDataSave: {fileID: 11400000, guid: 6a365ee447c9b1d46884803d519a6ea0, type: 2}
   freeLookCamera: {fileID: 890254439}
   disableMovement: 0
 --- !u!114 &789526170
@@ -4024,6 +4025,8 @@ MonoBehaviour:
     type: 3}
   speedRunTexture: {fileID: 21300000, guid: 50050d9e1c66a004587e2f14b50eef65, type: 3}
   hintTexture: {fileID: 21300000, guid: 1dc659ca4cb0dfe4db0facad79fc5ef2, type: 3}
+  tutorialSequencer: {fileID: 0}
+  gameDataSave: {fileID: 11400000, guid: 6a365ee447c9b1d46884803d519a6ea0, type: 2}
 --- !u!1001 &797452972
 PrefabInstance:
   m_ObjectHideFlags: 0

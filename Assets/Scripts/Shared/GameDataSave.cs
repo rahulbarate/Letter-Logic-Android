@@ -27,6 +27,13 @@ public class GameDataSave : ScriptableObject
         set { noOfTimesGameOver = value; }
     }
 
+    [SerializeField] bool isTutorialOn = false;
+    public bool IsTutorialOn
+    {
+        get { return isTutorialOn; }
+        set { isTutorialOn = value; }
+    }
+
 
 
     Word lastUsedWord3 = new Word();

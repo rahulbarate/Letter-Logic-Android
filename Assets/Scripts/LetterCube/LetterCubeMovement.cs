@@ -12,6 +12,7 @@ public class LetterCubeMovement : MonoBehaviour
     [SerializeField] private InputActionAsset inputAsset;
     [SerializeField] private float horizontalLookSensitivity = 20f;
     float movementSpeedAtRunTime;
+    [SerializeField] GameDataSave gameDataSave;
 
     [SerializeField] Cinemachine.CinemachineFreeLook freeLookCamera;
 
@@ -35,14 +36,34 @@ public class LetterCubeMovement : MonoBehaviour
     // public LetterCubeData letterCubeData;
     Rigidbody rgbody;
 
+    TutorialSequencer tutorialSequencer = null;
+    bool isPlacementUIEnabled = false;
+
+    void OnValidate()
+    {
+        if (gameDataSave == null)
+            CustomLogger.LogError("Assign GameDataSave");
+    }
+
     void Awake()
     {
+        tutorialSequencer = GetComponent<TutorialSequencer>();
 
         var map = inputAsset.FindActionMap("LetterCube");
         moveAction = map.FindAction("Move");
         lookAction = map.FindAction("Look");
 
-        moveAction.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        // moveAction.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        moveAction.performed += ctx =>
+        {
+            if (gameDataSave.IsTutorialOn && isPlacementUIEnabled == false)
+            {
+                // tutorialSequencer.Invoke("StartPlacementSequence", 3f);
+                tutorialSequencer.StartPlacementSequence();
+                isPlacementUIEnabled = true;
+            }
+            moveInput = ctx.ReadValue<Vector2>();
+        };
         moveAction.canceled += _ => moveInput = Vector2.zero;
 
         lookAction.performed += ctx => lookInput = ctx.ReadValue<Vector2>();

@@ -8,19 +8,17 @@ public class PowerUpCollector : MonoBehaviour
     public Image powerUpImage;
     public TextMeshProUGUI countTMPro;
     public PowerUpManager powerUpManager;
+    public GameDataSave gameDataSave;
 
 
     void Start()
     {
-        if (powerUpData.availableCount > 0)
+        if (gameDataSave.IsTutorialOn == false)
         {
-            transform.GetComponent<Button>().interactable = true;
-            // transform.gameObject.SetActive(true);
-        }
-        else
-        {
-            transform.GetComponent<Button>().interactable = false;
-            // transform.gameObject.SetActive(false);
+            if (powerUpData.availableCount > 0)
+                transform.GetComponent<Button>().interactable = true;
+            else
+                transform.GetComponent<Button>().interactable = false;
         }
         UpdatePowerUpDetails();
     }
@@ -35,7 +33,7 @@ public class PowerUpCollector : MonoBehaviour
 
     public void PowerUpButtonClicked()
     {
-        powerUpManager.OnPowerUpPickedUp(powerUpData);
+        powerUpManager.ActivatePowerUp(powerUpData);
         UpdatePowerUpDetails();
     }
 

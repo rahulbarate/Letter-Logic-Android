@@ -70,7 +70,7 @@ public class NumberSpawner : Spawner
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed += OnLetterCubeBombed;
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeFell += OnLetterCubeFell;
-            activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PickedPowerUp += powerUpManager.OnPowerUpPickedUp;
+            activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PickedPowerUp += powerUpManager.ActivatePowerUp;
 
             activeLetterCube.GetComponent<LetterCubeData>().LetterOnTop = letterChoosen;
 
@@ -126,7 +126,7 @@ public class NumberSpawner : Spawner
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot -= OnPlacedInSlot;
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed -= OnLetterCubeBombed;
             activeLetterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeFell -= OnLetterCubeFell;
-            activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PickedPowerUp -= powerUpManager.OnPowerUpPickedUp;
+            activeLetterCube.GetComponent<LetterCubeEventHandler>().E_PickedPowerUp -= powerUpManager.ActivatePowerUp;
 
             // setting isPlaced to true, so bombs won't affect it.
             activeLetterCube.GetComponent<LetterCubeData>().isPlaced = true;

@@ -186,14 +186,14 @@ public class WordSpawner : Spawner
         letterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot += OnPlacedInSlot;
         letterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed += OnLetterCubeBombed;
         letterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeFell += OnLetterCubeFell;
-        letterCube.GetComponent<LetterCubeEventHandler>().E_PickedPowerUp += powerUpManager.OnPowerUpPickedUp;
+        letterCube.GetComponent<LetterCubeEventHandler>().E_PickedPowerUp += powerUpManager.ActivatePowerUp;
     }
     private void UnregisterEvents(GameObject letterCube)
     {
         letterCube.GetComponent<LetterCubeEventHandler>().E_PlacedInSlot -= OnPlacedInSlot;
         letterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeBombed -= OnLetterCubeBombed;
         letterCube.GetComponent<LetterCubeEventHandler>().E_LetterCubeFell -= OnLetterCubeFell;
-        letterCube.GetComponent<LetterCubeEventHandler>().E_PickedPowerUp -= powerUpManager.OnPowerUpPickedUp;
+        letterCube.GetComponent<LetterCubeEventHandler>().E_PickedPowerUp -= powerUpManager.ActivatePowerUp;
     }
 
     public void RespawnLetterCubes()

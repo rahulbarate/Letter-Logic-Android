@@ -23,6 +23,9 @@ public class PowerUpManager : MonoBehaviour
     [SerializeField] Sprite speedRunTexture;
     [SerializeField] Sprite hintTexture;
 
+    [SerializeField] TutorialSequencer tutorialSequencer;
+    [SerializeField] GameDataSave gameDataSave;
+
 
 
 
@@ -40,7 +43,20 @@ public class PowerUpManager : MonoBehaviour
     bool isMovementPowerUpActive = false;
     bool isGuidePowerUpActive = false;
 
-    public void OnPowerUpPickedUp(PowerUpData powerUpData)
+    bool isHintPowerupSequenceOn = false;
+
+    void OnValidate()
+    {
+        if (gameDataSave == null)
+            CustomLogger.LogError("Assign gameDataSave");
+    }
+
+    void Start()
+    {
+        tutorialSequencer = GetComponent<TutorialSequencer>();
+    }
+
+    public void ActivatePowerUp(PowerUpData powerUpData)
     {
         if (powerUpData.type == PowerUpData.Type.Protective && (!isProtectivePowerUpActive))
         {
@@ -55,6 +71,11 @@ public class PowerUpManager : MonoBehaviour
         else if (powerUpData.type == PowerUpData.Type.Guide && (!isGuidePowerUpActive))
         {
             isGuidePowerUpActive = true;
+            if (isHintPowerupSequenceOn == false && gameDataSave.IsTutorialOn)
+            {
+                tutorialSequencer.HintPowerupOnSequence();
+                isHintPowerupSequenceOn = true;
+            }
             // guidePowerUpImage.gameObject.SetActive(true);
         }
         else

@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
-public class AlphabetSpawner : Spawner
+[RequireComponent(typeof(TutorialSequencer))]
+public class TutorialSpawner : Spawner
 {
+    [SerializeField] char[] lettersToSpawn;
     List<char> availableLetters;
     [SerializeField] GameObject alphabetLetterCubes;
     [SerializeField] GameObject gameWonPanel;
@@ -20,11 +21,15 @@ public class AlphabetSpawner : Spawner
     private int threshold = 5;
 
     PowerUpManager powerUpManager;
+    TutorialSequencer tutorialSequencer;
 
     // Start is called before the first frame update
     void Start()
     {
-        GenerateAllLetters();
+        tutorialSequencer = GetComponent<TutorialSequencer>();
+        // GenerateAllLetters();
+        availableLetters = new List<char>(lettersToSpawn);
+        // CustomLogger.Log(availableLetters.Count);
         letterCubeMovement = GetComponent<LetterCubeMovement>();
         powerUpManager = GetComponent<PowerUpManager>();
         currentHealth = maxHealth;
@@ -65,14 +70,20 @@ public class AlphabetSpawner : Spawner
             isLevelWon = false;
 
             // generating random index and calculating letter cube to fetch from 26 letter cubes
-            int randomLetterIndex = UnityEngine.Random.Range(0, availableLetters.Count);
-            int letterCubeToFetch = 26 - (90 - Convert.ToInt32(availableLetters[randomLetterIndex])) - 1;
+            // int randomLetterIndex = UnityEngine.Random.Range(0, availableLetters.Count);
+
+            // int letterIndex = availableLetters[0];
+            int letterCubeToFetch = 26 - (90 - Convert.ToInt32(availableLetters[0])) - 1;
 
             correctSlotSensorIndex.Clear();
             correctSlotSensorIndex.Add(letterCubeToFetch);
 
             //getting letter string
-            letterChoosen = availableLetters[randomLetterIndex].ToString();
+            letterChoosen = availableLetters[0].ToString();
+            if (letterChoosen == "D")
+            {
+                tutorialSequencer.StartPowerupSequence();
+            }
 
             activeLetterCube = alphabetLetterCubes.transform.GetChild(letterCubeToFetch).gameObject;
 
@@ -92,7 +103,7 @@ public class AlphabetSpawner : Spawner
             activeLetterCube.GetComponent<Rigidbody>().isKinematic = false;
             activeLetterCube.GetComponent<Rigidbody>().useGravity = true;
 
-            availableLetters.RemoveAt(randomLetterIndex);
+            availableLetters.RemoveAt(0);
 
             // setting camera to follow newly created Letter Cube.
             cineFreeCam.Follow = activeLetterCube.transform;
@@ -162,7 +173,10 @@ public class AlphabetSpawner : Spawner
             //     consecutiveCorrect = 0;
             // }
 
-            SpawnLetterCubes();
+            if (letterOnSlotSensor == "D")
+                tutorialSequencer.EndTutorial();
+            else
+                SpawnLetterCubes();
 
             // InstantiateLetterCube();
         }
@@ -170,10 +184,10 @@ public class AlphabetSpawner : Spawner
         {
             // Process incorrect Letter Cube placement
             // Debug.Log("Incorrect Letter Cube");
-            TakeDamage();
+            // TakeDamage();
 
             // update milestone
-            milestoneManager.HandleDamageTaken();
+            // milestoneManager.HandleDamageTaken();
 
             // activeLetterCubeEventHandler.ProcessIncorrectLetterCube();
             letterCubeMovement.MoveToInitialPosition();

@@ -52,4 +52,14 @@ public class MainMenuCanvasManager : CommonUITasks
         MuteButtonImageCheck();
     }
 
+    public void HelpButtonClickHandler()
+    {
+        dialogeUI.ShowDialoge("Start Tutorial", "Yes(Recommended)", "No", LoadTutorialScene, "Are you sure you want to start a tutorial");
+    }
+
+    public void LoadTutorialScene()
+    {
+        SceneManager.LoadScene(6);
+    }
+
 }

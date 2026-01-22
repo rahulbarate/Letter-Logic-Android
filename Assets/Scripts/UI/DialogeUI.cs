@@ -30,16 +30,21 @@ public class DialogeUI : MonoBehaviour
 
     }
 
-    public void ShowDialoge(string heading, string trueButtonText, string falseButtonText, UnityEngine.Events.UnityAction trueButtonAction, string body = null)
+    public void ShowDialoge(string heading, string trueButtonText, string falseButtonText, UnityEngine.Events.UnityAction trueButtonAction, string body = null, UnityEngine.Events.UnityAction falseButtonAction = null)
     {
         // CustomLogger.Log("In Here");
         trueButton.onClick.RemoveAllListeners();
+        falseButton.onClick.RemoveAllListeners();
         dialogePanel.SetActive(false);
         this.heading.text = heading;
         this.body.text = body ?? "";
         this.trueButtonText.text = trueButtonText;
         this.falseButtonText.text = falseButtonText;
         trueButton.onClick.AddListener(trueButtonAction);
+        if (falseButtonAction == null)
+            falseButton.onClick.AddListener(HideDialoge);
+        else
+            falseButton.onClick.AddListener(falseButtonAction);
         dialogePanel.SetActive(true);
     }
     public void HideDialoge()
